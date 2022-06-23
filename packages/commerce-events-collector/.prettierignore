@@ -1,0 +1,15 @@
+# dependencies
+.npm
+node_modules
+
+# build
+.cache
+dist
+storybook
+
+# test
+coverage
+
+# misc
+.env
+CHANGELOG.md

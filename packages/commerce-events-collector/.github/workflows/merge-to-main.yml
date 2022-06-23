@@ -1,0 +1,32 @@
+name: merge-to-main
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    merge-to-main:
+        name: merge-to-main
+        runs-on: ubuntu-18.04
+        steps:
+            - name: checkout
+              uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+                  ref: ${{ github.ref }}
+            - name: node
+              uses: actions/setup-node@v2
+              with:
+                  node-version: 14
+                  registry-url: https://registry.npmjs.org/
+            - name: install
+              run: npm ci
+            - name: build
+              run: npm run build:qa
+            - name: release
+              run: npm run release -- --skip.commit --skip.tag --release-as 0.0.0-${{ github.sha }}
+            - name: publish
+              run: npm publish --access public --tag qa
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}

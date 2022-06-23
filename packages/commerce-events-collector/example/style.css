@@ -1,0 +1,10 @@
+.events {
+    display: grid;
+    gap: 1.25rem;
+    justify-content: start;
+}
+
+button {
+    padding: 1rem 0.5rem;
+    border-radius: 2px;
+}

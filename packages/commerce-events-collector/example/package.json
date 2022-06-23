@@ -1,0 +1,16 @@
+{
+    "name": "example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "parcel index.html --open",
+        "build": "parcel build index.html"
+    },
+    "keywords": [],
+    "author": "Brad Garropy",
+    "license": "ISC",
+    "devDependencies": {
+        "parcel-bundler": "^1.12.3"
+    }
+}
