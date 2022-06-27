@@ -41,6 +41,7 @@ const configureSnowplow = ({
         postPath: collectorPath,
         contexts: {
             webPage: true,
+            session: false,
         },
         plugins: [PerformanceTimingPlugin(), LinkClickTrackingPlugin()],
     };
