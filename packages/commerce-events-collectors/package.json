@@ -1,13 +1,27 @@
 {
-    "name": "@adobe/magento-storefront-event-collector",
-    "version": "1.1.14",
-    "description": "Event collector for Adobe Commerce storefronts",
+    "name": "@adobe/commerce-events-collectors",
+    "version": "1.2.0",
+    "description": "Event Collectors for Adobe Commerce storefronts",
+    "license": "MIT",
     "main": "./dist/index.js",
     "module": "./dist/index.js",
     "types": "./dist/types/index.d.ts",
     "files": [
         "dist/"
     ],
+    "homepage": "https://github.com/adobe/commerce-events/packages/commerce-events-collectors#readme",
+    "author": {
+        "name": "Adobe",
+        "url": "https://www.adobe.com/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/adobe/commerce-events"
+    },
+    "bugs": {
+        "url": "https://github.com/adobe/commerce-events/issues"
+    },
+    "keywords": [],
     "scripts": {
         "start": "webpack serve --config webpack.dev.js",
         "build": "webpack --config webpack.prod.js",
@@ -23,29 +37,15 @@
         "test:watch": "jest --passWithNoTests --watch",
         "release": "cross-env HUSKY_SKIP_HOOKS=1 standard-version"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/adobe/magento-storefront-event-collector"
-    },
-    "keywords": [],
-    "author": {
-        "name": "Adobe",
-        "url": "https://www.adobe.com/"
-    },
-    "license": "SEE LICENSE IN LICENSE",
-    "bugs": {
-        "url": "https://github.com/adobe/magento-storefront-event-collector/issues"
-    },
-    "homepage": "https://github.com/adobe/magento-storefront-event-collector#readme",
     "dependencies": {
         "@adobe/adobe-client-data-layer": "^2.0.2",
+        "@adobe/commerce-events-sdk": "*",
         "@adobe/alloy": "^2.9.0",
         "@snowplow/browser-plugin-link-click-tracking": "^3.0.2",
         "@snowplow/browser-plugin-performance-timing": "^3.0.1",
         "@snowplow/browser-tracker": "^3.0.1"
     },
     "devDependencies": {
-        "@adobe/magento-storefront-events-sdk": "^1.1.14",
         "@types/jest": "^26.0.23",
         "@typescript-eslint/eslint-plugin": "^4.2.0",
         "@typescript-eslint/parser": "^4.2.0",
