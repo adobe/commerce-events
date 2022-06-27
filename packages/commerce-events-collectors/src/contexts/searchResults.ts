@@ -1,4 +1,4 @@
-import { SearchResults } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+import { SearchResults } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
 
 import schemas from "../schemas";
 import { SearchResultsContext } from "../types/contexts";

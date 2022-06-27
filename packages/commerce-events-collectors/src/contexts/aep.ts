@@ -1,4 +1,4 @@
-import { AEP } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+import { AEP } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
 
 import { AEPContext } from "../types/contexts";
 

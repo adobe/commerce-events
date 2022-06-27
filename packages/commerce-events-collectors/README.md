@@ -274,7 +274,7 @@ If you have any questions or encounter any issues, please reach out at these loc
 [typescript-badge]: https://img.shields.io/npm/types/@adobe/magento-storefront-event-collector?style=flat-square
 [contributing]: https://github.com/adobe/magento-storefront-event-collector/blob/main/.github/CONTRIBUTING.md
 [contributing-badge]: https://img.shields.io/badge/PRs-welcome-success?style=flat-square
-[sdk]: https://npmjs.com/package/@adobe/magento-storefront-events-sdk
+[sdk]: https://npmjs.com/package/@adobe/commerce-events-sdk
 [acdl]: https://github.com/adobe/adobe-client-data-layer
 [unpkg]: https://unpkg.com/@adobe/magento-storefront-event-collector/dist/index.js
 [npm]: https://npmjs.com/package/@adobe/magento-storefront-event-collector

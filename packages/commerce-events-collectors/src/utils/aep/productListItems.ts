@@ -1,7 +1,7 @@
 import {
     ShoppingCart,
     StorefrontInstance,
-} from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+} from "@adobe/commerce-events-sdk/dist/types/types/schemas";
 
 import { ProductListItem, SelectedOption } from "../../types/aep";
 import { getDiscountAmount } from "../discount";

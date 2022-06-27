@@ -1,7 +1,7 @@
 import {
     Event,
     EventHandler,
-} from "@adobe/magento-storefront-events-sdk/dist/types/types/events";
+} from "@adobe/commerce-events-sdk/dist/types/types/events";
 
 import { createEventForwardingCtx } from "./contexts";
 import {

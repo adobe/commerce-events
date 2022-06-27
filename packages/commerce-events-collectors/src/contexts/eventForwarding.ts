@@ -1,4 +1,4 @@
-import { EventForwarding } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+import { EventForwarding } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
 
 import { EventForwardingContext } from "../types/contexts";
 
