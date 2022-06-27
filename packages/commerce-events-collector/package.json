@@ -1,7 +1,8 @@
 {
-    "name": "@adobe/magento-storefront-event-collector",
-    "version": "1.1.14",
-    "description": "Event collector for Adobe Commerce storefronts",
+    "name": "@adobe/commerce-events-collectors",
+    "version": "1.2.0",
+    "description": "Event collectors for Adobe Commerce storefronts",
+    "license": "MIT",
     "main": "./dist/index.js",
     "module": "./dist/index.js",
     "types": "./dist/types/index.d.ts",
@@ -25,18 +26,18 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/adobe/magento-storefront-event-collector"
+        "url": "git+https://github.com/adobe/commerce-events"
     },
     "keywords": [],
     "author": {
         "name": "Adobe",
         "url": "https://www.adobe.com/"
     },
-    "license": "SEE LICENSE IN LICENSE",
+
     "bugs": {
-        "url": "https://github.com/adobe/magento-storefront-event-collector/issues"
+        "url": "https://github.com/adobe/commerce-events/issues"
     },
-    "homepage": "https://github.com/adobe/magento-storefront-event-collector#readme",
+    "homepage": "https://github.com/adobe/commerce-events/commerce-events-collectors#readme",
     "dependencies": {
         "@adobe/adobe-client-data-layer": "^2.0.2",
         "@adobe/alloy": "^2.9.0",
