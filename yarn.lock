@@ -21,6 +21,11 @@
     css.escape "^1.5.1"
     uuid "^3.3.2"
 
+"@adobe/magento-storefront-events-sdk@*":
+  version "1.1.14"
+  resolved "https://registry.yarnpkg.com/@adobe/magento-storefront-events-sdk/-/magento-storefront-events-sdk-1.1.14.tgz#9e26f148ab592d15f7eefb71f243021be2326f5f"
+  integrity sha512-nHfxD/3EPqAqXy5rtnXDacqjpwINnXGsRc8r7LV8vN36gUiJWhTDwQbS0WHWPW/jq0ieOpMWIGSdkiFpTfqrfw==
+
 "@adobe/reactor-cookie@^1.0.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@adobe/reactor-cookie/-/reactor-cookie-1.1.0.tgz#9c13201fc4dd41b7600aa911e587539b7b9e4216"
