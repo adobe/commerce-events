@@ -1,4 +1,4 @@
-# Magento Storefront Events SDK
+# Adobe Commerce Events SDK
 
 [![version][version-badge]][npm]
 [![downloads][downloads-badge]][npm]
@@ -9,11 +9,11 @@
 
 ## Overview
 
-This package serves as the foundation for eventing on an [Adobe Commerce][magento] storefront. It provides access to a common data layer, and an event publishing and subscription service.
+This package serves as the foundation for eventing on an [Adobe Commerce][commerce] storefront. It provides access to a common data layer, and an event publishing and subscription service.
 
-You can handle the events in a custom implementation, or use the [Magento Storefront Event Collector][collector] package that listens for events and sends them to Adobe Commerce edges for processing.
+You can handle the events in a custom implementation, or use the [Adobe Commerce Events Collectors][collectors] package that listens for events and sends them to Adobe Commerce edges for processing.
 
-**Note:** When an event is published through the SDK, all subscribers to that event get notified. Defining a custom listener shouldn't preclude you from also running the Magento Storefront Event Collector.
+**Note:** When an event is published through the SDK, all subscribers to that event get notified. Defining a custom listener shouldn't preclude you from also running the Adobe Commerce Events Collectors.
 
 Our context schemas are designed to simplify forwarding to two edges:
 
@@ -27,13 +27,13 @@ This SDK can be used as a hosted script, or bundled in a JavaScript application.
 To load the SDK as a script, use the following snippet.
 
 ```
-<script src="https://unpkg.com/@adobe/magento-storefront-events-sdk/dist/index.js"></script>
+<script src="https://unpkg.com/@adobe/commerce-events-sdk/dist/index.js"></script>
 ```
 
 To install the script as a dependency, run this command.
 
 ```shell
-npm install @adobe/magento-storefront-events-sdk
+npm install @adobe/commerce-events-sdk
 ```
 
 ## Quick start
@@ -50,7 +50,7 @@ Below is a code example of how to get started.
 > _IMPORTANT: Relevant context data must be populated before publishing events that require it._
 
 ```javascript
-import mse from "@adobe/magento-storefront-events-sdk";
+import mse from "@adobe/commerce-events-sdk";
 // handler - can go in a different module
 function addToCartHandler(event) {
     // do something with the event
@@ -107,8 +107,8 @@ mse.context.setAEP(aepCtx);
 
 Sets the `AEP` context which can be used by event handlers to forward events to the Adobe Experience Platform. A client must have an AEP subscription and provide a valid [IMS Org Id and Datastream Id](https://experienceleague.adobe.com/docs/experience-platform/edge/fundamentals/datastreams.html?lang=en).
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/aep.ts)
--   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L25)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/aep.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L25)
 
 #### `setCategory`
 
@@ -118,8 +118,8 @@ mse.context.setCategory(categoryCtx);
 
 Sets the `Category` context.
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/category.ts)
--   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L31)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/category.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L31)
 
 #### `setAccount`
 
@@ -137,8 +137,8 @@ mse.context.setCustomUrl(customUrlCtx);
 
 Sets the `CustomUrl` context.
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/customUrl.ts)
--   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L40)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/customUrl.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L40)
 
 #### `setEventForwarding`
 
@@ -148,8 +148,8 @@ mse.context.setEventForwarding(eventForwardingCtx);
 
 Sets the `EventForwarding` context. Tells a handler if it should forward events to Adobe Commerce DataSolutions (`commerce: true`), Adobe Experience Platform (`aep: true`), or both.
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/eventForwarding.ts)
--   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L47)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/eventForwarding.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L47)
 
 #### `setMagentoExtension` @deprecated
 
@@ -161,8 +161,8 @@ Sets the `MagentoExtension` context. Includes Data Services extension version.
 
 This field is deprecated. `setDataServicesExtension` should be used instead.
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/magentoExtension.ts)
--   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L55)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/magentoExtension.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L55)
 
 #### `setDataServicesExtension`
 
@@ -172,7 +172,7 @@ mse.context.setDataServicesExtension(dataServicesExtensionCtx);
 
 Sets the `DataServicesExtension` context. Includes Data Services extension version.
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/dataServicesExtension.ts)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/dataServicesExtension.ts)
 
 #### `setOrder`
 
@@ -182,8 +182,8 @@ mse.context.setOrder(orderCtx);
 
 Sets the `Order` context.
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/order.ts)
--   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L62)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/order.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L62)
 
 #### `setPage`
 
@@ -193,8 +193,8 @@ mse.context.setPage(pageCtx);
 
 Sets the `Page` context.
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/page.ts)
--   [context example](<(https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L76)>)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/page.ts)
+-   [context example](<(https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L76)>)
 
 #### `setProduct`
 
@@ -204,8 +204,8 @@ mse.context.setProduct(productCtx);
 
 Sets the `Product` context.
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/product.ts)
--   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L88)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/product.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L88)
 
 #### `setRecommendations`
 
@@ -215,8 +215,8 @@ mse.context.setRecommendations(recommendationsCtx);
 
 Sets the `Recommendations` context.
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/recommendations.ts)
--   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L105)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/recommendations.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L105)
 
 #### `setRecommendationsExtension`
 
@@ -226,7 +226,7 @@ mse.context.setRecommendationsExtension(recommendationsExtensionCtx);
 
 Sets the `RecommendationsExtension` context. Includes Recommendations extension version.
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/recommendationsExtension.ts)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/recommendationsExtension.ts)
 
 #### `setReferrerUrl`
 
@@ -236,8 +236,8 @@ mse.context.setReferrerUrl(referrerUrlCtx);
 
 Sets the `ReferrerUrl` context.
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/referrerUrl.ts)
--   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L230)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/referrerUrl.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L230)
 
 #### `setSearchExtension`
 
@@ -247,7 +247,7 @@ mse.context.setSearchExtension(searchExtensionCtx);
 
 Sets the `SearchExtension` context. Includes Live Search extension version.
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/searchExtension.ts)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/searchExtension.ts)
 
 #### `setSearchInput`
 
@@ -257,8 +257,8 @@ mse.context.setSearchInput(searchInputCtx);
 
 Sets the `SearchInput` context.
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/searchInput.ts)
--   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L237)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/searchInput.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L237)
 
 #### `setSearchResults`
 
@@ -268,8 +268,8 @@ mse.context.setSearchResults(searchResultsCtx);
 
 Sets the `SearchResults` context.
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/searchResults.ts)
--   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L255)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/searchResults.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L255)
 
 #### `setShopper`
 
@@ -279,8 +279,8 @@ mse.context.setShopper(shopperCtx);
 
 Sets the `Shopper` context.
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/shopper.ts)
--   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L294)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/shopper.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L294)
 
 #### `setShoppingCart`
 
@@ -290,8 +290,8 @@ mse.context.setShoppingCart(shoppingCartCtx);
 
 Sets the `ShoppingCart` context.
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/shoppingCart.ts)
--   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L298)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/shoppingCart.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L298)
 
 #### `setStorefrontInstance`
 
@@ -301,8 +301,8 @@ mse.context.setStorefrontInstance(storefrontCtx);
 
 Sets the `StorefrontInstance` context. This context is used when forwarding data to Adobe Commerce Data Services to identify the Adobe Commerce instance associated with the data.
 
--   [context schema definition](https://github.com/adobe/magento-storefront-events-sdk/blob/main/src/types/schemas/storefrontInstance.ts)
--   [context example](https://github.com/adobe/magento-storefront-events-sdk/blob/main/tests/mocks.ts#L345)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/storefrontInstance.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L345)
 
 #### `setContext`
 
@@ -550,23 +550,23 @@ mse.unsubscribe.updateCart(handler);
 
 If you have any questions or encounter any issues, please reach out on [GitHub][issues].
 
-[npm]: https://npmjs.com/package/@adobe/magento-storefront-events-sdk
-[version-badge]: https://img.shields.io/npm/v/@adobe/magento-storefront-events-sdk.svg?style=flat-square
-[downloads-badge]: https://img.shields.io/npm/dt/@adobe/magento-storefront-events-sdk?style=flat-square
-[bundlephobia]: https://bundlephobia.com/result?p=@adobe/magento-storefront-events-sdk
-[size-badge]: https://img.shields.io/bundlephobia/minzip/@adobe/magento-storefront-events-sdk?style=flat-square
-[actions]: https://github.com/adobe/magento-storefront-events-sdk/actions
-[build-badge]: https://img.shields.io/github/workflow/status/adobe/magento-storefront-events-sdk/publish-latest?style=flat-square
-[typescript]: https://typescriptlang.org/dt/search?search=%40adobe%2Fmagento-storefront-events-sdk
-[typescript-badge]: https://img.shields.io/npm/types/@adobe/magento-storefront-events-sdk?style=flat-square
-[contributing]: https://github.com/adobe/magento-storefront-events-sdk/blob/main/.github/CONTRIBUTING.md
+[npm]: https://npmjs.com/package/@adobe/commerce-events-sdk
+[version-badge]: https://img.shields.io/npm/v/@adobe/commerce-events-sdk.svg?style=flat-square
+[downloads-badge]: https://img.shields.io/npm/dt/@adobe/commerce-events-sdk?style=flat-square
+[bundlephobia]: https://bundlephobia.com/result?p=@adobe/commerce-events-sdk
+[size-badge]: https://img.shields.io/bundlephobia/minzip/@adobe/commerce-events-sdk?style=flat-square
+[actions]: https://github.com/adobe/commerce-events/actions
+[build-badge]: https://img.shields.io/github/workflow/status/adobe/commerce-events/publish-latest?style=flat-square
+[typescript]: https://typescriptlang.org/dt/search?search=%40adobe%2Fcommerce-events-sdk
+[typescript-badge]: https://img.shields.io/npm/types/@adobe/commerce-events-sdk?style=flat-square
+[contributing]: https://github.com/adobe/commerce-events/blob/main/.github/CONTRIBUTING.md
 [contributing-badge]: https://img.shields.io/badge/PRs-welcome-success?style=flat-square
-[magento]: https://magento.com
-[collector]: https://github.com/adobe/magento-storefront-event-collector
-[unpkg]: https://unpkg.com/@adobe/magento-storefront-events-sdk/dist/index.js
-[npm]: https://npmjs.com/package/@adobe/magento-storefront-events-sdk
+[commerce]: https://business.adobe.com/products/magento/magento-commerce.html
+[collectors]: https://github.com/adobe/commerce-events-collectors
+[unpkg]: https://unpkg.com/@adobe/commerce-events-sdk/dist/index.js
+[npm]: https://npmjs.com/package/@adobe/commerce-events-sdk
 [context]: #context
 [publish]: #publish
 [subscribe]: #subscribe
 [unsubscribe]: #unsubscribe
-[issues]: https://github.com/adobe/magento-storefront-events-sdk/issues
+[issues]: https://github.com/adobe/commerce-events/issues
