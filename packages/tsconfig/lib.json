@@ -1,0 +1,8 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "NPM Package",
+    "extends": "./base.json",
+    "compilerOptions": {   
+        "target": "es2015"
+    }
+}

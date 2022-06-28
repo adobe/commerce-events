@@ -1,16 +1,10 @@
 {
+    "extends": "tsconfig/lib.json",
     "compilerOptions": {
-        "target": "ES2015",
-        "module": "ES2020",
-        "declaration": true,
-        "declarationDir": "dist/types",
-        "moduleResolution": "node",
-        "strict": true,
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
+        "baseUrl": ".",
         "outDir": "dist",
-        "resolveJsonModule": true,
-        "lib": ["DOM", "ESNext"]
+        "declarationDir": "dist/types"
     },
-    "include": ["src"]
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist", ".turbo", "coverage"]
 }
