@@ -1,4 +1,4 @@
-# Magento Storefront Event Collector
+# Adobe Commerce Events Collectors
 
 [![version][version-badge]][npm]
 [![downloads][downloads-badge]][npm]
@@ -9,22 +9,22 @@
 
 ## Overview
 
-This package listens for and handles events published by the [Magento Storefront Events SDK][sdk] to the adobeDataLayer[acdl]. It runs as a side effect and is meant to be a convenience for users who want to send event data to Adobe Commerce.
+This package listens for and handles events published by the [Adobe Commerce Events SDK][sdk] to the adobeDataLayer[acdl]. It runs as a side effect and is meant to be a convenience for users who want to send event data to Adobe Commerce.
 
 ## Installation
 
 The collector can be used as a hosted script, or bundled in a JavaScript application. The script version is hosted on [unpkg][unpkg], and the bundled version is hosted on [npm][npm].
 
-To load the SDK as a script, use the following snippet.
+To load the Collector as a script, use the following snippet.
 
 ```
-<script src="https://unpkg.com/@adobe/magento-storefront-event-collector/dist/index.js"></script>
+<script src="https://unpkg.com/@adobe/commerce-events-collectors/dist/index.js"></script>
 ```
 
 To install the script as a dependency, run this command.
 
 ```shell
-npm install @adobe/magento-storefront-event-collector
+npm install @adobe/commerce-events-collectors
 ```
 
 ## Quick start
@@ -32,7 +32,7 @@ npm install @adobe/magento-storefront-event-collector
 After loading the collector script, or importing the package as shown below, there is nothing else that needs to be done.
 
 ```javascript
-import "@adobe/magento-storefront-event-collector";
+import "@adobe/commerce-events-collectors";
 ```
 
 ## Usage
@@ -210,7 +210,7 @@ In AEP Edge:
 
 The "mg_dnt" cookie is used by Product Recommendations to restrict data collection.
 
-when the [cookie restriction mode](https://docs.magento.com/user-guide/stores/compliance-cookie-restriction-mode.html) is enabled, data services will set the "mg_dnt" cookie to true.
+when the [cookie restriction mode](https://experienceleague.adobe.com/docs/commerce-admin/start/compliance/privacy/compliance-cookie-law.html) is enabled, data services will set the "mg_dnt" cookie to true.
 
 ```javascript
 const listenForCookieEvents = $ => {
@@ -263,19 +263,19 @@ If you have any questions or encounter any issues, please reach out at these loc
 
 -   [GitHub][issues]
 
-[npm]: https://npmjs.com/package/@adobe/magento-storefront-event-collector
-[version-badge]: https://img.shields.io/npm/v/@adobe/magento-storefront-event-collector.svg?style=flat-square
-[downloads-badge]: https://img.shields.io/npm/dt/@adobe/magento-storefront-event-collector?style=flat-square
-[bundlephobia]: https://bundlephobia.com/result?p=@adobe/magento-storefront-event-collector
-[size-badge]: https://img.shields.io/bundlephobia/minzip/@adobe/magento-storefront-event-collector?style=flat-square
-[actions]: https://github.com/adobe/magento-storefront-event-collector/actions
-[build-badge]: https://img.shields.io/github/workflow/status/adobe/magento-storefront-event-collector/publish-latest?style=flat-square
-[typescript]: https://typescriptlang.org/dt/search?search=%40adobe%2Fmagento-storefront-event-collector
-[typescript-badge]: https://img.shields.io/npm/types/@adobe/magento-storefront-event-collector?style=flat-square
-[contributing]: https://github.com/adobe/magento-storefront-event-collector/blob/main/.github/CONTRIBUTING.md
+[npm]: https://npmjs.com/package/@adobe/commerce-events-collectors
+[version-badge]: https://img.shields.io/npm/v/@adobe/commerce-events-collectors.svg?style=flat-square
+[downloads-badge]: https://img.shields.io/npm/dt/@adobe/commerce-events-collectors?style=flat-square
+[bundlephobia]: https://bundlephobia.com/result?p=@adobe/commerce-events-collectors
+[size-badge]: https://img.shields.io/bundlephobia/minzip/@adobe/commerce-events-collectors?style=flat-square
+[actions]: https://github.com/adobe/commerce-events-collectors/actions
+[build-badge]: https://img.shields.io/github/workflow/status/adobe/commerce-events/merge-to-main?style=flat-square
+[typescript]: https://typescriptlang.org/dt/search?search=%40adobe%2Fcommerce-events-collectors
+[typescript-badge]: https://img.shields.io/npm/types/@adobe/commerce-events-collectors?style=flat-square
+[contributing]: https://github.com/adobe/commerce-events/blob/main/.github/CONTRIBUTING.md
 [contributing-badge]: https://img.shields.io/badge/PRs-welcome-success?style=flat-square
 [sdk]: https://npmjs.com/package/@adobe/commerce-events-sdk
 [acdl]: https://github.com/adobe/adobe-client-data-layer
-[unpkg]: https://unpkg.com/@adobe/magento-storefront-event-collector/dist/index.js
-[npm]: https://npmjs.com/package/@adobe/magento-storefront-event-collector
-[issues]: https://github.com/adobe/magento-storefront-event-collector/issues
+[unpkg]: https://unpkg.com/@adobe/commerce-events-collectors/dist/index.js
+[npm]: https://npmjs.com/package/@adobe/commerce-events-collectors
+[issues]: https://github.com/adobe/commerce-events/issues
