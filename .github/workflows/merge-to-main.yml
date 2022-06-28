@@ -45,6 +45,16 @@ jobs:
               run: yarn publish --access public --tag qa
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
+
+            - name: release collectors
+              working-directory: ./packages/commerce-events-collectors
+              run: yarn release -- --skip.commit --skip.tag --release-as 0.0.0-${{ github.sha }}
+
+            - name: publish sdk
+              working-directory: ./packages/commerce-events-collectors
+              run: yarn publish --access public --tag qa
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}                  
     
     # merge-to-main:
     #     name: merge-to-main
