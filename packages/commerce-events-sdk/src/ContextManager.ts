@@ -57,16 +57,11 @@ export default class ContextManager extends Base {
     }
 
     getEventForwarding(): EventForwarding {
-        return this.getContext<EventForwarding>(
-            contexts.EVENT_FORWARDING_CONTEXT,
-        );
+        return this.getContext<EventForwarding>(contexts.EVENT_FORWARDING_CONTEXT);
     }
 
     setEventForwarding(context: EventForwarding): void {
-        this.setContext<EventForwarding>(
-            contexts.EVENT_FORWARDING_CONTEXT,
-            context,
-        );
+        this.setContext<EventForwarding>(contexts.EVENT_FORWARDING_CONTEXT, context);
     }
 
     getCustomUrl(): CustomUrl {
@@ -78,29 +73,19 @@ export default class ContextManager extends Base {
     }
 
     getDataServicesExtension(): DataServicesExtension {
-        return this.getContext<DataServicesExtension>(
-            contexts.DATA_SERVICES_EXTENSION_CONTEXT,
-        );
+        return this.getContext<DataServicesExtension>(contexts.DATA_SERVICES_EXTENSION_CONTEXT);
     }
 
     setDataServicesExtension(context: DataServicesExtension): void {
-        this.setContext<DataServicesExtension>(
-            contexts.DATA_SERVICES_EXTENSION_CONTEXT,
-            context,
-        );
+        this.setContext<DataServicesExtension>(contexts.DATA_SERVICES_EXTENSION_CONTEXT, context);
     }
 
     getMagentoExtension(): MagentoExtension {
-        return this.getContext<MagentoExtension>(
-            contexts.MAGENTO_EXTENSION_CONTEXT,
-        );
+        return this.getContext<MagentoExtension>(contexts.MAGENTO_EXTENSION_CONTEXT);
     }
 
     setMagentoExtension(context: MagentoExtension): void {
-        this.setContext<MagentoExtension>(
-            contexts.MAGENTO_EXTENSION_CONTEXT,
-            context,
-        );
+        this.setContext<MagentoExtension>(contexts.MAGENTO_EXTENSION_CONTEXT, context);
     }
 
     getOrder(): Order {
@@ -128,29 +113,19 @@ export default class ContextManager extends Base {
     }
 
     getRecommendations(): Recommendations {
-        return this.getContext<Recommendations>(
-            contexts.RECOMMENDATIONS_CONTEXT,
-        );
+        return this.getContext<Recommendations>(contexts.RECOMMENDATIONS_CONTEXT);
     }
 
     setRecommendations(context: Recommendations): void {
-        this.setContext<Recommendations>(
-            contexts.RECOMMENDATIONS_CONTEXT,
-            context,
-        );
+        this.setContext<Recommendations>(contexts.RECOMMENDATIONS_CONTEXT, context);
     }
 
     getRecommendationsExtension(): RecommendationsExtension {
-        return this.getContext<RecommendationsExtension>(
-            contexts.RECOMMENDATIONS_EXTENSION_CONTEXT,
-        );
+        return this.getContext<RecommendationsExtension>(contexts.RECOMMENDATIONS_EXTENSION_CONTEXT);
     }
 
     setRecommendationsExtension(context: RecommendationsExtension): void {
-        this.setContext<RecommendationsExtension>(
-            contexts.RECOMMENDATIONS_EXTENSION_CONTEXT,
-            context,
-        );
+        this.setContext<RecommendationsExtension>(contexts.RECOMMENDATIONS_EXTENSION_CONTEXT, context);
     }
 
     getReferrerUrl(): ReferrerUrl {
@@ -162,16 +137,11 @@ export default class ContextManager extends Base {
     }
 
     getSearchExtension(): SearchExtension {
-        return this.getContext<SearchExtension>(
-            contexts.SEARCH_EXTENSION_CONTEXT,
-        );
+        return this.getContext<SearchExtension>(contexts.SEARCH_EXTENSION_CONTEXT);
     }
 
     setSearchExtension(context: SearchExtension): void {
-        this.setContext<SearchExtension>(
-            contexts.SEARCH_EXTENSION_CONTEXT,
-            context,
-        );
+        this.setContext<SearchExtension>(contexts.SEARCH_EXTENSION_CONTEXT, context);
     }
 
     getSearchInput(): SearchInput {
@@ -187,10 +157,7 @@ export default class ContextManager extends Base {
     }
 
     setSearchResults(context: SearchResults): void {
-        this.setContext<SearchResults>(
-            contexts.SEARCH_RESULTS_CONTEXT,
-            context,
-        );
+        this.setContext<SearchResults>(contexts.SEARCH_RESULTS_CONTEXT, context);
     }
 
     getShopper(): Shopper {
@@ -210,16 +177,11 @@ export default class ContextManager extends Base {
     }
 
     getStorefrontInstance(): StorefrontInstance {
-        return this.getContext<StorefrontInstance>(
-            contexts.STOREFRONT_INSTANCE_CONTEXT,
-        );
+        return this.getContext<StorefrontInstance>(contexts.STOREFRONT_INSTANCE_CONTEXT);
     }
 
     setStorefrontInstance(context: StorefrontInstance): void {
-        this.setContext<StorefrontInstance>(
-            contexts.STOREFRONT_INSTANCE_CONTEXT,
-            context,
-        );
+        this.setContext<StorefrontInstance>(contexts.STOREFRONT_INSTANCE_CONTEXT, context);
     }
 
     getContext<T>(name?: string): T {

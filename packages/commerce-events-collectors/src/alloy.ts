@@ -52,9 +52,7 @@ const sendEvent = async (schema: BeaconSchema): Promise<void> => {
         const instance = await getAlloy();
 
         // attach identity field
-        const result: AlloyIndentity = (await instance(
-            "getIdentity",
-        )) as AlloyIndentity;
+        const result: AlloyIndentity = (await instance("getIdentity")) as AlloyIndentity;
         schema.personID = result.identity.ECID || "unknown";
 
         const xdm = { xdm: { ...schema } };
@@ -76,11 +74,7 @@ const hasConfig = (): boolean => {
     const eventForwarding = context.getEventForwarding();
     const config = context.getAEP();
 
-    return (
-        (eventForwarding?.aep || false) &&
-        config.datastreamId !== "" &&
-        config.imsOrgId !== ""
-    );
+    return (eventForwarding?.aep || false) && config.datastreamId !== "" && config.imsOrgId !== "";
 };
 
 /**

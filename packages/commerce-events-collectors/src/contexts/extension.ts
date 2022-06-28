@@ -17,8 +17,7 @@ const createContext = (extension?: MagentoExtension): ExtensionContext => {
     const context = {
         schema: schemas.MAGENTO_EXTENSION_SCHEMA_URL,
         data: {
-            magentoExtensionVersion:
-                magentoExtensionCtx.magentoExtensionVersion,
+            magentoExtensionVersion: magentoExtensionCtx.magentoExtensionVersion,
         },
     };
 

@@ -7,12 +7,7 @@ import { createProductListItems } from "../../utils/aep/productListItems";
 const XDM_EVENT_TYPE = "commerce.checkouts";
 
 const handler = async (event: Event): Promise<void> => {
-    const {
-        shoppingCartContext,
-        debugContext,
-        storefrontInstanceContext,
-        customContext,
-    } = event.eventInfo;
+    const { shoppingCartContext, debugContext, storefrontInstanceContext, customContext } = event.eventInfo;
 
     let payload: BeaconSchema;
     if (customContext) {
@@ -25,10 +20,7 @@ const handler = async (event: Event): Promise<void> => {
                     cartID: shoppingCartContext.id,
                 },
             },
-            productListItems: createProductListItems(
-                shoppingCartContext,
-                storefrontInstanceContext,
-            ),
+            productListItems: createProductListItems(shoppingCartContext, storefrontInstanceContext),
         };
     }
 

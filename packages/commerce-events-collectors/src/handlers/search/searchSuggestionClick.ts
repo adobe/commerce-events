@@ -1,22 +1,12 @@
 import { Event } from "@adobe/commerce-events-sdk/dist/types/types/events";
-import {
-    SelfDescribingJson,
-    trackStructEvent,
-} from "@snowplow/browser-tracker";
+import { SelfDescribingJson, trackStructEvent } from "@snowplow/browser-tracker";
 
-import {
-    createSearchResultsCtx,
-    createSearchResultSuggestionCtx,
-} from "../../contexts";
+import { createSearchResultsCtx, createSearchResultSuggestionCtx } from "../../contexts";
 
 const handler = (event: Event): void => {
-    const { searchUnitId, suggestion, pageContext, searchResultsContext } =
-        event.eventInfo;
+    const { searchUnitId, suggestion, pageContext, searchResultsContext } = event.eventInfo;
 
-    const searchResultsCtx = createSearchResultsCtx(
-        searchUnitId as string,
-        searchResultsContext,
-    );
+    const searchResultsCtx = createSearchResultsCtx(searchUnitId as string, searchResultsContext);
 
     const searchResultsSuggestionCtx = createSearchResultSuggestionCtx(
         searchUnitId as string,

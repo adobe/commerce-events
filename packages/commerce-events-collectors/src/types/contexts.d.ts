@@ -220,14 +220,11 @@ type Tracker = {
     magentoJsVersion: string;
 };
 
-type SnowplowContext<DataType> = SelfDescribingJson<
-    DataType | Record<string, unknown>
->;
+type SnowplowContext<DataType> = SelfDescribingJson<DataType | Record<string, unknown>>;
 
 type ExtensionContext = SnowplowContext<Extension>;
 type DataServicesExtensionContext = SnowplowContext<DataServicesExtension>;
-type RecommendationsExtensionContext =
-    SnowplowContext<RecommendationsExtension>;
+type RecommendationsExtensionContext = SnowplowContext<RecommendationsExtension>;
 type SearchExtensionContext = SnowplowContext<SearchExtension>;
 type ProductContext = SnowplowContext<Product>;
 type RecommendationUnitContext = SnowplowContext<RecommendationUnit>;

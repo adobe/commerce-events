@@ -4,13 +4,9 @@ import schemas from "../schemas";
 import { RecommendationUnitContext } from "../types/contexts";
 import { getUnit } from "../utils/recommendations";
 
-const createContext = (
-    unitId: string,
-    recommendations?: Recommendations,
-): RecommendationUnitContext | null => {
+const createContext = (unitId: string, recommendations?: Recommendations): RecommendationUnitContext | null => {
     const mse = window.magentoStorefrontEvents;
-    const recommendationsCtx =
-        recommendations ?? mse.context.getRecommendations();
+    const recommendationsCtx = recommendations ?? mse.context.getRecommendations();
 
     if (!recommendationsCtx) {
         return {

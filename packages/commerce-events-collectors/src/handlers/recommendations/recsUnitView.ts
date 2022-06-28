@@ -1,8 +1,5 @@
 import { Event } from "@adobe/commerce-events-sdk/dist/types/types/events";
-import {
-    SelfDescribingJson,
-    trackStructEvent,
-} from "@snowplow/browser-tracker";
+import { SelfDescribingJson, trackStructEvent } from "@snowplow/browser-tracker";
 
 import { createRecommendationUnitCtx } from "../../contexts";
 
@@ -11,10 +8,7 @@ const handler = (event: Event): void => {
 
     const context: Array<SelfDescribingJson> = [];
 
-    const recommendationUnitCtx = createRecommendationUnitCtx(
-        unitId as string,
-        recommendationsContext,
-    );
+    const recommendationUnitCtx = createRecommendationUnitCtx(unitId as string, recommendationsContext);
 
     if (recommendationUnitCtx) {
         context.push(recommendationUnitCtx);

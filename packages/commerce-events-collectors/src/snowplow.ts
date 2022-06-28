@@ -1,7 +1,4 @@
-import {
-    enableLinkClickTracking,
-    LinkClickTrackingPlugin,
-} from "@snowplow/browser-plugin-link-click-tracking";
+import { enableLinkClickTracking, LinkClickTrackingPlugin } from "@snowplow/browser-plugin-link-click-tracking";
 import { PerformanceTimingPlugin } from "@snowplow/browser-plugin-performance-timing";
 import {
     addGlobalContexts,
@@ -19,11 +16,7 @@ type ConfigureSnowplowParams = {
     collectorPath: string;
 };
 
-const configureSnowplow = ({
-    appId,
-    collectorUrl,
-    collectorPath,
-}: ConfigureSnowplowParams): void => {
+const configureSnowplow = ({ appId, collectorUrl, collectorPath }: ConfigureSnowplowParams): void => {
     const configuration: TrackerConfiguration = {
         appId,
         platform: "web",

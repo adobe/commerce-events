@@ -9,13 +9,8 @@ const XDM_EVENT_TYPE = "commerce.order";
 
 /** Sends an event to aep with a checkout complete payload */
 const aepHandler = async (event: Event): Promise<void> => {
-    const {
-        storefrontInstanceContext,
-        orderContext,
-        shoppingCartContext,
-        debugContext,
-        customContext,
-    } = event.eventInfo;
+    const { storefrontInstanceContext, orderContext, shoppingCartContext, debugContext, customContext } =
+        event.eventInfo;
 
     let payload: BeaconSchema;
     if (customContext) {
@@ -28,14 +23,10 @@ const aepHandler = async (event: Event): Promise<void> => {
                 promotionID: orderContext.appliedCouponCode,
                 shipping: {
                     shippingMethod: orderContext.shipping?.shippingMethod,
-                    shippingAmount:
-                        Number(orderContext.shipping?.shippingAmount) || 0,
+                    shippingAmount: Number(orderContext.shipping?.shippingAmount) || 0,
                 },
             },
-            productListItems: createProductListItems(
-                shoppingCartContext,
-                storefrontInstanceContext,
-            ),
+            productListItems: createProductListItems(shoppingCartContext, storefrontInstanceContext),
         };
     }
 

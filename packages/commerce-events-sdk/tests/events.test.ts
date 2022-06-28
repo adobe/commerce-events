@@ -21,7 +21,7 @@ test("data layer should exist", () => {
 
 describe("events", () => {
     test("add to cart", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.ADD_TO_CART,
                 eventInfo: expect.any(Object),
@@ -38,7 +38,7 @@ describe("events", () => {
     });
 
     test("abandon cart", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.ABANDON_CART,
                 eventInfo: expect.any(Object),
@@ -55,7 +55,7 @@ describe("events", () => {
     });
 
     test("create account", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.CREATE_ACCOUNT,
                 eventInfo: expect.any(Object),
@@ -72,7 +72,7 @@ describe("events", () => {
     });
 
     test("custom", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.CUSTOM,
                 eventInfo: expect.any(Object),
@@ -89,7 +89,7 @@ describe("events", () => {
     });
 
     test("custom url", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.CUSTOM_URL,
                 eventInfo: expect.any(Object),
@@ -106,7 +106,7 @@ describe("events", () => {
     });
 
     test("edit account", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.EDIT_ACCOUNT,
                 eventInfo: expect.any(Object),
@@ -123,7 +123,7 @@ describe("events", () => {
     });
 
     test("initiate checkout", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.INITIATE_CHECKOUT,
                 eventInfo: expect.any(Object),
@@ -140,7 +140,7 @@ describe("events", () => {
     });
 
     test("page activity summary", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.PAGE_ACTIVITY_SUMMARY,
                 eventInfo: expect.any(Object),
@@ -157,7 +157,7 @@ describe("events", () => {
     });
 
     test("page view", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.PAGE_VIEW,
                 eventInfo: expect.any(Object),
@@ -174,7 +174,7 @@ describe("events", () => {
     });
 
     test("place order", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.PLACE_ORDER,
                 eventInfo: expect.any(Object),
@@ -191,7 +191,7 @@ describe("events", () => {
     });
 
     test("product page view", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.PRODUCT_PAGE_VIEW,
                 eventInfo: expect.any(Object),
@@ -208,7 +208,7 @@ describe("events", () => {
     });
 
     test("rec item add to cart click", () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.RECS_ITEM_ADD_TO_CART_CLICK,
                 eventInfo: expect.any(Object),
@@ -225,7 +225,7 @@ describe("events", () => {
     });
 
     test("rec item click", () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.RECS_ITEM_CLICK,
                 eventInfo: expect.any(Object),
@@ -241,7 +241,7 @@ describe("events", () => {
     });
 
     test("rec request sent", () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.RECS_REQUEST_SENT,
                 eventInfo: expect.any(Object),
@@ -258,7 +258,7 @@ describe("events", () => {
     });
 
     test("rec response sent", () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.RECS_RESPONSE_RECEIVED,
                 eventInfo: expect.any(Object),
@@ -275,7 +275,7 @@ describe("events", () => {
     });
 
     test("rec unit render", () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.RECS_UNIT_RENDER,
                 eventInfo: expect.any(Object),
@@ -292,7 +292,7 @@ describe("events", () => {
     });
 
     test("rec unit view", () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.RECS_UNIT_VIEW,
                 eventInfo: expect.any(Object),
@@ -309,7 +309,7 @@ describe("events", () => {
     });
 
     test("referrer url", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.REFERRER_URL,
                 eventInfo: expect.any(Object),
@@ -326,7 +326,7 @@ describe("events", () => {
     });
 
     test("remove from cart", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.REMOVE_FROM_CART,
                 eventInfo: expect.any(Object),
@@ -343,7 +343,7 @@ describe("events", () => {
     });
 
     test("search category click", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.SEARCH_CATEGORY_CLICK,
                 eventInfo: expect.any(Object),
@@ -360,7 +360,7 @@ describe("events", () => {
     });
 
     test("search product click", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.SEARCH_PRODUCT_CLICK,
                 eventInfo: expect.any(Object),
@@ -377,7 +377,7 @@ describe("events", () => {
     });
 
     test("search request sent", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.SEARCH_REQUEST_SENT,
                 eventInfo: expect.any(Object),
@@ -394,7 +394,7 @@ describe("events", () => {
     });
 
     test("search response received", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.SEARCH_RESPONSE_RECEIVED,
                 eventInfo: expect.any(Object),
@@ -411,7 +411,7 @@ describe("events", () => {
     });
 
     test("search results view", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.SEARCH_RESULTS_VIEW,
                 eventInfo: expect.any(Object),
@@ -428,7 +428,7 @@ describe("events", () => {
     });
 
     test("search suggestion click", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.SEARCH_SUGGESTION_CLICK,
                 eventInfo: expect.any(Object),
@@ -445,7 +445,7 @@ describe("events", () => {
     });
 
     test("shopping cart view", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.SHOPPING_CART_VIEW,
                 eventInfo: expect.any(Object),
@@ -462,7 +462,7 @@ describe("events", () => {
     });
 
     test("sign in", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.SIGN_IN,
                 eventInfo: expect.any(Object),
@@ -479,7 +479,7 @@ describe("events", () => {
     });
 
     test("sign out", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.SIGN_OUT,
                 eventInfo: expect.any(Object),
@@ -496,7 +496,7 @@ describe("events", () => {
     });
 
     test("update cart", async () => {
-        const eventHandler = jest.fn(eventObj => {
+        const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
                 event: events.UPDATE_CART,
                 eventInfo: expect.any(Object),
@@ -536,11 +536,11 @@ describe("events", () => {
         mdl.context.setShopper(firstContext);
         mdl.subscribe.signIn(handler);
         mdl.publish.signIn();
-        await new Promise<void>(res => {
+        await new Promise<void>((res) => {
             setTimeout(() => res());
         });
         mdl.context.setShopper(secondContext);
-        await new Promise<void>(res => {
+        await new Promise<void>((res) => {
             setTimeout(() => res());
         });
         mdl.subscribe.signIn(deferredHandler);
@@ -561,8 +561,6 @@ describe("events", () => {
         mdl.context.setCustomUrl({ customUrl: "test.com" });
         mdl.publish.pageView();
 
-        expect(window.adobeDataLayer.getState()).not.toHaveProperty(
-            "eventInfo",
-        );
+        expect(window.adobeDataLayer.getState()).not.toHaveProperty("eventInfo");
     });
 });

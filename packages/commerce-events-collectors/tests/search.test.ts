@@ -1,14 +1,5 @@
-import {
-    createFilters,
-    getCategory,
-    getProduct,
-    getSuggestion,
-} from "../src/utils/search";
-import {
-    mockSearchInput,
-    mockSearchInputCtx,
-    mockSearchResults,
-} from "./utils/mocks";
+import { createFilters, getCategory, getProduct, getSuggestion } from "../src/utils/search";
+import { mockSearchInput, mockSearchInputCtx, mockSearchResults } from "./utils/mocks";
 
 test("gets category", () => {
     const category = getCategory("Pants", mockSearchResults.units[0]);

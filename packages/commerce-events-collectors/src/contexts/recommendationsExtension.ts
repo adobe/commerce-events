@@ -3,12 +3,9 @@ import { RecommendationsExtension } from "@adobe/commerce-events-sdk/dist/types/
 import schemas from "../schemas";
 import { RecommendationsExtensionContext } from "../types/contexts";
 
-const createContext = (
-    extension?: RecommendationsExtension,
-): RecommendationsExtensionContext => {
+const createContext = (extension?: RecommendationsExtension): RecommendationsExtensionContext => {
     const mse = window.magentoStorefrontEvents;
-    const recommendationsExtensionCtx =
-        extension ?? mse.context.getRecommendationsExtension();
+    const recommendationsExtensionCtx = extension ?? mse.context.getRecommendationsExtension();
 
     if (!recommendationsExtensionCtx) {
         return {
