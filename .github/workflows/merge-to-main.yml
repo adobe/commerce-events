@@ -2,7 +2,7 @@ name: merge-to-main
 
 on:
     push:
-        branches: [main, ci-cd]
+        branches: [main]
         paths:
             - "packages/commerce-events-**"
             - ".github/workflows/merge-to-main.yml"
@@ -17,11 +17,11 @@ jobs:
               with:
                   fetch-depth: 0
                   ref: ${{ github.ref }}
-            
+
             - name: cache
               uses: actions/cache@v2
               with:
-                  path: '**/node_modules'
+                  path: "**/node_modules"
                   key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
             - name: node
@@ -35,7 +35,7 @@ jobs:
 
             - name: build
               run: yarn build
-            
+
             - name: release sdk
               working-directory: ./packages/commerce-events-sdk
               run: yarn release -- --skip.commit --skip.tag --release-as 0.0.0-${{ github.sha }}
@@ -54,29 +54,4 @@ jobs:
               working-directory: ./packages/commerce-events-collectors
               run: yarn publish --access public --tag qa
               env:
-                  NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}                  
-    
-    # merge-to-main:
-    #     name: merge-to-main
-    #     runs-on: ubuntu-18.04
-    #     steps:
-    #         - name: checkout
-    #           uses: actions/checkout@v2
-    #           with:
-    #               fetch-depth: 0
-    #               ref: ${{ github.ref }}
-    #         - name: node
-    #           uses: actions/setup-node@v2
-    #           with:
-    #               node-version: 14
-    #               registry-url: https://registry.npmjs.org/
-    #         - name: install
-    #           run: npm ci
-    #         - name: build
-    #           run: npm run build:qa
-    #         - name: release
-    #           run: npm run release -- --skip.commit --skip.tag --release-as 0.0.0-${{ github.sha }}
-    #         - name: publish
-    #           run: npm publish --access public --tag qa
-    #           env:
-    #               NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
+                  NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
