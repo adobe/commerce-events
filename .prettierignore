@@ -3,6 +3,7 @@
 node_modules
 
 # build
+.turbo
 .cache
 dist
 storybook
