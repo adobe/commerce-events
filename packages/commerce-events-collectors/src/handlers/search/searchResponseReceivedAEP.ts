@@ -1,5 +1,5 @@
-import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/events";
-import { SearchResultSuggestion } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+import { Event } from "@adobe/commerce-events-sdk/dist/types/types/events";
+import { SearchResultSuggestion } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
 
 import { sendEvent } from "../../alloy";
 import { createSearchResultsCtx } from "../../contexts";

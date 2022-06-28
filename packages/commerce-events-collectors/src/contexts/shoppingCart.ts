@@ -1,4 +1,4 @@
-import { ShoppingCart } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+import { ShoppingCart } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
 
 import schemas from "../schemas";
 import { ShoppingCartContext, ShoppingCartItem } from "../types/contexts";

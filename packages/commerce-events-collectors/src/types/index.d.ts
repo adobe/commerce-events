@@ -1,4 +1,4 @@
-import { MagentoStorefrontEvents } from "@adobe/magento-storefront-events-sdk";
+import { MagentoStorefrontEvents } from "@adobe/commerce-events-sdk";
 
 import { AlloyInstance } from "../aep/types";
 

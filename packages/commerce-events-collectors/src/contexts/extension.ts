@@ -1,4 +1,4 @@
-import { MagentoExtension } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+import { MagentoExtension } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
 
 import schemas from "../schemas";
 import { ExtensionContext } from "../types/contexts";

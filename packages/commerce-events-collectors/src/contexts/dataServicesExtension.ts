@@ -1,4 +1,4 @@
-import { DataServicesExtension } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+import { DataServicesExtension } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
 
 import schemas from "../schemas";
 import { DataServicesExtensionContext } from "../types/contexts";

@@ -1,4 +1,4 @@
-import { Product } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+import { Product } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
 
 import schemas from "../schemas";
 import { ProductContext } from "../types/contexts";

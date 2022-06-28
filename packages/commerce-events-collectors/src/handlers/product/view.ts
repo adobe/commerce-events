@@ -1,4 +1,4 @@
-import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/events";
+import { Event } from "@adobe/commerce-events-sdk/dist/types/types/events";
 import {
     SelfDescribingJson,
     trackStructEvent,

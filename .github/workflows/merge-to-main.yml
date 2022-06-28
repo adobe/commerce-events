@@ -1,0 +1,57 @@
+name: merge-to-main
+
+on:
+    push:
+        branches: [main]
+        paths:
+            - "packages/commerce-events-**"
+            - ".github/workflows/merge-to-main.yml"
+
+jobs:
+    merge-to-main:
+        name: merge-to-main
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+                  ref: ${{ github.ref }}
+
+            - name: cache
+              uses: actions/cache@v2
+              with:
+                  path: "**/node_modules"
+                  key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+            - name: node
+              uses: actions/setup-node@v2
+              with:
+                  node-version: 16
+                  registry-url: https://registry.npmjs.org/
+
+            - name: install
+              run: yarn install --frozen-lockfile
+
+            - name: build
+              run: yarn build
+
+            - name: release sdk
+              working-directory: ./packages/commerce-events-sdk
+              run: yarn release -- --skip.commit --skip.tag --release-as 0.0.0-${{ github.sha }}
+
+            - name: publish sdk
+              working-directory: ./packages/commerce-events-sdk
+              run: yarn publish --access public --tag qa
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
+
+            - name: release collectors
+              working-directory: ./packages/commerce-events-collectors
+              run: yarn release -- --skip.commit --skip.tag --release-as 0.0.0-${{ github.sha }}
+
+            - name: publish sdk
+              working-directory: ./packages/commerce-events-collectors
+              run: yarn publish --access public --tag qa
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}

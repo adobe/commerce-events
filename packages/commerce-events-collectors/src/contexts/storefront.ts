@@ -1,4 +1,4 @@
-import { StorefrontInstance } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+import { StorefrontInstance } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
 
 import schemas from "../schemas";
 import { StorefrontContext } from "../types/contexts";

@@ -2,7 +2,7 @@ import {
     Recommendations,
     RecommendationUnit,
     RecommendedProduct,
-} from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+} from "@adobe/commerce-events-sdk/dist/types/types/schemas";
 
 const getUnit = (
     unitId: string,

@@ -1,4 +1,4 @@
-import { SearchExtension } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+import { SearchExtension } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
 
 import schemas from "../schemas";
 import { SearchExtensionContext } from "../types/contexts";

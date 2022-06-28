@@ -1,4 +1,4 @@
-import { Recommendations } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+import { Recommendations } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
 
 import schemas from "../schemas";
 import { RecommendedItemContext } from "../types/contexts";
