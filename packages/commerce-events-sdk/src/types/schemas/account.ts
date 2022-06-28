@@ -1,7 +1,7 @@
 /* shopper object with PII */
 /* for anonymous info use type Shopper */
 
-import { Address } from ".";
+import { Address } from "common";
 
 export type Account = {
     firstName: string;
