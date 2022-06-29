@@ -4,16 +4,18 @@
     "private": true,
     "license": "MIT",
     "workspaces": [
-        "apps/*",
+        "examples/*",
         "packages/*"
     ],
     "scripts": {
+        "start": "turbo run start",
         "build": "turbo run build",
         "dev": "turbo run dev --parallel",
         "test": "turbo run test",
         "lint": "turbo run lint",
         "format": "prettier --write \"**/*.{ts,tsx,md}\""
     },
+    "dependencies": {},
     "devDependencies": {
         "eslint-config-custom": "latest",
         "prettier": "latest",
@@ -23,6 +25,5 @@
         "npm": ">=7.0.0",
         "node": ">=14.0.0"
     },
-    "dependencies": {},
     "packageManager": "yarn@1.22.17"
 }
