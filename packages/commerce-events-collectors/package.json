@@ -9,7 +9,6 @@
     "files": [
         "dist/"
     ],
-    "homepage": "https://github.com/adobe/commerce-events/packages/commerce-events-collectors#readme",
     "author": {
         "name": "Adobe",
         "url": "https://www.adobe.com/"
@@ -18,6 +17,7 @@
         "type": "git",
         "url": "git+https://github.com/adobe/commerce-events"
     },
+    "homepage": "https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-collectors#readme",
     "bugs": {
         "url": "https://github.com/adobe/commerce-events/issues"
     },
