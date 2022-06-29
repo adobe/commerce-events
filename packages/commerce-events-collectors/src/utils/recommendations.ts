@@ -4,11 +4,8 @@ import {
     RecommendedProduct,
 } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
 
-const getUnit = (
-    unitId: string,
-    ctx: Recommendations,
-): RecommendationUnit | null => {
-    const unit = ctx?.units.find(unit => unit.unitId === unitId);
+const getUnit = (unitId: string, ctx: Recommendations): RecommendationUnit | null => {
+    const unit = ctx?.units.find((unit) => unit.unitId === unitId);
 
     if (!unit) {
         return null;
@@ -17,20 +14,14 @@ const getUnit = (
     return unit;
 };
 
-const getProduct = (
-    unitId: string,
-    productId: number,
-    ctx: Recommendations,
-): RecommendedProduct | null => {
+const getProduct = (unitId: string, productId: number, ctx: Recommendations): RecommendedProduct | null => {
     const unit = getUnit(unitId, ctx);
 
     if (!unit) {
         return null;
     }
 
-    const product = unit.products.find(
-        product => product.productId === productId,
-    );
+    const product = unit.products.find((product) => product.productId === productId);
 
     if (!product) {
         return null;

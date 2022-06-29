@@ -9,33 +9,20 @@ import {
 
 import { SearchFilter, SearchResultCategory } from "../types/contexts";
 
-const getSearchInputUnit = (
-    searchUnitId: string,
-    ctx: SearchInput,
-): SearchInputUnit | undefined => {
-    const searchInputUnit = ctx.units.find(
-        unit => unit.searchUnitId === searchUnitId,
-    );
+const getSearchInputUnit = (searchUnitId: string, ctx: SearchInput): SearchInputUnit | undefined => {
+    const searchInputUnit = ctx.units.find((unit) => unit.searchUnitId === searchUnitId);
 
     return searchInputUnit;
 };
 
-const getSearchResultUnit = (
-    searchUnitId: string,
-    ctx: SearchResults,
-): SearchResultUnit | undefined => {
-    const searchResultUnit = ctx.units.find(
-        unit => unit.searchUnitId === searchUnitId,
-    );
+const getSearchResultUnit = (searchUnitId: string, ctx: SearchResults): SearchResultUnit | undefined => {
+    const searchResultUnit = ctx.units.find((unit) => unit.searchUnitId === searchUnitId);
 
     return searchResultUnit;
 };
 
-const getCategory = (
-    name: string,
-    ctx: SearchResultUnit,
-): SearchResultCategory | null => {
-    const category = ctx.categories.find(category => category.name === name);
+const getCategory = (name: string, ctx: SearchResultUnit): SearchResultCategory | null => {
+    const category = ctx.categories.find((category) => category.name === name);
 
     if (!category) {
         return null;
@@ -44,11 +31,8 @@ const getCategory = (
     return category;
 };
 
-const getProduct = (
-    sku: string,
-    ctx: SearchResultUnit,
-): SearchResultProduct | null => {
-    const product = ctx.products.find(product => product.sku === sku);
+const getProduct = (sku: string, ctx: SearchResultUnit): SearchResultProduct | null => {
+    const product = ctx.products.find((product) => product.sku === sku);
 
     if (!product) {
         return null;
@@ -57,11 +41,8 @@ const getProduct = (
     return product;
 };
 
-const getSuggestion = (
-    suggestion: string,
-    ctx: SearchResultUnit,
-): SearchResultSuggestion | null => {
-    const suggested = ctx.suggestions.find(s => s.suggestion === suggestion);
+const getSuggestion = (suggestion: string, ctx: SearchResultUnit): SearchResultSuggestion | null => {
+    const suggested = ctx.suggestions.find((s) => s.suggestion === suggestion);
 
     if (!suggested) {
         return null;
@@ -73,7 +54,7 @@ const getSuggestion = (
 const createFilters = (ctx: SearchInputUnit): Array<SearchFilter> => {
     const filters: Array<SearchFilter> = [];
 
-    ctx.filter.forEach(filter => {
+    ctx.filter.forEach((filter) => {
         // eq
         if (filter.eq) {
             filters.push({
@@ -115,11 +96,4 @@ const createFilters = (ctx: SearchInputUnit): Array<SearchFilter> => {
     return filters;
 };
 
-export {
-    createFilters,
-    getCategory,
-    getProduct,
-    getSearchInputUnit,
-    getSearchResultUnit,
-    getSuggestion,
-};
+export { createFilters, getCategory, getProduct, getSearchInputUnit, getSearchResultUnit, getSuggestion };

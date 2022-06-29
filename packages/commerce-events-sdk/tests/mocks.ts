@@ -22,9 +22,7 @@ import {
 } from "../src/types/schemas/";
 import { CustomContext } from "../src/types/contexts";
 
-export const generateAccountContext = (
-    overrides?: Partial<Account>,
-): Account => ({
+export const generateAccountContext = (overrides?: Partial<Account>): Account => ({
     firstName: "firstName",
     lastName: "lastName",
     ...overrides,
@@ -41,33 +39,25 @@ export const generateAEPContext = (overrides?: Partial<AEP>): AEP => ({
     ...overrides,
 });
 
-export const generateCategoryContext = (
-    overrides?: Partial<Category>,
-): Category => ({
+export const generateCategoryContext = (overrides?: Partial<Category>): Category => ({
     name: "pants",
     urlKey: "pants",
     urlPath: "/categories/pants",
     ...overrides,
 });
 
-export const generateCustomUrlContext = (
-    overrides?: Partial<CustomUrl>,
-): CustomUrl => ({
+export const generateCustomUrlContext = (overrides?: Partial<CustomUrl>): CustomUrl => ({
     customUrl: "https://www.test.org",
     ...overrides,
 });
 
-export const generateEventForwardingContext = (
-    overrides?: Partial<EventForwarding>,
-): EventForwarding => ({
+export const generateEventForwardingContext = (overrides?: Partial<EventForwarding>): EventForwarding => ({
     aep: false,
     commerce: true,
     ...overrides,
 });
 
-export const generateMagentoExtensionContext = (
-    overrides?: Partial<MagentoExtension>,
-): MagentoExtension => ({
+export const generateMagentoExtensionContext = (overrides?: Partial<MagentoExtension>): MagentoExtension => ({
     magentoExtensionVersion: "1.0.0",
     ...overrides,
 });
@@ -99,9 +89,7 @@ export const generatePageContext = (overrides?: Partial<Page>): Page => ({
     ...overrides,
 });
 
-export const generateProductContext = (
-    overrides?: Partial<Product>,
-): Product => ({
+export const generateProductContext = (overrides?: Partial<Product>): Product => ({
     categories: ["14", "15", "21"],
     name: "Felicia Maxi Dress",
     productId: 1153,
@@ -116,9 +104,7 @@ export const generateProductContext = (
     ...overrides,
 });
 
-export const generateRecommendationsContext = (
-    overrides?: Partial<Recommendations>,
-): Recommendations => ({
+export const generateRecommendationsContext = (overrides?: Partial<Recommendations>): Recommendations => ({
     units: [
         {
             unitId: "abc123",
@@ -241,16 +227,12 @@ export const generateRecommendationsContext = (
     ...overrides,
 });
 
-export const generateReferrerUrlContext = (
-    overrides?: Partial<ReferrerUrl>,
-): ReferrerUrl => ({
+export const generateReferrerUrlContext = (overrides?: Partial<ReferrerUrl>): ReferrerUrl => ({
     referrerUrl: "https://www.test.org",
     ...overrides,
 });
 
-export const generateSearchInputContext = (
-    overrides?: Partial<SearchInput>,
-): SearchInput => ({
+export const generateSearchInputContext = (overrides?: Partial<SearchInput>): SearchInput => ({
     units: [
         {
             searchUnitId: "search-bar",
@@ -267,9 +249,7 @@ export const generateSearchInputContext = (
     ...overrides,
 });
 
-export const generateSearchResultsContext = (
-    overrides?: Partial<SearchResults>,
-): SearchResults => ({
+export const generateSearchResultsContext = (overrides?: Partial<SearchResults>): SearchResults => ({
     units: [
         {
             searchUnitId: "search-bar",
@@ -306,13 +286,9 @@ export const generateSearchResultsContext = (
     ...overrides,
 });
 
-export const generateShopperContext = (
-    overrides?: Partial<Shopper>,
-): Shopper => ({ shopperId: "guest", ...overrides });
+export const generateShopperContext = (overrides?: Partial<Shopper>): Shopper => ({ shopperId: "guest", ...overrides });
 
-export const generateShoppingCartContext = (
-    overrides?: Partial<ShoppingCart>,
-): ShoppingCart => ({
+export const generateShoppingCartContext = (overrides?: Partial<ShoppingCart>): ShoppingCart => ({
     id: "1",
     items: [
         {
@@ -358,9 +334,7 @@ export const generateShoppingCartContext = (
     ...overrides,
 });
 
-export const generateStorefrontInstanceContext = (
-    overrides?: Partial<StorefrontInstance>,
-): StorefrontInstance => ({
+export const generateStorefrontInstanceContext = (overrides?: Partial<StorefrontInstance>): StorefrontInstance => ({
     baseCurrencyCode: "USD",
     environment: "Test",
     environmentId: "12345",
@@ -375,17 +349,13 @@ export const generateStorefrontInstanceContext = (
     ...overrides,
 });
 
-export const generateCustomContext = (
-    overrides?: Partial<CustomContext>,
-): CustomContext => ({
+export const generateCustomContext = (overrides?: Partial<CustomContext>): CustomContext => ({
     foo: "foo",
     bar: "bar",
     ...overrides,
 });
 
-export const generateSearchExtensionContext = (
-    overrides?: Partial<SearchExtension>,
-): SearchExtension => ({
+export const generateSearchExtensionContext = (overrides?: Partial<SearchExtension>): SearchExtension => ({
     version: "1.0.0",
     ...overrides,
 });

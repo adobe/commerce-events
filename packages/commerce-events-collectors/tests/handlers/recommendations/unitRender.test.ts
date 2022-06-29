@@ -5,11 +5,7 @@ jest.mock("@adobe/alloy", () => ({ createInstance: jest.fn(() => {}) }));
 
 import { recsUnitRenderHandler } from "../../../src/handlers";
 import schemas from "../../../src/schemas";
-import {
-    mockEvent,
-    mockRecommendationUnitCtx,
-    mockRecommendedItemsCtx,
-} from "../../utils/mocks";
+import { mockEvent, mockRecommendationUnitCtx, mockRecommendedItemsCtx } from "../../utils/mocks";
 
 test("sends snowplow event", () => {
     recsUnitRenderHandler(mockEvent);

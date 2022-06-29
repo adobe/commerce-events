@@ -213,11 +213,9 @@ The "mg_dnt" cookie is used by Product Recommendations to restrict data collecti
 when the [cookie restriction mode](https://experienceleague.adobe.com/docs/commerce-admin/start/compliance/privacy/compliance-cookie-law.html) is enabled, data services will set the "mg_dnt" cookie to true.
 
 ```javascript
-const listenForCookieEvents = $ => {
+const listenForCookieEvents = ($) => {
     const DNT_COOKIE = "mg_dnt";
-    let userAllowedSaveCookie = !!$.mage.cookies.get(
-        "user_allowed_save_cookie",
-    );
+    let userAllowedSaveCookie = !!$.mage.cookies.get("user_allowed_save_cookie");
 
     if (userAllowedSaveCookie) {
         $.mage.cookies.clear(DNT_COOKIE);

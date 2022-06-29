@@ -3,12 +3,9 @@ import { DataServicesExtension } from "@adobe/commerce-events-sdk/dist/types/typ
 import schemas from "../schemas";
 import { DataServicesExtensionContext } from "../types/contexts";
 
-const createContext = (
-    extension?: DataServicesExtension,
-): DataServicesExtensionContext => {
+const createContext = (extension?: DataServicesExtension): DataServicesExtensionContext => {
     const mse = window.magentoStorefrontEvents;
-    const dataServicesExtensionCtx =
-        extension ?? mse.context.getDataServicesExtension();
+    const dataServicesExtensionCtx = extension ?? mse.context.getDataServicesExtension();
 
     if (!dataServicesExtensionCtx) {
         return {

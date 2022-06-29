@@ -4,10 +4,7 @@ import schemas from "../schemas";
 import { SearchInputContext } from "../types/contexts";
 import { createFilters, getSearchInputUnit } from "../utils/search";
 
-const createContext = (
-    searchUnitId: string,
-    searchInput?: SearchInput,
-): SearchInputContext | null => {
+const createContext = (searchUnitId: string, searchInput?: SearchInput): SearchInputContext | null => {
     const mse = window.magentoStorefrontEvents;
     const searchInputCtx = searchInput ?? mse.context.getSearchInput();
 

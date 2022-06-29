@@ -5,11 +5,7 @@ jest.mock("@adobe/alloy", () => ({ createInstance: jest.fn(() => {}) }));
 
 import { addToCartHandler } from "../../../src/handlers";
 import schemas from "../../../src/schemas";
-import {
-    mockEvent,
-    mockProductCtx,
-    mockShoppingCartCtx,
-} from "../../utils/mocks";
+import { mockEvent, mockProductCtx, mockShoppingCartCtx } from "../../utils/mocks";
 
 test("sends snowplow event", () => {
     addToCartHandler(mockEvent);

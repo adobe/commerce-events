@@ -19,10 +19,7 @@ const createContext = (
         };
     }
 
-    const searchResultUnit = getSearchResultUnit(
-        searchUnitId,
-        searchResultsCtx,
-    );
+    const searchResultUnit = getSearchResultUnit(searchUnitId, searchResultsCtx);
 
     if (!searchResultUnit) {
         return null;

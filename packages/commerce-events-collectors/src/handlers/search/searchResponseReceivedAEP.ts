@@ -9,29 +9,20 @@ import { SearchResultProduct } from "../../types/contexts";
 const XDM_EVENT_TYPE = "searchResponse";
 
 const handler = async (event: Event): Promise<void> => {
-    const { searchUnitId, searchResultsContext, debugContext, customContext } =
-        event.eventInfo;
+    const { searchUnitId, searchResultsContext, debugContext, customContext } = event.eventInfo;
 
-    const searchResultsCtx = createSearchResultsCtx(
-        searchUnitId as string,
-        searchResultsContext,
-    );
+    const searchResultsCtx = createSearchResultsCtx(searchUnitId as string, searchResultsContext);
 
     const suggestionsFromCtx: SearchResultSuggestion[] =
         (searchResultsCtx?.data?.suggestions as SearchResultSuggestion[]) ?? [];
 
-    const suggestions: string[] = suggestionsFromCtx.map(
-        (suggestion: SearchResultSuggestion) => suggestion.suggestion,
-    );
+    const suggestions: string[] = suggestionsFromCtx.map((suggestion: SearchResultSuggestion) => suggestion.suggestion);
 
-    const productsFromCtx: SearchResultProduct[] =
-        (searchResultsCtx?.data?.products as SearchResultProduct[]) ?? [];
+    const productsFromCtx: SearchResultProduct[] = (searchResultsCtx?.data?.products as SearchResultProduct[]) ?? [];
 
-    const productListItems = productsFromCtx.map(
-        (product: SearchResultProduct) => {
-            return { SKU: product.sku, name: product.name };
-        },
-    );
+    const productListItems = productsFromCtx.map((product: SearchResultProduct) => {
+        return { SKU: product.sku, name: product.name };
+    });
 
     let payload: BeaconSchema;
     if (customContext) {

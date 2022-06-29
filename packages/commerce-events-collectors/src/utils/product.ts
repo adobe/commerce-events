@@ -12,7 +12,7 @@ const createPricing = (ctx: Product): ProductPricing | undefined => {
         minimalPrice: ctx.pricing.minimalPrice,
         maximalPrice: ctx.pricing.maximalPrice,
         specialPrice: ctx.pricing.specialPrice,
-        tierPricing: ctx.pricing.tierPricing?.map(price => ({
+        tierPricing: ctx.pricing.tierPricing?.map((price) => ({
             customerGroupId: price.customerGroupId ?? null,
             qty: price.qty,
             value: price.value,

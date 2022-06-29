@@ -8,12 +8,7 @@ const XDM_EVENT_TYPE = "commerce.productListViews";
 
 /** shoppingCartView handler for AEP event */
 const aepHandler = async (event: Event): Promise<void> => {
-    const {
-        shoppingCartContext,
-        debugContext,
-        storefrontInstanceContext,
-        customContext,
-    } = event.eventInfo;
+    const { shoppingCartContext, debugContext, storefrontInstanceContext, customContext } = event.eventInfo;
 
     let payload: BeaconSchema;
     if (customContext) {
@@ -29,10 +24,7 @@ const aepHandler = async (event: Event): Promise<void> => {
                     value: 1,
                 },
             },
-            productListItems: createProductListItems(
-                shoppingCartContext,
-                storefrontInstanceContext,
-            ),
+            productListItems: createProductListItems(shoppingCartContext, storefrontInstanceContext),
         };
     }
 

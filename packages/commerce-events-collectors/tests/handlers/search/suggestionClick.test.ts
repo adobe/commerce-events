@@ -5,11 +5,7 @@ jest.mock("@adobe/alloy", () => ({ createInstance: jest.fn(() => {}) }));
 
 import { searchSuggestionClickHandler } from "../../../src/handlers";
 import schemas from "../../../src/schemas";
-import {
-    mockEvent,
-    mockSearchResultsCtx,
-    mockSearchResultSuggestionCtx,
-} from "../../utils/mocks";
+import { mockEvent, mockSearchResultsCtx, mockSearchResultSuggestionCtx } from "../../utils/mocks";
 
 test("sends snowplow event", () => {
     searchSuggestionClickHandler(mockEvent);

@@ -39,10 +39,7 @@ export default class SubscribeManager extends Base {
         this.addEventListener(events.INITIATE_CHECKOUT, handler, options);
     }
 
-    pageActivitySummary(
-        handler: EventHandler,
-        options?: ListenerOptions,
-    ): void {
+    pageActivitySummary(handler: EventHandler, options?: ListenerOptions): void {
         this.addEventListener(events.PAGE_ACTIVITY_SUMMARY, handler, options);
     }
 
@@ -58,15 +55,8 @@ export default class SubscribeManager extends Base {
         this.addEventListener(events.PRODUCT_PAGE_VIEW, handler, options);
     }
 
-    recsItemAddToCartClick(
-        handler: EventHandler,
-        options?: ListenerOptions,
-    ): void {
-        this.addEventListener(
-            events.RECS_ITEM_ADD_TO_CART_CLICK,
-            handler,
-            options,
-        );
+    recsItemAddToCartClick(handler: EventHandler, options?: ListenerOptions): void {
+        this.addEventListener(events.RECS_ITEM_ADD_TO_CART_CLICK, handler, options);
     }
 
     recsItemClick(handler: EventHandler, options?: ListenerOptions): void {
@@ -77,10 +67,7 @@ export default class SubscribeManager extends Base {
         this.addEventListener(events.RECS_REQUEST_SENT, handler, options);
     }
 
-    recsResponseReceived(
-        handler: EventHandler,
-        options?: ListenerOptions,
-    ): void {
+    recsResponseReceived(handler: EventHandler, options?: ListenerOptions): void {
         this.addEventListener(events.RECS_RESPONSE_RECEIVED, handler, options);
     }
 

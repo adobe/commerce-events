@@ -10,7 +10,7 @@ const createOrder = (
 
     if (orderContext.payments && orderContext.payments.length) {
         // try payments array first
-        payments = orderContext.payments.map(payment => {
+        payments = orderContext.payments.map((payment) => {
             return {
                 paymentAmount: payment.total,
                 // todo ahammond these should be an enum, change in sdk, retest (DINT-324)

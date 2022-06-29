@@ -1,14 +1,8 @@
 import { Event } from "@adobe/commerce-events-sdk/dist/types/types/events";
 import { trackStructEvent } from "@snowplow/browser-tracker";
 
-import {
-    createRecommendationUnitCtx,
-    createRecommendedItemCtx,
-} from "../../contexts";
-import {
-    RecommendationUnitContext,
-    RecommendedItemContext,
-} from "../../types/contexts";
+import { createRecommendationUnitCtx, createRecommendedItemCtx } from "../../contexts";
+import { RecommendationUnitContext, RecommendedItemContext } from "../../types/contexts";
 
 const handler = (event: Event): void => {
     const { pageContext, recommendationsContext } = event.eventInfo;
@@ -16,23 +10,16 @@ const handler = (event: Event): void => {
     const recommendationUnitCtxs: Array<RecommendationUnitContext> = [];
     const recommendedItemCtxs: Array<RecommendedItemContext> = [];
 
-    recommendationsContext?.units.forEach(unit => {
-        const unitCtx = createRecommendationUnitCtx(
-            unit.unitId as string,
-            recommendationsContext,
-        );
+    recommendationsContext?.units.forEach((unit) => {
+        const unitCtx = createRecommendationUnitCtx(unit.unitId as string, recommendationsContext);
 
         if (unitCtx) {
             recommendationUnitCtxs.push(unitCtx);
         }
 
-        unit.products.forEach(product => {
+        unit.products.forEach((product) => {
             {
-                const itemCtx = createRecommendedItemCtx(
-                    unit.unitId,
-                    product.productId,
-                    recommendationsContext,
-                );
+                const itemCtx = createRecommendedItemCtx(unit.unitId, product.productId, recommendationsContext);
 
                 if (itemCtx) {
                     recommendedItemCtxs.push(itemCtx);

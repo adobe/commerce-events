@@ -4,10 +4,7 @@ import schemas from "../schemas";
 import { SearchResultsContext } from "../types/contexts";
 import { getSearchResultUnit } from "../utils/search";
 
-const createContext = (
-    searchUnitId: string,
-    searchResults?: SearchResults,
-): SearchResultsContext | null => {
+const createContext = (searchUnitId: string, searchResults?: SearchResults): SearchResultsContext | null => {
     const mse = window.magentoStorefrontEvents;
     const searchResultsCtx = searchResults ?? mse.context.getSearchResults();
 
@@ -18,10 +15,7 @@ const createContext = (
         };
     }
 
-    const searchResultsUnit = getSearchResultUnit(
-        searchUnitId,
-        searchResultsCtx,
-    );
+    const searchResultsUnit = getSearchResultUnit(searchUnitId, searchResultsCtx);
 
     if (!searchResultsUnit) {
         return null;

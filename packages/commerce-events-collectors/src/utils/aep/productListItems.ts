@@ -1,7 +1,4 @@
-import {
-    ShoppingCart,
-    StorefrontInstance,
-} from "@adobe/commerce-events-sdk/dist/types/types/schemas";
+import { ShoppingCart, StorefrontInstance } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
 
 import { ProductListItem, SelectedOption } from "../../types/aep";
 import { getDiscountAmount } from "../discount";
@@ -17,9 +14,9 @@ const createProductListItems = (
 ): ProductListItem[] => {
     const returnList: ProductListItem[] = [];
     if (shoppingCartContext.items?.length) {
-        shoppingCartContext.items.forEach(item => {
+        shoppingCartContext.items.forEach((item) => {
             const selectedOptions: SelectedOption[] = [];
-            item.configurableOptions?.forEach(option => {
+            item.configurableOptions?.forEach((option) => {
                 selectedOptions.push({
                     attribute: option.optionLabel,
                     value: option.valueLabel,
@@ -31,9 +28,7 @@ const createProductListItems = (
                 name: item.product.name,
                 quantity: item.quantity,
                 priceTotal: item.prices.price.value * item.quantity,
-                currencyCode:
-                    item.prices.price.currency ??
-                    storefrontContext.storeViewCurrencyCode,
+                currencyCode: item.prices.price.currency ?? storefrontContext.storeViewCurrencyCode,
                 discountAmount: getDiscountAmount(item.product),
                 selectedOptions: selectedOptions,
             };

@@ -91,20 +91,14 @@ export default class PublishManager extends Base {
         });
     }
 
-    recsUnitRender(
-        unitId: RecommendationUnit["unitId"],
-        context?: CustomContext,
-    ): void {
+    recsUnitRender(unitId: RecommendationUnit["unitId"], context?: CustomContext): void {
         this.pushEvent(events.RECS_UNIT_RENDER, {
             unitId,
             customContext: context,
         });
     }
 
-    recsUnitView(
-        unitId: RecommendationUnit["unitId"],
-        context?: CustomContext,
-    ): void {
+    recsUnitView(unitId: RecommendationUnit["unitId"], context?: CustomContext): void {
         this.pushEvent(events.RECS_UNIT_VIEW, {
             unitId,
             customContext: context,
@@ -143,30 +137,21 @@ export default class PublishManager extends Base {
         });
     }
 
-    searchRequestSent(
-        searchUnitId: SearchResultUnit["searchUnitId"],
-        context?: CustomContext,
-    ): void {
+    searchRequestSent(searchUnitId: SearchResultUnit["searchUnitId"], context?: CustomContext): void {
         this.pushEvent(events.SEARCH_REQUEST_SENT, {
             searchUnitId,
             customContext: context,
         });
     }
 
-    searchResponseReceived(
-        searchUnitId: SearchResultUnit["searchUnitId"],
-        context?: CustomContext,
-    ): void {
+    searchResponseReceived(searchUnitId: SearchResultUnit["searchUnitId"], context?: CustomContext): void {
         this.pushEvent(events.SEARCH_RESPONSE_RECEIVED, {
             searchUnitId,
             customContext: context,
         });
     }
 
-    searchResultsView(
-        searchUnitId: SearchResultUnit["searchUnitId"],
-        context?: CustomContext,
-    ): void {
+    searchResultsView(searchUnitId: SearchResultUnit["searchUnitId"], context?: CustomContext): void {
         this.pushEvent(events.SEARCH_RESULTS_VIEW, {
             searchUnitId,
             customContext: context,
