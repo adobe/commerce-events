@@ -9,7 +9,7 @@ import {
     generateShopperContext,
     generateShoppingCartContext,
     generateStorefrontInstanceContext,
-} from "../tests/mocks";
+} from "../../packages/commerce-events-sdk/tests/mocks";
 
 const mse = window.magentoStorefrontEvents;
 
