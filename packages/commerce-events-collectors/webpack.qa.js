@@ -7,12 +7,8 @@ module.exports = merge(common, {
     devtool: "eval-source-map",
     plugins: [
         new webpack.DefinePlugin({
-            SNOWPLOW_COLLECTOR_URL: JSON.stringify(
-                "https://com-magento-qa1.collector.snplow.net",
-            ),
-            SNOWPLOW_COLLECTOR_PATH: JSON.stringify(
-                "/com.snowplowanalytics.snowplow/tp2",
-            ),
+            SNOWPLOW_COLLECTOR_URL: JSON.stringify("https://com-magento-qa1.collector.snplow.net"),
+            SNOWPLOW_COLLECTOR_PATH: JSON.stringify("/com.snowplowanalytics.snowplow/tp2"),
         }),
     ],
 });
