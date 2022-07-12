@@ -3,8 +3,7 @@ const webpack = require("webpack");
 const { name, version } = require("./package.json");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const copyRightText =
-    "Copyright © Adobe, Inc. All rights reserved.See COPYING.txt for license details.";
+const copyRightText = "Copyright © Adobe, Inc. All rights reserved.See COPYING.txt for license details.";
 
 const banner = `${name}@v${version}\n${copyRightText}`;
 
@@ -38,6 +37,7 @@ const config = {
     devServer: {
         static: path.join(__dirname, "dist"),
         hot: true,
+        port: 8081,
     },
 };
 

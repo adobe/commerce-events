@@ -1,10 +1,11 @@
 {
-    "name": "example",
+    "name": "@example/old-sdk",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "parcel index.html"
+        "start": "parcel index.html",
+        "dev": "parcel index.html"
     },
     "keywords": [],
     "author": "Brad Garropy",

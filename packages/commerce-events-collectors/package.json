@@ -24,6 +24,7 @@
     "keywords": [],
     "scripts": {
         "start": "webpack serve --config webpack.dev.js",
+        "dev": "webpack serve --config webpack.dev.js",
         "build": "webpack --config webpack.prod.js",
         "build:dev": "webpack --config webpack.dev.js",
         "build:qa": "webpack --config webpack.qa.js",
