@@ -33,6 +33,7 @@ const configureSnowplow = ({ appId, collectorUrl, collectorPath }: ConfigureSnow
         stateStorageStrategy: "localStorage",
         postPath: collectorPath,
         contexts: {
+            session: false,
             webPage: true,
         },
         plugins: [PerformanceTimingPlugin(), LinkClickTrackingPlugin()],
