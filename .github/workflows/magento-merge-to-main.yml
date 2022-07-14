@@ -1,8 +1,8 @@
-name: merge-to-main
+name: magento-merge-to-main
 
 on:
     push:
-        branches: [main, using-all-namespaces]
+        branches: [main]
         paths:
             - "packages/magento-storefront-**"
             - ".github/workflows/magento-merge-to-main.yml"
