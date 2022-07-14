@@ -1,15 +1,15 @@
-name: magento-merge-to-main
+name: storefront-merge-to-main
 
 on:
     push:
         branches: [main]
         paths:
-            - "packages/magento-storefront-**"
-            - ".github/workflows/magento-merge-to-main.yml"
+            - "packages/storefront-events-**"
+            - ".github/workflows/storefront-merge-to-main.yml"
 
 jobs:
-    merge-to-main:
-        name: merge-to-main
+    storefront-merge-to-main:
+        name: storefront-merge-to-main
         runs-on: ubuntu-latest
         steps:
             - name: checkout
@@ -36,22 +36,22 @@ jobs:
             - name: build
               run: yarn build
 
-            - name: release magento sdk
-              working-directory: ./packages/magento-storefront-events-sdk
+            - name: release storefront sdk
+              working-directory: ./packages/storefront-events-sdk
               run: yarn release -- --skip.commit --skip.tag --release-as 0.0.0-${{ github.sha }}
 
-            - name: publish magento sdk
-              working-directory: ./packages/magento-storefront-events-sdk
+            - name: publish storefront sdk
+              working-directory: ./packages/storefront-events-sdk
               run: yarn publish --access public --tag qa
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
 
-            - name: release magento collector
-              working-directory: ./packages/magento-storefront-event-collector
+            - name: release storefront collector
+              working-directory: ./packages/storefront-events-collector
               run: yarn release -- --skip.commit --skip.tag --release-as 0.0.0-${{ github.sha }}
 
-            - name: publish magento collector
-              working-directory: ./packages/magento-storefront-event-collector
+            - name: publish storefront collector
+              working-directory: ./packages/storefront-events-collector
               run: yarn publish --access public --tag qa
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
