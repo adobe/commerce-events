@@ -5,6 +5,6 @@
         "outDir": "dist",
         "declarationDir": "dist/types"
     },
-    "include": ["src/**/*"],
+    "include": ["src/**/*", "types/**/*"],
     "exclude": ["node_modules", "dist", ".turbo", "coverage"]
 }

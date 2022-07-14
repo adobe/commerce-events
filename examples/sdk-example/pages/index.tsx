@@ -6,7 +6,7 @@ export default function SDK() {
     return (
         <div>
             <Head>
-                <title>Adobe Commerce Events SDK Example</title>                
+                <title>Adobe Commerce Events SDK Example</title>
             </Head>
             <Script src="http://localhost:8080/index.js"></Script>
             <h1>SDK Example</h1>
