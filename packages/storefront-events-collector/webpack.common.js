@@ -14,7 +14,7 @@ const config = {
         path: path.resolve(__dirname, "dist"),
         publicPath: "",
         library: {
-            name: "magentoStorefrontEvents",
+            name: "magentoStorefrontEventCollector",
             type: "umd",
             export: "default",
             umdNamedDefine: true,
@@ -35,9 +35,9 @@ const config = {
         extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
     },
     devServer: {
-        port: 8040,
         static: path.join(__dirname, "dist"),
         hot: true,
+        port: 8081,
     },
 };
 

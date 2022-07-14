@@ -1,0 +1,17 @@
+# dependencies
+.npm
+node_modules
+
+# build
+dist
+storybook
+
+# test
+coverage
+
+# misc
+.env
+
+src
+tsconfig.json
+README.md

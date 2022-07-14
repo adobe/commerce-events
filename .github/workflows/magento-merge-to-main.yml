@@ -1,11 +1,11 @@
-name: merge-to-main
+name: magento-merge-to-main
 
 on:
     push:
         branches: [main]
         paths:
-            - "packages/commerce-events-**"
-            - ".github/workflows/merge-to-main.yml"
+            - "packages/magento-storefront-**"
+            - ".github/workflows/magento-merge-to-main.yml"
 
 jobs:
     merge-to-main:
@@ -36,22 +36,22 @@ jobs:
             - name: build
               run: yarn build
 
-            - name: release sdk
-              working-directory: ./packages/commerce-events-sdk
+            - name: release magento sdk
+              working-directory: ./packages/magento-storefront-events-sdk
               run: yarn release -- --skip.commit --skip.tag --release-as 0.0.0-${{ github.sha }}
 
-            - name: publish sdk
-              working-directory: ./packages/commerce-events-sdk
+            - name: publish magento sdk
+              working-directory: ./packages/magento-storefront-events-sdk
               run: yarn publish --access public --tag qa
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
 
-            - name: release collectors
-              working-directory: ./packages/commerce-events-collectors
+            - name: release magento collector
+              working-directory: ./packages/magento-storefront-event-collector
               run: yarn release -- --skip.commit --skip.tag --release-as 0.0.0-${{ github.sha }}
 
-            - name: publish collectors
-              working-directory: ./packages/commerce-events-collectors
+            - name: publish magento collector
+              working-directory: ./packages/magento-storefront-event-collector
               run: yarn publish --access public --tag qa
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
