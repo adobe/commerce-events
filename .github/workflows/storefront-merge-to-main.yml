@@ -34,7 +34,7 @@ jobs:
               run: yarn install --frozen-lockfile
 
             - name: build
-              run: yarn build
+              run: yarn build:qa
 
             - name: release storefront sdk
               working-directory: ./packages/storefront-events-sdk

@@ -11,6 +11,15 @@
                 ".next/**"
             ]
         },
+        "build:qa": {
+            "dependsOn": [
+                "^build:qa"
+            ],
+            "outputs": [
+                "dist/**",
+                ".next/**"
+            ]
+        },
         "test": {
             "dependsOn": ["^build"],
             "outputs": ["coverage/**"]
