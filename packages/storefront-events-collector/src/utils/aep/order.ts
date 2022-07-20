@@ -2,6 +2,25 @@ import * as sdkSchemas from "@adobe/magento-storefront-events-sdk/dist/types/typ
 
 import { Order, Payment } from "../../types/aep";
 
+const getAepPaymentCode = (paymentMethodCode: string) => {
+    switch (paymentMethodCode) {
+        case 'checkmo':
+            return 'check';
+        case 'banktransfer':
+            return 'wire_transfer';
+        case 'cashondelivery':
+            return 'cash';
+        case 'purchaseorder':
+            return 'other';
+        case 'free':
+            return 'other';
+        case 'companycredit':
+            return 'other';
+        default:
+            return 'other';
+    }
+}
+
 const createOrder = (
     orderContext: sdkSchemas.Order,
     storefrontInstanceContext: sdkSchemas.StorefrontInstance,
@@ -13,8 +32,7 @@ const createOrder = (
         payments = orderContext.payments.map((payment) => {
             return {
                 paymentAmount: payment.total,
-                // todo ahammond these should be an enum, change in sdk, retest (DINT-324)
-                paymentType: payment.paymentMethodCode,
+                paymentType: getAepPaymentCode(payment.paymentMethodCode),
                 transactionID: orderContext.orderId.toString(),
             };
         });
@@ -23,8 +41,7 @@ const createOrder = (
         payments = [
             {
                 paymentAmount: orderContext.grandTotal,
-                // todo ahammond these should be an enum, change in sdk, retest (DINT-324)
-                paymentType: orderContext.paymentMethodCode,
+                paymentType: getAepPaymentCode(orderContext.paymentMethodCode),
                 transactionID: orderContext.orderId.toString(),
             },
         ];
