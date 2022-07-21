@@ -33,6 +33,10 @@
         "dev": {
             "dependsOn": ["^build"],
             "cache": false
+        },
+        "new": {
+            "dependsOn": ["^new"],
+            "cache": false
         }
     }
 }

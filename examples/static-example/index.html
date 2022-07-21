@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/adobe.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <title>Rollup Example</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+    <script src="http://localhost:8080/umd.index.js"></script>
+    <script>
+        const { CommerceEvents, SampleCollector } = commerceEventsSDK;
+        
+        const sdk = new CommerceEvents();
+
+        const collector = new SampleCollector();
+        sdk.subscribe(collector);
+
+        sdk.publish({ "foo": "bar"})
+    </script>
+  </body>
+</html>
