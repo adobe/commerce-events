@@ -16,6 +16,7 @@ const createOrder = (
                 // todo ahammond these should be an enum, change in sdk, retest (DINT-324)
                 paymentType: payment.paymentMethodCode,
                 transactionID: orderContext.orderId.toString(),
+                currencyCode: storefrontInstanceContext.storeViewCurrencyCode,
             };
         });
     } else {
@@ -26,15 +27,19 @@ const createOrder = (
                 // todo ahammond these should be an enum, change in sdk, retest (DINT-324)
                 paymentType: orderContext.paymentMethodCode,
                 transactionID: orderContext.orderId.toString(),
+                currencyCode: storefrontInstanceContext.storeViewCurrencyCode,
             },
         ];
     }
+
+    // default orderType to 'checkout'
+    const orderType = orderContext.orderType === "instant_purchase" ? "instant_purchase" : "checkout";
 
     return {
         purchaseID: orderContext.orderId.toString(),
         currencyCode: storefrontInstanceContext.storeViewCurrencyCode,
         payments,
-        orderType: orderContext.orderType,
+        orderType,
     };
 };
 
