@@ -1,3 +1,4 @@
+import dts from "rollup-plugin-dts";
 import esbuild from "rollup-plugin-esbuild";
 import license from "rollup-plugin-license";
 import serve from "rollup-plugin-serve";
@@ -16,6 +17,11 @@ const config = {
             name: "commerceEventsSDK",
             sourcemap: isProduction,
         },
+        // {
+        //     input: "src/index.ts",
+        //     output: [{ file: "dist/index.d.ts", format: "es" }],
+        //     plugins: [dts()],
+        // },
     ],
     plugins: [
         esbuild({

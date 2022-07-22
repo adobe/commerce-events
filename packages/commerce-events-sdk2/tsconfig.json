@@ -5,6 +5,6 @@
         "outDir": "dist",
         "declarationDir": "dist/types"
     },
-    "include": ["src/**/*", "lib.d.ts"],
+    "include": ["./**/*.ts", "lib.d.ts"],
     "exclude": ["node_modules", "dist", ".turbo", "coverage"]
 }

@@ -1,9 +1,34 @@
 import { Publisher, Subscriber } from "./interfaces";
+import { AdobeClientDataLayer } from "./interfaces/acdl";
+
+export type Event = {
+    event: string;
+    // eventInfo: Context & CustomContext;
+};
+
+export type EventHandler = (event: Event) => void;
+
+export type ListenerOptions = {
+    path?: string;
+    scope?: "past" | "future" | "all";
+};
+
+/** An Adapter class for the ACDL */
+export class ACDL {
+    constructor(private readonly acdl: AdobeClientDataLayer) {
+        if (window && window.adobeDataLayer) {
+            this.acdl = window.adobeDataLayer;
+        }
+    }
+
+    addEventListener(name: string, handler: EventHandler, options?: ListenerOptions) {
+        // this.acdl.addEventListener(name, handler, options);
+    }
+}
 
 export class CommerceEvents implements Publisher {
     /**
-     * @type {number} For the sake of simplicity, the Subject's state, essential
-     * to all subscribers, is stored in this variable.
+     * @type {unknown} This is going to be the same as the acdl.getState();
      */
     public state: unknown;
 
@@ -14,17 +39,14 @@ export class CommerceEvents implements Publisher {
      */
     private subscribers: Subscriber[] = [];
 
-    constructor(public readonly initialState = []) {
+    constructor(public readonly acdl: AdobeClientDataLayer) {
         // assign default state or initialize as empty array
-        this.state = initialState;
+        this.state = acdl.getState();
 
         // this should be handled elsewhere
         window && window.postMessage("adobe-commerce-events-sdk", "*");
     }
 
-    /**
-     * The subscription management methods.
-     */
     public subscribe(subscriber: Subscriber): void {
         const isExist = this.subscribers.includes(subscriber);
         if (isExist) {
