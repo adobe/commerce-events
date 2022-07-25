@@ -18,11 +18,13 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
             purchaseID: '111111',
             currencyCode: 'USD',
             payments: [{
+                "currencyCode": "USD",
                 "paymentAmount": 30,
                 "paymentType": "other",
                 "transactionID": "111111",
                 },
                 {
+                "currencyCode": "USD",
                 "paymentAmount": 39.98,
                 "paymentType": "other",
                 "transactionID": "111111",
