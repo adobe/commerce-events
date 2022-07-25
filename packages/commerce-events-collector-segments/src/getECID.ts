@@ -1,20 +1,34 @@
-// Gets the ECID from session cookie "AMCV_{AdobeOrgID}_AdobeOrg"
+// Get ECID from alloy
 
-const ECID_SESSION_REGEX = "AMCV_[A-Z0-9]*%40AdobeOrg=([^;]+)";
+import { AlloyIdentity } from "./aep/types";
 
-const getECID = (): Promise<unknown> => {
-    return new Promise((resolve, reject) => {
-        let cookieForECID = document.cookie.match(ECID_SESSION_REGEX);
-        if (cookieForECID === null) {
-            setTimeout(() => {
-                cookieForECID = document.cookie.match(ECID_SESSION_REGEX);
-            }, 1500);
-        }
-        if (cookieForECID !== null) {
-            resolve(cookieForECID[1].split("|")[1]);
-        } else {
-            reject("ECID session cookie not available");
-        }
+const getECID = (): Promise<string | void> => {
+    return new Promise((resolve, reject): string | void => {
+        let retry = true;
+
+        const fetchECID = () => {
+            if (window.hasOwnProperty("alloy")) {
+                window
+                    .alloy("getIdentity")
+                    .then((result: AlloyIdentity | void) => {
+                        console.log("Alloy fetched identity.");
+                        resolve(result?.identity.ECID);
+                    })
+                    .catch((error) => {
+                        reject(error);
+                    });
+            } else {
+                if (retry) {
+                    retry = false;
+                    setTimeout(fetchECID, 1000);
+                } else {
+                    console.log("Alloy not available to fetch identity.");
+                    reject("Alloy not available");
+                }
+            }
+        };
+
+        fetchECID();
     });
 };
 

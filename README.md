@@ -21,23 +21,24 @@ Under the dev script, our built files are hosted at:
 
 #### v1.x
 
-- sdk - `http://localhost:8080/index.js`
-- collector - `http://localhost:8081/index.js`
+-   sdk - `http://localhost:8080/index.js`
+-   collector - `http://localhost:8081/index.js`
 
 #### v2.x
-- sdk: `http://localhost:8040/index.js`
-- collectors: `http://localhost:8041/index.js`
+
+-   sdk: `http://localhost:8040/index.js`
+-   collectors: `http://localhost:8041/index.js`
 
 ## Packages
 
 > :warning: If you plan on doing any immediate work for these packages, use the 1.x versions. There will be a slow migration to the new package names, but this involves changing references in other [php extensions](data-services). v1.x and v2.x should be the same code as of right now, but could change soon.
 
-
-| Name                                                                  | NPM Namespace                                   | version |
-| --------------------------------------------------------------------- | ------------------------------------------- | ------- |
-| [storefront-events-sdk](./packages/storefront-events-sdk)             | `@adobe/magento-storefront-events-sdk`      | 1.x     |
-| [storefront-events-collector](./packages/storefront-events-collector) | `@adobe/magento-storefront-event-collector` | 1.x     |
-| [commerce-events-sdk](./packages/commerce-events-sdk)                 | `@adobe/commerce-events-sdk`                | 2.x     |
-| [commerce-events-collector](./packages/commerce-events-collectors)    | `@adobe/commerce-events-collectors`         | 2.x     |
+| Name                                                                                 | NPM Namespace                                | version |
+| ------------------------------------------------------------------------------------ | -------------------------------------------- | ------- |
+| [storefront-events-sdk](./packages/storefront-events-sdk)                            | `@adobe/magento-storefront-events-sdk`       | 1.x     |
+| [storefront-events-collector](./packages/storefront-events-collector)                | `@adobe/magento-storefront-event-collector`  | 1.x     |
+| [commerce-events-sdk](./packages/commerce-events-sdk)                                | `@adobe/commerce-events-sdk`                 | 2.x     |
+| [commerce-events-collector](./packages/commerce-events-collectors)                   | `@adobe/commerce-events-collectors`          | 2.x     |
+| [commerce-events-collector-segments](./packages/commerce-events-collectors-segments) | `@adobe/commerce-events-collectors-segments` | 1.x     |
 
 [data-services]: https://github.com/magento-commerce/data-services/blob/main/DataServices/view/frontend/requirejs-config.js

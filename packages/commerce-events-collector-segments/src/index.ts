@@ -1,1 +1,1 @@
-import getECID from "./getECID";
+export * from "./getECID";
