@@ -11,7 +11,7 @@ const aepHandler = async (event: Event): Promise<void> => {
     const { shoppingCartContext, debugContext, storefrontInstanceContext, customContext } = event.eventInfo;
 
     let payload: BeaconSchema;
-    if (customContext) {
+    if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
         // override payload on custom context
         payload = customContext as BeaconSchema;
     } else {

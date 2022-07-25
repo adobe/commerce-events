@@ -2,18 +2,17 @@ import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/eve
 
 import { sendEvent } from "../../alloy";
 import { BeaconSchema } from "../../types/aep";
-import { getDiscountAmount } from "../../utils/discount";
+import { createProductListItems } from "../../utils/aep/productListItems";
 
 const XDM_EVENT_TYPE = "commerce.productListAdds";
 
 /** Sends an event to aep with an addToCart payload */
 const aepHandler = async (event: Event): Promise<void> => {
     // note: the shopping cart context does not include the updated product in the cart
-    const { productContext, shoppingCartContext, debugContext, customContext, storefrontInstanceContext } =
-        event.eventInfo;
+    const { shoppingCartContext, debugContext, customContext, storefrontInstanceContext } = event.eventInfo;
 
     let payload: BeaconSchema;
-    if (customContext) {
+    if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
         // override payload on custom context
         payload = customContext as BeaconSchema;
     } else {
@@ -23,18 +22,7 @@ const aepHandler = async (event: Event): Promise<void> => {
                     cartID: shoppingCartContext.id,
                 },
             },
-            productListItems: [
-                {
-                    SKU: productContext.sku,
-                    name: productContext.name,
-                    priceTotal: productContext.pricing?.specialPrice ?? productContext.pricing?.regularPrice,
-                    currencyCode:
-                        productContext.pricing?.currencyCode ??
-                        storefrontInstanceContext.storeViewCurrencyCode ??
-                        undefined,
-                    discountAmount: getDiscountAmount(productContext),
-                },
-            ],
+            productListItems: createProductListItems(shoppingCartContext, storefrontInstanceContext),
         };
     }
 

@@ -32,6 +32,7 @@ const createOrder = (
                 paymentAmount: payment.total,
                 paymentType: getAepPaymentCode(payment.paymentMethodCode),
                 transactionID: orderContext.orderId.toString(),
+                currencyCode: storefrontInstanceContext.storeViewCurrencyCode,
             };
         });
     } else {
@@ -41,15 +42,19 @@ const createOrder = (
                 paymentAmount: orderContext.grandTotal,
                 paymentType: getAepPaymentCode(orderContext.paymentMethodCode),
                 transactionID: orderContext.orderId.toString(),
+                currencyCode: storefrontInstanceContext.storeViewCurrencyCode,
             },
         ];
     }
+
+    // default orderType to 'checkout'
+    const orderType = orderContext.orderType === "instant_purchase" ? "instant_purchase" : "checkout";
 
     return {
         purchaseID: orderContext.orderId.toString(),
         currencyCode: storefrontInstanceContext.storeViewCurrencyCode,
         payments,
-        orderType: orderContext.orderType,
+        orderType,
     };
 };
 

@@ -13,7 +13,14 @@ const initializeAlloy = async () => {
         await configure();
 
         // start polling every second to look for changes
-        setInterval(setConsent, 1000);
+        const consentInterval = setInterval(async () => {
+            try {
+                await setConsent();
+            } catch {
+                clearInterval(consentInterval);
+                console.warn("Consent could not be set.");
+            }
+        }, 1000);
     } catch (error) {
         console.warn("Alloy could not be configured.");
     }
