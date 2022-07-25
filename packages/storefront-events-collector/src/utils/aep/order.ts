@@ -3,6 +3,7 @@ import * as sdkSchemas from "@adobe/magento-storefront-events-sdk/dist/types/typ
 import { Order, Payment } from "../../types/aep";
 
 const getAepPaymentCode = (paymentMethodCode: string) => {
+    //Code support reasoning documented here: https://jira.corp.adobe.com/browse/DINT-324
     switch (paymentMethodCode) {
         case 'checkmo':
             return 'check';
@@ -11,11 +12,8 @@ const getAepPaymentCode = (paymentMethodCode: string) => {
         case 'cashondelivery':
             return 'cash';
         case 'purchaseorder':
-            return 'other';
         case 'free':
-            return 'other';
         case 'companycredit':
-            return 'other';
         default:
             return 'other';
     }
