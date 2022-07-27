@@ -2,7 +2,7 @@ name: merge-to-main
 
 on:
     push:
-        branches: [main]
+        branches: [main, SEG-4-pipeline]
         paths:
             - "packages/commerce-events-**"
             - ".github/workflows/merge-to-main.yml"
@@ -52,6 +52,16 @@ jobs:
 
             - name: publish collectors
               working-directory: ./packages/commerce-events-collectors
+              run: yarn publish --access public --tag qa
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
+
+            - name: release segments collector
+              working-directory: ./packages/commerce-events-collector-segments
+              run: yarn release -- --skip.commit --skip.tag --release-as 0.0.0-${{ github.sha }}
+
+            - name: publish segments collector
+              working-directory: ./packages/commerce-event-collector-segments
               run: yarn publish --access public --tag qa
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
