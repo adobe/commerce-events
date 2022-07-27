@@ -61,7 +61,7 @@ jobs:
               run: yarn release -- --skip.commit --skip.tag --release-as 0.0.0-${{ github.sha }}
 
             - name: publish segments collector
-              working-directory: ./packages/commerce-event-collector-segments
+              working-directory: ./packages/commerce-events-collector-segments
               run: yarn publish --access public --tag qa
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
