@@ -2,7 +2,7 @@ name: merge-to-main
 
 on:
     push:
-        branches: [main, SEG-4-pipeline]
+        branches: [main]
         paths:
             - "packages/commerce-events-**"
             - ".github/workflows/merge-to-main.yml"
