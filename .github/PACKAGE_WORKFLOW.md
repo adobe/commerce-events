@@ -27,7 +27,7 @@ We can simply add our new package workflow by adding the below lines to the end 
 
 ### - NPM Access
 
-When you create a Pull Request and it is merged into the `main` branch, your package is then built and pushed to [npm](npmjs.com). You can see the piplines running [here]().If you search for your package name, you should see the latest build as version `0.0.0-<github commit hash>` and should also have a qa tag.
+When you create a Pull Request and it is merged into the `main` branch, your package is then built and pushed to [npm](npmjs.com). You can see the piplines running [here](https://github.com/adobe/commerce-events/actions). If you search for your package name, you should see the latest build as version `0.0.0-<github commit hash>` and should also have a qa tag.
 
 ### - UNPKG Access
 
