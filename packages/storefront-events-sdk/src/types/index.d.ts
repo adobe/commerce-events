@@ -1,5 +1,9 @@
 interface Window {
     adobeDataLayer: AdobeClientDataLayer;
+    magentoStorefrontEvents: any;
+    commerceConnector: any;
+    __commerceNS: any;
+    q: any;
 }
 
 // TODO: Add type definition for ACDL

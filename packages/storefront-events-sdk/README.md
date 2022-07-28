@@ -26,15 +26,49 @@ This SDK can be used as a hosted script, or bundled in a JavaScript application.
 
 To load the SDK as a script, use the following snippet.
 
-```
-<script src="https://unpkg.com/@adobe/commerce-events-sdk/dist/index.js"></script>
-```
+### Option 1: Package dependency (npm)
 
 To install the script as a dependency, run this command.
 
 ```shell
 npm install @adobe/commerce-events-sdk
 ```
+
+### Option 2: Pre-built standalone script (async)
+
+The SDK implements a command queue so that no events are missed during initial page load using asynchronous loading.
+
+Copy the command queue (base) script as close to the top of your HTML `<head>` tag:
+
+```
+<script>
+    !function(n,o){o.forEach(function(o){n[o]||((n.__commerceNS=n.__commerceNS||
+    []).push(o),n[o]=function(){var u=arguments;return new Promise(
+    function(i,l){n[o].q.push([i,l,u])})},n[o].q=[])})}
+    (window,["commerceConnector"]);
+</script>
+```
+
+```
+<script src="https://unpkg.com/@adobe/commerce-events-sdk/dist/index.js" async></script>
+```
+
+### Option 3: Pre-built standalone script (sync)
+
+```
+<script>
+    !function(n,o){o.forEach(function(o){n[o]||((n.__commerceNS=n.__commerceNS||
+    []).push(o),n[o]=function(){var u=arguments;return new Promise(
+    function(i,l){n[o].q.push([i,l,u])})},n[o].q=[])})}
+    (window,["commerceConnector"]);
+</script>
+```
+
+```
+<script src="https://unpkg.com/@adobe/commerce-events-sdk/dist/index.js"></script>
+```
+
+For options 2 and 3, some example code is available in [the collector example directory](../../examples/old-collector-example/).
 
 ## Quick start
 
@@ -45,9 +79,68 @@ Once imported, you have access to the four main functions of the Events SDK.
 -   [Subscribe][subscribe] - subscribe to events
 -   [Unsubscribe][unsubscribe] - unsubscribe from events
 
-Below is a code example of how to get started.
+Below are some code example of how to get started.
 
 > _IMPORTANT: Relevant context data must be populated before publishing events that require it._
+
+```javascript
+/** sync **/
+
+import mse from "@adobe/commerce-events-sdk";
+// handler - can go in a different module
+function addToCartHandler(event) {
+    // do something with the event
+}
+// subscribe to events
+mse.subscribe.addToCart(addToCartHandler);
+
+const shoppingCartContext = {
+    id: "1",
+    items: [
+        {
+            id: "shoppingCart",
+            product: {
+                productId: 111111,
+                sku: "ts001",
+                pricing: {
+                    regularPrice: 20.0,
+                    currencyCode: "USD",
+                },
+            },
+            quantity: 1,
+        },
+    ],
+};
+
+mse.context.setShoppingCart(shoppingCartContext);
+
+// publish events
+mse.publish.addToCart();
+
+// unsubscribe from events
+mse.unsubscribe.addToCart(addToCartHandler);
+```
+
+```javascript
+/** async **/
+
+// handler - can go in a different module
+function addToCartHandler(event) {
+    // do something with the event
+}
+
+// subscribe to events
+commerceConnector("subscribe", "addToCart", addToCartHandler).then(() => {
+    // set context data
+    commerceConnector("context", "setShoppingCart", shoppingCartContext).then(() => {
+        // publish events
+        commerceConnector("publish", "addToCart");
+    });
+});
+
+// unsubscribe from events
+commerceConnector("unsubscribe", "addToCart", addToCartHandler);
+```
 
 ```javascript
 import mse from "@adobe/commerce-events-sdk";
@@ -102,6 +195,12 @@ These setters can be used to specify context in the `mse`:
 #### `setAEP`
 
 ```javascript
+/** async **/
+commerceConnector("context", "setAEP", aepCtx);
+```
+
+```javascript
+/** sync **/
 mse.context.setAEP(aepCtx);
 ```
 
@@ -113,6 +212,12 @@ Sets the `AEP` context which can be used by event handlers to forward events to 
 #### `setCategory`
 
 ```javascript
+/** async **/
+commerceConnector("context", "setCategory", categoryCtx);
+```
+
+```javascript
+/** sync **/
 mse.context.setCategory(categoryCtx);
 ```
 
@@ -124,25 +229,26 @@ Sets the `Category` context.
 #### `setAccount`
 
 ```javascript
+/** async **/
+commerceConnector("context", "setAccount", accountCtx);
+```
+
+```javascript
+/** sync **/
 mse.context.setAccount(accountCtx);
 ```
 
 Sets the `Account` context.
 
-#### `setCustomUrl`
-
-```javascript
-mse.context.setCustomUrl(customUrlCtx);
-```
-
-Sets the `CustomUrl` context.
-
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/customUrl.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L40)
-
 #### `setEventForwarding`
 
 ```javascript
+/** async **/
+commerceConnector("context", "setEventForwarding", eventForwardingCtx);
+```
+
+```javascript
+/** sync **/
 mse.context.setEventForwarding(eventForwardingCtx);
 ```
 
@@ -154,6 +260,12 @@ Sets the `EventForwarding` context. Tells a handler if it should forward events 
 #### `setMagentoExtension` @deprecated
 
 ```javascript
+/** async **/
+commerceConnector("context", "setMagentoExtension", magentoExtensionCtx);
+```
+
+```javascript
+/** sync **/
 mse.context.setMagentoExtension(magentoExtensionCtx);
 ```
 
@@ -167,6 +279,12 @@ This field is deprecated. `setDataServicesExtension` should be used instead.
 #### `setDataServicesExtension`
 
 ```javascript
+/** async **/
+commerceConnector("context", "setDataServicesExtension", dataServicesExtensionCtx);
+```
+
+```javascript
+/** sync **/
 mse.context.setDataServicesExtension(dataServicesExtensionCtx);
 ```
 
@@ -177,6 +295,12 @@ Sets the `DataServicesExtension` context. Includes Data Services extension versi
 #### `setOrder`
 
 ```javascript
+/** async **/
+commerceConnector("context", "setOrder", orderCtx);
+```
+
+```javascript
+/** sync **/
 mse.context.setOrder(orderCtx);
 ```
 
@@ -188,6 +312,12 @@ Sets the `Order` context.
 #### `setPage`
 
 ```javascript
+/** async **/
+commerceConnector("context", "setPage", pageCtx);
+```
+
+```javascript
+/** sync **/
 mse.context.setPage(pageCtx);
 ```
 
@@ -199,6 +329,12 @@ Sets the `Page` context.
 #### `setProduct`
 
 ```javascript
+/** async **/
+commerceConnector("context", "setProduct", productCtx);
+```
+
+```javascript
+/** sync **/
 mse.context.setProduct(productCtx);
 ```
 
@@ -210,6 +346,12 @@ Sets the `Product` context.
 #### `setRecommendations`
 
 ```javascript
+/** async **/
+commerceConnector("context", "setRecommendations", recommendationsCtx);
+```
+
+```javascript
+/** sync **/
 mse.context.setRecommendations(recommendationsCtx);
 ```
 
@@ -221,7 +363,13 @@ Sets the `Recommendations` context.
 #### `setRecommendationsExtension`
 
 ```javascript
+/** async **/
 mse.context.setRecommendationsExtension(recommendationsExtensionCtx);
+```
+
+```javascript
+/** sync **/
+commerceConnector("context", "setRecommendationsExtension", recommendationsExtensionCtx);
 ```
 
 Sets the `RecommendationsExtension` context. Includes Recommendations extension version.
@@ -231,6 +379,12 @@ Sets the `RecommendationsExtension` context. Includes Recommendations extension 
 #### `setReferrerUrl`
 
 ```javascript
+/** async **/
+commerceConnector("context", "setReferrerUrl", referrerUrlCtx);
+```
+
+```javascript
+/** sync **/
 mse.context.setReferrerUrl(referrerUrlCtx);
 ```
 
@@ -242,6 +396,12 @@ Sets the `ReferrerUrl` context.
 #### `setSearchExtension`
 
 ```javascript
+/**  async **/
+commerceConnector("context", "setSearchExtension", searchExtensionCtx);
+```
+
+```javascript
+/** sync **/
 mse.context.setSearchExtension(searchExtensionCtx);
 ```
 
@@ -252,6 +412,12 @@ Sets the `SearchExtension` context. Includes Live Search extension version.
 #### `setSearchInput`
 
 ```javascript
+/** async **/
+commerceConnector("context", "setSearchInput", searchInputCtx);
+```
+
+```javascript
+/** sync **/
 mse.context.setSearchInput(searchInputCtx);
 ```
 
@@ -263,6 +429,12 @@ Sets the `SearchInput` context.
 #### `setSearchResults`
 
 ```javascript
+/** async **/
+commerceConnector("context", "setSearchResults", searchResultsCtx);
+```
+
+```javascript
+/** sync *//
 mse.context.setSearchResults(searchResultsCtx);
 ```
 
@@ -274,6 +446,12 @@ Sets the `SearchResults` context.
 #### `setShopper`
 
 ```javascript
+/** async **/
+commerceConnector("context", "setShopper", shopperCtx);
+```
+
+```javascript
+/** sync **/
 mse.context.setShopper(shopperCtx);
 ```
 
@@ -285,6 +463,12 @@ Sets the `Shopper` context.
 #### `setShoppingCart`
 
 ```javascript
+/** async **/
+commerceConnector("context", "setShoppingCart", shoppingCartCtx);
+```
+
+```javascript
+/** sync **/
 mse.context.setShoppingCart(shoppingCartCtx);
 ```
 
@@ -296,6 +480,12 @@ Sets the `ShoppingCart` context.
 #### `setStorefrontInstance`
 
 ```javascript
+/** async **/
+commerceConnector("context", "setStorefrontInstance", storefrontCtx);
+```
+
+```javascript
+/** sync **/
 mse.context.setStorefrontInstance(storefrontCtx);
 ```
 
@@ -307,6 +497,12 @@ Sets the `StorefrontInstance` context. This context is used when forwarding data
 #### `setContext`
 
 ```javascript
+/** async **/
+commerceConnector("context", "setContext", name, ctx);
+```
+
+```javascript
+/** sync **/
 mse.context.setContext(name, ctx);
 ```
 
@@ -315,26 +511,47 @@ Sets a custom `Context`.
 These getters are available for accessing context data:
 
 ```javascript
-mse.context.getAEP();
-mse.context.getCategory();
-mse.context.getContext(name);
-mse.context.getCustomUrl();
-mse.context.getEventForwarding();
-mse.context.getMagentoExtension();
-mse.context.getDataServicesExtension();
-mse.context.getOrder();
-mse.context.getPage();
-mse.context.getProduct();
-mse.context.getRecommendations();
-mse.context.getReferrerUrl();
-mse.context.getProduct();
-mse.context.getRecommendations();
-mse.context.getRecommendationsExtension();
-mse.context.getSearchExtension();
-mse.context.getSearchInput();
-mse.context.getSearchResults();
-mse.context.getShopper();
-mse.context.getShoppingCart();
+/** async **/
+const aep = await commerceConnector("context", "getAEP");
+const category = await commerceConnector("context", "getCategory");
+const context = await commerceConnector("context", "getContext", "name");
+const eventForwarding = await commerceConnector("context", "getEventForwarding");
+const magentoExtension = await commerceConnector("context", "getMagentoExtension");
+const dataServicesExtension = await commerceConnector("context", "getDataServicesExtension");
+const order = await commerceConnector("context", "getOrder");
+const page = await commerceConnector("context", "getPage");
+const product = await commerceConnector("context", "getProduct");
+const referrerUrl = await commerceConnector("context", "getReferrerUrl");
+const product = await commerceConnector("context", "getProduct");
+const recommendations = await commerceConnector("context", "getRecommendations");
+const recommendationsExtension = await commerceConnector("context", "getRecommendationsExtension");
+const searchExtension = await commerceConnector("context", "getSearchExtension");
+const searchInput = await commerceConnector("context", "getSearchInput");
+const searchResults = await commerceConnector("context", "getSearchResults");
+const shopper = await commerceConnector("context", "getShopper");
+const shoppingCart = await commerceConnector("context", "getShoppingCart");
+```
+
+```javascript
+/** sync **/
+const aep = mse.context.getAEP();
+const category = mse.context.getCategory();
+const context = mse.context.getContext(name);
+const eventForwarding = mse.context.getEventForwarding();
+const magentoExtension = mse.context.getMagentoExtension();
+const dataServicesExtension = mse.context.getDataServicesExtension();
+const order = mse.context.getOrder();
+const page = mse.context.getPage();
+const product = mse.context.getProduct();
+const referrerUrl = mse.context.getReferrerUrl();
+const product = mse.context.getProduct();
+const recommendations = mse.context.getRecommendations();
+const recommendationsExtension = mse.context.getRecommendationsExtension();
+const searchExtension = mse.context.getSearchExtension();
+const searchInput = mse.context.getSearchInput();
+const searchResults = mse.context.getSearchResults();
+const shopper = mse.context.getShopper();
+const shoppingCart = mse.context.getShoppingCart();
 ```
 
 ### Publish
@@ -342,208 +559,70 @@ mse.context.getShoppingCart();
 These functions publish events which notify all subscribers:
 
 ```javascript
+/** sync **/
 mse.publish.addToCart();
-```
-
-```javascript
 mse.publish.abandonCart();
-```
-
-```javascript
 mse.publish.createAccount(ctx);
-```
-
-```javascript
-// write a `commerce-custom` event to the adobeDataLayer
-// any object passed in will be set under `customContext` for this event
-mse.publish.custom({
-    /*...*/
-});
-```
-
-```javascript
+mse.publish.custom({ customCtx });
 mse.publish.customUrl(ctx);
-```
-
-```javascript
 mse.publish.editAccount(ctx);
-```
-
-```javascript
 mse.publish.initiateCheckout(ctx);
-```
-
-```javascript
 mse.publish.pageActivitySummary(ctx);
-```
-
-```javascript
 mse.publish.pageView(ctx);
-```
-
-```javascript
 mse.publish.placeOrder(ctx);
-```
-
-```javascript
 mse.publish.productPageView(ctx);
-```
-
-```javascript
 mse.publish.recsItemAddToCartClick(unitId, productId, ctx);
-```
-
-```javascript
 mse.publish.recsItemClick(unitId, productId, ctx);
-```
-
-```javascript
 mse.publish.recsRequestSent(ctx);
-```
-
-```javascript
 mse.publish.recsResponseReceived(ctx);
-```
-
-```javascript
-// requires recommendationsContext to be set
 mse.publish.recsUnitRender(unitId, ctx);
-```
-
-```javascript
-// requires recommendationsContext to be set
 mse.publish.recsUnitView(unitId, ctx);
-```
-
-```javascript
 mse.publish.referrerUrl(ctx);
-```
-
-```javascript
 mse.publish.removeFromCart(ctx);
-```
-
-```javascript
-// requires searchResultsContext to be set
 mse.publish.searchCategoryClick(searchUnitId, name, ctx);
-```
-
-```javascript
-// requires searchResultsContext to be set
 mse.publish.searchProductClick(searchUnitId, sku, ctx);
-```
-
-```javascript
-// requires searchInputContext to be set
 mse.publish.searchRequestSent(searchUnitId, ctx);
-```
-
-```javascript
-// requires searchResultsContext to be set
 mse.publish.searchResponseReceived(searchUnitId, ctx);
-```
-
-```javascript
-// requires searchResultsContext to be set
 mse.publish.searchResultsView(searchUnitId, ctx);
-```
-
-```javascript
-// requires searchResultsContext to be set
 mse.publish.searchSuggestionClick(searchUnitId, suggestion, ctx);
-```
-
-```javascript
-// requires shoppingCartContext to be set
 mse.publish.shoppingCartView(ctx);
-```
-
-```javascript
 mse.publish.signIn(ctx);
-```
-
-```javascript
 mse.publish.signOut(ctx);
-```
-
-```javascript
 mse.publish.updateCart(ctx);
 ```
 
 ### Subscribe
 
-These functions subscribe to events:
+All publish methods have a corresponding subscribe method that registers a handler (callback) on published event.
+
+Example:
 
 ```javascript
+/** asynch **/
+commerceConnector("subscribe", "addToCart", handler, options);
+commerceConnector("subscribe", "placeOrder", handler, options);
+```
+
+```javascript
+/** sync **/
 mse.subscribe.addToCart(handler, options);
-mse.subscribe.abandonCart(handler, options);
-mse.subscribe.createAccount(handler, options);
-mse.subscribe.custom(handler, options);
-mse.subscribe.customUrl(handler, options);
-mse.subscribe.editAccount(handler, options);
-mse.subscribe.dataLayerChange(handler, options);
-mse.subscribe.dataLayerEvent(handler, options);
-mse.subscribe.initiateCheckout(handler, options);
-mse.subscribe.pageActivitySummary(handler, options);
-mse.subscribe.pageView(handler, options);
 mse.subscribe.placeOrder(handler, options);
-mse.subscribe.productPageView(handler, options);
-mse.subscribe.recsItemAddToCartClick(handler, options);
-mse.subscribe.recsItemClick(handler, options);
-mse.subscribe.recsRequestSent(handler, options);
-mse.subscribe.recsResponseReceived(handler, options);
-mse.subscribe.recsUnitRender(handler, options);
-mse.subscribe.recsUnitView(handler, options);
-mse.subscribe.referrerUrl(handler, options);
-mse.subscribe.removeFromCart(handler, options);
-mse.subscribe.searchCategoryClick(handler, options);
-mse.subscribe.searchProductClick(handler, options);
-mse.subscribe.searchRequestSent(handler, options);
-mse.subscribe.searchResponseReceived(handler, options);
-mse.subscribe.searchResultsView(handler, options);
-mse.subscribe.searchSuggestionClick(handler, options);
-mse.subscribe.shoppingCartView(handler, options);
-mse.subscribe.signIn(handler, options);
-mse.subscribe.signOut(handler, options);
-mse.subscribe.updateCart(handler, options);
 ```
 
 ### Unsubscribe
 
-These functions unsubscribe from events:
+All subscribe methods have a corresponding unsubscribe method.
+
+Example:
+
+```javascript
+commerceConnector("unsubscribe", "addToCart", handler);
+commerceConnector("unsubscribe", "placeOrder", handler);
+```
 
 ```javascript
 mse.unsubscribe.addToCart(handler);
-mse.unsubscribe.abandonCart(handler);
-mse.unsubscribe.createAccount(handler);
-mse.unsubscribe.custom(handler);
-mse.unsubscribe.customUrl(handler);
-mse.unsubscribe.editAccount(handler);
-mse.unsubscribe.dataLayerChange(handler);
-mse.unsubscribe.dataLayerEvent(handler);
-mse.unsubscribe.initiateCheckout(handler);
-mse.unsubscribe.pageActivitySummary(handler);
-mse.unsubscribe.pageView(handler);
 mse.unsubscribe.placeOrder(handler);
-mse.unsubscribe.productPageView(handler);
-mse.unsubscribe.recsItemAddToCartClick(handler);
-mse.unsubscribe.recsItemClick(handler);
-mse.unsubscribe.recsRequestSent(handler);
-mse.unsubscribe.recsResponseReceived(handler);
-mse.unsubscribe.recsUnitRender(handler);
-mse.unsubscribe.recsUnitView(handler);
-mse.unsubscribe.referrerUrl(handler);
-mse.unsubscribe.removeFromCart(handler);
-mse.unsubscribe.searchCategoryClick(handler);
-mse.unsubscribe.searchProductClick(handler);
-mse.unsubscribe.searchRequestSent(handler);
-mse.unsubscribe.searchResponseReceived(handler);
-mse.unsubscribe.searchResultsView(handler);
-mse.unsubscribe.searchSuggestionClick(handler);
-mse.unsubscribe.shoppingCartView(handler);
-mse.unsubscribe.signIn(handler);
-mse.unsubscribe.signOut(handler);
-mse.unsubscribe.updateCart(handler);
 ```
 
 ## Support
