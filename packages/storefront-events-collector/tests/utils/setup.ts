@@ -1,5 +1,3 @@
-import "@adobe/adobe-client-data-layer";
-
 import mse from "@adobe/magento-storefront-events-sdk";
 
 import {
