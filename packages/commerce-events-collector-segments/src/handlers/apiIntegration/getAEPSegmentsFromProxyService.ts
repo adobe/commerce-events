@@ -27,7 +27,7 @@ const getAEPSegmentsFromProxyService = (profileId: string): Promise<string | voi
     const { imsOrgId = "" } = context.getAEP();
 
     // URL to access the segments proxy service, this will most likely come from a config file or service after POC
-    const GET_AEP_SEGMENTS_ENDPOINT_URL = `https://commerce-int.adobe.io/segments/segments-service/profiles/${profileId}}/segmentmemberships?imsOrgId=${imsOrgId}}&api_key=${API_KEY}`;
+    const GET_AEP_SEGMENTS_ENDPOINT_URL = `https://commerce-int.adobe.io/segments/segments-service/profiles/${profileId}/segmentmemberships?imsOrgId=${imsOrgId}&api_key=${API_KEY}`;
 
     return new Promise((resolve, reject): string | void => {
         fetch(GET_AEP_SEGMENTS_ENDPOINT_URL, apiFetchOptions)
