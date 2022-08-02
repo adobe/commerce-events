@@ -11,11 +11,11 @@ const initialize = async () => {
     try {
         const ecid: string = (await getECID()) || "";
 
-        //call the proxy service the first time, then do it on a timely manner afterwards.
-        callProxyService(ecid);
-
         // need to call proxy service every set amount of time and retrieve updated segment information
         setInterval(callProxyService, PROXY_SERVICE_CALL_INTERVAL, ecid);
+
+        //call the proxy service the first time, then do it on a timely manner afterwards.
+        callProxyService(ecid);
     } catch (error) {
         console.warn("Error on getting segments: ", error);
     }
