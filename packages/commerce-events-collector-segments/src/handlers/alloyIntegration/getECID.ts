@@ -1,6 +1,5 @@
 // Get ECID from alloy
-
-import { AlloyIdentity } from "./aep/types";
+import { AlloyIdentity } from "../../aep/types";
 
 const getECID = (): Promise<string | void> => {
     return new Promise((resolve, reject): string | void => {
