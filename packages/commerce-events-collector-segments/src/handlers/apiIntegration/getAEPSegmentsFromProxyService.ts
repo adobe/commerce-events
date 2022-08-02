@@ -8,6 +8,8 @@ const apiFetchOptions: RequestInit = {
     cache: "no-cache",
     headers: {
         "content-type": "application/json;charset=UTF-8",
+        "X-IMS-ClientID": "commerce-segments-service",
+        "api-key": "commerce-segments-service",
     },
 };
 
