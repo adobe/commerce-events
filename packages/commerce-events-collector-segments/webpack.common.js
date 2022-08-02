@@ -14,7 +14,7 @@ const config = {
         path: path.resolve(__dirname, "dist"),
         publicPath: "",
         library: {
-            name: "magentoStorefrontEventCollector",
+            name: "adobeCommerceEventsCollectorSegments",
             type: "umd",
             export: "default",
             umdNamedDefine: true,
