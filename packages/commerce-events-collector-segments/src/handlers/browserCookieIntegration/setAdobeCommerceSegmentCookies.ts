@@ -14,7 +14,6 @@ const ADOBE_COMMERCE_SHOPPER_SEGMENT = "adobe_segment";
  * @param segmentMembershipIds comma delimited string of `segmentMembershipIds` that is returned from the proxy service
  */
 const setAdobeCommerceSegmentCookies = (segmentMembershipIds = "") => {
-    console.log("commerce-event-segmnets - setAdobeCommerceSegmentCookies: ", segmentMembershipIds);
     //again, note that no expiration is set, so this will be a session cookie
     document.cookie = `${ADOBE_COMMERCE_SHOPPER_SEGMENT}=${segmentMembershipIds}`;
 };

@@ -2,7 +2,6 @@
 import { AlloyIdentity } from "../../aep/types";
 
 const getECID = (): Promise<string | void> => {
-    console.log("commerce-event-segmnets - getECID start");
     return new Promise((resolve, reject): string | void => {
         let retry = true;
 
