@@ -1,14 +1,4 @@
 /**
- * Options to use for the fetch method, this is really only here for development purposes while we get everythign deployed
- * as the default `options` should be fine.
- */
-const apiFetchOptions: RequestInit = {
-    method: "GET",
-    mode: "no-cors",
-};
-
-
-/**
  * Call segments proxy service and get a list of segment ids for current user
  *
  * @param profileId - ECID of current user, should be retrieved from Alloy
@@ -29,7 +19,7 @@ const getAEPSegmentsFromProxyService = (profileId: string): Promise<string | voi
     const GET_AEP_SEGMENTS_ENDPOINT_URL = `https://commerce-int.adobe.io/segments/segments-service/profiles/${profileId}/segmentmemberships?imsOrgId=${imsOrgId}&api_key=${API_KEY}`;
 
     return new Promise((resolve, reject): string | void => {
-        fetch(GET_AEP_SEGMENTS_ENDPOINT_URL, apiFetchOptions)
+        fetch(GET_AEP_SEGMENTS_ENDPOINT_URL)
             .then((response) => {
                 console.log("commerce-event-segmnets - getAEPSegmentsFromProxyService fetch response: ", response);
                 const responseJson = response.json();
