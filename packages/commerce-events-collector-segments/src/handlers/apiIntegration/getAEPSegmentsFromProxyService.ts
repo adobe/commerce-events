@@ -4,7 +4,7 @@
  */
 const apiFetchOptions: RequestInit = {
     method: "GET",
-    mode: "cors",
+    mode: "no-cors",
     cache: "no-cache",
     headers: {
         "content-type": "application/json;charset=UTF-8",
