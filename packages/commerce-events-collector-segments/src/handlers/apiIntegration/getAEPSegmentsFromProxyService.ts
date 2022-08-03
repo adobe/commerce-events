@@ -31,9 +31,10 @@ const getAEPSegmentsFromProxyService = (profileId: string): Promise<string | voi
     return new Promise((resolve, reject): string | void => {
         fetch(GET_AEP_SEGMENTS_ENDPOINT_URL, apiFetchOptions)
             .then((response) => {
+                console.log("commerce-event-segmnets - getAEPSegmentsFromProxyService fetch response: ", response);
                 const responseJson = response.json();
-                console.log("commerce-event-segmnets - getAEPSegmentsFromProxyService fetch text: ", response.text());
                 console.log("commerce-event-segmnets - getAEPSegmentsFromProxyService fetch json: ", responseJson);
+                console.log("commerce-event-segmnets - getAEPSegmentsFromProxyService fetch text: ", response.text());
 
                 return responseJson;
             })
