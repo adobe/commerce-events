@@ -4,10 +4,12 @@
  */
 const apiFetchOptions: RequestInit = {
     method: "GET",
-    mode: "cors",
+    mode: "no-cors",
     cache: "no-cache",
     headers: {
         "content-type": "application/json;charset=UTF-8",
+        "X-IMS-ClientID": "commerce-segments-service",
+        "api-key": "commerce-segments-service",
     },
 };
 
@@ -19,12 +21,14 @@ const apiFetchOptions: RequestInit = {
  * @returns Promise with returend data from adobe segment proxy service
  */
 const getAEPSegmentsFromProxyService = (profileId: string): Promise<string | void> => {
+    console.log("commerce-event-segmnets - getAEPSegmentsFromProxyService start: ", profileId);
     // static api_key that is used for the proxy service
     const API_KEY = "commerce-segments-service";
 
     // get a reference to the magento storefront events context. This will give us access to the AEP data
     const { context } = window.magentoStorefrontEvents;
     const { imsOrgId = "" } = context.getAEP();
+    console.log("commerce-event-segmnets - getAEPSegmentsFromProxyService imsOrgId: ", imsOrgId);
 
     // URL to access the segments proxy service, this will most likely come from a config file or service after POC
     const GET_AEP_SEGMENTS_ENDPOINT_URL = `https://commerce-int.adobe.io/segments/segments-service/profiles/${profileId}/segmentmemberships?imsOrgId=${imsOrgId}&api_key=${API_KEY}`;
@@ -48,9 +52,11 @@ const getAEPSegmentsFromProxyService = (profileId: string): Promise<string | voi
                     So we need to just get `segmentMembershipIds` and combine that into a comma delimited string.  
                     @Note: Once this is finalized could just destructure it out of the `responseData`, i.e. ({data:{segmentMembershipIds = []} = {}})
                 */
+                console.log("commerce-event-segmnets - AEP Segments Fetch returned: ", responseData);
                 resolve(responseData?.data?.segmentMembershipIds?.join(",") || "");
             })
             .catch((error) => {
+                console.log("commerce-event-segmnets - AEP Segments Fetch error: ", error);
                 reject(error);
             });
     });

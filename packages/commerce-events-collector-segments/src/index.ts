@@ -8,6 +8,7 @@ const PROXY_SERVICE_CALL_INTERVAL = 60000; //1 minute
  * Initialize the commerce-events-collector workflow
  */
 const initialize = async () => {
+    console.log("commerce-event-segmnets - initialized");
     try {
         const ecid: string = (await getECID()) || "";
 
@@ -27,6 +28,7 @@ const initialize = async () => {
  * @param ecid - users profile id to be used to get the segment information
  */
 const callProxyService = async (ecid: string) => {
+    console.log("commerce-event-segmnets - proxy service called from timer");
     //call proxy service with ecid
     const segmentMembershipIds: string = (await getAEPSegmentsFromProxyService(ecid)) || "";
 
