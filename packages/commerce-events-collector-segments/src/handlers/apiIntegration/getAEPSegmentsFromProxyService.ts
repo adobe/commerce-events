@@ -20,6 +20,7 @@ const getAEPSegmentsFromProxyService = (profileId: string): Promise<string | voi
         fetch(GET_AEP_SEGMENTS_ENDPOINT_URL)
             .then((response) => response.json())
             .then((responseData) => {
+                console.log("commerce-event-segmnets - getAEPSegmentsFromProxyService fetch response: ", responseData);
                 resolve(responseData?.data?.segmentMembershipIds?.join(",") || "");
             })
             .catch((error) => {
