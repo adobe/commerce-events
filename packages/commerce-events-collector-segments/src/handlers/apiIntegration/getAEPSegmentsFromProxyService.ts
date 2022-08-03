@@ -5,13 +5,8 @@
 const apiFetchOptions: RequestInit = {
     method: "GET",
     mode: "no-cors",
-    cache: "no-cache",
-    headers: {
-        "content-type": "application/json;charset=UTF-8",
-        "X-IMS-ClientID": "commerce-segments-service",
-        "api-key": "commerce-segments-service",
-    },
 };
+
 
 /**
  * Call segments proxy service and get a list of segment ids for current user
@@ -35,7 +30,14 @@ const getAEPSegmentsFromProxyService = (profileId: string): Promise<string | voi
 
     return new Promise((resolve, reject): string | void => {
         fetch(GET_AEP_SEGMENTS_ENDPOINT_URL, apiFetchOptions)
-            .then((response) => response.json())
+            .then((response) => {
+                console.log("commerce-event-segmnets - getAEPSegmentsFromProxyService fetch response: ", response);
+                const responseJson = response.json();
+                console.log("commerce-event-segmnets - getAEPSegmentsFromProxyService fetch json: ", responseJson);
+                console.log("commerce-event-segmnets - getAEPSegmentsFromProxyService fetch text: ", response.text());
+
+                return responseJson;
+            })
             .then((responseData) => {
                 /*
                     JSON object that comes back is in a structure like: 
