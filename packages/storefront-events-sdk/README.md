@@ -346,10 +346,6 @@ mse.publish.addToCart();
 ```
 
 ```javascript
-mse.publish.abandonCart();
-```
-
-```javascript
 mse.publish.createAccount(ctx);
 ```
 
@@ -476,7 +472,6 @@ These functions subscribe to events:
 
 ```javascript
 mse.subscribe.addToCart(handler, options);
-mse.subscribe.abandonCart(handler, options);
 mse.subscribe.createAccount(handler, options);
 mse.subscribe.custom(handler, options);
 mse.subscribe.customUrl(handler, options);
@@ -514,7 +509,6 @@ These functions unsubscribe from events:
 
 ```javascript
 mse.unsubscribe.addToCart(handler);
-mse.unsubscribe.abandonCart(handler);
 mse.unsubscribe.createAccount(handler);
 mse.unsubscribe.custom(handler);
 mse.unsubscribe.customUrl(handler);

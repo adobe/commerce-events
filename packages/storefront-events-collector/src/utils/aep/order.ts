@@ -5,19 +5,19 @@ import { Order, Payment } from "../../types/aep";
 const getAepPaymentCode = (paymentMethodCode: string) => {
     //Code support reasoning documented here: https://jira.corp.adobe.com/browse/DINT-324
     switch (paymentMethodCode) {
-        case 'checkmo':
-            return 'check';
-        case 'banktransfer':
-            return 'wire_transfer';
-        case 'cashondelivery':
-            return 'cash';
-        case 'purchaseorder':
-        case 'free':
-        case 'companycredit':
+        case "checkmo":
+            return "check";
+        case "banktransfer":
+            return "wire_transfer";
+        case "cashondelivery":
+            return "cash";
+        case "purchaseorder":
+        case "free":
+        case "companycredit":
         default:
-            return 'other';
+            return "other";
     }
-}
+};
 
 const createOrder = (
     orderContext: sdkSchemas.Order,

@@ -37,23 +37,6 @@ describe("events", () => {
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
-    test("abandon cart", async () => {
-        const eventHandler = jest.fn((eventObj) => {
-            expect(eventObj).toEqual({
-                event: events.ABANDON_CART,
-                eventInfo: expect.any(Object),
-            });
-        });
-
-        mdl.subscribe.abandonCart(eventHandler);
-        expect(eventHandler).not.toHaveBeenCalled();
-        mdl.publish.abandonCart();
-        expect(eventHandler).toHaveBeenCalledTimes(1);
-        mdl.unsubscribe.abandonCart(eventHandler);
-        mdl.publish.abandonCart();
-        expect(eventHandler).toHaveBeenCalledTimes(1);
-    });
-
     test("create account", async () => {
         const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({

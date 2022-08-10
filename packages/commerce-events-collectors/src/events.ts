@@ -2,8 +2,6 @@ import { Event, EventHandler } from "@adobe/commerce-events-sdk/dist/types/types
 
 import { createEventForwardingCtx } from "./contexts";
 import {
-    abandonCartHandler,
-    abandonCartHandlerAEP,
     addToCartHandler,
     addToCartHandlerAEP,
     createAccountHandlerAEP,
@@ -68,9 +66,6 @@ const handleAepPageView = handleIf(isAep, pageViewHandlerAEP);
 const handleSnowplowInitiateCheckout = handleIf(isCommerce, initiateCheckoutHandler);
 const handleAepInitiateCheckout = handleIf(isAep, initiateCheckoutHandlerAEP);
 
-const handleSnowplowAbandonCart = handleIf(isCommerce, abandonCartHandler);
-const handleAepAbandonCart = handleIf(isAep, abandonCartHandlerAEP);
-
 // product
 const handleSnowplowAddToCart = handleIf(isCommerce, addToCartHandler);
 const handleAepAddToCart = handleIf(isAep, addToCartHandlerAEP);
@@ -101,8 +96,6 @@ const handleAepSearchResponseReceived = handleIf(isAep, searchResponseReceivedHa
 const subscribeToEvents = (): void => {
     const mse = window.magentoStorefrontEvents;
 
-    mse.subscribe.abandonCart(handleSnowplowAbandonCart);
-    mse.subscribe.abandonCart(handleAepAbandonCart);
     mse.subscribe.addToCart(handleSnowplowAddToCart);
     mse.subscribe.addToCart(handleAepAddToCart);
     mse.subscribe.custom(handleAepCustom);
@@ -139,8 +132,6 @@ const subscribeToEvents = (): void => {
 const unsubscribeFromEvents = (): void => {
     const mse = window.magentoStorefrontEvents;
 
-    mse.unsubscribe.abandonCart(handleSnowplowAbandonCart);
-    mse.unsubscribe.abandonCart(handleAepAbandonCart);
     mse.unsubscribe.addToCart(handleSnowplowAddToCart);
     mse.unsubscribe.addToCart(handleAepAddToCart);
     mse.unsubscribe.createAccount(handleAepCreateAccount);
