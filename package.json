@@ -8,6 +8,7 @@
         "packages/*"
     ],
     "scripts": {
+        "new": "turbo run new",
         "start": "turbo run start",
         "build": "turbo run build",
         "build:qa": "turbo run build:qa",

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/adobe.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+        <title>Rollup Example</title>
+    </head>
+    <body>
+        <nav class="bg-white shadow">
+            <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+                <div class="relative flex justify-between h-16">
+                    <div class="absolute inset-y-0 left-0 flex items-center">
+                        <img src="/adobe.svg" class="block h-8 w-8" alt="Adobe logo" />
+                    </div>
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-2 space-x-2">
+                        <a href="https://vitejs.dev" target="_blank">
+                            <img src="/vite.svg" class="logo" alt="Vite logo" />
+                        </a>
+                        <a href="https://www.typescriptlang.org/" target="_blank">
+                            <img src="/typescript.svg" class="logo vanilla" alt="TypeScript logo" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- <button onclick="acdl.push({ 'event': 'page-view'})">Send Event</button> -->
+        <!-- <script>
+            window.adobeDataLayer = window.adobeDataLayer || [];
+            // window.adobeDataLayer.push({ test1: "Hello World" });
+        </script> -->
+        <!-- <script async defer src="https://unpkg.com/@adobe/adobe-client-data-layer@2.0.1/dist/adobe-client-data-layer.min.js"></script> -->
+        <script async defer src="http://localhost:8080/umd.index.js"></script>
+        <!-- <script>
+            console.log(window)
+        </script> -->
+        <!-- <script async defer src="https://unpkg.com/@adobe/commerce-events-collector-segments@qa/dist/index.js"></script> -->
+        <!-- <script src="http://localhost:8080/umd.index.js"></script> -->
+<!-- 
+        <script type="module">
+            import acdl from "@adobe/adobe-client-data-layer";
+            console.log(acdl)
+        </script> -->
+    </body>
+</html>
