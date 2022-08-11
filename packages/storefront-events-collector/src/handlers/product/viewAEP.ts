@@ -17,6 +17,7 @@ const aepHandler = async (event: Event): Promise<void> => {
         const productListItem: ProductListItem = {
             SKU: productContext.sku,
             name: productContext.name,
+            productImageUrl: productContext.mainImageUrl,
             priceTotal: productContext.pricing?.specialPrice ?? productContext.pricing?.regularPrice,
             currencyCode:
                 productContext.pricing?.currencyCode ?? storefrontInstanceContext.storeViewCurrencyCode ?? undefined,
