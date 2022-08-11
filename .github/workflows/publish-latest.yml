@@ -33,7 +33,7 @@ jobs:
               run: yarn install --frozen-lockfile
 
             - name: build
-              run: yarn build --filter="@adobe/magento*"
+              run: yarn build:prod --filter="@adobe/magento*"
 
             - name: publish storefront sdk
               working-directory: ./packages/storefront-events-sdk
