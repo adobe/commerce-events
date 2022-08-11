@@ -15,10 +15,6 @@ export default class PublishManager extends Base {
         this.pushEvent(events.ADD_TO_CART, { customContext: context });
     }
 
-    abandonCart(context?: CustomContext): void {
-        this.pushEvent(events.ABANDON_CART, { customContext: context });
-    }
-
     createAccount(context?: CustomContext): void {
         this.pushEvent(events.CREATE_ACCOUNT, { customContext: context });
     }

@@ -7,10 +7,6 @@ export default class UnsubscribeManager extends Base {
         this.removeEventListener(events.ADD_TO_CART, handler);
     }
 
-    abandonCart(handler: EventHandler): void {
-        this.removeEventListener(events.ABANDON_CART, handler);
-    }
-
     createAccount(handler: EventHandler): void {
         this.removeEventListener(events.CREATE_ACCOUNT, handler);
     }

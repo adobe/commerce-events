@@ -2,8 +2,6 @@ import { Event, EventHandler } from "@adobe/magento-storefront-events-sdk/dist/t
 
 import { createEventForwardingCtx } from "./contexts";
 import {
-    abandonCartHandler,
-    abandonCartHandlerAEP,
     addToCartHandler,
     addToCartHandlerAEP,
     createAccountHandlerAEP,
@@ -68,9 +66,6 @@ const handleAepPageView = handleIf(isAep, pageViewHandlerAEP);
 const handleSnowplowInitiateCheckout = handleIf(isCommerce, initiateCheckoutHandler);
 const handleAepInitiateCheckout = handleIf(isAep, initiateCheckoutHandlerAEP);
 
-const handleSnowplowAbandonCart = handleIf(isCommerce, abandonCartHandler);
-const handleAepAbandonCart = handleIf(isAep, abandonCartHandlerAEP);
-
 // product
 const handleSnowplowAddToCart = handleIf(isCommerce, addToCartHandler);
 const handleAepAddToCart = handleIf(isAep, addToCartHandlerAEP);
@@ -101,78 +96,96 @@ const handleAepSearchResponseReceived = handleIf(isAep, searchResponseReceivedHa
 const subscribeToEvents = (): void => {
     const mse = window.magentoStorefrontEvents;
 
-    mse.subscribe.abandonCart(handleSnowplowAbandonCart);
-    mse.subscribe.abandonCart(handleAepAbandonCart);
-    mse.subscribe.addToCart(handleSnowplowAddToCart);
-    mse.subscribe.addToCart(handleAepAddToCart);
-    mse.subscribe.custom(handleAepCustom);
-    mse.subscribe.createAccount(handleAepCreateAccount);
-    mse.subscribe.editAccount(handleAepEditAccount);
-    mse.subscribe.initiateCheckout(handleSnowplowInitiateCheckout);
-    mse.subscribe.initiateCheckout(handleAepInitiateCheckout);
-    mse.subscribe.pageView(handleSnowplowPageView);
-    mse.subscribe.pageView(handleAepPageView);
-    mse.subscribe.placeOrder(handleSnowplowPlaceOrder);
-    mse.subscribe.placeOrder(handleAepPlaceOrder);
-    mse.subscribe.productPageView(handleSnowplowProductView);
-    mse.subscribe.productPageView(handleAepProductView);
-    mse.subscribe.recsItemAddToCartClick(recsItemAddToCartClickHandler);
-    mse.subscribe.recsItemClick(recsItemClickHandler);
-    mse.subscribe.recsRequestSent(recsRequestSentHandler);
-    mse.subscribe.recsResponseReceived(recsResponseReceivedHandler);
-    mse.subscribe.recsUnitRender(recsUnitRenderHandler);
-    mse.subscribe.recsUnitView(recsUnitViewHandler);
-    mse.subscribe.searchCategoryClick(searchCategoryClickHandler);
-    mse.subscribe.searchProductClick(searchProductClickHandler);
-    mse.subscribe.searchRequestSent(handleSnowplowSearchRequestSent);
-    mse.subscribe.searchRequestSent(handleAepSearchRequestSent);
-    mse.subscribe.searchResponseReceived(handleSnowplowSearchResponseReceived);
-    mse.subscribe.searchResponseReceived(handleAepSearchResponseReceived);
-    mse.subscribe.searchResultsView(searchResultsViewHandler);
-    mse.subscribe.searchSuggestionClick(searchSuggestionClickHandler);
-    mse.subscribe.shoppingCartView(handleSnowplowShoppingCartView);
-    mse.subscribe.shoppingCartView(handleAepShoppingCartView);
-    mse.subscribe.signIn(handleAepSignIn);
-    mse.subscribe.signOut(handleAepSignOut);
+    // Snowplow events
+    try {
+        mse.subscribe.addToCart(handleSnowplowAddToCart);
+        mse.subscribe.initiateCheckout(handleSnowplowInitiateCheckout);
+        mse.subscribe.pageView(handleSnowplowPageView);
+        mse.subscribe.placeOrder(handleSnowplowPlaceOrder);
+        mse.subscribe.productPageView(handleSnowplowProductView);
+        mse.subscribe.recsItemAddToCartClick(recsItemAddToCartClickHandler);
+        mse.subscribe.recsItemClick(recsItemClickHandler);
+        mse.subscribe.recsRequestSent(recsRequestSentHandler);
+        mse.subscribe.recsResponseReceived(recsResponseReceivedHandler);
+        mse.subscribe.recsUnitRender(recsUnitRenderHandler);
+        mse.subscribe.recsUnitView(recsUnitViewHandler);
+        mse.subscribe.searchCategoryClick(searchCategoryClickHandler);
+        mse.subscribe.searchProductClick(searchProductClickHandler);
+        mse.subscribe.searchRequestSent(handleSnowplowSearchRequestSent);
+        mse.subscribe.searchResponseReceived(handleSnowplowSearchResponseReceived);
+        mse.subscribe.searchResultsView(searchResultsViewHandler);
+        mse.subscribe.searchSuggestionClick(searchSuggestionClickHandler);
+        mse.subscribe.shoppingCartView(handleSnowplowShoppingCartView);
+    } catch (e) {
+        console.error(`error subscribing to Commerce events: ${JSON.stringify(e)}`);
+    }
+
+    // AEP events
+    try {
+        mse.subscribe.addToCart(handleAepAddToCart);
+        mse.subscribe.custom(handleAepCustom);
+        mse.subscribe.createAccount(handleAepCreateAccount);
+        mse.subscribe.editAccount(handleAepEditAccount);
+        mse.subscribe.initiateCheckout(handleAepInitiateCheckout);
+        mse.subscribe.pageView(handleAepPageView);
+        mse.subscribe.placeOrder(handleAepPlaceOrder);
+        mse.subscribe.productPageView(handleAepProductView);
+        mse.subscribe.searchRequestSent(handleAepSearchRequestSent);
+        mse.subscribe.searchResponseReceived(handleAepSearchResponseReceived);
+        mse.subscribe.shoppingCartView(handleAepShoppingCartView);
+        mse.subscribe.signIn(handleAepSignIn);
+        mse.subscribe.signOut(handleAepSignOut);
+    } catch (e) {
+        console.error(`error subscribing to Experience events: ${JSON.stringify(e)}`);
+    }
 };
 
 const unsubscribeFromEvents = (): void => {
     const mse = window.magentoStorefrontEvents;
 
-    mse.unsubscribe.abandonCart(handleSnowplowAbandonCart);
-    mse.unsubscribe.abandonCart(handleAepAbandonCart);
-    mse.unsubscribe.addToCart(handleSnowplowAddToCart);
-    mse.unsubscribe.addToCart(handleAepAddToCart);
-    mse.unsubscribe.createAccount(handleAepCreateAccount);
-    mse.unsubscribe.custom(handleAepCustom);
-    mse.unsubscribe.editAccount(handleAepEditAccount);
-    mse.unsubscribe.initiateCheckout(handleSnowplowInitiateCheckout);
-    mse.unsubscribe.initiateCheckout(handleAepInitiateCheckout);
-    mse.unsubscribe.pageView(handleSnowplowPageView);
-    mse.unsubscribe.pageView(handleAepPageView);
-    mse.unsubscribe.placeOrder(handleSnowplowPlaceOrder);
-    mse.unsubscribe.placeOrder(handleAepPlaceOrder);
-    mse.unsubscribe.productPageView(handleSnowplowProductView);
-    mse.unsubscribe.productPageView(handleAepProductView);
-    mse.unsubscribe.recsItemAddToCartClick(recsItemAddToCartClickHandler);
-    mse.unsubscribe.recsItemClick(recsItemClickHandler);
-    mse.unsubscribe.recsRequestSent(recsRequestSentHandler);
-    mse.unsubscribe.recsResponseReceived(recsResponseReceivedHandler);
-    mse.unsubscribe.recsUnitRender(recsUnitRenderHandler);
-    mse.unsubscribe.recsUnitView(recsUnitViewHandler);
-    mse.unsubscribe.searchCategoryClick(searchCategoryClickHandler);
-    mse.unsubscribe.searchProductClick(searchProductClickHandler);
-    mse.unsubscribe.searchRequestSent(handleSnowplowSearchRequestSent);
-    mse.unsubscribe.searchRequestSent(handleAepSearchRequestSent);
-    mse.unsubscribe.searchResponseReceived(handleSnowplowSearchResponseReceived);
-    mse.unsubscribe.searchResponseReceived(handleAepSearchResponseReceived);
-    mse.unsubscribe.searchResultsView(searchResultsViewHandler);
-    mse.unsubscribe.searchSuggestionClick(searchSuggestionClickHandler);
-    mse.unsubscribe.shoppingCartView(shoppingCartViewHandler);
-    mse.unsubscribe.shoppingCartView(handleSnowplowShoppingCartView);
-    mse.unsubscribe.shoppingCartView(handleAepShoppingCartView);
-    mse.unsubscribe.signIn(handleAepSignIn);
-    mse.unsubscribe.signOut(handleAepSignOut);
+    // Snowplow events
+    try {
+        mse.unsubscribe.addToCart(handleSnowplowAddToCart);
+        mse.unsubscribe.initiateCheckout(handleSnowplowInitiateCheckout);
+        mse.unsubscribe.pageView(handleSnowplowPageView);
+        mse.unsubscribe.placeOrder(handleSnowplowPlaceOrder);
+        mse.unsubscribe.productPageView(handleSnowplowProductView);
+        mse.unsubscribe.recsItemAddToCartClick(recsItemAddToCartClickHandler);
+        mse.unsubscribe.recsItemClick(recsItemClickHandler);
+        mse.unsubscribe.recsRequestSent(recsRequestSentHandler);
+        mse.unsubscribe.recsResponseReceived(recsResponseReceivedHandler);
+        mse.unsubscribe.recsUnitRender(recsUnitRenderHandler);
+        mse.unsubscribe.recsUnitView(recsUnitViewHandler);
+        mse.unsubscribe.searchCategoryClick(searchCategoryClickHandler);
+        mse.unsubscribe.searchProductClick(searchProductClickHandler);
+        mse.unsubscribe.searchRequestSent(handleSnowplowSearchRequestSent);
+        mse.unsubscribe.searchResponseReceived(handleSnowplowSearchResponseReceived);
+        mse.unsubscribe.searchResultsView(searchResultsViewHandler);
+        mse.unsubscribe.searchSuggestionClick(searchSuggestionClickHandler);
+        mse.unsubscribe.shoppingCartView(shoppingCartViewHandler);
+        mse.unsubscribe.shoppingCartView(handleSnowplowShoppingCartView);
+    } catch (e) {
+        console.error(`error unsubscribing from Commerce events: ${JSON.stringify(e)}`);
+    }
+
+    // AEP events
+    try {
+        mse.unsubscribe.addToCart(handleAepAddToCart);
+        mse.unsubscribe.createAccount(handleAepCreateAccount);
+        mse.unsubscribe.custom(handleAepCustom);
+        mse.unsubscribe.editAccount(handleAepEditAccount);
+        mse.unsubscribe.initiateCheckout(handleAepInitiateCheckout);
+        mse.unsubscribe.pageView(handleAepPageView);
+        mse.unsubscribe.placeOrder(handleAepPlaceOrder);
+        mse.unsubscribe.productPageView(handleAepProductView);
+        mse.unsubscribe.searchRequestSent(handleAepSearchRequestSent);
+        mse.unsubscribe.searchResponseReceived(handleAepSearchResponseReceived);
+        mse.unsubscribe.shoppingCartView(handleAepShoppingCartView);
+        mse.unsubscribe.signIn(handleAepSignIn);
+        mse.unsubscribe.signOut(handleAepSignOut);
+    } catch (e) {
+        console.error(`error unsubscribing from Experience events: ${JSON.stringify(e)}`);
+    }
 };
 
 export { subscribeToEvents, unsubscribeFromEvents };
