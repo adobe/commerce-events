@@ -11,6 +11,7 @@
         "start": "turbo run start",
         "build": "turbo run build",
         "build:qa": "turbo run build:qa",
+        "build:prod": "turbo run build:prod",
         "dev": "turbo run dev --parallel",
         "test": "turbo run test",
         "lint": "turbo run lint",

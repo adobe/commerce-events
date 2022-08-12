@@ -20,6 +20,14 @@
                 ".next/**"
             ]
         },
+        "build:prod": {
+            "dependsOn": [
+                "^build:prod"
+            ],
+            "outputs": [
+                "dist/**"
+            ]
+        },
         "test": {
             "dependsOn": ["^build"],
             "outputs": ["coverage/**"]
