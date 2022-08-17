@@ -57,6 +57,6 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
             },
         ],
         _id: undefined,
-        eventType: "commerce.order",
+        eventType: "commerce.purchases",
     });
 });
