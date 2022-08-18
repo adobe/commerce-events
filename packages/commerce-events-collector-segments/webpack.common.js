@@ -37,7 +37,7 @@ const config = {
     devServer: {
         static: path.join(__dirname, "dist"),
         hot: true,
-        port: 8041,
+        port: 8042,
     },
 };
 
