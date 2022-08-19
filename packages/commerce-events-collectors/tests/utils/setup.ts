@@ -1,6 +1,6 @@
 import "@adobe/adobe-client-data-layer";
 
-import mse from "@adobe/commerce-events-sdk";
+import MagentoStorefrontEvents from "@adobe/commerce-events-sdk/src/MagentoStorefrontEvents";
 
 import {
     mockCategory,
@@ -21,6 +21,8 @@ import {
 
 jest.mock("@snowplow/browser-tracker");
 
+const mse = new MagentoStorefrontEvents();
+
 window.magentoStorefrontEvents = mse;
 
 mse.context.setCategory(mockCategory);
@@ -37,3 +39,5 @@ mse.context.setSearchResults(mockSearchResults);
 mse.context.setShopper(mockShopper);
 mse.context.setShoppingCart(mockShoppingCart);
 mse.context.setStorefrontInstance(mockStorefront);
+
+export const __VERSION__ = "1.2.3";

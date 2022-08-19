@@ -1,5 +1,4 @@
-import { Event } from "@adobe/commerce-events-sdk/dist/types/types/events";
-import { SearchResultSuggestion } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
+import { Event, SearchResultSuggestion } from "@adobe/commerce-events-sdk";
 
 import { sendEvent } from "../../alloy";
 import { createSearchResultsCtx } from "../../contexts";

@@ -1,4 +1,4 @@
-import { ShoppingCart, StorefrontInstance } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
+import { ShoppingCart, StorefrontInstance } from "@adobe/commerce-events-sdk";
 
 import { ProductListItem, SelectedOption } from "../../types/aep";
 import { getDiscountAmount } from "../discount";

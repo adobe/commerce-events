@@ -6,6 +6,6 @@
         "declarationDir": "dist/types",
         "incremental": false
     },
-    "include": ["src/**/*"],
+    "include": ["src/**/*", "tests/**/*"],
     "exclude": ["node_modules", "dist", ".turbo", "coverage"]
 }

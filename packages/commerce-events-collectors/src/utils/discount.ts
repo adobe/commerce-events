@@ -1,4 +1,4 @@
-import { Product } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
+import { Product } from "@adobe/commerce-events-sdk";
 
 /** calculates the discountAmount from a Product object */
 export const getDiscountAmount = ({ pricing }: Product): number | undefined => {

@@ -88,7 +88,7 @@ const mockEventForwardingCtx = {
 };
 
 const mockTrackerCtx = {
-    magentoJsVersion: __VERSION__,
+    magentoJsVersion: "1.2.0",
 };
 
 const mockExtensionCtx = {
