@@ -2,9 +2,10 @@ name: publish-latest
 
 on:
     push:
-        branches: [main]
+        # should check on for release here instead of branch
+        # we only want to publish the old packages on a v1.X.X tag
         tags:
-            - "v*"
+            - "v1.*"
 
 jobs:
     publish-latest:
