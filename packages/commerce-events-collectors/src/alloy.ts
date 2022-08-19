@@ -15,7 +15,7 @@ const alloyInstance: AlloyInstance = createInstance({ name: "alloy" });
 const configure = async (): Promise<AlloyInstance> => {
     const aepCtx: AEPContext = createContext();
     if (aepCtx.datastreamId !== "" && aepCtx.imsOrgId !== "") {
-        const alloyConfig : ConfigOptions = {
+        const alloyConfig: ConfigOptions = {
             edgeConfigId: aepCtx.datastreamId as string,
             orgId: aepCtx.imsOrgId as string,
             defaultConsent: "pending",

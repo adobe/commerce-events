@@ -47,6 +47,7 @@
         "@types/jest": "^26.0.24",
         "cross-env": "^7.0.3",
         "cz-conventional-changelog": "^3.0.1",
+        "esbuild": "^0.15.5",
         "eslint": "^7.32.0",
         "eslint-config-custom": "*",
         "jest": "^26.6.3",

@@ -87,7 +87,7 @@ export default [
     // creates types and will start a server to host `dist` folder
     // if running in development environment
     {
-        input: "./src/index.ts",
+        input: "./src/types/index.ts",
         external: (id) => !/^[./]/.test(id),
         output: {
             dir: "dist",
