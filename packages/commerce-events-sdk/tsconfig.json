@@ -3,7 +3,8 @@
     "compilerOptions": {
         "baseUrl": ".",
         "outDir": "dist",
-        "declarationDir": "dist/types"
+        "declarationDir": "dist/types",
+        "incremental": false
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules", "dist", ".turbo", "coverage"]
