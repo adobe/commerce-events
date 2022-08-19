@@ -261,18 +261,18 @@ If you have any questions or encounter any issues, please reach out at these loc
 -   [GitHub][issues]
 
 [npm]: https://npmjs.com/package/@adobe/commerce-events-collectors
-[version-badge]: https://img.shields.io/npm/v/@adobe/commerce-events-collectors.svg?style=flat-square
-[downloads-badge]: https://img.shields.io/npm/dt/@adobe/commerce-events-collectors?style=flat-square
-[bundlephobia]: https://bundlephobia.com/result?p=@adobe/commerce-events-collectors
-[size-badge]: https://img.shields.io/bundlephobia/minzip/@adobe/commerce-events-collectors?style=flat-square
-[actions]: https://github.com/adobe/commerce-events-collectors/actions
-[build-badge]: https://img.shields.io/github/workflow/status/adobe/commerce-events/merge-to-main?style=flat-square
+[version-badge]: https://img.shields.io/npm/v/@adobe/magento-storefront-event-collector.svg?style=flat-square
+[downloads-badge]: https://img.shields.io/npm/dt/@adobe/magento-storefront-event-collector?style=flat-square
+[bundlephobia]: https://bundlephobia.com/result?p=@adobe/magento-storefront-event-collector
+[size-badge]: https://img.shields.io/bundlephobia/minzip/@adobe/magento-storefront-event-collector?style=flat-square
+[actions]: https://github.com/adobe/commerce-events/actions
+[build-badge]: https://img.shields.io/github/workflow/status/adobe/magento-storefront-event-collector/merge-to-main?style=flat-square
 [typescript]: https://typescriptlang.org/dt/search?search=%40adobe%2Fcommerce-events-collectors
 [typescript-badge]: https://img.shields.io/npm/types/@adobe/commerce-events-collectors?style=flat-square
 [contributing]: https://github.com/adobe/commerce-events/blob/main/.github/CONTRIBUTING.md
 [contributing-badge]: https://img.shields.io/badge/PRs-welcome-success?style=flat-square
-[sdk]: https://npmjs.com/package/@adobe/commerce-events-sdk
+[sdk]: https://npmjs.com/package/@adobe/magento-storefront-events-sdk
 [acdl]: https://github.com/adobe/adobe-client-data-layer
-[unpkg]: https://unpkg.com/@adobe/commerce-events-collectors/dist/index.js
-[npm]: https://npmjs.com/package/@adobe/commerce-events-collectors
+[unpkg]: https://unpkg.com/@adobe/magento-storefront-event-collector/dist/index.js
 [issues]: https://github.com/adobe/commerce-events/issues
+

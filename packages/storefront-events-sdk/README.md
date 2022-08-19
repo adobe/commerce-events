@@ -544,11 +544,11 @@ mse.unsubscribe.updateCart(handler);
 
 If you have any questions or encounter any issues, please reach out on [GitHub][issues].
 
-[npm]: https://npmjs.com/package/@adobe/commerce-events-sdk
-[version-badge]: https://img.shields.io/npm/v/@adobe/commerce-events-sdk.svg?style=flat-square
-[downloads-badge]: https://img.shields.io/npm/dt/@adobe/commerce-events-sdk?style=flat-square
-[bundlephobia]: https://bundlephobia.com/result?p=@adobe/commerce-events-sdk
-[size-badge]: https://img.shields.io/bundlephobia/minzip/@adobe/commerce-events-sdk?style=flat-square
+[npm]: https://npmjs.com/package/@adobe/magento-storefront-events-sdk
+[version-badge]: https://img.shields.io/npm/v/@adobe/magento-storefront-events-sdk.svg?style=flat-square
+[downloads-badge]: https://img.shields.io/npm/dt/@adobe/magento-storefront-events-sdk?style=flat-square
+[bundlephobia]: https://bundlephobia.com/result?p=@adobe/magento-storefront-events-sdk
+[size-badge]: https://img.shields.io/bundlephobia/minzip/@adobe/magento-storefront-events-sdk?style=flat-square
 [actions]: https://github.com/adobe/commerce-events/actions
 [build-badge]: https://img.shields.io/github/workflow/status/adobe/commerce-events/publish-latest?style=flat-square
 [typescript]: https://typescriptlang.org/dt/search?search=%40adobe%2Fcommerce-events-sdk
@@ -556,9 +556,8 @@ If you have any questions or encounter any issues, please reach out on [GitHub][
 [contributing]: https://github.com/adobe/commerce-events/blob/main/.github/CONTRIBUTING.md
 [contributing-badge]: https://img.shields.io/badge/PRs-welcome-success?style=flat-square
 [commerce]: https://business.adobe.com/products/magento/magento-commerce.html
-[collectors]: https://github.com/adobe/commerce-events-collectors
-[unpkg]: https://unpkg.com/@adobe/commerce-events-sdk/dist/index.js
-[npm]: https://npmjs.com/package/@adobe/commerce-events-sdk
+[collectors]: https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-collector
+[unpkg]: https://unpkg.com/@adobe/magento-storefront-events-sdk/dist/index.js
 [context]: #context
 [publish]: #publish
 [subscribe]: #subscribe
