@@ -14,13 +14,13 @@
                     <div class="absolute inset-y-0 left-0 flex items-center">
                         <img src="/adobe.svg" class="block h-8 w-8" alt="Adobe logo" />
                     </div>
-                    <div class="hidden ml-10 space-x-8 lg:block">
-                        <a href="#" class="text-base font-medium text-gray-800 hover:text-gray-500">SDK</a>
-              
-                        <a href="#" class="text-base font-medium text-gray-800 hover:text-gray-500">Collector</a>
-              
+                    <div class="hidden ml-16 space-x-4 lg:block">
+                        <a href="/" class="text-base font-medium text-gray-800 hover:text-gray-500">SDK</a>
+
+                        <a href="/collector.html" class="text-base font-medium text-gray-800 hover:text-gray-500">Collector</a>
+
                         <a href="#" class="text-base font-medium text-gray-800 hover:text-gray-500">SDK (Slim) </a>
-              
+
                         <a href="#" class="text-base font-medium text-gray-800 hover:text-gray-500">Collector (Slim)</a>
                     </div>
                     <div class="absolute inset-y-0 right-0 flex items-center pr-2 space-x-2">
@@ -35,18 +35,27 @@
             </div>
             <div class="py-4 flex flex-wrap justify-center space-x-6 lg:hidden">
                 <a href="#" class="text-base font-medium text-gray-800 hover:text-gray-500">SDK</a>
-          
+
                 <a href="#" class="text-base font-medium text-gray-800 hover:text-gray-500">Collector</a>
-          
+
                 <a href="#" class="text-base font-medium text-gray-800 hover:text-gray-500">SDK (Slim)</a>
-          
+
                 <a href="#" class="text-base font-medium text-gray-800 hover:text-gray-500">Collector (Slim)</a>
             </div>
         </nav>
+        <div class="p-5 bg-gray-50 sm:p-8">
+            <a href="#" class="-m-3 p-3 flow-root rounded-md hover:bg-gray-100">
+              <div class="flex items-center">
+                <div class="text-base font-medium text-gray-900">SDK Full Example</div>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">This example includes the @adobe/adobe-client-data-layer package.</p>
+              <p class="mt-1 text-sm text-gray-500">Check the console for events firing.</p>
+            </a>
+          </div>
 
-
-        <script src="http://localhost:8081/umd.index.js"></script>
+        <script async defer src="http://localhost:8081/umd.index.js"></script>
         <script type="module" src="src/context.ts"></script>
-
+        <script type="module" src="src/subscribe.ts"></script>
+        <script type="module" src="src/publish.ts"></script>
     </body>
 </html>
