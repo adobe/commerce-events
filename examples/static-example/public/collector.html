@@ -5,23 +5,45 @@
         <link rel="icon" type="image/svg+xml" href="/adobe.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-        <title>Rollup Example</title>
+        <title>Collector Full Example</title>
+
+        <!-- set up sdk -->
+        <script src="http://localhost:8080/umd.index.js"></script>
+
+        <!-- set up mock data in context and set up aep id's and button styles-->
+        <script type="module" src="src/collector/index.ts"></script>
+
+        <!-- set up collector -->
+        <script async src="http://localhost:8081/umd.index.js"></script>
     </head>
     <body>
         <nav class="bg-white shadow">
             <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                 <div class="relative flex justify-between items-center h-16">
-                    <div class="absolute inset-y-0 left-0 flex items-center">
+                    <div class="absolute inset-y-0 left-0 flex items-center space-x-2">
                         <img src="/adobe.svg" class="block h-8 w-8" alt="Adobe logo" />
+                        <a
+                            href="https://experience.adobe.com/#/@atag/sname:prod/platform/home"
+                            class="block h-8 w-8"
+                            target="_blank"
+                        >
+                            <img src="/aep.svg" class="logo" alt="Adobe Experience Platform logo" />
+                        </a>
                     </div>
-                    <div class="hidden ml-10 space-x-8 lg:block">
-                        <a href="#" class="text-base font-medium text-gray-800 hover:text-gray-500">SDK</a>
-              
-                        <a href="#" class="text-base font-medium text-gray-800 hover:text-gray-500">Collector</a>
-              
-                        <a href="#" class="text-base font-medium text-gray-800 hover:text-gray-500">SDK (Slim) </a>
-              
-                        <a href="#" class="text-base font-medium text-gray-800 hover:text-gray-500">Collector (Slim)</a>
+                    <div class="hidden ml-16 space-x-4 lg:block">
+                        <a href="/" class="text-base font-medium text-gray-800 hover:text-gray-500">SDK</a>
+
+                        <a href="/collector.html" class="text-base font-medium text-gray-800 hover:text-gray-500"
+                            >Collector</a
+                        >
+
+                        <a href="/sdk-slim.html" class="text-base font-medium text-gray-800 hover:text-gray-500"
+                            >SDK (Slim)
+                        </a>
+
+                        <a href="/collector-slim.html" class="text-base font-medium text-gray-800 hover:text-gray-500"
+                            >Collector (Slim)</a
+                        >
                     </div>
                     <div class="absolute inset-y-0 right-0 flex items-center pr-2 space-x-2">
                         <a href="https://vitejs.dev" target="_blank">
@@ -34,34 +56,117 @@
                 </div>
             </div>
             <div class="py-4 flex flex-wrap justify-center space-x-6 lg:hidden">
-                <a href="#" class="text-base font-medium text-gray-800 hover:text-gray-500">SDK</a>
-          
-                <a href="#" class="text-base font-medium text-gray-800 hover:text-gray-500">Collector</a>
-          
-                <a href="#" class="text-base font-medium text-gray-800 hover:text-gray-500">SDK (Slim)</a>
-          
-                <a href="#" class="text-base font-medium text-gray-800 hover:text-gray-500">Collector (Slim)</a>
+                <a href="/" class="text-base font-medium text-gray-800 hover:text-gray-500">SDK</a>
+
+                <a href="/collector.html" class="text-base font-medium text-gray-800 hover:text-gray-500">Collector</a>
+
+                <a href="/sdk-slim.html" class="text-base font-medium text-gray-800 hover:text-gray-500">SDK (Slim)</a>
+
+                <a href="/collector-slim.html" class="text-base font-medium text-gray-800 hover:text-gray-500"
+                    >Collector (Slim)</a
+                >
             </div>
         </nav>
+        <div class="p-5 bg-gray-50 sm:p-8">
+            <div class="-m-3 p-3 flow-root rounded-md hover:bg-gray-100">
+                <div class="flex items-center">
+                    <div class="text-base font-medium text-gray-900">Collector Full Example</div>
+                </div>
+                <p class="mt-1 text-sm text-gray-500">
+                    This example includes the @adobe/adobe-client-data-layer and @adobe/alloy packages and is bundled
+                    with the @adobe/commerce-events-sdk and @adobe/commerce-events-collector packages respectively. See
+                    the slim builds for examples of how to include commerce-events with existing acdl and alloy scripts
+                    that are already on a page.
+                </p>
+            </div>
+        </div>
 
-        <!-- <script>
-            window.adobeDataLayer = window.adobeDataLayer || [];
-            window.adobeDataLayer.push({ test1: "Hello World" });
-        </script>
-        <script
-            src="https://unpkg.com/@adobe/adobe-client-data-layer@2.0.1/dist/adobe-client-data-layer.min.js"    
-        ></script> -->
-        <script src="http://localhost:8081/umd.index.js"></script>
+        <div class="p-5 grid grid-cols-4 gap-4">
+            <button onclick="commerceEventsSdk.publish.custom({customFieldStr: 'strValue', customFieldNum: 1.45})">
+                customEvent
+            </button>
 
-        <!-- <script>
-            const acdl = window.adobeDataLayer ? window.adobeDataLayer : [];
-            const { CommerceEvents, SampleCollector } = commerceEventsSDK;
-            const sdk = new CommerceEvents(acdl);
+            <button onclick="commerceEventsSdk.publish.pageView()">pageView</button>
 
-            const collector = new SampleCollector();
-            sdk.subscribe(collector);
+            <button onclick="publishCustomPageView()">customPageView</button>
 
-            sdk.publish({ foo: "bar" });
-        </script> -->
+            <script>
+                function publishCustomPageView() {
+                    commerceEventsSdk.publish.custom({
+                        eventType: "web.webpagedetails.pageViews",
+                        web: {
+                            webPageDetails: {
+                                pageViews: {
+                                    value: 1,
+                                },
+                            },
+                        },
+                    });
+                }
+            </script>
+
+            <button
+                onclick="commerceEventsSdk.publish.productPageView(
+                {
+                commerce: {
+                    productViews: {
+                        value: 1,
+                    },
+                },
+                })"
+            >
+                productPageView
+            </button>
+
+            <button onclick="commerceEventsSdk.publish.addToCart()">addToCart</button>
+
+            <button onclick="commerceEventsSdk.publish.shoppingCartView()">shoppingCartView</button>
+
+            <button onclick="commerceEventsSdk.publish.initiateCheckout()">initiateCheckout</button>
+
+            <button onclick="commerceEventsSdk.publish.placeOrder()">placeOrder</button>
+
+            <button onclick="commerceEventsSdk.publish.recsItemAddToCartClick('abc123', 111111)">
+                recsItemAddToCartClick
+            </button>
+
+            <button onclick="commerceEventsSdk.publish.recsItemClick('abc123', 111111)">recsItemClick</button>
+
+            <button onclick="commerceEventsSdk.publish.recsRequestSent()">recsRequestSent</button>
+
+            <button onclick="commerceEventsSdk.publish.recsResponseReceived()">recsResponseReceived</button>
+
+            <button onclick="commerceEventsSdk.publish.recsUnitRender('abc123')">recsUnitRender</button>
+
+            <button onclick="commerceEventsSdk.publish.recsUnitView('abc123')">recsUnitView</button>
+
+            <button onclick="commerceEventsSdk.publish.searchCategoryClick('search-bar', 'Bottoms')">
+                searchCategoryClick
+            </button>
+
+            <button onclick="commerceEventsSdk.publish.searchProductClick('search-bar', 'abc123')">
+                searchProductClick
+            </button>
+
+            <button onclick="commerceEventsSdk.publish.searchRequestSent('search-bar')">searchRequestSent</button>
+
+            <button onclick="commerceEventsSdk.publish.searchResponseReceived('search-bar')">
+                searchResponseReceived
+            </button>
+
+            <button onclick="commerceEventsSdk.publish.searchResultsView('search-bar')">searchResultsView</button>
+
+            <button onclick="commerceEventsSdk.publish.searchSuggestionClick('search-bar', 'red pants')">
+                searchSuggestionClick
+            </button>
+
+            <button onclick="commerceEventsSdk.publish.createAccount()">createAccount</button>
+
+            <button onclick="commerceEventsSdk.publish.editAccount()">editAccount</button>
+
+            <button onclick="commerceEventsSdk.publish.signIn()">signIn</button>
+
+            <button onclick="commerceEventsSdk.publish.signOut()">signOut</button>
+        </div>
     </body>
 </html>

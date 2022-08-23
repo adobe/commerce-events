@@ -12,7 +12,7 @@ import {
 } from "@adobe/commerce-events-sdk/tests/mocks";
 
 const sdk = window.commerceEventsSdk;
-// console.log(window.commerceEventsSdk);
+
 sdk.context.setPage(generatePageContext());
 sdk.context.setRecommendations(generateRecommendationsContext());
 sdk.context.setProduct(generateProductContext());

@@ -101,7 +101,7 @@ export default [
             !isProduction &&
                 serve({
                     contentBase: "dist",
-                    port: 8081,
+                    port: 8080,
                     headers: {
                         "Access-Control-Allow-Origin": "*",
                     },

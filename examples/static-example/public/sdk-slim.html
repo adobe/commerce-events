@@ -5,7 +5,21 @@
         <link rel="icon" type="image/svg+xml" href="/adobe.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-        <title>Rollup Example</title>
+        <title>Sdk Slim Example</title>
+
+        <!-- set up ACDL externally -->
+        <script>
+            window.adobeDataLayer = window.adobeDataLayer || [];
+            window.adobeDataLayer.push({ test1: "Hello World" });
+        </script>
+        <script
+            async
+            defer
+            src="https://unpkg.com/@adobe/adobe-client-data-layer@2.0.1/dist/adobe-client-data-layer.min.js"
+        ></script>
+
+        <!-- set up slim sdk -->
+        <script async defer src="http://localhost:8080/umd.index-slim.js"></script>
     </head>
     <body>
         <nav class="bg-white shadow">
@@ -53,28 +67,26 @@
 
                 <a href="/sdk-slim.html" class="text-base font-medium text-gray-800 hover:text-gray-500">SDK (Slim)</a>
 
-                <a href="/collector-slim.html" class="text-base font-medium text-gray-800 hover:text-gray-500">
-                    Collector (Slim)
-                </a>
+                <a href="/collector-slim.html" class="text-base font-medium text-gray-800 hover:text-gray-500"
+                    >Collector (Slim)</a
+                >
             </div>
         </nav>
         <div class="p-5 bg-gray-50 sm:p-8">
             <div class="-m-3 p-3 flow-root rounded-md hover:bg-gray-100">
                 <div class="flex items-center">
-                    <div class="text-base font-medium text-gray-900">SDK Full Example</div>
+                    <div class="text-base font-medium text-gray-900">SDK Slim Example</div>
                 </div>
                 <p class="mt-1 text-sm text-gray-500">
-                    This example includes the @adobe/adobe-client-data-layer package and is bundled with the
-                    @adobe/commerce-events-sdk See the slim builds for examples of how to include commerce-events with
-                    existing acdl scripts that are already on a page.
+                    This example does not include the @adobe/adobe-client-data-layer package. Since the acdl is on the
+                    window object and the sdk is looking for the object on the window, we can exclude the package in our
+                    build and allow for smaller bundle sizes and non-duplication of libraries on the page.
                 </p>
-                <p class="mt-1 text-sm text-gray-500">Check the console for events firing.</p>
+                <p class="mt-1 text-sm text-gray-500">
+                    In the console, run "window.commerceEventsSdk.context.getContext();" and you will see our
+                    pre-populated events, confirming the sdk is using the acdl properly.
+                </p>
             </div>
         </div>
-
-        <script async defer src="http://localhost:8080/umd.index.js"></script>
-        <script type="module" src="src/sdk/context.ts"></script>
-        <script type="module" src="src/sdk/subscribe.ts"></script>
-        <script type="module" src="src/sdk/publish.ts"></script>
     </body>
 </html>

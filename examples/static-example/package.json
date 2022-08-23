@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@adobe/commerce-events-collectors": "*",
     "@adobe/commerce-events-sdk": "*",
     "typescript": "^4.6.4",
     "vite": "^3.0.0"
