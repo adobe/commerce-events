@@ -1,4 +1,5 @@
-import mdl, { MagentoStorefrontEvents } from "../src/index";
+import mdl from "../src/index";
+import MagentoStorefrontEvents from "../src/MagentoStorefrontEvents";
 import { waitFor } from "@testing-library/dom";
 
 beforeAll(() => {
