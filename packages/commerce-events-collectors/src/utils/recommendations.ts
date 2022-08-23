@@ -1,8 +1,4 @@
-import {
-    Recommendations,
-    RecommendationUnit,
-    RecommendedProduct,
-} from "@adobe/commerce-events-sdk/dist/types/types/schemas";
+import { Recommendations, RecommendationUnit, RecommendedProduct } from "@adobe/commerce-events-sdk";
 
 const getUnit = (unitId: string, ctx: Recommendations): RecommendationUnit | null => {
     const unit = ctx?.units.find((unit) => unit.unitId === unitId);

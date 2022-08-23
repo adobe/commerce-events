@@ -1,4 +1,4 @@
-import { Product } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
+import { Product } from "@adobe/commerce-events-sdk";
 
 import { ProductPricing } from "../types/contexts";
 

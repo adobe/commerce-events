@@ -1,4 +1,4 @@
-import { Event } from "@adobe/commerce-events-sdk/dist/types/types/events";
+import { Event } from "@adobe/commerce-events-sdk";
 
 import { sendEvent } from "../../alloy";
 import { BeaconSchema, ProductListItem } from "../../types/aep";

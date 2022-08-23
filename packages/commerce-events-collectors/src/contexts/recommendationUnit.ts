@@ -1,4 +1,4 @@
-import { Recommendations } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
+import { Recommendations } from "@adobe/commerce-events-sdk";
 
 import schemas from "../schemas";
 import { RecommendationUnitContext } from "../types/contexts";

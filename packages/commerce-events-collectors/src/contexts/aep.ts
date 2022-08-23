@@ -1,4 +1,4 @@
-import { AEP } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
+import { AEP } from "@adobe/commerce-events-sdk";
 
 import { AEPContext } from "../types/contexts";
 

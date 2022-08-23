@@ -1,5 +1,3 @@
-import pkg from "../../../package.json";
-
 const mockProductCtx = {
     productId: 111111,
     name: "T-Shirt",
@@ -90,7 +88,7 @@ const mockEventForwardingCtx = {
 };
 
 const mockTrackerCtx = {
-    magentoJsVersion: pkg.version,
+    magentoJsVersion: "1.2.0",
 };
 
 const mockExtensionCtx = {

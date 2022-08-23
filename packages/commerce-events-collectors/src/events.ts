@@ -1,4 +1,4 @@
-import { Event, EventHandler } from "@adobe/commerce-events-sdk/dist/types/types/events";
+import { Event, EventHandler } from "@adobe/commerce-events-sdk";
 
 import { createEventForwardingCtx } from "./contexts";
 import {

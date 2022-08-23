@@ -1,3 +1,4 @@
+import { AdobeClientDataLayer } from "./types";
 import { ContextName, CustomContext, Context } from "./types/contexts";
 import { EventName, ListenerOptions, EventHandler } from "./types/events";
 
