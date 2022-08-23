@@ -1,0 +1,17 @@
+{
+  "name": "static-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "ace": "vite",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@adobe/commerce-events-sdk": "*",
+    "typescript": "^4.6.4",
+    "vite": "^3.0.0"
+  }
+}
