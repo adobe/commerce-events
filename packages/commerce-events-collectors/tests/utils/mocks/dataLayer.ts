@@ -5,6 +5,7 @@ import {
     CustomUrl,
     DataServicesExtension,
     Event,
+    ExperiencePlatformConnectorExtension,
     MagentoExtension,
     Order,
     Page,
@@ -92,6 +93,10 @@ const mockExtension: MagentoExtension = {
 };
 
 const mockDataServicesExtension: DataServicesExtension = {
+    version: "1.2.3",
+};
+
+const mockExperiencePlatformConnectorExtenion: ExperiencePlatformConnectorExtension = {
     version: "1.2.3",
 };
 
@@ -522,6 +527,7 @@ export {
     mockChangedProducts,
     mockDataServicesExtension,
     mockEvent,
+    mockExperiencePlatformConnectorExtenion,
     mockExtension,
     mockOrder,
     mockPage,

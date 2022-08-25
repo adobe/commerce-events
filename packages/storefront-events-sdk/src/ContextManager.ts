@@ -8,6 +8,7 @@ import {
     CustomUrl,
     Debug,
     EventForwarding,
+    ExperiencePlatformConnectorExtension,
     MagentoExtension,
     Order,
     Page,
@@ -71,6 +72,19 @@ export default class ContextManager extends Base {
 
     setEventForwarding(context: EventForwarding): void {
         this.setContext<EventForwarding>(contexts.EVENT_FORWARDING_CONTEXT, context);
+    }
+
+    getExperiencePlatformConnectorExtension(): ExperiencePlatformConnectorExtension {
+        return this.getContext<ExperiencePlatformConnectorExtension>(
+            contexts.EXPERIENCE_PLATFORM_CONNECTOR_EXTENSION_CONTEXT,
+        );
+    }
+
+    setExperiencePlatformConnectorExtension(context: ExperiencePlatformConnectorExtension): void {
+        this.setContext<ExperiencePlatformConnectorExtension>(
+            contexts.EXPERIENCE_PLATFORM_CONNECTOR_EXTENSION_CONTEXT,
+            context,
+        );
     }
 
     getCustomUrl(): CustomUrl {

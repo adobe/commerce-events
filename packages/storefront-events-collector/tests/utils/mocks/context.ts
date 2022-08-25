@@ -101,6 +101,10 @@ const mockDataServicesExtensionCtx = {
     version: "1.2.3",
 };
 
+const mockExperiencePlatformExtensionCtx = {
+    version: "1.2.3",
+};
+
 const mockRecommendationsExtensionCtx = {
     version: "1.2.3",
 };
@@ -310,6 +314,7 @@ export {
     mockAepCtx,
     mockDataServicesExtensionCtx,
     mockEventForwardingCtx,
+    mockExperiencePlatformExtensionCtx,
     mockExtensionCtx,
     mockProductCtx,
     mockRecommendationsExtensionCtx,

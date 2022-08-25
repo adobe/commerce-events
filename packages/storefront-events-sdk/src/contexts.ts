@@ -7,6 +7,7 @@ const contexts = {
     DATA_SERVICES_EXTENSION_CONTEXT: "dataServicesExtensionContext",
     DEBUG_CONTEXT: "debugContext",
     EVENT_FORWARDING_CONTEXT: "eventForwardingContext",
+    EXPERIENCE_PLATFORM_CONNECTOR_EXTENSION_CONTEXT: "experiencePlatformConnectorExtensionContext",
     MAGENTO_EXTENSION_CONTEXT: "magentoExtensionContext",
     ORDER_CONTEXT: "orderContext",
     PAGE_CONTEXT: "pageContext",
