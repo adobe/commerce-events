@@ -1,0 +1,40 @@
+{
+    "name": "@adobe/commerce-events-core",
+    "version": "2.0.0",
+    "description": "core utils for commerce-events packages",
+    "license": "MIT",
+    "source": "src/index.ts",
+    "types": "dist/index.d.ts",
+    "exports": {
+        "types": "./dist/commerce-events-core.d.ts",
+        "require": "./dist/commerce-events-core.cjs",
+        "default": "./dist/commerce-events-core.modern.js"
+    },
+    "main": "./dist/commerce-events-core.cjs",
+    "module": "dist/commerce-events-core.esm.js",
+    "unpkg": "./dist/commerce-events-core.umd.js",
+    "author": {
+        "name": "Adobe",
+        "url": "https://www.adobe.com/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/adobe/commerce-events"
+    },
+    "homepage": "https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-core#readme",
+    "bugs": {
+        "url": "https://github.com/adobe/commerce-events/issues"
+    },
+    "scripts": {
+        "start": "minibundle watch",
+        "build": "minibundle build",
+        "core": "minibundle --watch"
+    },
+    "devDependencies": {
+        "@size-limit/preset-small-lib": "^8.0.1",
+        "minibundle": "*",
+        "microbundle": "^0.15.1",
+        "tslib": "^2.4.0",
+        "typescript": "^4.7.4"
+    }
+}
