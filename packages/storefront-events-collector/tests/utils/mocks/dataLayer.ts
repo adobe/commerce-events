@@ -1,6 +1,7 @@
 import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/events";
 import {
     Account,
+    CartEvent,
     Category,
     CustomUrl,
     DataServicesExtension,
@@ -25,6 +26,59 @@ const mockAccount: Account = {
     firstName: "firstName",
     lastName: "lastName",
     emailAddress: "beacon3@commerce.com",
+};
+
+const mockCartEvent: CartEvent = {
+    items: [
+        {
+            canApplyMsrp: false,
+            formattedPrice: "$20.00",
+            id: "aaaaaa",
+            prices: {
+                price: {
+                    value: 20.0,
+                    currency: "USD",
+                },
+            },
+            product: {
+                productId: 111111,
+                name: "T-Shirt",
+                sku: "ts001",
+                pricing: {
+                    regularPrice: 20.0,
+                    minimalPrice: 20.0,
+                    maximalPrice: 20.0,
+                    currencyCode: "USD",
+                },
+            },
+            configurableOptions: [],
+            quantity: 1,
+        },
+        {
+            canApplyMsrp: false,
+            formattedPrice: "$50.00",
+            id: "cccccc",
+            prices: {
+                price: {
+                    value: 50.0,
+                    currency: "USD",
+                },
+            },
+            product: {
+                productId: 222222,
+                name: "Hoodie",
+                sku: "h001",
+                pricing: {
+                    regularPrice: 50.0,
+                    minimalPrice: 50.0,
+                    maximalPrice: 50.0,
+                    currencyCode: "USD",
+                },
+            },
+            configurableOptions: [],
+            quantity: 1,
+        },
+    ],
 };
 
 const mockCategory: Category = {
@@ -439,6 +493,7 @@ const mockEvent: Event = {
         name: "Pants",
         sku: "abc123",
         suggestion: "red pants",
+        cartEventContext: mockCartEvent,
         categoryContext: mockCategory,
         customContext: {},
         customUrlContext: mockCustomUrl,
@@ -463,6 +518,7 @@ const mockEvent: Event = {
 
 export {
     mockAccount,
+    mockCartEvent,
     mockCategory,
     mockDataServicesExtension,
     mockEvent,

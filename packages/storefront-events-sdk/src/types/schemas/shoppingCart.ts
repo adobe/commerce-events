@@ -20,7 +20,7 @@ type Price = {
     regularPrice?: number;
 };
 
-type ShoppingCartItem = {
+export type ShoppingCartItem = {
     canApplyMsrp: boolean;
     formattedPrice: string;
     id: string;

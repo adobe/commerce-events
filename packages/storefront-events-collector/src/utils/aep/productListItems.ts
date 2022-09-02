@@ -1,4 +1,4 @@
-import { ShoppingCart, StorefrontInstance } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+import { ShoppingCart, StorefrontInstance, ShoppingCartItem } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
 
 import { ProductListItem, SelectedOption } from "../../types/aep";
 import { getDiscountAmount } from "../discount";
@@ -9,12 +9,12 @@ import { getDiscountAmount } from "../discount";
  * @remarks `discountAmount` and `selectedOtions` are not supported in the sdk type yet
  */
 const createProductListItems = (
-    shoppingCartContext: ShoppingCart,
+    cartContext: {items?: Array<ShoppingCartItem>},
     storefrontContext: StorefrontInstance,
 ): ProductListItem[] => {
     const returnList: ProductListItem[] = [];
-    if (shoppingCartContext.items?.length) {
-        shoppingCartContext.items.forEach((item) => {
+    if (cartContext.items?.length) {
+        cartContext.items.forEach((item) => {
             const selectedOptions: SelectedOption[] = [];
             item.configurableOptions?.forEach((option) => {
                 selectedOptions.push({

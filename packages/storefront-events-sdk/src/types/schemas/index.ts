@@ -1,6 +1,7 @@
 export * from "./account";
 export * from "./aep";
 export * from "./address";
+export * from "./cartEvent";
 export * from "./category";
 export * from "./customUrl";
 export * from "./debug";

@@ -21,6 +21,7 @@ import {
     DataServicesExtension,
     RecommendationsExtension,
     SearchExtension,
+    CartEvent,
 } from "./types/schemas";
 
 export default class ContextManager extends Base {
@@ -38,6 +39,14 @@ export default class ContextManager extends Base {
 
     setAccount(context: Account): void {
         this.setContext<Account>(contexts.ACCOUNT_CONTEXT, context);
+    }
+    
+    getCartEvent(): CartEvent {
+        return this.getContext<CartEvent>(contexts.CART_EVENT_CONTEXT);
+    }
+
+    setCartEvent(context: CartEvent): void {
+        this.setContext<CartEvent>(contexts.CART_EVENT_CONTEXT, context);
     }
 
     getCategory(): Category {

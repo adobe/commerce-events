@@ -2,6 +2,7 @@ import contexts from "../contexts";
 import {
     Account,
     AEP,
+    CartEvent,
     Category,
     CustomUrl,
     DataServicesExtension,
@@ -24,6 +25,7 @@ import {
 
 export type ContextName =
     | typeof contexts.AEP_CONTEXT
+    | typeof contexts.CART_EVENT_CONTEXT
     | typeof contexts.CATEGORY_CONTEXT
     | typeof contexts.CUSTOM_URL_CONTEXT
     | typeof contexts.DATA_SERVICES_EXTENSION_CONTEXT
@@ -46,6 +48,7 @@ export type ContextName =
 export type Context = {
     [contexts.ACCOUNT_CONTEXT]?: Account;
     [contexts.AEP_CONTEXT]?: AEP;
+    [contexts.CART_EVENT_CONTEXT]: CartEvent;
     [contexts.CATEGORY_CONTEXT]: Category;
     [contexts.CUSTOM_URL_CONTEXT]: CustomUrl;
     [contexts.DATA_SERVICES_EXTENSION_CONTEXT]?: DataServicesExtension;
