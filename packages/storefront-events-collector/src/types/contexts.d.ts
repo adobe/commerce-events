@@ -221,6 +221,8 @@ type Tracker = {
     magentoJsVersion: string;
 };
 
+type CartEventContext = CartEvent;
+
 type EventForwardingContext = {
     aep?: boolean;
     commerce?: boolean;
@@ -251,20 +253,3 @@ type ShopperContext = SnowplowContext<Shopper>;
 type ShoppingCartContext = SnowplowContext<ShoppingCart>;
 type StorefrontContext = SnowplowContext<Storefront>;
 type TrackerContext = SnowplowContext<Tracker>;
-<<<<<<< HEAD
-
-// non-Snowplow contexts
-
-type CartEventContext = CartEvent;
-
-type EventForwardingContext = {
-    aep?: boolean;
-    commerce?: boolean;
-};
-
-type AEPContext = {
-    imsOrgId?: string;
-    datastreamId?: string;
-};
-=======
->>>>>>> main
