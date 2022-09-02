@@ -1,4 +1,4 @@
-import { AEP } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
+import { AEP } from "@adobe/commerce-events-sdk";
 
 import { AEPContext } from "../types/contexts";
 
@@ -13,6 +13,8 @@ const createContext = (aep?: AEP): AEPContext => {
     const context: AEPContext = {
         imsOrgId: aepCtx.imsOrgId,
         datastreamId: aepCtx.datastreamId,
+        edgeDomain: aepCtx.edgeDomain,
+        webSDKName: aepCtx.webSDKName,
     };
 
     return context;

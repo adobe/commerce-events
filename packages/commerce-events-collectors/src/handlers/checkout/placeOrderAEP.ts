@@ -1,11 +1,11 @@
-import { Event } from "@adobe/commerce-events-sdk/dist/types/types/events";
+import { Event } from "@adobe/commerce-events-sdk";
 
 import { sendEvent } from "../../alloy";
 import { BeaconSchema } from "../../types/aep";
 import { createOrder } from "../../utils/aep/order";
 import { createProductListItems } from "../../utils/aep/productListItems";
 
-const XDM_EVENT_TYPE = "commerce.order";
+const XDM_EVENT_TYPE = "commerce.purchases";
 
 /** Sends an event to aep with a checkout complete payload */
 const aepHandler = async (event: Event): Promise<void> => {

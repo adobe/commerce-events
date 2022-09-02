@@ -220,6 +220,18 @@ type Tracker = {
     magentoJsVersion: string;
 };
 
+type EventForwardingContext = {
+    aep?: boolean;
+    commerce?: boolean;
+};
+
+type AEPContext = {
+    imsOrgId?: string;
+    datastreamId?: string;
+    webSDKName?: string;
+    edgeDomain?: string;
+};
+
 type SnowplowContext<DataType> = SelfDescribingJson<DataType | Record<string, unknown>>;
 
 type ExtensionContext = SnowplowContext<Extension>;
@@ -238,15 +250,3 @@ type ShopperContext = SnowplowContext<Shopper>;
 type ShoppingCartContext = SnowplowContext<ShoppingCart>;
 type StorefrontContext = SnowplowContext<Storefront>;
 type TrackerContext = SnowplowContext<Tracker>;
-
-// non-Snowplow contexts
-
-type EventForwardingContext = {
-    aep?: boolean;
-    commerce?: boolean;
-};
-
-type AEPContext = {
-    imsOrgId?: string;
-    datastreamId?: string;
-};

@@ -28,6 +28,7 @@ const createProductListItems = (
                 name: item.product.name,
                 quantity: item.quantity,
                 priceTotal: item.prices.price.value * item.quantity,
+                productImageUrl: item.product.mainImageUrl,
                 currencyCode: item.prices.price.currency ?? storefrontContext.storeViewCurrencyCode,
                 discountAmount: getDiscountAmount(item.product),
                 selectedOptions: selectedOptions,

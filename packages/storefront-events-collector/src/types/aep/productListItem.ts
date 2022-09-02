@@ -12,6 +12,10 @@ export type ProductListItem = {
      */
     name: string;
     /**
+     * product main image URL
+     */
+    productImageUrl?: string | null;
+    /**
      * number of this item added/purchased, defaults to 1
      */
     quantity?: number;

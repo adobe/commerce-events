@@ -1,4 +1,4 @@
-import * as sdkSchemas from "@adobe/commerce-events-sdk/dist/types/types/schemas";
+import * as sdkSchemas from "@adobe/commerce-events-sdk";
 
 import { Order, Payment } from "../../types/aep";
 

@@ -1,4 +1,4 @@
-import { Shopper } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
+import { Shopper } from "@adobe/commerce-events-sdk";
 
 import schemas from "../schemas";
 import { ShopperContext } from "../types/contexts";

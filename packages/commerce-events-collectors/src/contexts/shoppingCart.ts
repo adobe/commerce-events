@@ -1,11 +1,11 @@
-import { ShoppingCart } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
+import { ShoppingCart } from "@adobe/commerce-events-sdk";
 
 import schemas from "../schemas";
 import { ShoppingCartContext, ShoppingCartItem } from "../types/contexts";
 
 const createShoppingCartItems = (shoppingCart?: ShoppingCart) => {
     const mse = window.magentoStorefrontEvents;
-    const shoppingCartCtx = shoppingCart ?? mse.context.getShoppingCart();
+    const shoppingCartCtx: ShoppingCart = shoppingCart ?? mse.context.getShoppingCart();
 
     if (!shoppingCartCtx.items) {
         return [];

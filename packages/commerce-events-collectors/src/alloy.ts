@@ -2,7 +2,7 @@
 
 import { createInstance } from "@adobe/alloy";
 
-import { AlloyIndentity, AlloyInstance } from "./aep/types/alloy.types";
+import { AlloyIndentity, AlloyInstance, ConfigOptions } from "./aep/types/alloy.types";
 import createContext from "./contexts/aep";
 import { BeaconSchema } from "./types/aep";
 import { AEPContext } from "./types/contexts";
@@ -15,11 +15,17 @@ const alloyInstance: AlloyInstance = createInstance({ name: "alloy" });
 const configure = async (): Promise<AlloyInstance> => {
     const aepCtx: AEPContext = createContext();
     if (aepCtx.datastreamId !== "" && aepCtx.imsOrgId !== "") {
-        await alloyInstance("configure", {
+        const alloyConfig: ConfigOptions = {
             edgeConfigId: aepCtx.datastreamId as string,
             orgId: aepCtx.imsOrgId as string,
             defaultConsent: "pending",
-        });
+        };
+
+        if (aepCtx.edgeDomain && aepCtx.edgeDomain !== "") {
+            alloyConfig.edgeDomain = aepCtx.edgeDomain;
+        }
+
+        await alloyInstance("configure", alloyConfig);
 
         window.alloy = alloyInstance;
         return window.alloy;

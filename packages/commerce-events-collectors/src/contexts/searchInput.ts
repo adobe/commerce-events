@@ -1,4 +1,4 @@
-import { SearchInput } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
+import { SearchInput } from "@adobe/commerce-events-sdk";
 
 import schemas from "../schemas";
 import { SearchInputContext } from "../types/contexts";

@@ -5,7 +5,7 @@ import {
     SearchResults,
     SearchResultSuggestion,
     SearchResultUnit,
-} from "@adobe/commerce-events-sdk/dist/types/types/schemas";
+} from "@adobe/commerce-events-sdk";
 
 import { SearchFilter, SearchResultCategory } from "../types/contexts";
 

@@ -1,4 +1,4 @@
-import mdl, { MagentoStorefrontEvents } from "../src/index";
+import { MagentoStorefrontEvents } from "../src/index";
 import {
     generateAccountContext,
     generateAEPContext,
@@ -19,6 +19,8 @@ import {
     generateShoppingCartContext,
     generateStorefrontInstanceContext,
 } from "./mocks";
+
+const mdl = new MagentoStorefrontEvents();
 
 beforeAll(() => {
     // Forces magento data layer code to be bundled so that

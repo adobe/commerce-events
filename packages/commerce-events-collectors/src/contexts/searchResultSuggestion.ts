@@ -1,4 +1,4 @@
-import { SearchResults } from "@adobe/commerce-events-sdk/dist/types/types/schemas";
+import { SearchResults } from "@adobe/commerce-events-sdk";
 
 import schemas from "../schemas";
 import { SearchResultSuggestionContext } from "../types/contexts";

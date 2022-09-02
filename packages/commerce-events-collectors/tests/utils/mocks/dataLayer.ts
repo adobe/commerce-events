@@ -1,9 +1,9 @@
-import { Event } from "@adobe/commerce-events-sdk/dist/types/types/events";
 import {
     Account,
     Category,
     CustomUrl,
     DataServicesExtension,
+    Event,
     MagentoExtension,
     Order,
     Page,
@@ -17,7 +17,7 @@ import {
     Shopper,
     ShoppingCart,
     StorefrontInstance,
-} from "@adobe/commerce-events-sdk/dist/types/types/schemas";
+} from "@adobe/commerce-events-sdk";
 
 import { mockAepCtx, mockEventForwardingCtx } from "./context";
 
