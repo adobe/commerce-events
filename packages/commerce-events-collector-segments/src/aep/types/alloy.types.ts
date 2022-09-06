@@ -44,7 +44,8 @@ export type AlloyInstance = (
 ) => Promise<void | AlloyIdentity>;
 
 export type AlloyIdentity = {
-    identity: {
+    identity?: {
         ECID?: string;
     };
+    destinations?: Record<string, unknown>;
 };
