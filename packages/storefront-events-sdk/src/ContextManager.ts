@@ -4,6 +4,7 @@ import {
     Account,
     AEP,
     Category,
+    ChangedProducts,
     CustomUrl,
     Debug,
     EventForwarding,
@@ -38,6 +39,14 @@ export default class ContextManager extends Base {
 
     setAccount(context: Account): void {
         this.setContext<Account>(contexts.ACCOUNT_CONTEXT, context);
+    }
+    
+    getChangedProducts(): ChangedProducts {
+        return this.getContext<ChangedProducts>(contexts.CHANGED_PRODUCTS_CONTEXT);
+    }
+
+    setChangedProducts(context: ChangedProducts): void {
+        this.setContext<ChangedProducts>(contexts.CHANGED_PRODUCTS_CONTEXT, context);
     }
 
     getCategory(): Category {

@@ -1,6 +1,7 @@
 const contexts = {
     AEP_CONTEXT: "aepContext",
     ACCOUNT_CONTEXT: "accountContext",
+    CHANGED_PRODUCTS_CONTEXT: "changedProductsContext",
     CATEGORY_CONTEXT: "categoryContext",
     CUSTOM_URL_CONTEXT: "customUrlContext",
     DATA_SERVICES_EXTENSION_CONTEXT: "dataServicesExtensionContext",

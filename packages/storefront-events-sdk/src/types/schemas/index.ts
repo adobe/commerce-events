@@ -2,6 +2,7 @@ export * from "./account";
 export * from "./aep";
 export * from "./address";
 export * from "./category";
+export * from "./changedProducts";
 export * from "./customUrl";
 export * from "./debug";
 export * from "./eventForwarding";

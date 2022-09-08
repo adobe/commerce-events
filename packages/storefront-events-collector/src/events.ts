@@ -21,6 +21,7 @@ import {
     recsResponseReceivedHandler,
     recsUnitRenderHandler,
     recsUnitViewHandler,
+    removeFromCartHandlerAEP,
     searchCategoryClickHandler,
     searchProductClickHandler,
     searchRequestSentHandler,
@@ -69,6 +70,7 @@ const handleAepInitiateCheckout = handleIf(isAep, initiateCheckoutHandlerAEP);
 // product
 const handleSnowplowAddToCart = handleIf(isCommerce, addToCartHandler);
 const handleAepAddToCart = handleIf(isAep, addToCartHandlerAEP);
+const handleAepRemoveFromCart = handleIf(isAep, removeFromCartHandlerAEP);
 
 // shopping cart view
 const handleSnowplowShoppingCartView = handleIf(isCommerce, shoppingCartViewHandler);
@@ -130,6 +132,7 @@ const subscribeToEvents = (): void => {
         mse.subscribe.pageView(handleAepPageView);
         mse.subscribe.placeOrder(handleAepPlaceOrder);
         mse.subscribe.productPageView(handleAepProductView);
+        mse.subscribe.removeFromCart(handleAepRemoveFromCart);
         mse.subscribe.searchRequestSent(handleAepSearchRequestSent);
         mse.subscribe.searchResponseReceived(handleAepSearchResponseReceived);
         mse.subscribe.shoppingCartView(handleAepShoppingCartView);
@@ -178,6 +181,7 @@ const unsubscribeFromEvents = (): void => {
         mse.unsubscribe.pageView(handleAepPageView);
         mse.unsubscribe.placeOrder(handleAepPlaceOrder);
         mse.unsubscribe.productPageView(handleAepProductView);
+        mse.unsubscribe.removeFromCart(handleAepRemoveFromCart);
         mse.unsubscribe.searchRequestSent(handleAepSearchRequestSent);
         mse.unsubscribe.searchResponseReceived(handleAepSearchResponseReceived);
         mse.unsubscribe.shoppingCartView(handleAepShoppingCartView);

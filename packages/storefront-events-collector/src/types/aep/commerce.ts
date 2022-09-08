@@ -1,6 +1,7 @@
 /* top level object for all transaction events */
 export type Commerce = {
     productListAdds?: ProductListAdds;
+    productListRemovals?: ProductListRemovals;
     productListViews?: ProductListViews;
     cart?: Cart;
     cartAbandons?: CartAbandon;
@@ -50,10 +51,19 @@ export type Checkout = {
 };
 
 /**
- * Addition of a product to the product list, for example a product is added
+ * Addition or increase in quantity of a product to the product list, for example a product is added
  * to a shopping cart.
  */
 export type ProductListAdds = {
+    id?: string;
+    value: number;
+};
+
+/**
+ * Removal or decrease in quantity of a product from the product list, for example a product is deleted
+ * from a shopping cart.
+ */
+ export type ProductListRemovals = {
     id?: string;
     value: number;
 };
