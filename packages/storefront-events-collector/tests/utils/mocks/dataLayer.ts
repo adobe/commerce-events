@@ -1,7 +1,7 @@
 import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/events";
 import {
     Account,
-    CartEvent,
+    ChangedProducts,
     Category,
     CustomUrl,
     DataServicesExtension,
@@ -28,7 +28,7 @@ const mockAccount: Account = {
     emailAddress: "beacon3@commerce.com",
 };
 
-const mockCartEvent: CartEvent = {
+const mockChangedProducts: ChangedProducts = {
     items: [
         {
             canApplyMsrp: false,
@@ -493,8 +493,8 @@ const mockEvent: Event = {
         name: "Pants",
         sku: "abc123",
         suggestion: "red pants",
-        cartEventContext: mockCartEvent,
         categoryContext: mockCategory,
+        changedProductsContext: mockChangedProducts,
         customContext: {},
         customUrlContext: mockCustomUrl,
         magentoExtensionContext: mockExtension,
@@ -518,8 +518,8 @@ const mockEvent: Event = {
 
 export {
     mockAccount,
-    mockCartEvent,
     mockCategory,
+    mockChangedProducts,
     mockDataServicesExtension,
     mockEvent,
     mockExtension,

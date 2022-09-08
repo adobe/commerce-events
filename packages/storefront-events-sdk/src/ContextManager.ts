@@ -4,6 +4,7 @@ import {
     Account,
     AEP,
     Category,
+    ChangedProducts,
     CustomUrl,
     Debug,
     EventForwarding,
@@ -21,7 +22,6 @@ import {
     DataServicesExtension,
     RecommendationsExtension,
     SearchExtension,
-    CartEvent,
 } from "./types/schemas";
 
 export default class ContextManager extends Base {
@@ -41,12 +41,12 @@ export default class ContextManager extends Base {
         this.setContext<Account>(contexts.ACCOUNT_CONTEXT, context);
     }
     
-    getCartEvent(): CartEvent {
-        return this.getContext<CartEvent>(contexts.CART_EVENT_CONTEXT);
+    getChangedProducts(): ChangedProducts {
+        return this.getContext<ChangedProducts>(contexts.CHANGED_PRODUCTS_CONTEXT);
     }
 
-    setCartEvent(context: CartEvent): void {
-        this.setContext<CartEvent>(contexts.CART_EVENT_CONTEXT, context);
+    setChangedProducts(context: ChangedProducts): void {
+        this.setContext<ChangedProducts>(contexts.CHANGED_PRODUCTS_CONTEXT, context);
     }
 
     getCategory(): Category {

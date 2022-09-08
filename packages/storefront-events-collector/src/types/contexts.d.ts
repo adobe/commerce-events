@@ -1,5 +1,5 @@
 import { SelfDescribingJson } from "@snowplow/tracker-core";
-import { CartEvent } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+import { ChangedProducts } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
 
 type Extension = {
     magentoExtensionVersion: string;
@@ -221,7 +221,7 @@ type Tracker = {
     magentoJsVersion: string;
 };
 
-type CartEventContext = CartEvent;
+type ChangedProductsContext = ChangedProducts;
 
 type EventForwardingContext = {
     aep?: boolean;

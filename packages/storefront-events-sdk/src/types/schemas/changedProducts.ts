@@ -1,5 +1,5 @@
 import { ShoppingCartItem } from "./shoppingCart";
 
-export type CartEvent = {
+export type ChangedProducts = {
     items?: Array<ShoppingCartItem>;
 };
