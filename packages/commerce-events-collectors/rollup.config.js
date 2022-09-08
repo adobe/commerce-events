@@ -50,6 +50,7 @@ const slim = (config) => ({
 const plugins = [
     // resolve node_modules
     resolve({
+        preferBuiltins: false, // needed for `querystring` that alloy is using
         mainFields: ["module", "main", "browser"],
         extensions: [...RESOLVE_DEFAULTS.extensions, ".cjs", ".mjs", ".jsx"],
     }),

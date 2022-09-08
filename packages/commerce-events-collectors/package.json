@@ -23,6 +23,7 @@
     },
     "keywords": [],
     "scripts": {
+        "ace": "NODE_ENV=development rollup -c",
         "start": "NODE_ENV=development rollup -c",
         "dev": "NODE_ENV=development rollup -c",
         "build": "NODE_ENV=production rollup -c",
@@ -37,8 +38,8 @@
         "release": "cross-env HUSKY_SKIP_HOOKS=1 standard-version"
     },
     "dependencies": {
-        "@adobe/commerce-events-sdk": "*",
         "@adobe/alloy": "^2.9.0",
+        "@adobe/commerce-events-sdk": "*",
         "@snowplow/browser-plugin-link-click-tracking": "^3.0.2",
         "@snowplow/browser-plugin-performance-timing": "^3.0.1",
         "@snowplow/browser-tracker": "^3.0.1"

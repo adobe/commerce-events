@@ -25,6 +25,7 @@ const bundle = (config) => ({
             name: "commerceEventsSdk",
             format: "umd",
             sourcemap: true,
+            // exports: "named",
         },
     ],
 });
@@ -42,6 +43,7 @@ const slim = (config) => ({
             name: "commerceEventsSdk",
             format: "umd",
             sourcemap: true,
+            // exports: "named",
         },
     ],
 });

@@ -41,6 +41,10 @@
         "dev": {
             "dependsOn": ["^build"],
             "cache": false
+        },
+        "ace": {
+            "dependsOn": ["^ace"],
+            "cache": false
         }
     }
 }

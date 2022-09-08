@@ -1,4 +1,4 @@
-import { MagentoStorefrontEvents } from "../src/index";
+import MagentoStorefrontEvents from "../src/MagentoStorefrontEvents";
 import {
     generateAccountContext,
     generateAEPContext,
