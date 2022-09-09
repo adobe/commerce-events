@@ -1,0 +1,11 @@
+{
+    "extends": "tsconfig/lib.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "outDir": "dist",
+        "declarationDir": "dist/types",
+        "incremental": false
+    },
+    "include": ["src/**/*", "lib.d.ts"],
+    "exclude": ["node_modules", "dist", ".turbo", "coverage"]
+}
