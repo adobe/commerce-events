@@ -11,7 +11,7 @@ import pkg from "./package.json";
 /******************************************************************************************************/
 /* planning on moving this to it's own local package but for now i'm just hashing out the beginnings  */
 /******************************************************************************************************/
-const isDevelopment = !(["testing","production"]).includes(process.env.NODE_ENV);
+const isDevelopment = !["testing", "production"].includes(process.env.NODE_ENV);
 
 // creates a full build that bundles all modules needed
 const bundle = (config) => ({
@@ -22,7 +22,7 @@ const bundle = (config) => ({
         {
             dir: "dist",
             entryFileNames: `umd.[name].js`,
-            name: "commerceEventsSdk",
+            name: "commerceEventsCore",
             format: "umd",
             sourcemap: true,
             // exports: "named",
@@ -66,7 +66,7 @@ const plugins = [
         include: /\.[jt]sx?$/, // default, inferred from `loaders` option
         exclude: /node_modules/, // default
         sourceMap: true, // by default inferred from rollup's `output.sourcemap` option
-        minify: true, //process.env.NODE_ENV === "production",
+        minify: !isDevelopment,
         target: "es2015", // default, or 'es20XX', 'esnext'
         // Like @rollup/plugin-replace
         define: {
@@ -89,7 +89,7 @@ export default [
     // creates types and will start a server to host `dist` folder
     // if running in development environment
     {
-        input: "./src/types/index.ts",
+        input: "./src/index.ts",
         external: (id) => !/^[./]/.test(id),
         output: {
             dir: "dist",

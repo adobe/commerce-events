@@ -1,9 +1,9 @@
 {
     "name": "@adobe/commerce-events-core",
     "version": "0.0.1",
-    "main": "src/index.ts",
-    "types": "src/index.ts",
-    "module": "dist/commerce-events-sdk2.esm.js",
+    "main": "dist/index.ts",
+    "types": "dist/index.d.ts",
+    "module": "dist/commerce-event-collector-aep.esm.js",
     "author": "Graham Rogers",
     "license": "MIT",
     "scripts": {

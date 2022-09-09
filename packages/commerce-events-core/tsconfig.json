@@ -3,7 +3,8 @@
     "compilerOptions": {
         "baseUrl": ".",
         "outDir": "dist",
-        "declarationDir": "dist/types"
+        "declarationDir": "dist",
+        "incremental": false
     },
     "include": ["./**/*.ts", "lib.d.ts"],
     "exclude": ["node_modules", "dist", ".turbo", "coverage"]

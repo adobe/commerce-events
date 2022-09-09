@@ -21,7 +21,7 @@
                             <img src="/aep.svg" class="logo" alt="Adobe Experience Platform logo" />
                         </a>
                     </div>
-                    <div class="hidden ml-16 space-x-4 lg:block">
+                    <div class="hidden ml-20 space-x-4 lg:block">
                         <a href="/" class="text-base font-medium text-gray-800 hover:text-gray-500">SDK</a>
 
                         <a href="/collector.html" class="text-base font-medium text-gray-800 hover:text-gray-500"
@@ -72,9 +72,35 @@
             </div>
         </div>
 
-        <script async defer src="http://localhost:8080/umd.index.js"></script>
+        <!-- <script async defer src="http://localhost:8080/umd.index.js"></script>
         <script type="module" src="src/sdk/context.ts"></script>
         <script type="module" src="src/sdk/subscribe.ts"></script>
-        <script type="module" src="src/sdk/publish.ts"></script>
+        <script type="module" src="src/sdk/publish.ts"></script> -->
+                <!-- set up ACDL externally -->
+        <script type="module">
+            window.adobeDataLayer = window.adobeDataLayer || [];
+            window.adobeDataLayer.push({ test1: "Hello World" });
+
+            // window.customDataLayer['getState'] = () => console.log(window.customDataLayer);
+        </script>
+        <script
+            async
+            defer
+            src="https://unpkg.com/@adobe/adobe-client-data-layer@2.0.1/dist/adobe-client-data-layer.min.js"
+        ></script>
+        <script async defer src="http://localhost:8787/umd.index.js"></script>
+        <script async defer src="http://localhost:8888/umd.index.js"></script>
+        <script type="module" async defer>
+            const { CommerceEvents, ExampleCollector } = commerceEventsCore;
+            const { AEPCollector } = commerceEventsCollectorAep;
+
+            const sdk = new CommerceEvents(window.adobeDataLayer);
+            const exampleCollector = new ExampleCollector();
+            const collector = new AEPCollector();
+            sdk.subscribe(exampleCollector);
+            sdk.subscribe(collector);
+
+            sdk.publish({ foo: "bar" });
+        </script>
     </body>
 </html>
