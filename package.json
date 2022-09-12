@@ -12,13 +12,13 @@
         "build": "turbo run build",
         "build:qa": "turbo run build:qa",
         "build:prod": "turbo run build:prod",
+        "ace": "turbo run ace --parallel",
         "dev": "turbo run dev --parallel",
         "test": "turbo run test",
         "lint": "turbo run lint",
         "format": "prettier --write \"**/*.{ts,tsx,md}\"",
         "postinstall": "yarn build"
     },
-    "dependencies": {},
     "devDependencies": {
         "@changesets/cli": "^2.24.3",
         "eslint-config-custom": "*",

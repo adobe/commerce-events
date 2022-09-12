@@ -4,7 +4,6 @@
     "description": "SDK for working with events on an Adobe Commerce storefront",
     "license": "MIT",
     "main": "dist/umd.index.js",
-    "module": "dist/umd.index.js",
     "types": "dist/index.d.ts",
     "files": [
         "dist/"
@@ -23,6 +22,7 @@
     },
     "keywords": [],
     "scripts": {
+        "ace": "NODE_ENV=development rollup -c --watch",
         "start": "NODE_ENV=development rollup -c",
         "dev": "NODE_ENV=development rollup -c",
         "build": "NODE_ENV=production rollup -c",

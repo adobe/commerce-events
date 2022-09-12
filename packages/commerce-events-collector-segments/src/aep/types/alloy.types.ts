@@ -41,10 +41,22 @@ export type consentOptions = {
 export type AlloyInstance = (
     command: CommandType,
     options?: ConfigOptions | XDM<BeaconSchema> | consentOptions,
-) => Promise<void | AlloyIdentity>;
+) => Promise<void | AlloySendEventResponse | AlloyIdentity>;
 
 export type AlloyIdentity = {
-    identity: {
+    identity?: {
         ECID?: string;
     };
+};
+
+export type AlloySendEventResponse = {
+    destinations?: [
+        {
+            segments: [
+                {
+                    id: string;
+                },
+            ];
+        },
+    ];
 };

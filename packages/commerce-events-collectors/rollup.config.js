@@ -12,6 +12,7 @@ import pkg from "./package.json";
 /* planning on moving this to it's own local package but for now i'm just hashing out the beginnings  */
 /******************************************************************************************************/
 const isProduction = process.env.NODE_ENV === "production";
+const isTesting = process.env.NODE_ENV === "testing";
 
 // creates a full build that bundles all modules needed
 const bundle = (config) => ({
@@ -50,6 +51,7 @@ const slim = (config) => ({
 const plugins = [
     // resolve node_modules
     resolve({
+        preferBuiltins: false, // needed for `querystring` that alloy is using
         mainFields: ["module", "main", "browser"],
         extensions: [...RESOLVE_DEFAULTS.extensions, ".cjs", ".mjs", ".jsx"],
     }),
@@ -96,7 +98,7 @@ export default [
         },
         plugins: [
             dts(),
-            !isProduction &&
+            !isProduction && !isTesting &&
                 serve({
                     contentBase: "dist",
                     port: 8083,

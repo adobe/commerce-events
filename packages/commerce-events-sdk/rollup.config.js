@@ -12,6 +12,7 @@ import pkg from "./package.json";
 /* planning on moving this to it's own local package but for now i'm just hashing out the beginnings  */
 /******************************************************************************************************/
 const isProduction = process.env.NODE_ENV === "production";
+const isTesting = process.env.NODE_ENV === "testing";
 
 // creates a full build that bundles all modules needed
 const bundle = (config) => ({
@@ -25,6 +26,7 @@ const bundle = (config) => ({
             name: "commerceEventsSdk",
             format: "umd",
             sourcemap: true,
+            // exports: "named",
         },
     ],
 });
@@ -42,6 +44,7 @@ const slim = (config) => ({
             name: "commerceEventsSdk",
             format: "umd",
             sourcemap: true,
+            // exports: "named",
         },
     ],
 });
@@ -96,7 +99,7 @@ export default [
         },
         plugins: [
             dts(),
-            !isProduction &&
+            !isProduction && !isTesting &&
                 serve({
                     contentBase: "dist",
                     port: 8082,

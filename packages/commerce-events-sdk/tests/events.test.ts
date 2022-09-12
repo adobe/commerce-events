@@ -1,5 +1,6 @@
 import events from "../src/events";
-import mdl, { MagentoStorefrontEvents } from "../src/index";
+import mdl from "../src/index";
+import MagentoStorefrontEvents from "../src/MagentoStorefrontEvents";
 import { Event } from "../src/types/events";
 import { Shopper } from "../src/types/schemas/shopper";
 
