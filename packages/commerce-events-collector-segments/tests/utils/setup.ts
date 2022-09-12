@@ -1,3 +1,3 @@
-import { getAEPSegmentsFromProxyService } from "../../src/handlers/apiIntegration";
-import { setAdobeCommerceSegmentCookies } from "../../src/handlers/browserCookieIntegration";
-import { getECID } from "../../src/handlers/alloyIntegration";
+export { setAdobeCommerceSegmentCookies } from "../../src/handlers/browserCookieIntegration";
+export { getECID } from "../../src/handlers/alloyIntegration";
+export { getSegmentIds } from "../../src/handlers/alloyIntegration";

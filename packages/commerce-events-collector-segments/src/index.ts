@@ -1,37 +1,32 @@
-import { getAEPSegmentsFromProxyService } from "./handlers/apiIntegration";
 import { setAdobeCommerceSegmentCookies } from "./handlers/browserCookieIntegration";
-import { getECID } from "./handlers/alloyIntegration";
+import { getSegmentIds } from "./handlers/alloyIntegration";
 
-const PROXY_SERVICE_CALL_INTERVAL = 60000; //1 minute
+const GET_SEGMENT_IDS_FROM_ALLOY_INTERVAL = 60000; //1 minute
+const MAX_SEGMENT_ID_SET_TIMES = 30; //set cookies 30 times max each session
 
-/**
- * Initialize the commerce-events-collector workflow
- */
+let setSegmentIdsInterval: ReturnType<typeof setInterval> | undefined = undefined;
+let setSegmentIdsCounter = 0;
+
 const initialize = async () => {
     try {
-        const ecid: string = (await getECID()) || "";
-
         // need to call proxy service every set amount of time and retrieve updated segment information
-        setInterval(callProxyService, PROXY_SERVICE_CALL_INTERVAL, ecid);
+        setSegmentIdsInterval = setInterval(setCookieWithSegmentIds, GET_SEGMENT_IDS_FROM_ALLOY_INTERVAL);
 
-        //call the proxy service the first time, then do it on a timely manner afterwards.
-        callProxyService(ecid);
+        //call alloy to get semgent ids the first time, then do it on a timely manner afterwards.
+        setCookieWithSegmentIds();
     } catch (error) {
         console.warn("Error on getting segments: ", error);
     }
 };
 
-/**
- * Makes the proxy service call and saves that info to the browser cookies
- *
- * @param ecid - users profile id to be used to get the segment information
- */
-const callProxyService = async (ecid: string) => {
-    //call proxy service with ecid
-    const segmentMembershipIds: string = (await getAEPSegmentsFromProxyService(ecid)) || "";
-
-    //save the segment membership info out to the browser cookies
-    setAdobeCommerceSegmentCookies(segmentMembershipIds);
+const setCookieWithSegmentIds = async () => {
+    if (setSegmentIdsCounter >= MAX_SEGMENT_ID_SET_TIMES) {
+        clearInterval(setSegmentIdsInterval);
+    } else {
+        setSegmentIdsCounter++;
+        const userSegmentIds = (await getSegmentIds()) || "";
+        setAdobeCommerceSegmentCookies(userSegmentIds);
+    }
 };
 
 initialize();

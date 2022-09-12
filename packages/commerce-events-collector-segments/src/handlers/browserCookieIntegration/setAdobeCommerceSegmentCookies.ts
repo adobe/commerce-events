@@ -11,11 +11,11 @@ const ADOBE_COMMERCE_SHOPPER_SEGMENT = "adobe_segment";
  *
  * @note for now we'll keep the `expires` param for cookies set to default.
  *
- * @param segmentMembershipIds comma delimited string of `segmentMembershipIds` that is returned from the proxy service
+ * @param userSegmentIds comma delimited string of `segmentMembershipIds` that is returned from the proxy service
  */
-const setAdobeCommerceSegmentCookies = (segmentMembershipIds = "") => {
+const setAdobeCommerceSegmentCookies = (userSegmentIds = "") => {
     //again, note that no expiration is set, so this will be a session cookie
-    document.cookie = `${ADOBE_COMMERCE_SHOPPER_SEGMENT}=${segmentMembershipIds}`;
+    document.cookie = `${ADOBE_COMMERCE_SHOPPER_SEGMENT}=${userSegmentIds}`;
 };
 
 export default setAdobeCommerceSegmentCookies;
