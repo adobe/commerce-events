@@ -110,6 +110,14 @@ Sets the `AEP` context which can be used by event handlers to forward events to 
 -   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/aep.ts)
 -   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L25)
 
+#### `setAccount`
+
+```javascript
+mse.context.setAccount(accountCtx);
+```
+
+Sets the `Account` context.
+
 #### `setCategory`
 
 ```javascript
@@ -121,13 +129,16 @@ Sets the `Category` context.
 -   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/category.ts)
 -   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L31)
 
-#### `setAccount`
+#### `setChangedProducts`
 
 ```javascript
-mse.context.setAccount(accountCtx);
+mse.context.setChangedProducts(changedProductsCtx);
 ```
 
-Sets the `Account` context.
+Sets the `ChangedProducts` context.
+
+-   [context schema definition](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/src/types/schemas/changedProducts.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-collector/tests/utils/mocks/dataLayer.ts#L31)
 
 #### `setCustomUrl`
 
@@ -317,6 +328,7 @@ These getters are available for accessing context data:
 ```javascript
 mse.context.getAEP();
 mse.context.getCategory();
+mse.context.getChangedProducts();
 mse.context.getContext(name);
 mse.context.getCustomUrl();
 mse.context.getEventForwarding();

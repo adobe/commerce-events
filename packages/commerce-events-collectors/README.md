@@ -52,6 +52,7 @@ The collector listens for the following events.
 -   `recsResponseReceived`
 -   `recsUnitRender`
 -   `recsUnitView`
+-   `removeFromCart`
 -   `searchCategoryClick`
 -   `searchProductClick`
 -   `searchRequestSent`

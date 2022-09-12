@@ -121,6 +121,17 @@ Sets the `Category` context.
 -   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/category.ts)
 -   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L31)
 
+#### `setChangedProducts`
+
+```javascript
+mse.context.setChangedProducts(changedProductsCtx);
+```
+
+Sets the `ChangedProducts` context.
+
+-   [context schema definition](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/src/types/schemas/changedProducts.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-collector/tests/utils/mocks/dataLayer.ts#L31)
+
 #### `setAccount`
 
 ```javascript
@@ -317,6 +328,7 @@ These getters are available for accessing context data:
 ```javascript
 mse.context.getAEP();
 mse.context.getCategory();
+mse.context.getChangedProducts();
 mse.context.getContext(name);
 mse.context.getCustomUrl();
 mse.context.getEventForwarding();
