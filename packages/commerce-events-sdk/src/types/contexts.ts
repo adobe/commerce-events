@@ -3,6 +3,7 @@ import {
     Account,
     AEP,
     Category,
+    ChangedProducts,
     CustomUrl,
     DataServicesExtension,
     Debug,
@@ -25,6 +26,7 @@ import {
 export type ContextName =
     | typeof contexts.AEP_CONTEXT
     | typeof contexts.CATEGORY_CONTEXT
+    | typeof contexts.CHANGED_PRODUCTS_CONTEXT
     | typeof contexts.CUSTOM_URL_CONTEXT
     | typeof contexts.DATA_SERVICES_EXTENSION_CONTEXT
     | typeof contexts.DEBUG_CONTEXT
@@ -47,6 +49,7 @@ export type Context = {
     [contexts.ACCOUNT_CONTEXT]?: Account;
     [contexts.AEP_CONTEXT]?: AEP;
     [contexts.CATEGORY_CONTEXT]: Category;
+    [contexts.CHANGED_PRODUCTS_CONTEXT]: ChangedProducts;
     [contexts.CUSTOM_URL_CONTEXT]: CustomUrl;
     [contexts.DATA_SERVICES_EXTENSION_CONTEXT]?: DataServicesExtension;
     [contexts.DEBUG_CONTEXT]?: Debug;
