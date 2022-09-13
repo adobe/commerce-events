@@ -1,21 +1,34 @@
 import sade from "sade";
-
-import { DEFAULT_OPTIONS, normalizeOptions } from "./options";
-
+import { DEFAULT_FORMATS, DEFAULT_OPTIONS, normalizeOptions } from "./options";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { version } = require("../package.json");
 
 const toArray = (val: string | string[]) => (Array.isArray(val) ? val : val == null ? [] : [val]);
 
-const program = (handler: any) => {
-    const cmd = (type: "build" | "watch") => (str: string | string[], opts: any) => {
+// eslint-disable-next-line import/no-anonymous-default-export
+export default (handler: any) => {
+    // const ENABLE_MODERN = process.env.MINIBUNDLE_MODERN !== "false";
+
+    // const DEFAULT_FORMATS = ENABLE_MODERN ? "modern,esm,cjs,umd" : "esm,cjs,umd";
+
+    const cmd = (type: string) => (str: string | string[], opts: any) => {
         opts.watch = opts.watch || type === "watch";
 
         opts.entries = toArray(str || opts.entry).concat(opts._);
 
-        const allOptions = normalizeOptions(opts);
-
-        handler(allOptions);
+        if (typeof opts.compress !== "undefined") {
+            // Convert `--compress true/false/1/0` to booleans:
+            if (typeof opts.compress !== "boolean") {
+                opts.compress = opts.compress !== "false" && opts.compress !== "0";
+            }
+        } else {
+            // the default compress value is `true` for web, `false` for Node:
+            opts.compress = opts.target !== "node";
+        }
+        // console.log(opts);
+        const options = normalizeOptions(opts);
+        // console.log(options);
+        handler(options);
     };
 
     const prog = sade("minibundle");
@@ -23,7 +36,7 @@ const program = (handler: any) => {
     prog.version(version)
         .option("--entry, -i", "Entry module(s)")
         .option("--output, -o", "Directory to place build files into")
-        .option("--format, -f", `Only build specified formats (any of ${DEFAULT_OPTIONS.format} or iife)`)
+        .option("--format, -f", `Only build specified formats (any of ${DEFAULT_FORMATS} or iife)`)
         .option("--watch, -w", "Rebuilds on any change")
         .option("--pkg-main", "Outputs files analog to package.json main entries")
         .option("--target", "Specify your target environment (node or web)")
@@ -54,7 +67,8 @@ const program = (handler: any) => {
             "--generateTypes",
             "Whether or not to generate types , if `types` or `typings` is set in `package.json` then it will default to be `true`",
         )
-        .option("--css", 'Where to output CSS: "inline" or "external"')
+        .option("--serve", "Serve the dist folder")
+        .option("--css", 'Where to output CSS: "inline" or "external"', "external")
         .option(
             "--css-modules",
             'Turns on css-modules for all .css imports. Passing a string will override the scopeName. eg --css-modules="_[hash]"',
@@ -69,15 +83,16 @@ const program = (handler: any) => {
 
     prog.command("watch [...entries]").describe("Rebuilds on any change").action(cmd("watch"));
 
-    return (argv: any) =>
-        prog.parse(argv, {
+    // Parse argv; add extra aliases
+    return (argv: any) => {
+        // console.log(argv);
+        return prog.parse(argv, {
             alias: {
                 o: ["output", "d"],
                 i: ["entry", "entries", "e"],
                 w: ["watch"],
             },
-            boolean: ["generateTypes"],
+            boolean: ["generateTypes", "serve"],
         });
+    };
 };
-
-export default program;

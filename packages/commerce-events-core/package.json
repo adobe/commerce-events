@@ -14,7 +14,9 @@
         "dev": "rollup -c --watch",
         "test": "jest",
         "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-        "build": "minibundle",
+        "micro": "microbundle",
+        "serve": "microbundle watch && serve dist",
+        "build": "minibundle --serve",
         "build:watch": "minibundle watch",
         "build:prod": "NODE_ENV=production rollup -c"
     },
@@ -41,6 +43,7 @@
         "rollup-plugin-esbuild": "^4.9.1",
         "rollup-plugin-license": "^2.8.1",
         "rollup-plugin-serve": "^2.0.0",
+        "serve": "^14.0.1",
         "typescript": "^4.7.4"
     }
 }

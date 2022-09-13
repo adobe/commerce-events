@@ -28,6 +28,7 @@ import { parseAliasArgument, parseMappingArgument, toReplacementExpression } fro
 import { getConfigFromPkgJson, getName } from "./lib/package-info";
 import { normalizeMinifyOptions } from "./lib/terser";
 import { EXTENSION, isDir, isFile, isTruthy, removeScope, stdout } from "./utils";
+import serve from "rollup-plugin-serve";
 
 const EXTENSIONS = [".ts", ".tsx", ".js", ".jsx", ".es6", ".es", ".mjs"];
 
@@ -605,6 +606,7 @@ const createConfig = (options, entry, format, writeMeta) => {
                         },
                     },
                 ],
+                options.serve && serve(),
                 options.visualize && visualizer(),
                 // NOTE: OMT only works with amd and esm
                 // Source: https://github.com/surma/rollup-plugin-off-main-thread#config
