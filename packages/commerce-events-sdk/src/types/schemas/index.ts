@@ -2,6 +2,7 @@ export * from "./account";
 export * from "./address";
 export * from "./aep";
 export * from "./category";
+export * from "./changedProducts";
 export * from "./customUrl";
 export * from "./dataServicesExtension";
 export * from "./debug";

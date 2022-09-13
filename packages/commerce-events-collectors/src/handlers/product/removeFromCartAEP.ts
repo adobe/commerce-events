@@ -1,14 +1,13 @@
-import { Event } from "@adobe/commerce-events-sdk";
+import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/events";
 
 import { sendEvent } from "../../alloy";
 import { BeaconSchema } from "../../types/aep";
 import { createProductListItems } from "../../utils/aep/productListItems";
 
-const XDM_EVENT_TYPE = "commerce.productListAdds";
+const XDM_EVENT_TYPE = "commerce.productListRemovals";
 
-/** Sends an event to aep with an addToCart payload */
+/** Sends an event to aep with an removeFromCart payload */
 const aepHandler = async (event: Event): Promise<void> => {
-    // note: the shopping cart context does not include the updated product in the cart
     const { changedProductsContext, shoppingCartContext, debugContext, customContext, storefrontInstanceContext } = event.eventInfo;
 
     let payload: BeaconSchema;
@@ -28,8 +27,8 @@ const aepHandler = async (event: Event): Promise<void> => {
 
     payload.commerce = payload.commerce || {};
 
-    payload.commerce.productListAdds = {
-        value: 1,
+    payload.commerce.productListRemovals = {
+        value:  1
     };
 
     payload._id = debugContext?.eventId;

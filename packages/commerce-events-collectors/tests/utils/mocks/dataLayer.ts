@@ -1,6 +1,7 @@
 import {
     Account,
     Category,
+    ChangedProducts,
     CustomUrl,
     DataServicesExtension,
     Event,
@@ -31,6 +32,59 @@ const mockCategory: Category = {
     name: "pants",
     urlKey: "pants",
     urlPath: "/categories/pants",
+};
+
+const mockChangedProducts: ChangedProducts = {
+    items: [
+        {
+            canApplyMsrp: false,
+            formattedPrice: "$20.00",
+            id: "aaaaaa",
+            prices: {
+                price: {
+                    value: 20.0,
+                    currency: "USD",
+                },
+            },
+            product: {
+                productId: 111111,
+                name: "T-Shirt",
+                sku: "ts001",
+                pricing: {
+                    regularPrice: 20.0,
+                    minimalPrice: 20.0,
+                    maximalPrice: 20.0,
+                    currencyCode: "USD",
+                },
+            },
+            configurableOptions: [],
+            quantity: 1,
+        },
+        {
+            canApplyMsrp: false,
+            formattedPrice: "$50.00",
+            id: "cccccc",
+            prices: {
+                price: {
+                    value: 50.0,
+                    currency: "USD",
+                },
+            },
+            product: {
+                productId: 222222,
+                name: "Hoodie",
+                sku: "h001",
+                pricing: {
+                    regularPrice: 50.0,
+                    minimalPrice: 50.0,
+                    maximalPrice: 50.0,
+                    currencyCode: "USD",
+                },
+            },
+            configurableOptions: [],
+            quantity: 1,
+        },
+    ],
 };
 
 const mockExtension: MagentoExtension = {
@@ -440,6 +494,7 @@ const mockEvent: Event = {
         sku: "abc123",
         suggestion: "red pants",
         categoryContext: mockCategory,
+        changedProductsContext: mockChangedProducts,
         customContext: {},
         customUrlContext: mockCustomUrl,
         magentoExtensionContext: mockExtension,
@@ -464,6 +519,7 @@ const mockEvent: Event = {
 export {
     mockAccount,
     mockCategory,
+    mockChangedProducts,
     mockDataServicesExtension,
     mockEvent,
     mockExtension,
