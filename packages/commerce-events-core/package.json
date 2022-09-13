@@ -10,13 +10,11 @@
     "types": "dist/commerce-events-core.d.ts",
     "scripts": {
         "start": "rollup -c",
-        "ace": "rollup -c --watch",
+        "ace": "microserve --dir dist",
         "dev": "rollup -c --watch",
         "test": "jest",
         "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-        "micro": "microbundle",
-        "serve": "microbundle watch && serve dist",
-        "build": "minibundle --serve",
+        "build": "microserve --dir dist",
         "build:watch": "minibundle watch",
         "build:prod": "NODE_ENV=production rollup -c"
     },
@@ -36,6 +34,7 @@
         "jest": "^28.1.3",
         "jest-environment-jsdom": "^28.1.3",
         "jest-watch-typeahead": "^2.0.0",
+        "microserve": "*",
         "minibundle": "*",
         "prettier": "^2.7.1",
         "rollup": "^2.77.0",

@@ -64,5 +64,7 @@ export const normalizeOptions = (cli) => {
 
     const options = { ...DEFAULT_OPTIONS, ...config?.config, ...cleaned };
 
+    options.serve = cli.serve;
+
     return options;
 };
