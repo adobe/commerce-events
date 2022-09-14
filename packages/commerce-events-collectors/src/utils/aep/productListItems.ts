@@ -1,4 +1,4 @@
-import { ShoppingCart, StorefrontInstance, ShoppingCartItem } from "@adobe/commerce-events-sdk";
+import { StorefrontInstance, ShoppingCartItem } from "@adobe/commerce-events-sdk";
 
 import { ProductListItem, SelectedOption } from "../../types/aep";
 import { getDiscountAmount } from "../discount";
@@ -9,7 +9,7 @@ import { getDiscountAmount } from "../discount";
  * @remarks `discountAmount` and `selectedOtions` are not supported in the sdk type yet
  */
 const createProductListItems = (
-    cartContext: {items?: Array<ShoppingCartItem>},
+    cartContext: { items?: Array<ShoppingCartItem> },
     storefrontContext: StorefrontInstance,
 ): ProductListItem[] => {
     const returnList: ProductListItem[] = [];

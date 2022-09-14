@@ -8,7 +8,8 @@ const XDM_EVENT_TYPE = "commerce.productListRemovals";
 
 /** Sends an event to aep with an removeFromCart payload */
 const aepHandler = async (event: Event): Promise<void> => {
-    const { changedProductsContext, shoppingCartContext, debugContext, customContext, storefrontInstanceContext } = event.eventInfo;
+    const { changedProductsContext, shoppingCartContext, debugContext, customContext, storefrontInstanceContext } =
+        event.eventInfo;
 
     let payload: BeaconSchema;
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
@@ -28,7 +29,7 @@ const aepHandler = async (event: Event): Promise<void> => {
     payload.commerce = payload.commerce || {};
 
     payload.commerce.productListRemovals = {
-        value:  1
+        value: 1,
     };
 
     payload._id = debugContext?.eventId;

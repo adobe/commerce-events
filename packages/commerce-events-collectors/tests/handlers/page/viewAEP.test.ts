@@ -14,7 +14,7 @@ test("sends correctly structured event to AEP by default", async () => {
                 ...mockEvent.eventInfo.pageContext,
                 pageName: "Webpage Title",
             },
-        }
+        },
     };
 
     await pageViewHandlerAEP(pageViewEvent);
@@ -51,10 +51,10 @@ test("uses custom context if provided", async () => {
         eventInfo: {
             ...mockEvent.eventInfo,
             pageContext: {
-                ...mockEvent.eventInfo.pageContext
+                ...mockEvent.eventInfo.pageContext,
             },
             customContext: { web: mockWebContext },
-        }
+        },
     };
 
     await pageViewHandlerAEP(pageViewEvent);
@@ -75,10 +75,10 @@ test("uses event ID from debug context", async () => {
         eventInfo: {
             ...mockEvent.eventInfo,
             pageContext: {
-                ...mockEvent.eventInfo.pageContext
+                ...mockEvent.eventInfo.pageContext,
             },
             debugContext: { eventId: uuid },
-        }
+        },
     };
 
     await pageViewHandlerAEP(pageViewEvent);
