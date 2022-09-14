@@ -9,6 +9,7 @@ import {
     editAccountHandlerAEP,
     initiateCheckoutHandler,
     initiateCheckoutHandlerAEP,
+    openCartHandlerAEP,
     pageViewHandler,
     pageViewHandlerAEP,
     placeOrderHandler,
@@ -66,6 +67,7 @@ const handleAepPageView = handleIf(isAep, pageViewHandlerAEP);
 // cart
 const handleSnowplowInitiateCheckout = handleIf(isCommerce, initiateCheckoutHandler);
 const handleAepInitiateCheckout = handleIf(isAep, initiateCheckoutHandlerAEP);
+const handleAepOpenCart = handleIf(isAep, openCartHandlerAEP);
 
 // product
 const handleSnowplowAddToCart = handleIf(isCommerce, addToCartHandler);
@@ -129,6 +131,7 @@ const subscribeToEvents = (): void => {
         mse.subscribe.createAccount(handleAepCreateAccount);
         mse.subscribe.editAccount(handleAepEditAccount);
         mse.subscribe.initiateCheckout(handleAepInitiateCheckout);
+        mse.subscribe.openCart(handleAepOpenCart);
         mse.subscribe.pageView(handleAepPageView);
         mse.subscribe.placeOrder(handleAepPlaceOrder);
         mse.subscribe.productPageView(handleAepProductView);
@@ -178,6 +181,7 @@ const unsubscribeFromEvents = (): void => {
         mse.unsubscribe.custom(handleAepCustom);
         mse.unsubscribe.editAccount(handleAepEditAccount);
         mse.unsubscribe.initiateCheckout(handleAepInitiateCheckout);
+        mse.unsubscribe.openCart(handleAepOpenCart);
         mse.unsubscribe.pageView(handleAepPageView);
         mse.unsubscribe.placeOrder(handleAepPlaceOrder);
         mse.unsubscribe.productPageView(handleAepProductView);
