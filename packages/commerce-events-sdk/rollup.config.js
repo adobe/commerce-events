@@ -99,10 +99,11 @@ export default [
         },
         plugins: [
             dts(),
-            !isProduction && !isTesting &&
+            !isProduction &&
+                !isTesting &&
                 serve({
                     contentBase: "dist",
-                    port: 8082,
+                    port: 8787,
                     headers: {
                         "Access-Control-Allow-Origin": "*",
                     },

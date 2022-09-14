@@ -4,7 +4,8 @@
         "baseUrl": ".",
         "outDir": "dist",
         "declarationDir": "dist/types",
-        "incremental": false
+        "incremental": false,
+        "noImplicitAny": false
     },
     "include": ["src/**/*", "tests/**/*"],
     "exclude": ["node_modules", "dist", ".turbo", "coverage"]

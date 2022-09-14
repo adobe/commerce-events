@@ -1,12 +1,13 @@
 import ContextManager from "./ContextManager";
+import { getDataLayer } from "./data-layer";
 import PublishManager from "./PublishManager";
 import SubscribeManager from "./SubscribeManager";
 import UnsubscribeManager from "./UnsubscribeManager";
 
 class MagentoStorefrontEvents {
     constructor() {
-        // ensure event array is available
-        window.adobeDataLayer = window.adobeDataLayer || [];
+        // ensure datalayer exists
+        getDataLayer();
 
         // broadcast availability
         window.postMessage("magento-storefront-events-sdk", "*");
