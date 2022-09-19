@@ -16,7 +16,7 @@ import {
 } from "@adobe/commerce-events-collectors/tests/utils/mocks";
 import { generateButton } from "./button";
 
-const sdk = window.commerceEventsSdk;
+import { sdk } from "../sdk/get-sdk";
 
 sdk.context.setAccount(mockAccount);
 sdk.context.setMagentoExtension(mockExtension);
