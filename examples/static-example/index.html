@@ -21,7 +21,7 @@
                             <img src="/aep.svg" class="logo" alt="Adobe Experience Platform logo" />
                         </a>
                     </div>
-                    <div class="hidden ml-16 space-x-4 lg:block">
+                    <div class="hidden ml-20 space-x-4 lg:block">
                         <a href="/" class="text-base font-medium text-gray-800 hover:text-gray-500">SDK</a>
 
                         <a href="/collector.html" class="text-base font-medium text-gray-800 hover:text-gray-500"
@@ -71,8 +71,9 @@
                 <p class="mt-1 text-sm text-gray-500">Check the console for events firing.</p>
             </div>
         </div>
-
-        <script async defer src="http://localhost:8080/umd.index.js"></script>
+        <!-- To use @adobe/commerce-events-sdk, use src="http://localhost:8082/umd.index.js" -->
+        <!-- This points to @magento/magento-storefront-events-sdk, use port 8082 to use  @adobe/commerce-events-sdk -->
+        <script async defer src="http://localhost:8082/umd.index.js"></script>
         <script type="module" src="src/sdk/context.ts"></script>
         <script type="module" src="src/sdk/subscribe.ts"></script>
         <script type="module" src="src/sdk/publish.ts"></script>

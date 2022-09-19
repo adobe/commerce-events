@@ -10,8 +10,7 @@ import {
     generateShoppingCartContext,
     generateStorefrontInstanceContext,
 } from "@adobe/commerce-events-sdk/tests/mocks";
-
-const sdk = window.commerceEventsSdk;
+import { sdk } from "./get-sdk";
 
 sdk.context.setPage(generatePageContext());
 sdk.context.setRecommendations(generateRecommendationsContext());

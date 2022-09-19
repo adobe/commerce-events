@@ -1,7 +1,6 @@
 // ensure this is treated as a module
-export {};
 
-const sdk = window.commerceEventsSdk;
+import { sdk } from "./get-sdk";
 
 setTimeout(() => {
     sdk.publish.addToCart();
