@@ -26,7 +26,7 @@ This SDK can be used as a hosted script, or bundled in a JavaScript application.
 
 To load the SDK as a script, use the following snippet.
 
-```
+```html
 <script src="https://unpkg.com/@adobe/commerce-events-sdk/dist/index.js"></script>
 ```
 
@@ -34,6 +34,17 @@ To install the script as a dependency, run this command.
 
 ```shell
 npm install @adobe/commerce-events-sdk
+```
+
+### Custom Data Layer name
+
+When you are using a customDataLayer name for the Adobe Client Data Layer package, you can pass in the name to the script using the data attribute `data-layer-name`:
+
+```html
+<script>
+    window.myDataLayer = window.adobeDataLayer || [];
+</script>
+<script src="https://unpkg.com/@adobe/commerce-events-sdk/dist/index.js" data-layer-name="myDataLayer"></script>
 ```
 
 ## Quick start
