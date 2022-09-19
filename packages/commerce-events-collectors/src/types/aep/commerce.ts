@@ -63,7 +63,7 @@ export type ProductListAdds = {
  * Removal or decrease in quantity of a product from the product list, for example a product is deleted
  * from a shopping cart.
  */
- export type ProductListRemovals = {
+export type ProductListRemovals = {
     id?: string;
     value: number;
 };

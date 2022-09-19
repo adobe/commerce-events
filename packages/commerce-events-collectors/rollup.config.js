@@ -98,7 +98,8 @@ export default [
         },
         plugins: [
             dts(),
-            !isProduction && !isTesting &&
+            !isProduction &&
+                !isTesting &&
                 serve({
                     contentBase: "dist",
                     port: 8083,
