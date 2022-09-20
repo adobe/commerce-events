@@ -44,6 +44,7 @@ The collector listens for the following events.
 -   `productPageView`
 -   `shoppingCartView`
 -   `initiateCheckout`
+-   `openCart`
 -   `placeOrder`
 -   `abandonCart`
 -   `recsItemAddToCartClick`
@@ -78,6 +79,10 @@ The handlers forward events to two edges:
     `createAccount`
 
     `editAccount`
+
+    `openCart`
+
+    `removeFromCart`
 
     `signIn`
 

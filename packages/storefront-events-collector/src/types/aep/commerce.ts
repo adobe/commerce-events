@@ -1,6 +1,7 @@
 /* top level object for all transaction events */
 export type Commerce = {
     productListAdds?: ProductListAdds;
+    productListOpens?: ProductListOpens;
     productListRemovals?: ProductListRemovals;
     productListViews?: ProductListViews;
     cart?: Cart;
@@ -55,6 +56,14 @@ export type Checkout = {
  * to a shopping cart.
  */
 export type ProductListAdds = {
+    id?: string;
+    value: number;
+};
+
+/**
+ * Addition of a product to an empty product list
+ */
+ export type ProductListOpens = {
     id?: string;
     value: number;
 };

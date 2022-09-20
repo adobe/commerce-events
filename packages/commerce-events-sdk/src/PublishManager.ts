@@ -35,6 +35,10 @@ export default class PublishManager extends Base {
         this.pushEvent(events.INITIATE_CHECKOUT, { customContext: context });
     }
 
+    openCart(context?: CustomContext): void {
+        this.pushEvent(events.OPEN_CART, { customContext: context });
+    }
+
     pageActivitySummary(context?: CustomContext): void {
         this.pushEvent(events.PAGE_ACTIVITY_SUMMARY, {
             customContext: context,

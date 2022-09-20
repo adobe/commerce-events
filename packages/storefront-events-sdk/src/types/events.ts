@@ -11,6 +11,7 @@ export type EventName =
     | typeof events.DATA_LAYER_EVENT
     | typeof events.EDIT_ACCOUNT
     | typeof events.INITIATE_CHECKOUT
+    | typeof events.OPEN_CART
     | typeof events.PAGE_ACTIVITY_SUMMARY
     | typeof events.PAGE_VIEW
     | typeof events.PLACE_ORDER

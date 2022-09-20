@@ -35,6 +35,10 @@ export default class SubscribeManager extends Base {
         this.addEventListener(events.INITIATE_CHECKOUT, handler, options);
     }
 
+    openCart(handler: EventHandler, options?: ListenerOptions): void {
+        this.addEventListener(events.OPEN_CART, handler, options);
+    }
+
     pageActivitySummary(handler: EventHandler, options?: ListenerOptions): void {
         this.addEventListener(events.PAGE_ACTIVITY_SUMMARY, handler, options);
     }
