@@ -5,10 +5,6 @@ import { createProductCtx, createShoppingCartCtx } from "../../contexts";
 
 const handler = (event: Event): void => {
     const { changedProductsContext, pageContext, productContext, shoppingCartContext } = event.eventInfo;
-    // console.log("CHANGED PRODUCTS:");
-    // console.log(changedProductsContext.items);
-    // console.log("PRODUCT CONTEXT:");
-    // console.log(productContext);
     changedProductsContext.items?.forEach((item) => {
         let productCtx;
         if(item.product.sku === productContext.sku){
