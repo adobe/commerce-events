@@ -196,6 +196,14 @@ Sets the `DataServicesExtension` context. Includes Data Services extension versi
 
 -   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/dataServicesExtension.ts)
 
+#### `setExperiencePlatformConnectorExtension`
+
+```javascript
+mse.context.setExperiencePlatformConnectorExtension(experiencePlatformConnectorExtensionCtx);
+```
+
+Sets the `ExperiencePlatformConnectorExtension` context. Includes Experience Platform Connector extension version.
+
 #### `setOrder`
 
 ```javascript

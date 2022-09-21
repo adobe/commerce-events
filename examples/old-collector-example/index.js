@@ -1,6 +1,7 @@
 import {
     mockAccount,
     mockDataServicesExtension,
+    mockExperiencePlatformConnectorExtenion,
     mockExtension,
     mockOrder,
     mockPage,
@@ -20,6 +21,7 @@ const mse = window.magentoStorefrontEvents;
 mse.context.setAccount(mockAccount);
 mse.context.setMagentoExtension(mockExtension);
 mse.context.setDataServicesExtension(mockDataServicesExtension);
+mse.context.setExperiencePlatformConnectorExtension(mockExperiencePlatformConnectorExtenion);
 mse.context.setRecommendationsExtension(mockRecommendationsExtension);
 mse.context.setSearchExtension(mockSearchExtension);
 mse.context.setOrder(mockOrder);

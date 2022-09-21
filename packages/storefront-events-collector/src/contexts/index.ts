@@ -1,5 +1,6 @@
 export { default as createDataServicesExtensionCtx } from "./dataServicesExtension";
 export { default as createEventForwardingCtx } from "./eventForwarding";
+export { default as createExperiencePlatformConnectorExtensionCtx } from "./experiencePlatformConnectorExtension";
 export { default as createMagentoExtensionCtx } from "./extension";
 export { default as createProductCtx } from "./product";
 export { default as createRecommendationsExtensionCtx } from "./recommendationsExtension";

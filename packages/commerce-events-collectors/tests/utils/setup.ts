@@ -5,6 +5,7 @@ import MagentoStorefrontEvents from "@adobe/commerce-events-sdk/src/MagentoStore
 import {
     mockCategory,
     mockDataServicesExtension,
+    mockExperiencePlatformConnectorExtenion,
     mockExtension,
     mockOrder,
     mockPage,
@@ -28,6 +29,7 @@ window.magentoStorefrontEvents = mse;
 mse.context.setCategory(mockCategory);
 mse.context.setMagentoExtension(mockExtension);
 mse.context.setDataServicesExtension(mockDataServicesExtension);
+mse.context.setExperiencePlatformConnectorExtension(mockExperiencePlatformConnectorExtenion);
 mse.context.setRecommendationsExtension(mockRecommendationsExtension);
 mse.context.setSearchExtension(mockSearchExtension);
 mse.context.setOrder(mockOrder);

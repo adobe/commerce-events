@@ -7,6 +7,7 @@ export * from "./customUrl";
 export * from "./dataServicesExtension";
 export * from "./debug";
 export * from "./eventForwarding";
+export * from "./experiencePlatformConnectorExtension";
 export * from "./magentoExtension";
 export * from "./order";
 export * from "./page";
