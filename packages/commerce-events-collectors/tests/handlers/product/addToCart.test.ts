@@ -5,14 +5,14 @@ jest.mock("@adobe/alloy", () => ({ createInstance: jest.fn(() => {}) }));
 
 import { addToCartHandler } from "../../../src/handlers";
 import schemas from "../../../src/schemas";
-import { mockEvent, mockProductCtx, mockShoppingCartCtx } from "../../utils/mocks";
+import { mockEvent, mockProductCtx, mockShoppingCartCtx, mockChangedProductsCtx } from "../../utils/mocks";
 
 test("sends snowplow event", () => {
     addToCartHandler(mockEvent);
 
-    expect(trackStructEvent).toHaveBeenCalledTimes(1);
+    expect(trackStructEvent).toHaveBeenCalledTimes(mockChangedProductsCtx.items.length);
 
-    expect(trackStructEvent).toHaveBeenCalledWith({
+    expect(trackStructEvent).toHaveBeenNthCalledWith(1, {
         category: "product",
         action: "add-to-cart",
         property: "pdp",

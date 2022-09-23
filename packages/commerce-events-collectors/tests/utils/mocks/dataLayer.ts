@@ -21,7 +21,7 @@ import {
     StorefrontInstance,
 } from "@adobe/commerce-events-sdk";
 
-import { mockAepCtx, mockEventForwardingCtx } from "./context";
+import { mockAepCtx, mockEventForwardingCtx, mockChangedProductsCtx } from "./context";
 
 const mockAccount: Account = {
     firstName: "firstName",
@@ -35,58 +35,7 @@ const mockCategory: Category = {
     urlPath: "/categories/pants",
 };
 
-const mockChangedProducts: ChangedProducts = {
-    items: [
-        {
-            canApplyMsrp: false,
-            formattedPrice: "$20.00",
-            id: "aaaaaa",
-            prices: {
-                price: {
-                    value: 20.0,
-                    currency: "USD",
-                },
-            },
-            product: {
-                productId: 111111,
-                name: "T-Shirt",
-                sku: "ts001",
-                pricing: {
-                    regularPrice: 20.0,
-                    minimalPrice: 20.0,
-                    maximalPrice: 20.0,
-                    currencyCode: "USD",
-                },
-            },
-            configurableOptions: [],
-            quantity: 1,
-        },
-        {
-            canApplyMsrp: false,
-            formattedPrice: "$50.00",
-            id: "cccccc",
-            prices: {
-                price: {
-                    value: 50.0,
-                    currency: "USD",
-                },
-            },
-            product: {
-                productId: 222222,
-                name: "Hoodie",
-                sku: "h001",
-                pricing: {
-                    regularPrice: 50.0,
-                    minimalPrice: 50.0,
-                    maximalPrice: 50.0,
-                    currencyCode: "USD",
-                },
-            },
-            configurableOptions: [],
-            quantity: 1,
-        },
-    ],
-};
+const mockChangedProducts: ChangedProducts = mockChangedProductsCtx;
 
 const mockExtension: MagentoExtension = {
     magentoExtensionVersion: "1.2.3",

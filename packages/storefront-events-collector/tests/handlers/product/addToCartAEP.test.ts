@@ -22,10 +22,11 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
         },
         productListItems: [
             {
-                SKU: "ts001",
+                SKU: "aaaaaa",
                 name: "T-Shirt",
                 quantity: 1,
                 priceTotal: 20,
+                productImageUrl: undefined,
                 currencyCode: "USD",
                 discountAmount: 0,
                 selectedOptions: [],
@@ -35,6 +36,7 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
                 name: "Hoodie",
                 quantity: 1,
                 priceTotal: 50,
+                productImageUrl: undefined,
                 currencyCode: "USD",
                 discountAmount: 0,
                 selectedOptions: [],

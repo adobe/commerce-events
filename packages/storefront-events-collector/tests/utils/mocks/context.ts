@@ -61,6 +61,59 @@ const mockShoppingCartCtx = {
     giftWrappingSelected: false,
 };
 
+const mockChangedProductsCtx = {
+    items: [
+        {
+            canApplyMsrp: false,
+            formattedPrice: "$20.00",
+            id: "aaaaaa",
+            prices: {
+                price: {
+                    value: 20.0,
+                    currency: "USD",
+                },
+            },
+            product: {
+                productId: 111111,
+                name: "T-Shirt",
+                sku: mockProductCtx.sku,
+                pricing: {
+                    regularPrice: 20.0,
+                    minimalPrice: 20.0,
+                    maximalPrice: 20.0,
+                    currencyCode: "USD",
+                },
+            },
+            configurableOptions: [],
+            quantity: 1,
+        },
+        {
+            canApplyMsrp: false,
+            formattedPrice: "$50.00",
+            id: "cccccc",
+            prices: {
+                price: {
+                    value: 50.0,
+                    currency: "USD",
+                },
+            },
+            product: {
+                productId: 222222,
+                name: "Hoodie",
+                sku: "h001",
+                pricing: {
+                    regularPrice: 50.0,
+                    minimalPrice: 50.0,
+                    maximalPrice: 50.0,
+                    currencyCode: "USD",
+                },
+            },
+            configurableOptions: [],
+            quantity: 1,
+        },
+    ],
+};
+
 const mockStorefrontCtx = {
     baseCurrencyCode: "USD",
     environment: "production",
@@ -312,6 +365,7 @@ const mockRecommendedItemsCtx = [
 
 export {
     mockAepCtx,
+    mockChangedProductsCtx,
     mockDataServicesExtensionCtx,
     mockEventForwardingCtx,
     mockExperiencePlatformExtensionCtx,
