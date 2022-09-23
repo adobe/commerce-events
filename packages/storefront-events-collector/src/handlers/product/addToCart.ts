@@ -12,7 +12,6 @@ const handler = (event: Event): void => {
         } else {
             productCtx = createProductCtx(item.product)
         }
-        console.log(productCtx);
         const shoppingCartCtx = createShoppingCartCtx(shoppingCartContext);
     
         const context: Array<SelfDescribingJson> = [productCtx];
