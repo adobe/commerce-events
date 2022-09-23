@@ -1,3 +1,4 @@
+import { ExperiencePlatformConnectorExtension } from "@adobe/commerce-events-sdk";
 import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/events";
 import {
     Account,
@@ -92,6 +93,10 @@ const mockExtension: MagentoExtension = {
 };
 
 const mockDataServicesExtension: DataServicesExtension = {
+    version: "1.2.3",
+};
+
+const mockExperiencePlatformConnectorExtenion: ExperiencePlatformConnectorExtension = {
     version: "1.2.3",
 };
 
@@ -522,6 +527,7 @@ export {
     mockChangedProducts,
     mockDataServicesExtension,
     mockEvent,
+    mockExperiencePlatformConnectorExtenion,
     mockExtension,
     mockOrder,
     mockPage,

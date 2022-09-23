@@ -9,6 +9,10 @@ type DataServicesExtension = {
     version: string;
 };
 
+type ExperiencePlatformConnectorExtension = {
+    version: string;
+};
+
 type RecommendationsExtension = {
     version: string;
 };
@@ -239,6 +243,7 @@ type SnowplowContext<DataType> = SelfDescribingJson<DataType | Record<string, un
 
 type ExtensionContext = SnowplowContext<Extension>;
 type DataServicesExtensionContext = SnowplowContext<DataServicesExtension>;
+type ExperiencePlatformConnectorExtensionContext = SnowplowContext<ExperiencePlatformConnectorExtension>;
 type RecommendationsExtensionContext = SnowplowContext<RecommendationsExtension>;
 type SearchExtensionContext = SnowplowContext<SearchExtension>;
 type ProductContext = SnowplowContext<Product>;
