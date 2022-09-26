@@ -1,5 +1,5 @@
 // Get ECID from alloy
-import { AlloyIdentity, AlloySendEventResponse } from "../../aep/types";
+import { AlloyReturnData, AlloyIdentity } from "../../aep/types";
 
 const getECID = (): Promise<string | void> => {
     return new Promise((resolve, reject): string | void => {
@@ -9,7 +9,7 @@ const getECID = (): Promise<string | void> => {
             if (window.hasOwnProperty("alloy")) {
                 window
                     .alloy("getIdentity")
-                    .then((result: void | AlloySendEventResponse | AlloyIdentity) => {
+                    .then((result: void | AlloyReturnData) => {
                         const { identity } = result as AlloyIdentity;
                         console.log("Alloy fetched identity.");
                         resolve(identity?.ECID || "");
