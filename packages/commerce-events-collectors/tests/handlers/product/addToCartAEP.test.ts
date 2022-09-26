@@ -22,7 +22,7 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
         },
         productListItems: [
             {
-                SKU: "ts001",
+                SKU: "aaaaaa",
                 name: "T-Shirt",
                 quantity: 1,
                 priceTotal: 20,
