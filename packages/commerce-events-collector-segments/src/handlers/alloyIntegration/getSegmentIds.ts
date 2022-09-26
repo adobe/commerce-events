@@ -1,11 +1,11 @@
-import { AlloyIdentity, AlloySendEventResponse } from "../../aep/types";
+import { AlloyReturnData, AlloySendEventResponse } from "../../aep/types";
 
 const getSegmentIds = (): Promise<string | void> => {
     return new Promise((resolve, reject): string | void => {
         if (window.hasOwnProperty("alloy")) {
             window
                 .alloy("sendEvent")
-                .then((result: void | AlloySendEventResponse | AlloyIdentity) => {
+                .then((result: void | AlloyReturnData) => {
                     const { destinations } = result as AlloySendEventResponse;
                     const segments = destinations?.map(({ segments }) => segments.map(({ id }) => id)).join(",") || "";
                     resolve(segments);

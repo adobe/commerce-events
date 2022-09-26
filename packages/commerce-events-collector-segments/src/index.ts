@@ -1,4 +1,7 @@
-import { setAdobeCommerceSegmentCookies } from "./handlers/browserCookieIntegration";
+import {
+    setAdobeCommerceAEPSegmentCookies,
+    clearAdobeCommerceAEPSegmentCookies,
+} from "./handlers/browserCookieIntegration";
 import { getSegmentIds } from "./handlers/alloyIntegration";
 
 const GET_SEGMENT_IDS_FROM_ALLOY_INTERVAL = 60000; //1 minute
@@ -8,6 +11,9 @@ let setSegmentIdsInterval: ReturnType<typeof setInterval> | undefined = undefine
 let setSegmentIdsCounter = 0;
 
 const initialize = async () => {
+    // need to clear any existing cookies just to avoid any conflicts
+    clearAdobeCommerceAEPSegmentCookies();
+
     try {
         // need to call proxy service every set amount of time and retrieve updated segment information
         setSegmentIdsInterval = setInterval(setCookieWithSegmentIds, GET_SEGMENT_IDS_FROM_ALLOY_INTERVAL);
@@ -25,7 +31,7 @@ const setCookieWithSegmentIds = async () => {
     } else {
         setSegmentIdsCounter++;
         const userSegmentIds = (await getSegmentIds()) || "";
-        setAdobeCommerceSegmentCookies(userSegmentIds);
+        setAdobeCommerceAEPSegmentCookies(userSegmentIds);
     }
 };
 

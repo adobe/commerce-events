@@ -1,1 +1,4 @@
-export { default as setAdobeCommerceSegmentCookies } from "./setAdobeCommerceSegmentCookies";
+export {
+    default as setAdobeCommerceAEPSegmentCookies,
+    clearAdobeCommerceAEPSegmentCookies,
+} from "./setAdobeCommerceSegmentCookies";
