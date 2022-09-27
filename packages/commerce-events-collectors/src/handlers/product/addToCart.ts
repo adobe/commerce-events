@@ -1,6 +1,6 @@
 import { Event } from "@adobe/commerce-events-sdk";
 import { SelfDescribingJson, trackStructEvent } from "@snowplow/browser-tracker";
-
+import { createProductFromCartItem } from "../../utils/product";
 import { createProductCtx, createShoppingCartCtx } from "../../contexts";
 
 const handler = (event: Event): void => {
@@ -10,7 +10,7 @@ const handler = (event: Event): void => {
         if(item.product.sku === productContext.sku){
             productCtx = createProductCtx(productContext);
         } else {
-            productCtx = createProductCtx(item.product)
+            productCtx = createProductFromCartItem(item);
         }
         const shoppingCartCtx = createShoppingCartCtx(shoppingCartContext);
     

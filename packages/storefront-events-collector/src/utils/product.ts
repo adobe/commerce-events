@@ -1,6 +1,6 @@
-import { Product } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
-
-import { ProductPricing } from "../types/contexts";
+import { Product, ShoppingCartItem } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+import { createProductCtx } from "../contexts";
+import { ProductContext, ProductPricing } from "../types/contexts";
 
 const createPricing = (ctx: Product): ProductPricing | undefined => {
     if (!ctx.pricing) {
@@ -23,4 +23,33 @@ const createPricing = (ctx: Product): ProductPricing | undefined => {
     return pricing;
 };
 
-export { createPricing };
+const createProductFromCartItem = (ctx: ShoppingCartItem): ProductContext => {
+    const pricing : ProductPricing = {
+        regularPrice: ctx.prices.price.value,
+        currencyCode: ctx.prices.price.currency || null,
+    };
+    let productId : any = ctx.product.productId;
+
+    const newCtx: Product = {
+        canonicalUrl:  null,
+        categories:  ctx.product.categories || [],
+        countryOfManufacture:  null,
+        createdAt:  null,
+        mainImageUrl: ctx.product.mainImageUrl,
+        manufacturer: null,
+        name: ctx.product.name,
+        newFromDate: null,
+        newToDate: null,
+        productId: parseInt(productId),
+        sku: ctx.product.sku,
+        pricing:  pricing,
+        productType: null,
+        specialFromDate: null,
+        specialToDate: null,
+        topLevelSku: ctx.product.topLevelSku || null,
+        updatedAt: null,
+    }
+    return createProductCtx(newCtx);
+}
+
+export { createPricing, createProductFromCartItem };
