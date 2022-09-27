@@ -37,7 +37,7 @@
         "test:ci": "jest --passWithNoTests --ci",
         "test:watch": "jest --passWithNoTests --watch",
         "release": "cross-env HUSKY_SKIP_HOOKS=1 standard-version",
-        "pre-commit:clean": "rm -rf dist/ coverage/ && yarn lint && yarn format && yarn test && yarn build"
+        "pre-commit:clean": "rm -rf dist/ coverage/ && yarn lint:fix && yarn format:fix && yarn test && yarn build"
     },
     "dependencies": {
         "@adobe/commerce-events-sdk": "*",

@@ -10,7 +10,11 @@ const handler = (event: Event): void => {
         if(item.product.sku === productContext.sku){
             productCtx = createProductCtx(productContext);
         } else {
+<<<<<<< HEAD
             productCtx = createProductFromCartItem(item)
+=======
+            productCtx = createProductCtx(item.product)
+>>>>>>> main
         }
         const shoppingCartCtx = createShoppingCartCtx(shoppingCartContext);
     
