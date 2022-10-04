@@ -1,7 +1,34 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-console */
+import { createInstance } from "@adobe/alloy";
 import { configure, hasConfig, setConsent } from "./alloy";
 import { subscribeToEvents } from "./events";
 import { configureSnowplow } from "./snowplow";
+
+/**
+ * this is the script added to an external build if a user is adding a custom name
+ * see https://experienceleague.adobe.com/docs/experience-platform/edge/fundamentals/installing-the-sdk.html?lang=en
+ */
+const addCustomNameToAlloyNamespace = (customName: string) =>
+    (function (n, o) {
+        ``;
+        o.forEach(function (o) {
+            // @ts-ignore
+            n[o] ||
+                ((n.__alloyNS = n.__alloyNS || []).push(o),
+                // @ts-ignore
+                (n[o] = function () {
+                    // eslint-disable-next-line prefer-rest-params
+                    const u = arguments;
+                    return new Promise(function (i, l) {
+                        // @ts-ignore
+                        n[o].q.push([i, l, u]);
+                    });
+                }),
+                // @ts-ignore
+                (n[o].q = []));
+        });
+    })(window, [customName]);
 
 /** initialize alloy if magentoStorefrontEvents exists and aep is set to true */
 const initializeAlloy = async () => {
@@ -10,7 +37,12 @@ const initializeAlloy = async () => {
             return;
         }
 
-        await configure();
+        const sdk = window.magentoStorefrontEvents;
+        const customName = sdk.context.getAEP().webSDKName;
+        const name = customName ? customName : "alloy";
+        addCustomNameToAlloyNamespace(name);
+
+        await configure(createInstance({ name }));
 
         // start polling every second to look for changes
         const consentInterval = setInterval(async () => {

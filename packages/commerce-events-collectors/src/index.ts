@@ -39,11 +39,8 @@ const initializeAlloy = async () => {
 
         const sdk = window.magentoStorefrontEvents;
         const customName = sdk.context.getAEP().webSDKName;
-        let name = "alloy";
-        if (customName) {
-            name = customName;
-            addCustomNameToAlloyNamespace(name);
-        }
+        const name = customName ? customName : "alloy";
+        addCustomNameToAlloyNamespace(name);
 
         await configure(createInstance({ name }));
 
