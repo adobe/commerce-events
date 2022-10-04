@@ -33,13 +33,13 @@ const bundle = (config) => ({
 // creates a "slim" build that doesn't bundle 3rd party modules
 const slim = (config) => ({
     ...config,
-    input: "./src/index.ts",
+    input: "./src/slim.ts",
     // external tells rollup to not bundle the 3rd party package, and assume that it's on the page
     external: ["@adobe/alloy"],
     output: [
         {
             dir: "dist",
-            entryFileNames: `umd.[name]-slim.js`,
+            entryFileNames: `umd.index-slim.js`,
             name: "commerceEventsCollectors",
             format: "umd",
             sourcemap: true,
@@ -72,6 +72,8 @@ const plugins = [
         define: {
             __VERSION__: `"${pkg.version}"`,
             __DEV__: process.env.NODE_ENV !== "production",
+            // needed for snowplow url/path
+            __PROD__: process.env.NODE_ENV === "production",
         },
         tsconfig: "tsconfig.json",
     }),

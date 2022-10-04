@@ -1,18 +1,16 @@
 /* TS wrapper around `@adobe/alloy`*/
-
-import { createInstance } from "@adobe/alloy";
-
 import { AlloyIndentity, AlloyInstance, ConfigOptions } from "./aep/types/alloy.types";
 import createContext from "./contexts/aep";
 import { BeaconSchema } from "./types/aep";
 import { AEPContext } from "./types/contexts";
 
-const alloyInstance: AlloyInstance = createInstance({ name: "alloy" });
+let alloyInstance: AlloyInstance;
 
 /**
  *  configures alloy and assigns it to the window object
  */
-const configure = async (): Promise<AlloyInstance> => {
+const configure = async (instance: AlloyInstance): Promise<AlloyInstance> => {
+    alloyInstance = instance;
     const aepCtx: AEPContext = createContext();
     if (aepCtx.datastreamId !== "" && aepCtx.imsOrgId !== "") {
         const alloyConfig: ConfigOptions = {
@@ -27,26 +25,10 @@ const configure = async (): Promise<AlloyInstance> => {
 
         await alloyInstance("configure", alloyConfig);
 
-        window.alloy = alloyInstance;
-        return window.alloy;
+        return alloyInstance;
     } else {
         return Promise.reject();
     }
-};
-
-/**
- * returns alloy instance if it exists on the window
- * configures instance if it doesn't exist
- */
-const getAlloy = async (): Promise<AlloyInstance> => {
-    if (typeof window.alloy === "function") {
-        return window.alloy;
-    }
-
-    // if alloy doesn't exist on the window, configure it
-    const windowAlloy = await configure();
-
-    return windowAlloy;
 };
 
 /**
@@ -54,16 +36,14 @@ const getAlloy = async (): Promise<AlloyInstance> => {
  */
 const sendEvent = async (schema: BeaconSchema): Promise<void> => {
     try {
-        const instance = await getAlloy();
-
         // attach identity field
-        const result: AlloyIndentity = (await instance("getIdentity")) as AlloyIndentity;
+        const result: AlloyIndentity = (await alloyInstance("getIdentity")) as AlloyIndentity;
         schema.personID = result.identity.ECID || "unknown";
 
         const xdm = { xdm: { ...schema } };
 
         // send async
-        instance("sendEvent", xdm);
+        await alloyInstance("sendEvent", xdm);
     } catch (error) {
         // eslint-disable-next-line no-console
         console.error("sendEvent error:", error);
@@ -88,7 +68,7 @@ const hasConfig = (): boolean => {
  */
 const setConsent = async (): Promise<void> => {
     const doNotTrackCookie = document.cookie.indexOf("mg_dnt") !== -1;
-    const instance = await getAlloy();
+    const instance = alloyInstance;
     await instance("setConsent", {
         consent: [
             {
@@ -103,4 +83,4 @@ const setConsent = async (): Promise<void> => {
 };
 
 /** preconfigured alloy instance that allows us to send an event */
-export { configure, getAlloy, hasConfig, sendEvent, setConsent };
+export { configure, hasConfig, sendEvent, setConsent };

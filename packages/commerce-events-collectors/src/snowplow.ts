@@ -16,6 +16,12 @@ type ConfigureSnowplowParams = {
     collectorPath: string;
 };
 
+export const SNOWPLOW_COLLECTOR_URL = __PROD__
+    ? "https://commerce.adobedc.net"
+    : "https://com-magento-qa1.collector.snplow.net";
+
+export const SNOWPLOW_COLLECTOR_PATH = __PROD__ ? "/collector/tp2" : "/com.snowplowanalytics.snowplow/tp2";
+
 const configureSnowplow = ({ appId, collectorUrl, collectorPath }: ConfigureSnowplowParams): void => {
     const configuration: TrackerConfiguration = {
         appId,

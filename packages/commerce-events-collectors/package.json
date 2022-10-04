@@ -23,9 +23,9 @@
     },
     "keywords": [],
     "scripts": {
-        "ace": "NODE_ENV=development rollup -c",
+        "ace": "NODE_ENV=development rollup -c --watch",
         "start": "NODE_ENV=development rollup -c",
-        "dev": "NODE_ENV=development rollup -c",
+        "dev": "NODE_ENV=development rollup -c --watch",
         "build": "NODE_ENV=production rollup -c",
         "build:dev": "NODE_ENV=development rollup -c",
         "build:qa": "NODE_ENV=testing rollup -c",
