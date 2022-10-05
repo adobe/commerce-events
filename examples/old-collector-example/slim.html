@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/style.css" />
+
+        <!-- sdk -->
+        <script src="http://localhost:8080/index.js"></script>
+
+        <!-- local -->
+        <script src="/index.js"></script>
+
+        <!-- set up alloy externally -->
+        <!-- https://experienceleague.adobe.com/docs/experience-platform/edge/fundamentals/installing-the-sdk.html?lang=en#option-2%3A-installing-the-prebuilt-standalone-version -->
+        <script>
+            !function(n,o){o.forEach(function(o){n[o]||((n.__alloyNS=n.__alloyNS||
+            []).push(o),n[o]=function(){var u=arguments;return new Promise(
+            function(i,l){n[o].q.push([i,l,u])})},n[o].q=[])})}
+            (window,["mycustomname"]);
+        </script>
+        <script src="https://cdn1.adoberesources.net/alloy/2.6.4/alloy.min.js" async></script>
+        <!-- collector -->
+        <script src="http://localhost:8083/umd.index-slim.js"></script>
+    </head>
+
+    <body>
+        <div>Slim Libs</div>
+        <div class="events">
+            <button onclick="magentoStorefrontEvents.publish.custom({customFieldStr: 'strValue', customFieldNum: 1.45})">
+                customEvent
+            </button>
+
+            <button onclick="magentoStorefrontEvents.publish.pageView()">
+                pageView
+            </button>
+
+            <button onclick="publishCustomPageView()">
+                customPageView
+            </button>
+
+            <script>
+                function publishCustomPageView() {
+                    magentoStorefrontEvents.publish.custom({
+                        eventType: "web.webpagedetails.pageViews",
+                        web: {
+                            webPageDetails: {
+                                pageViews: {
+                                    value: 1,
+                                },
+                            },
+                        },
+                    });
+                }
+            </script>
+
+            <button onclick="magentoStorefrontEvents.publish.productPageView(
+                {
+                commerce: {
+                    productViews: {
+                        value: 1,
+                    },
+                },
+                })">
+                productPageView
+            </button>
+
+            <button onclick="magentoStorefrontEvents.publish.abandonCart()">
+                abandonCart
+            </button>
+
+            <button onclick="magentoStorefrontEvents.publish.addToCart()">
+                addToCart
+            </button>
+
+            <button
+                onclick="magentoStorefrontEvents.publish.shoppingCartView()"
+            >
+                shoppingCartView
+            </button>
+
+            <button onclick="magentoStorefrontEvents.publish.initiateCheckout()">
+                initiateCheckout
+            </button>
+
+            <button onclick="magentoStorefrontEvents.publish.placeOrder()">
+                placeOrder
+            </button>
+
+            <button
+                onclick="magentoStorefrontEvents.publish.recsItemAddToCartClick('abc123', 111111)"
+            >
+                recsItemAddToCartClick
+            </button>
+
+            <button
+                onclick="magentoStorefrontEvents.publish.recsItemClick('abc123', 111111)"
+            >
+                recsItemClick
+            </button>
+
+            <button onclick="magentoStorefrontEvents.publish.recsRequestSent()">
+                recsRequestSent
+            </button>
+
+            <button
+                onclick="magentoStorefrontEvents.publish.recsResponseReceived()"
+            >
+                recsResponseReceived
+            </button>
+
+            <button
+                onclick="magentoStorefrontEvents.publish.recsUnitRender('abc123')"
+            >
+                recsUnitRender
+            </button>
+
+            <button
+                onclick="magentoStorefrontEvents.publish.recsUnitView('abc123')"
+            >
+                recsUnitView
+            </button>
+
+            <button
+                onclick="magentoStorefrontEvents.publish.searchCategoryClick('search-bar', 'Bottoms')"
+            >
+                searchCategoryClick
+            </button>
+
+            <button
+                onclick="magentoStorefrontEvents.publish.searchProductClick('search-bar', 'abc123')"
+            >
+                searchProductClick
+            </button>
+
+            <button
+                onclick="magentoStorefrontEvents.publish.searchRequestSent('search-bar')"
+            >
+                searchRequestSent
+            </button>
+
+            <button
+                onclick="magentoStorefrontEvents.publish.searchResponseReceived('search-bar')"
+            >
+                searchResponseReceived
+            </button>
+
+            <button
+                onclick="magentoStorefrontEvents.publish.searchResultsView('search-bar')"
+            >
+                searchResultsView
+            </button>
+
+            <button
+                onclick="magentoStorefrontEvents.publish.searchSuggestionClick('search-bar', 'red pants')"
+            >
+                searchSuggestionClick
+            </button>
+
+            <button
+                onclick="magentoStorefrontEvents.publish.createAccount()"
+            >
+                createAccount
+            </button>
+
+            <button
+                onclick="magentoStorefrontEvents.publish.editAccount()"
+            >
+                editAccount
+            </button>
+
+            <button
+                onclick="magentoStorefrontEvents.publish.signIn()"
+            >
+                signIn
+            </button>
+
+            <button
+                onclick="magentoStorefrontEvents.publish.signOut()"
+            >
+                signOut
+            </button>
+        </div>
+    </body>
+</html>

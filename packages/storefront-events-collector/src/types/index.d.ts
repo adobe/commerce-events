@@ -7,6 +7,7 @@ declare global {
     const SNOWPLOW_COLLECTOR_PATH: string;
 
     interface Window {
+        __alloyNS: string[];
         magentoStorefrontEvents: MagentoStorefrontEvents;
         alloy: AlloyInstance;
     }

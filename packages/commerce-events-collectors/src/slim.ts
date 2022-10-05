@@ -1,48 +1,42 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-console */
-import { createInstance } from "@adobe/alloy";
 import { configure, hasConfig, setConsent } from "./alloy";
 import { subscribeToEvents } from "./events";
-import { configureSnowplow, SNOWPLOW_COLLECTOR_PATH, SNOWPLOW_COLLECTOR_URL } from "./snowplow";
+import { SNOWPLOW_COLLECTOR_URL, SNOWPLOW_COLLECTOR_PATH, configureSnowplow } from "./snowplow";
 
-/**
- * this is the script added to an external build if a user is adding a custom name
- * see https://experienceleague.adobe.com/docs/experience-platform/edge/fundamentals/installing-the-sdk.html?lang=en
+/*
+ * the "slim" build expects window.__alloyNS exist and the `@adobe/alloy` 3rd party lib to be loaded on the page
+ * before our initialization here. we should be able to grab the alloy instance off of the window in a UMD build
+ * which what our default library format is right now.
  */
-const addCustomNameToAlloyNamespace = (customName: string) =>
-    (function (n, o) {
-        ``;
-        o.forEach(function (o) {
-            // @ts-ignore
-            n[o] ||
-                ((n.__alloyNS = n.__alloyNS || []).push(o),
-                // @ts-ignore
-                (n[o] = function () {
-                    // eslint-disable-next-line prefer-rest-params
-                    const u = arguments;
-                    return new Promise(function (i, l) {
-                        // @ts-ignore
-                        n[o].q.push([i, l, u]);
-                    });
-                }),
-                // @ts-ignore
-                (n[o].q = []));
-        });
-    })(window, [customName]);
 
 /** initialize alloy if magentoStorefrontEvents exists and aep is set to true */
 const initializeAlloy = async () => {
+    const sdk = window.magentoStorefrontEvents;
+
     try {
-        if (!hasConfig()) {
-            return;
+        // Steps to check for alloy
+        // 1. see if we can even send events first
+        const canForwardEvents = sdk.context.getEventForwarding().aep;
+        if (!canForwardEvents) throw new Error(`AEP EventForwarding set to ${canForwardEvents}`);
+
+        // 2. make sure we have options to configure alloy with
+        if (!hasConfig()) throw new Error(`Check AEP context for correct options`);
+
+        // 3. Get custom alloy event
+        //  make sure there is a namespace array that contains the alloy name
+        const namespace = window.__alloyNS || [];
+        if (!namespace) throw new Error(`No alloy namespace found. Be sure to add external Alloy library properly`);
+
+        const alloyName = sdk.context.getAEP()?.webSDKName ?? "alloy";
+
+        // does the alloy name exist in __alloyNS?
+        const nameExists = namespace.includes(alloyName);
+
+        if (nameExists) {
+            await configure((window as any)[`${alloyName}`]);
+        } else {
+            throw new Error("Could not find Alloy Instance");
         }
-
-        const sdk = window.magentoStorefrontEvents;
-        const customName = sdk.context.getAEP().webSDKName;
-        const name = customName ? customName : "alloy";
-        addCustomNameToAlloyNamespace(name);
-
-        await configure(createInstance({ name }));
 
         // start polling every second to look for changes
         const consentInterval = setInterval(async () => {
