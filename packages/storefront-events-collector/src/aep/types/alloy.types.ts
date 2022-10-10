@@ -1,6 +1,6 @@
 import { BeaconSchema } from "../../types/aep";
 
-export type CommandType = "configure" | "sendEvent" | "getIdentity" | "setConsent";
+export type CommandType = "configure" | "sendEvent" | "getIdentity" | "setConsent" | "getLibraryInfo";
 
 export type ConfigOptions = {
     // required fields

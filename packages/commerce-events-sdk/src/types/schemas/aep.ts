@@ -1,6 +1,6 @@
 export type AEP = {
     imsOrgId: string;
     datastreamId: string;
-    webSDKName?: string;
+    webSdkName?: string;
     edgeDomain?: string;
 };

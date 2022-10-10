@@ -14,7 +14,7 @@ const createContext = (aep?: AEP): AEPContext => {
         imsOrgId: aepCtx.imsOrgId,
         datastreamId: aepCtx.datastreamId,
         edgeDomain: aepCtx.edgeDomain,
-        webSDKName: aepCtx.webSDKName,
+        webSdkName: aepCtx.webSdkName,
     };
 
     return context;

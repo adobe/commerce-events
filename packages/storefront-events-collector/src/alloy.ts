@@ -31,6 +31,19 @@ const configure = async (instance: AlloyInstance): Promise<AlloyInstance> => {
     }
 };
 
+/** use an existing instance of alloy already on the page */
+const getExistingAlloy = async (name: string) => {
+    try {
+        if (window.hasOwnProperty(name)) {
+            alloyInstance = (window as any)[name];
+        } else {
+            throw new Error();
+        }
+    } catch (error) {
+        throw new Error(`Could not find Alloy Instance: ${name}`);
+    }
+};
+
 /**
  * sends event payload that matches the BeaconSchema that's been defined
  */
@@ -83,4 +96,4 @@ const setConsent = async (): Promise<void> => {
 };
 
 /** preconfigured alloy instance that allows us to send an event */
-export { configure, hasConfig, sendEvent, setConsent };
+export { configure, hasConfig, getExistingAlloy, sendEvent, setConsent };
