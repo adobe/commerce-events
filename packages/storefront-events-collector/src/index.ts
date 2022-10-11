@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-console */
 import { createInstance } from "@adobe/alloy";
-import { configure, hasConfig, setConsent, getExistingAlloy } from "./alloy";
+import { configure, hasConfig, setConsent, setExistingAlloy } from "./alloy";
 import { subscribeToEvents } from "./events";
 import { configureSnowplow } from "./snowplow";
 
@@ -39,7 +39,7 @@ const initializeAlloy = async () => {
         // if a client has provided a webSdkName, we assume that they have another alloy instance
         if (customName) {
             // the launch script injected into the page already configures alloy
-            getExistingAlloy(customName);
+            setExistingAlloy(customName);
         } else {
             if (!hasConfig()) {
                 return;
