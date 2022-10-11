@@ -32,7 +32,7 @@ const configure = async (instance: AlloyInstance): Promise<AlloyInstance> => {
 };
 
 /** use an existing instance of alloy already on the page */
-const getExistingAlloy = async (name: string) => {
+const setExistingAlloy = async (name: string) => {
     try {
         if (window.hasOwnProperty(name)) {
             alloyInstance = (window as any)[name];
@@ -96,4 +96,4 @@ const setConsent = async (): Promise<void> => {
 };
 
 /** preconfigured alloy instance that allows us to send an event */
-export { configure, hasConfig, getExistingAlloy, sendEvent, setConsent };
+export { configure, hasConfig, setExistingAlloy, sendEvent, setConsent };
