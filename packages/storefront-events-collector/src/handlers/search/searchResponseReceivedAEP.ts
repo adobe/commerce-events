@@ -21,7 +21,7 @@ const handler = async (event: Event): Promise<void> => {
     const productsFromCtx: SearchResultProduct[] = (searchResultsCtx?.data?.products as SearchResultProduct[]) ?? [];
 
     const productListItems = productsFromCtx.map((product: SearchResultProduct) => {
-        return { SKU: product.sku, name: product.name };
+        return { SKU: product.sku, name: product.name, productImageUrl: product.imageUrl };
     });
 
     let payload: BeaconSchema;
