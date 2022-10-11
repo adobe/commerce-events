@@ -36,7 +36,7 @@ const initializeAlloy = async () => {
         const sdk = window.magentoStorefrontEvents;
         const customName = sdk.context.getAEP().webSdkName;
 
-        // if a client has provided a webSdkName, we assume that they have a launch instance
+        // if a client has provided a webSdkName, we assume that they have another alloy instance
         if (customName) {
             // the launch script injected into the page already configures alloy
             getExistingAlloy(customName);
@@ -44,7 +44,9 @@ const initializeAlloy = async () => {
             if (!hasConfig()) {
                 return;
             }
-            const name = customName ? customName : "alloy";
+            const name = "alloy";
+            // if we don't add the name to the namespace,
+            // we get a error saying window[data.instance] doesn't exist
             addCustomNameToAlloyNamespace(name);
             await configure(createInstance({ name }));
         }
