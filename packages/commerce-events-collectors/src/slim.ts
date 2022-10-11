@@ -27,7 +27,7 @@ const initializeAlloy = async () => {
         const namespace = window.__alloyNS || [];
         if (!namespace) throw new Error(`No alloy namespace found. Be sure to add external Alloy library properly`);
 
-        const alloyName = sdk.context.getAEP()?.webSDKName ?? "alloy";
+        const alloyName = sdk.context.getAEP()?.webSdkName ?? "alloy";
 
         // does the alloy name exist in __alloyNS?
         const nameExists = namespace.includes(alloyName);

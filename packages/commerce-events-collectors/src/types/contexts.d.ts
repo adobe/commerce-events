@@ -235,7 +235,7 @@ type EventForwardingContext = {
 type AEPContext = {
     imsOrgId?: string;
     datastreamId?: string;
-    webSDKName?: string;
+    webSdkName?: string;
     edgeDomain?: string;
 };
 

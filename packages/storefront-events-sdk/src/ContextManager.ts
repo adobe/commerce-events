@@ -41,7 +41,7 @@ export default class ContextManager extends Base {
     setAccount(context: Account): void {
         this.setContext<Account>(contexts.ACCOUNT_CONTEXT, context);
     }
-    
+
     getChangedProducts(): ChangedProducts {
         return this.getContext<ChangedProducts>(contexts.CHANGED_PRODUCTS_CONTEXT);
     }

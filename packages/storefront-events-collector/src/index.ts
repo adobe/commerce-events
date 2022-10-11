@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-console */
 import { createInstance } from "@adobe/alloy";
-import { configure, hasConfig, setConsent } from "./alloy";
+import { configure, hasConfig, setConsent, setExistingAlloy } from "./alloy";
 import { subscribeToEvents } from "./events";
 import { configureSnowplow } from "./snowplow";
 
@@ -33,16 +33,23 @@ const addCustomNameToAlloyNamespace = (customName: string) =>
 /** initialize alloy if magentoStorefrontEvents exists and aep is set to true */
 const initializeAlloy = async () => {
     try {
-        if (!hasConfig()) {
-            return;
-        }
-
         const sdk = window.magentoStorefrontEvents;
-        const customName = sdk.context.getAEP().webSDKName;
-        const name = customName ? customName : "alloy";
-        addCustomNameToAlloyNamespace(name);
+        const customName = sdk.context.getAEP().webSdkName;
 
-        await configure(createInstance({ name }));
+        // if a client has provided a webSdkName, we assume that they have another alloy instance
+        if (customName) {
+            // the launch script injected into the page already configures alloy
+            setExistingAlloy(customName);
+        } else {
+            if (!hasConfig()) {
+                return;
+            }
+            const name = "alloy";
+            // if we don't add the name to the namespace,
+            // we get a error saying window[data.instance] doesn't exist
+            addCustomNameToAlloyNamespace(name);
+            await configure(createInstance({ name }));
+        }
 
         // start polling every second to look for changes
         const consentInterval = setInterval(async () => {
