@@ -48,7 +48,10 @@ const initializeAlloy = async () => {
             // if we don't add the name to the namespace,
             // we get a error saying window[data.instance] doesn't exist
             addCustomNameToAlloyNamespace(name);
-            await configure(createInstance({ name }));
+            const instance = await configure(createInstance({ name }));
+
+            // assign alloy back to the window
+            window.alloy = instance;
         }
 
         // start polling every second to look for changes

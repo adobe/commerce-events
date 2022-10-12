@@ -10,7 +10,6 @@ let alloyInstance: AlloyInstance;
  *  configures alloy and assigns it to the window object
  */
 const configure = async (instance: AlloyInstance): Promise<AlloyInstance> => {
-    alloyInstance = instance;
     const aepCtx: AEPContext = createContext();
     if (aepCtx.datastreamId !== "" && aepCtx.imsOrgId !== "") {
         const alloyConfig: ConfigOptions = {
@@ -23,7 +22,9 @@ const configure = async (instance: AlloyInstance): Promise<AlloyInstance> => {
             alloyConfig.edgeDomain = aepCtx.edgeDomain;
         }
 
-        await alloyInstance("configure", alloyConfig);
+        await instance("configure", alloyConfig);
+
+        alloyInstance = instance;
 
         return alloyInstance;
     } else {
