@@ -4,7 +4,7 @@ import {
 } from "./handlers/browserCookieIntegration";
 import { getSegmentIds } from "./handlers/alloyIntegration";
 
-const GET_SEGMENT_IDS_FROM_ALLOY_INTERVAL = 300000; //5 minute
+const GET_SEGMENT_IDS_FROM_ALLOY_INTERVAL = 2000; //2 Second
 const MAX_SEGMENT_ID_SET_TIMES = 5; //set cookies 5 times max each session
 
 let setSegmentIdsInterval: ReturnType<typeof setInterval> | undefined = undefined;

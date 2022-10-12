@@ -24,7 +24,6 @@ export const clearAdobeCommerceAEPSegmentCookies = () => {
  */
 const setAdobeCommerceAEPSegmentCookies = (userSegmentIds = "") => {
     //again, note that no expiration is set, so this will be a session cookie
-    document.cookie = `${ADOBE_COMMERCE_SHOPPER_SEGMENT}=${userSegmentIds};path=/`;
     document.cookie = `${ADOBE_COMMERCE_AEP_SEGMENT_MEMBERSHIP_COOKIE_NAME}=${userSegmentIds};path=/`;
 };
 
