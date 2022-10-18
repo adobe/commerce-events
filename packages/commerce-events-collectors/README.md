@@ -46,7 +46,6 @@ The collector listens for the following events.
 -   `initiateCheckout`
 -   `openCart`
 -   `placeOrder`
--   `abandonCart`
 -   `recsItemAddToCartClick`
 -   `recsItemClick`
 -   `recsRequestSent`
