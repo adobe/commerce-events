@@ -5,7 +5,6 @@ export type Commerce = {
     productListRemovals?: ProductListRemovals;
     productListViews?: ProductListViews;
     cart?: Cart;
-    cartAbandons?: CartAbandon;
     checkouts?: Checkout;
     purchases?: Purchases;
     order?: Order;
@@ -82,6 +81,3 @@ export type ProductListViews = {
     value: number;
 };
 
-export type CartAbandon = {
-    value: number;
-};
