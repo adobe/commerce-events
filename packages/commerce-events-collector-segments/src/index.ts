@@ -4,8 +4,8 @@ import {
 } from "./handlers/browserCookieIntegration";
 import { getSegmentIds } from "./handlers/alloyIntegration";
 
-const GET_SEGMENT_IDS_FROM_ALLOY_INTERVAL = 1000; //2 Second
-const MAX_ALLOY_CHECK_RETRIES = 5; //check for alloy a limited amount of times before erroring out
+const GET_SEGMENT_IDS_FROM_ALLOY_INTERVAL = 1000;
+const MAX_ALLOY_CHECK_RETRIES = 5;
 
 let setSegmentIdsInterval: ReturnType<typeof setInterval> | undefined = undefined;
 let setAlloyCheckCount = 0;
