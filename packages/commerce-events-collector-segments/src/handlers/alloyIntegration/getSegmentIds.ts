@@ -1,5 +1,7 @@
 import { AlloyReturnData, AlloySendEventResponse } from "../../aep/types";
 
+const FINAL_ERROR = "Error: Alloy is not available";
+
 const getSegmentIds = (): Promise<string | void> => {
     return new Promise((resolve, reject): string | void => {
         if (window.hasOwnProperty("alloy")) {
@@ -15,7 +17,7 @@ const getSegmentIds = (): Promise<string | void> => {
                     reject(error);
                 });
         } else {
-            reject("Alloy not available");
+            reject(FINAL_ERROR);
         }
     });
 };

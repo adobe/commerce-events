@@ -4,36 +4,35 @@ import {
 } from "./handlers/browserCookieIntegration";
 import { getSegmentIds } from "./handlers/alloyIntegration";
 
-const GET_SEGMENT_IDS_FROM_ALLOY_INTERVAL = 2000; //2 Second
-const MAX_SEGMENT_ID_SET_TIMES = 5; //set cookies 5 times max each session
+const GET_SEGMENT_IDS_FROM_ALLOY_INTERVAL = 1000;
+const MAX_ALLOY_CHECK_RETRIES = 5;
 
 let setSegmentIdsInterval: ReturnType<typeof setInterval> | undefined = undefined;
-let setSegmentIdsCounter = 0;
+let setAlloyCheckCount = 0;
 
 const initialize = async () => {
     // need to clear any existing cookies just to avoid any conflicts
     clearAdobeCommerceAEPSegmentCookies();
 
-    try {
-        // need to call proxy service every set amount of time and retrieve updated segment information
-        setSegmentIdsInterval = setInterval(setCookieWithSegmentIds, GET_SEGMENT_IDS_FROM_ALLOY_INTERVAL);
+    setSegmentIdsInterval = setInterval(checkAlloyAndSetAEPSegmentMembership, GET_SEGMENT_IDS_FROM_ALLOY_INTERVAL);
+};
 
-        //call alloy to get semgent ids the first time, then do it on a timely manner afterwards.
-        const userSegmentIds = (await getSegmentIds()) || "";
-        setAdobeCommerceAEPSegmentCookies(userSegmentIds);
-    } catch (error) {
-        console.warn("Error on getting segments: ", error);
+const checkAlloyAndSetAEPSegmentMembership = async () => {
+    if (window.hasOwnProperty("alloy")) {
+        setCookieWithSegmentIds();
+    } else {
+        setAlloyCheckCount++;
+        //alloy not found so wait and try again
+        if (setAlloyCheckCount >= MAX_ALLOY_CHECK_RETRIES) {
+            clearInterval(setSegmentIdsInterval);
+        }
     }
 };
 
 const setCookieWithSegmentIds = async () => {
-    if (setSegmentIdsCounter >= MAX_SEGMENT_ID_SET_TIMES) {
-        clearInterval(setSegmentIdsInterval);
-    } else {
-        setSegmentIdsCounter++;
-        const userSegmentIds = (await getSegmentIds()) || "";
-        setAdobeCommerceAEPSegmentCookies(userSegmentIds);
-    }
+    const userSegmentIds = (await getSegmentIds()) || "";
+    setAdobeCommerceAEPSegmentCookies(userSegmentIds);
+    clearInterval(setSegmentIdsInterval);
 };
 
 initialize();
