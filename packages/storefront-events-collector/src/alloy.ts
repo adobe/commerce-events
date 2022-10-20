@@ -2,6 +2,7 @@
 import { AlloyIndentity, AlloyInstance, ConfigOptions } from "./aep/types/alloy.types";
 import createContext from "./contexts/aep";
 import { BeaconSchema } from "./types/aep";
+import { AlloySendEventResponse } from "./types/aep/segments";
 import { AEPContext } from "./types/contexts";
 
 let alloyInstance: AlloyInstance;
@@ -48,7 +49,7 @@ const setExistingAlloy = async (name: string) => {
 /**
  * sends event payload that matches the BeaconSchema that's been defined
  */
-const sendEvent = async (schema: BeaconSchema): Promise<void> => {
+const sendEvent = async (schema: BeaconSchema): Promise<AlloySendEventResponse | undefined> => {
     try {
         // attach identity field
         const result: AlloyIndentity = (await alloyInstance("getIdentity")) as AlloyIndentity;
@@ -57,7 +58,9 @@ const sendEvent = async (schema: BeaconSchema): Promise<void> => {
         const xdm = { xdm: { ...schema } };
 
         // send async
-        await alloyInstance("sendEvent", xdm);
+        const response = (await alloyInstance("sendEvent", xdm)) as AlloySendEventResponse;
+
+        return response;
     } catch (error) {
         // eslint-disable-next-line no-console
         console.error("sendEvent error:", error);

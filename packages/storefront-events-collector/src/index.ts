@@ -3,6 +3,7 @@
 import { createInstance } from "@adobe/alloy";
 import { configure, hasConfig, setConsent, setExistingAlloy } from "./alloy";
 import { subscribeToEvents } from "./events";
+import { clearAdobeCommerceAEPSegmentCookies } from "./segments";
 import { configureSnowplow } from "./snowplow";
 
 /**
@@ -33,6 +34,9 @@ const addCustomNameToAlloyNamespace = (customName: string) =>
 /** initialize alloy if magentoStorefrontEvents exists and aep is set to true */
 const initializeAlloy = async () => {
     try {
+        // need to clear any existing cookies just to avoid any conflicts
+        clearAdobeCommerceAEPSegmentCookies();
+
         const sdk = window.magentoStorefrontEvents;
         const customName = sdk.context.getAEP().webSdkName;
 
@@ -44,7 +48,7 @@ const initializeAlloy = async () => {
             if (!hasConfig()) {
                 return;
             }
-            
+
             const name = "alloy";
             // if we don't add the name to the namespace,
             // we get a error saying window[data.instance] doesn't exist
