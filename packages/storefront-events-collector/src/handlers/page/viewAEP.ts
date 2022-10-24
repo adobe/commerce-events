@@ -1,6 +1,7 @@
 import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/events";
 
 import { sendEvent } from "../../alloy";
+import { getSegmentIds, setAdobeCommerceAEPSegmentCookies } from "../../segments";
 import { BeaconSchema } from "../../types/aep";
 
 const XDM_EVENT_TYPE = "web.webpagedetails.pageViews";
@@ -29,7 +30,11 @@ const aepHandler = async (event: Event): Promise<void> => {
     payload._id = debugContext?.eventId;
     payload.eventType = XDM_EVENT_TYPE;
 
-    sendEvent(payload);
+    const response = await sendEvent(payload);
+
+    // TODO: make sure context is set to use segments
+    const userSegmentIds = getSegmentIds(response?.destinations);
+    setAdobeCommerceAEPSegmentCookies(userSegmentIds);
 };
 
 export default aepHandler;

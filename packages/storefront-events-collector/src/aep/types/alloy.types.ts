@@ -1,4 +1,4 @@
-import { BeaconSchema } from "../../types/aep";
+import { AlloySendEventResponse, BeaconSchema } from "../../types/aep";
 
 export type CommandType = "configure" | "sendEvent" | "getIdentity" | "setConsent" | "getLibraryInfo";
 
@@ -41,7 +41,7 @@ export type consentOptions = {
 export type AlloyInstance = (
     command: CommandType,
     options?: ConfigOptions | XDM<BeaconSchema> | consentOptions,
-) => Promise<void | AlloyIndentity>;
+) => Promise<void | AlloyIndentity | AlloySendEventResponse>;
 
 export type AlloyIndentity = {
     identity: {

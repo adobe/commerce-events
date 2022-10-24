@@ -16,6 +16,8 @@ import {
     mockStorefront,
 } from "../../packages/commerce-events-collectors/tests/utils/mocks";
 
+console.log("load slim.js");
+
 const mse = window.magentoStorefrontEvents;
 
 mse.context.setAccount(mockAccount);
@@ -39,6 +41,7 @@ mse.context.setAEP({
     imsOrgId: "53A16ACB5CC1D3760A495C99@AdobeOrg",
     // datastreamId: "1144fb8d-b234-4c44-85ac-af91ed64c2dd:dev", // aniham
     datastreamId: "4d8ccd3b-9463-43bf-862a-c908fad3b20b", // beacon
+    webSdkName: "mycustomname",
 });
 mse.context.setEventForwarding({
     commerce: true,
