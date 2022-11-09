@@ -1,4 +1,4 @@
-import * as sdkSchemas from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+import * as sdkSchemas from "@adobe/magento-storefront-events-sdk/src/types/schemas";
 
 import { Order, Payment } from "../../types/aep";
 
