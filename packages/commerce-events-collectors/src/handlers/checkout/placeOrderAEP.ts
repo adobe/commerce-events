@@ -9,7 +9,7 @@ const XDM_EVENT_TYPE = "commerce.purchases";
 
 /** Sends an event to aep with a checkout complete payload */
 const aepHandler = async (event: Event): Promise<void> => {
-    const { storefrontInstanceContext, orderContext, shoppingCartContext, debugContext, customContext } =
+    const { accountContext, storefrontInstanceContext, orderContext, shoppingCartContext, debugContext, customContext } =
         event.eventInfo;
 
     let payload: BeaconSchema;
@@ -25,6 +25,9 @@ const aepHandler = async (event: Event): Promise<void> => {
                     shippingMethod: orderContext.shipping?.shippingMethod,
                     shippingAmount: Number(orderContext.shipping?.shippingAmount) || 0,
                 },
+            },
+            personalEmail: {
+                address: accountContext?.emailAddress,
             },
             productListItems: createProductListItems(shoppingCartContext, storefrontInstanceContext),
         };
