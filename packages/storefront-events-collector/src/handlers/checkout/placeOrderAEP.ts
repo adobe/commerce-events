@@ -20,10 +20,10 @@ const aepHandler = async (event: Event): Promise<void> => {
         payload = {
             commerce: {
                 order: createOrder(orderContext, storefrontInstanceContext),
-                promotionID: orderContext.appliedCouponCode,
+                promotionID: orderContext?.appliedCouponCode,
                 shipping: {
-                    shippingMethod: orderContext.shipping?.shippingMethod,
-                    shippingAmount: Number(orderContext.shipping?.shippingAmount) || 0,
+                    shippingMethod: orderContext?.shipping?.shippingMethod,
+                    shippingAmount: Number(orderContext?.shipping?.shippingAmount) || 0,
                 },
             },
             productListItems: createProductListItems(shoppingCartContext, storefrontInstanceContext),

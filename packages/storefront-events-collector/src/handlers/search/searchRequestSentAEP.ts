@@ -50,7 +50,7 @@ const handler = async (event: Event): Promise<void> => {
 
         payload = {
             siteSearch: {
-                query: searchInputContext.units[0].phrase,
+                query: searchInputContext?.units[0].phrase,
                 sort,
                 refinements: filters,
             },

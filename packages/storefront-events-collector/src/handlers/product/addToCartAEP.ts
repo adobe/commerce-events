@@ -18,7 +18,7 @@ const aepHandler = async (event: Event): Promise<void> => {
         payload = {
             commerce: {
                 cart: {
-                    cartID: shoppingCartContext.id,
+                    cartID: shoppingCartContext?.id,
                 },
             },
             productListItems: createProductListItems(changedProductsContext, storefrontInstanceContext)

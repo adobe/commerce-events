@@ -13,21 +13,21 @@ const createProductListItems = (
     storefrontContext: StorefrontInstance,
 ): ProductListItem[] => {
     const returnList: ProductListItem[] = [];
-    if (cartContext.items?.length) {
+    if (cartContext?.items?.length) {
         cartContext.items.forEach((item) => {
             const selectedOptions: SelectedOption[] = [];
             item.configurableOptions?.forEach((option) => {
                 selectedOptions.push({
-                    attribute: option.optionLabel,
-                    value: option.valueLabel,
+                    attribute: String(option.optionLabel),
+                    value: String(option.valueLabel),
                 });
             });
 
             const productListItem: ProductListItem = {
-                SKU: item.product.sku,
-                name: item.product.name,
+                SKU: item.product?.sku,
+                name: item.product?.name,
                 quantity: item.quantity,
-                priceTotal: item.prices.price.value * item.quantity,
+                priceTotal: (item.prices?.price?.value * item.quantity) || 0,
                 productImageUrl: item.product.mainImageUrl,
                 currencyCode: item.prices.price.currency ?? storefrontContext.storeViewCurrencyCode,
                 discountAmount: getDiscountAmount(item.product),

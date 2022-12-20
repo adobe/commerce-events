@@ -5,7 +5,9 @@ import { createProductCtx, createShoppingCartCtx } from "../../contexts";
 
 const handler = (event: Event): void => {
     const { changedProductsContext, pageContext, productContext, shoppingCartContext } = event.eventInfo;
-    changedProductsContext.items?.forEach((item) => {
+
+    const cartItems = changedProductsContext?.items || shoppingCartContext?.items || [];
+    cartItems?.forEach((item) => {
         let productCtx;
         if(item.product.sku === productContext.sku){
             productCtx = createProductCtx(productContext);
