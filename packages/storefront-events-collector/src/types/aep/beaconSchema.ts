@@ -24,6 +24,10 @@ export type IdentityMap = {
         id: string;
         primary: boolean;
     }[];
+    email?: {
+        id: string;
+        primary: boolean;
+    }[];
 }
 export type Account = {
     accountID?: string;

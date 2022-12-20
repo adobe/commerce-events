@@ -125,7 +125,10 @@ Events are not set to AEP Edge unless explicitly configured (`EventForwarding.ae
 
 Custom events are supported for the Adobe Experience Platform only. Custom data will not be forwarded to Adobe Commerce dashboards and metrics trackers.
 
-For any `custom` event, the collector adds an `identityMap` with `ecid` as a primary identity to `customContext`. It then wraps the event inside an `xdm` object before forwarding to the Edge.
+For any `custom` event, the collector:
+  - adds`identityMap` with `ECID` as a primary identity
+  - IF `personalEmail.address` is set in the event, includes `email` in `identityMap` as a secondary identity
+  - wraps the full event inside an `xdm` object before forwarding to the Edge
 
 Example:
 
@@ -133,7 +136,13 @@ Custom event published through MSE SDK:
 
 ```javascript
 mse.publish.custom({
-    customContext: { customStrAttr: "cheetah", customNumAttr: 128 },
+  customContext: { 
+    customStrAttr: "cheetah", 
+    customNumAttr: 128, 
+    personalEmail: {
+      address: "runs@safari.ke"
+    }
+  }
 });
 ```
 
@@ -141,11 +150,24 @@ In AEP Edge:
 
 ```javascript
 {
-    xdm: {
-        personId: 'ecid1234',
-        customStrAttr: 'cheetah',
-        customNumAttr: 128
-    }
+  xdm: {
+    identityMap = {
+      ECID: [
+        {
+          id: 'ecid1234',
+          primary: true
+        }
+      ],
+      email: [
+        {
+          id: "runs@safari.ke",
+          primary: false
+        }
+      ]
+    },
+    customStrAttr: 'cheetah',
+    customNumAttr: 128
+  }
 }
 ```
 
@@ -163,7 +185,9 @@ Product view with overrides published though MSE SDK:
 
 ```javascript
 mse.publish.productPageView({
-    customContext: { customCode: "okapi" },
+  customContext: { 
+    customCode: "okapi" 
+  }
 });
 ```
 
@@ -171,23 +195,23 @@ In AEP Edge:
 
 ```javascript
 {
-    xdm: {
-        eventType: 'commerce.productViews',
-        identityMap = {
-            ECID: [
-              {
-                id: 'ecid1234',
-                primary: true
-              }
-            ]
-        },
-        customCode: 'okapi',
-        commerce: {
-            productViews: {
-                value : 1
-            }
+  xdm: {
+    eventType: 'commerce.productViews',
+    identityMap = {
+      ECID: [
+        {
+          id: 'ecid1234',
+          primary: true
         }
+      ]
+    },
+    customCode: 'okapi',
+    commerce: {
+      productViews: {
+        value : 1
+      }
     }
+  }
 }
 ```
 
@@ -195,7 +219,11 @@ Product view with Adobe Commerce overrides published though MSE SDK:
 
 ```javascript
 mse.publish.productPageView({
-    customContext: { commerce: { customCode: "mongoose" } },
+  customContext: { 
+    commerce: { 
+      customCode: "mongoose" 
+    } 
+  }
 });
 ```
 
@@ -203,23 +231,23 @@ In AEP Edge:
 
 ```javascript
 {
-    xdm: {
-        eventType: 'commerce.productViews',
-        identityMap = {
-            ECID: [
-              {
-                id: 'ecid1234',
-                primary: true
-              }
-            ]
-        },
-        commerce: {
-            customCode: 'mongoose',
-            productViews: {
-                value : 1
-            }
+  xdm: {
+    eventType: 'commerce.productViews',
+    identityMap = {
+      ECID: [
+        {
+          id: 'ecid1234',
+          primary: true
         }
+      ]
+    },
+    commerce: {
+      customCode: 'mongoose',
+      productViews: {
+        value : 1
+      }
     }
+  }
 }
 ```
 
