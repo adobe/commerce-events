@@ -53,7 +53,20 @@ const sendEvent = async (schema: BeaconSchema): Promise<AlloySendEventResponse |
     try {
         // attach identity field
         const result: AlloyIndentity = (await alloyInstance("getIdentity")) as AlloyIndentity;
-        schema.personID = result.identity.ECID || "unknown";
+
+        const ecid = result.identity.ECID || '000000000000000000000000000000000000'
+
+        const identityMap = {
+            ECID: [
+              {
+                id: ecid,
+                primary: true
+              }
+            ]
+        };
+
+        schema.personID = ecid; // TODO: for backwards compatibility, deprecated
+        schema.identityMap = identityMap;
 
         const xdm = { xdm: { ...schema } };
 

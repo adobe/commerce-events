@@ -125,7 +125,7 @@ Events are not set to AEP Edge unless explicitly configured (`EventForwarding.ae
 
 Custom events are supported for the Adobe Experience Platform only. Custom data will not be forwarded to Adobe Commerce dashboards and metrics trackers.
 
-For any `custom` event, the collector adds a `personId` (`ecid`) to `customContext` and wraps an `xdm` object around it before forwarding to the Edge.
+For any `custom` event, the collector adds an `identityMap` with `ecid` as a primary identity to `customContext`. It then wraps the event inside an `xdm` object before forwarding to the Edge.
 
 Example:
 
@@ -173,7 +173,14 @@ In AEP Edge:
 {
     xdm: {
         eventType: 'commerce.productViews',
-        personId: 'ecid1234',
+        identityMap = {
+            ECID: [
+              {
+                id: 'ecid1234',
+                primary: true
+              }
+            ]
+        },
         customCode: 'okapi',
         commerce: {
             productViews: {
@@ -198,7 +205,14 @@ In AEP Edge:
 {
     xdm: {
         eventType: 'commerce.productViews',
-        personId: 'ecid1234',
+        identityMap = {
+            ECID: [
+              {
+                id: 'ecid1234',
+                primary: true
+              }
+            ]
+        },
         commerce: {
             customCode: 'mongoose',
             productViews: {
