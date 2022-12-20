@@ -20,8 +20,8 @@ const aepHandler = async (event: Event): Promise<void> => {
                     pageViews: {
                         value: 1,
                     },
-                    siteSection: pageContext.pageType,
-                    name: pageContext.pageName,
+                    siteSection: pageContext?.pageType,
+                    name: pageContext?.pageName,
                 },
             },
         };
