@@ -127,7 +127,7 @@ Custom events are supported for the Adobe Experience Platform only. Custom data 
 
 For any `custom` event, the collector:
   - adds`identityMap` with `ECID` as a primary identity
-  - IF `personalEmail.address` is set in the event, includes `email` in `identityMap` as a secondary identity
+  - includes `email` in `identityMap` as a secondary identity *if* `personalEmail.address` is set in the event
   - wraps the full event inside an `xdm` object before forwarding to the Edge
 
 Example:
