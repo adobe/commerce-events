@@ -7,6 +7,7 @@ export type BeaconSchema = {
     _id?: string;
     eventType?: string;
     commerce?: Commerce;
+    identityMap?: IdentityMap;
     productListItems?: ProductListItem[];
     web?: Web;
     person?: Account;
@@ -18,6 +19,16 @@ export type BeaconSchema = {
     siteSearch?: Search;
 };
 
+export type IdentityMap = {
+    ECID: {
+        id: string;
+        primary: boolean;
+    }[];
+    email?: {
+        id: string;
+        primary: boolean;
+    }[];
+}
 export type Account = {
     accountID?: string;
     accountType?: string;

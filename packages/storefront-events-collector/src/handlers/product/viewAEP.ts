@@ -15,12 +15,12 @@ const aepHandler = async (event: Event): Promise<void> => {
         payload = customContext as BeaconSchema;
     } else {
         const productListItem: ProductListItem = {
-            SKU: productContext.sku,
-            name: productContext.name,
-            productImageUrl: productContext.mainImageUrl,
-            priceTotal: productContext.pricing?.specialPrice ?? productContext.pricing?.regularPrice,
+            SKU: productContext?.sku,
+            name: productContext?.name,
+            productImageUrl: productContext?.mainImageUrl,
+            priceTotal: productContext?.pricing?.specialPrice ?? productContext?.pricing?.regularPrice,
             currencyCode:
-                productContext.pricing?.currencyCode ?? storefrontInstanceContext.storeViewCurrencyCode ?? undefined,
+                productContext?.pricing?.currencyCode ?? storefrontInstanceContext?.storeViewCurrencyCode ?? undefined,
             discountAmount: getDiscountAmount(productContext),
         };
 
