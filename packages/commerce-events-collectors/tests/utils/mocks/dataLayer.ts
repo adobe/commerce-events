@@ -447,6 +447,7 @@ const mockEvent: Event = {
         name: "Pants",
         sku: "abc123",
         suggestion: "red pants",
+        accountContext: mockAccount,
         categoryContext: mockCategory,
         changedProductsContext: mockChangedProducts,
         customContext: {},
