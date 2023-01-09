@@ -19,26 +19,32 @@ This runs all packages and examples at the same time. The newer examples are usi
 
 Under the dev script, our built files are hosted at:
 
-#### v1.x
-
 -   sdk - `http://localhost:8080/index.js`
 -   collector - `http://localhost:8081/index.js`
 
-#### v2.x
 
--   sdk: `http://localhost:8040/index.js`
--   collectors: `http://localhost:8041/index.js`
+## Release process
 
-## Packages
 
-> :warning: If you plan on doing any immediate work for these packages, use the 1.x versions. There will be a slow migration to the new package names, but this involves changing references in other [php extensions](data-services). v1.x and v2.x should be the same code as of right now, but could change soon.
+### QA
+
+Merging a change to the `main` branch triggers a github action that builds and deploys the latest code to QA: https://unpkg.com/@adobe/magento-storefront-event-collector@qa/dist/index.js.
+
+
+### Production
+
+Release steps:
+
+- create a PR with a version bump in the package.json and package-lock.json in the package(s) you're releasing (example PR [here](https://github.com/adobe/commerce-events/pull/56/files))
+
+- once the PR is approved and merged, create a [new release tag for the repo](https://github.com/adobe/commerce-events/tags)
+
+Creating a new release tag triggers a github action that builds and deploys the latest code to Prod: https://unpkg.com/@adobe/magento-storefront-event-collector/dist/index.js.
+
+### NPM Packages
 
 | Name                                                                                 | NPM Namespace                                | version |
 | ------------------------------------------------------------------------------------ | -------------------------------------------- | ------- |
 | [storefront-events-sdk](./packages/storefront-events-sdk)                            | `@adobe/magento-storefront-events-sdk`       | 1.x     |
 | [storefront-events-collector](./packages/storefront-events-collector)                | `@adobe/magento-storefront-event-collector`  | 1.x     |
-| [commerce-events-sdk](./packages/commerce-events-sdk)                                | `@adobe/commerce-events-sdk`                 | 2.x     |
-| [commerce-events-collector](./packages/commerce-events-collectors)                   | `@adobe/commerce-events-collectors`          | 2.x     |
-| [commerce-events-collector-segments](./packages/commerce-events-collectors-segments) | `@adobe/commerce-events-collectors-segments` | 1.x     |
 
-[data-services]: https://github.com/magento-commerce/data-services/blob/main/DataServices/view/frontend/requirejs-config.js
