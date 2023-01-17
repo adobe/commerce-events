@@ -28,7 +28,7 @@ const createOrder = (
         // try payments array first
         payments = orderContext.payments.map((payment) => {
             return {
-                paymentAmount: payment.total,
+                paymentAmount: Number(payment.total || 0),
                 paymentType: getAepPaymentCode(payment.paymentMethodCode),
                 transactionID: orderContext?.orderId.toString(),
                 currencyCode: storefrontInstanceContext?.storeViewCurrencyCode,
@@ -38,7 +38,7 @@ const createOrder = (
         // no payments array, try deprecated top level payment fields
         payments = [
             {
-                paymentAmount: orderContext?.grandTotal,
+                paymentAmount: Number(orderContext?.grandTotal || 0),
                 paymentType: getAepPaymentCode(orderContext?.paymentMethodCode),
                 transactionID: orderContext?.orderId?.toString(),
                 currencyCode: storefrontInstanceContext?.storeViewCurrencyCode,
