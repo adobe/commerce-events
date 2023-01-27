@@ -34,9 +34,6 @@ const addCustomNameToAlloyNamespace = (customName: string) =>
 /** initialize alloy if magentoStorefrontEvents exists and aep is set to true */
 const initializeAlloy = async () => {
     try {
-        // need to clear any existing cookies just to avoid any conflicts
-        clearAdobeCommerceAEPSegmentCookies();
-
         const sdk = window.magentoStorefrontEvents;
         const customName = sdk.context.getAEP().webSdkName;
 
