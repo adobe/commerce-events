@@ -3,7 +3,6 @@
 import { createInstance } from "@adobe/alloy";
 import { configure, hasConfig, setConsent, setExistingAlloy } from "./alloy";
 import { subscribeToEvents } from "./events";
-import { clearAdobeCommerceAEPSegmentCookies } from "./segments";
 import { configureSnowplow } from "./snowplow";
 
 /**
