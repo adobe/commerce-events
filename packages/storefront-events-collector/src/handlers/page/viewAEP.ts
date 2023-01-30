@@ -39,14 +39,13 @@ const aepHandler = async (event: Event): Promise<void> => {
 
     // this is a workaround to push the segments data onto the acdl.
     // we need to fix this asap to conform to the normal way of doing this.
-    setTimeout(() => {
-        window.adobeDataLayer.push((acdl: AdobeClientDataLayer) => {
-            acdl.push({
-                event: "userSegmentIds",
-                eventInfo: { userSegmentIds },
-            });
+
+    window.adobeDataLayer.push((acdl: AdobeClientDataLayer) => {
+        acdl.push({
+            event: "userSegmentIds",
+            eventInfo: { userSegmentIds },
         });
-    }, 10000);
+    });
 };
 
 export default aepHandler;
