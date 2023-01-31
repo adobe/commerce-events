@@ -42,6 +42,10 @@ const handler = async (event: Event): Promise<void> => {
         value: 1,
     };
 
+    if (searchResultsCtx) {
+        payload.searchResponse.id = searchResultsCtx.data.searchRequestId as string;
+    }
+
     payload._id = debugContext?.eventId;
     payload.eventType = XDM_EVENT_TYPE;
 

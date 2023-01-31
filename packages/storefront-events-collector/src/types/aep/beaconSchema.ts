@@ -28,7 +28,8 @@ export type IdentityMap = {
         id: string;
         primary: boolean;
     }[];
-}
+};
+
 export type Account = {
     accountID?: string;
     accountType?: string;
@@ -47,10 +48,12 @@ export type AccountActions = {
 };
 
 export type SearchRequest = {
+    id?: string;
     value: number;
 };
 
 export type SearchResponse = {
+    id?: string; // contains ID of the search request so the two can be mapped to each other
     value: number;
 };
 
