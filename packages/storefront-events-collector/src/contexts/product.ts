@@ -18,7 +18,6 @@ const createContext = (product?: Product): ProductContext => {
     const context: ProductContext = {
         schema: schemas.PRODUCT_SCHEMA_URL,
         data: {
-            productId: productCtx.productId,
             name: productCtx.name,
             sku: productCtx.sku,
             topLevelSku: productCtx.topLevelSku,
