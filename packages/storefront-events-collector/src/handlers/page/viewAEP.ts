@@ -3,7 +3,6 @@ import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/eve
 import { sendEvent } from "../../alloy";
 import { getSegmentIds, setAdobeCommerceAEPSegmentCookies } from "../../segments";
 import { BeaconSchema } from "../../types/aep";
-import { AdobeClientDataLayer } from "@adobe/commerce-events-sdk";
 
 const XDM_EVENT_TYPE = "web.webpagedetails.pageViews";
 
@@ -36,16 +35,6 @@ const aepHandler = async (event: Event): Promise<void> => {
     // TODO: make sure context is set to use segments
     const userSegmentIds = getSegmentIds(response?.destinations);
     setAdobeCommerceAEPSegmentCookies(userSegmentIds);
-
-    // this is a workaround to push the segments data onto the acdl.
-    // we need to fix this asap to conform to the normal way of doing this.
-
-    window.adobeDataLayer.push((acdl: AdobeClientDataLayer) => {
-        acdl.push({
-            event: "userSegmentIds",
-            eventInfo: { userSegmentIds },
-        });
-    });
 };
 
 export default aepHandler;
