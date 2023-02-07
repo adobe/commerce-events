@@ -11,12 +11,13 @@ const handler = async (event: Event): Promise<void> => {
     const { searchUnitId, searchInputContext, debugContext, customContext } = event.eventInfo;
 
     let payload: BeaconSchema;
+
+    const searchInputCtx = createSearchInputCtx(searchUnitId as string, searchInputContext);
+
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
         // override payload on custom context
         payload = customContext as BeaconSchema;
     } else {
-        const searchInputCtx = createSearchInputCtx(searchUnitId as string, searchInputContext);
-
         const sortFromCtx: SearchSort[] = (searchInputCtx?.data.sort as SearchSort[]) ?? [];
 
         const sort: Sort[] = sortFromCtx.map((searchSort: SearchSort) => {
@@ -60,6 +61,10 @@ const handler = async (event: Event): Promise<void> => {
     payload.searchRequest = {
         value: 1,
     };
+
+    if (searchInputCtx) {
+        payload.searchRequest.id = searchInputCtx.data.searchRequestId as string;
+    }
 
     payload._id = debugContext?.eventId;
     payload.eventType = XDM_EVENT_TYPE;
