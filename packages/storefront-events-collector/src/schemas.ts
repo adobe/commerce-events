@@ -6,7 +6,7 @@ const schemas = {
     EXPERIENCE_PLATFORM_CONNECTOR_EXTENSION_SCHEMA_URL:
         "iglu:com.adobe.magento.entity/experience-platform-connector-extension/jsonschema/1-0-0",
     MAGENTO_JS_TRACKER_SCHEMA_URL: "iglu:com.adobe.magento.entity/magento-js-tracker/jsonschema/2-0-0",
-    PRODUCT_SCHEMA_URL: "iglu:com.adobe.magento.entity/product/jsonschema/2-0-4",
+    PRODUCT_SCHEMA_URL: "iglu:com.adobe.magento.entity/product/jsonschema/2-0-5",
     RECOMMENDATION_UNIT_SCHEMA_URL: "iglu:com.adobe.magento.entity/recommendation-unit/jsonschema/1-0-4",
     RECOMMENDED_ITEM_SCHEMA_URL: "iglu:com.adobe.magento.entity/recommended-item/jsonschema/1-0-4",
     SEARCH_INPUT_SCHEMA_URL: "iglu:com.adobe.magento.entity/search-input/jsonschema/1-0-11",
