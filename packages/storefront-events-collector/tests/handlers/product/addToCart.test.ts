@@ -8,6 +8,9 @@ import schemas from "../../../src/schemas";
 import { mockEvent, mockProductCtx, mockShoppingCartCtx, mockChangedProductsCtx } from "../../utils/mocks";
 
 test("sends snowplow event", () => {
+    // we don't send product id to snowplow anymore, but don't want to break mocks for any aep tests
+    const { productId, ...mockProductCtxNoId } = mockProductCtx;
+
     addToCartHandler(mockEvent);
 
     expect(trackStructEvent).toHaveBeenCalledTimes(mockChangedProductsCtx.items.length);
@@ -18,7 +21,7 @@ test("sends snowplow event", () => {
         property: "pdp",
         context: [
             {
-                data: mockProductCtx,
+                data: mockProductCtxNoId,
                 schema: schemas.PRODUCT_SCHEMA_URL,
             },
             {
