@@ -434,6 +434,12 @@ const mockReferrerUrl: ReferrerUrl = {
     referrerUrl: "https://magento.com",
 };
 
+const mockRequisitionList  = {
+    id: "1",
+    name: "Req List 1",
+    description: "This is req list 1"
+};
+
 const mockCustomUrl: CustomUrl = {
     customUrl: "https://magento.com",
 };
@@ -458,6 +464,7 @@ const mockEvent: Event = {
         productContext: mockProduct,
         recommendationsContext: mockRecommendations,
         referrerUrlContext: mockReferrerUrl,
+        requisitionListContext: mockRequisitionList,
         searchInputContext: mockSearchInput,
         searchResultsContext: mockSearchResults,
         shopperContext: mockShopper,

@@ -15,6 +15,7 @@ const contexts = {
     RECOMMENDATIONS_CONTEXT: "recommendationsContext",
     RECOMMENDATIONS_EXTENSION_CONTEXT: "recommendationsExtensionContext",
     REFERRER_URL_CONTEXT: "referrerUrlContext",
+    REQUISITION_LIST_CONTEXT: "requisitionListContext",
     SEARCH_EXTENSION_CONTEXT: "searchExtensionContext",
     SEARCH_INPUT_CONTEXT: "searchInputContext",
     SEARCH_RESULTS_CONTEXT: "searchResultsContext",

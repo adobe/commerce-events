@@ -11,6 +11,10 @@ export default class UnsubscribeManager extends Base {
         this.removeEventListener(events.CREATE_ACCOUNT, handler);
     }
 
+    createRequisitionList(handler: EventHandler): void {
+        this.removeEventListener(events.CREATE_REQUISITION_LIST, handler);
+    }
+
     custom(handler: EventHandler): void {
         this.removeEventListener(events.CUSTOM, handler);
     }

@@ -1,6 +1,7 @@
 const events = {
     ADD_TO_CART: "add-to-cart",
     CREATE_ACCOUNT: "create-account",
+    CREATE_REQUISITION_LIST: "create-requisition-list",
     CUSTOM: "commerce-custom",
     CUSTOM_URL: "custom-url",
     DATA_LAYER_CHANGE: "adobeDataLayer:change",

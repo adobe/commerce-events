@@ -2,15 +2,12 @@ import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/eve
 
 import { sendEvent } from "../../alloy";
 import { BeaconSchema } from "../../types/aep";
-import { createProductListItems } from "../../utils/aep/productListItems";
+// import { createProductListItems } from "../../utils/aep/productListItems";
 
-const XDM_EVENT_TYPE = "commerce.productListRemovals";
+const XDM_EVENT_TYPE = "commerce.productListOpens";
 
-/** Sends an event to aep with an removeFromCart payload */
-const aepHandler = async (event: Event | any): Promise<void> => {
-    const { changedProductsContext, shoppingCartContext, debugContext, customContext, storefrontInstanceContext } =
-        event.eventInfo;
-
+const handler = async (event: Event): Promise<void> => {
+    const { debugContext, requisitionListContext, customContext } = event.eventInfo;
     let payload: BeaconSchema;
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
         // override payload on custom context
@@ -18,17 +15,18 @@ const aepHandler = async (event: Event | any): Promise<void> => {
     } else {
         payload = {
             commerce: {
-                cart: {
-                    cartID: shoppingCartContext.id,
+                requisitionList: {
+                    ID: requisitionListContext?.id,
+                    name: requisitionListContext?.name,
+                    description: requisitionListContext?.description
                 },
             },
-            productListItems: createProductListItems(changedProductsContext, storefrontInstanceContext),
         };
     }
 
     payload.commerce = payload.commerce || {};
 
-    payload.commerce.productListRemovals = {
+    payload.commerce.requisitionListOpens = {
         value: 1,
     };
 
@@ -38,4 +36,4 @@ const aepHandler = async (event: Event | any): Promise<void> => {
     sendEvent(payload);
 };
 
-export default aepHandler;
+export default handler;

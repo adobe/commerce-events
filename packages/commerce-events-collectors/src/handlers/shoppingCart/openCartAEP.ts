@@ -6,7 +6,7 @@ import { createProductListItems } from "../../utils/aep/productListItems";
 
 const XDM_EVENT_TYPE = "commerce.productListOpens";
 
-const handler = async (event: Event): Promise<void> => {
+const handler = async (event: Event | any): Promise<void> => {
     const { changedProductsContext, shoppingCartContext, debugContext, storefrontInstanceContext, customContext } = event.eventInfo;
     let payload: BeaconSchema;
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {

@@ -49,7 +49,7 @@ const isAep = (event: Event): boolean => {
     return ctx.aep ?? false;
 };
 
-const handleIf = (predicate: (e: Event) => boolean, handler: EventHandler): EventHandler => {
+const handleIf = (predicate: (e: Event) => boolean, handler: EventHandler | any): EventHandler => {
     return (event: Event) => {
         if (predicate(event)) {
             handler(event);

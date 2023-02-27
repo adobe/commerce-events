@@ -13,6 +13,7 @@ import {
     Recommendations,
     RecommendationsExtension,
     ReferrerUrl,
+    RequisitionList,
     SearchExtension,
     SearchInput,
     SearchResults,
@@ -434,6 +435,12 @@ const mockReferrerUrl: ReferrerUrl = {
     referrerUrl: "https://magento.com",
 };
 
+const mockRequisitionList: RequisitionList = {
+    id: "1",
+    name: "Req List 1",
+    description: "This is req list 1"
+};
+
 const mockCustomUrl: CustomUrl = {
     customUrl: "https://magento.com",
 };
@@ -458,6 +465,7 @@ const mockEvent: Event = {
         productContext: mockProduct,
         recommendationsContext: mockRecommendations,
         referrerUrlContext: mockReferrerUrl,
+        requisitionListContext: mockRequisitionList,
         searchInputContext: mockSearchInput,
         searchResultsContext: mockSearchResults,
         shopperContext: mockShopper,

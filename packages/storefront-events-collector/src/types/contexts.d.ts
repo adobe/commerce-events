@@ -1,5 +1,6 @@
 import { SelfDescribingJson } from "@snowplow/tracker-core";
-import { ChangedProducts } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
+import { ChangedProducts, 
+         RequisitionList } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
 
 type Extension = {
     magentoExtensionVersion: string;
@@ -104,6 +105,8 @@ type RecommendedItem = {
     };
     currencyCode?: string | null;
 };
+
+type RequisitionListContext = RequisitionList;
 
 type SearchInput = {
     searchUnitId: string;
