@@ -2,9 +2,8 @@ import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/eve
 
 import { sendEvent } from "../../alloy";
 import { BeaconSchema } from "../../types/aep";
-// import { createProductListItems } from "../../utils/aep/productListItems";
 
-const XDM_EVENT_TYPE = "commerce.productListOpens";
+const XDM_EVENT_TYPE = "commerce.requisitionListOpens";
 
 const handler = async (event: Event): Promise<void> => {
     const { debugContext, requisitionListContext, customContext } = event.eventInfo;
