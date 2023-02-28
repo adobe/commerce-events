@@ -65,6 +65,10 @@ The collector listens for the following events.
 -   `signOut`
 -   `custom`
 
+B2B events
+
+-   `createRequisitionList`
+
 The handlers forward events to two edges:
 
 -   Adobe Commerce Data Services (maintained by Adobe Engineering and used to power merchant performance dashboards)
@@ -88,6 +92,11 @@ The handlers forward events to two edges:
     `signOut`
 
     `custom`
+
+    B2B events
+
+    `createRequisitionList`
+
 
 -   [Adobe Experience Platform (AEP)](https://business.adobe.com/products/experience-platform/adobe-experience-platform.html) (requires a subscription and additional merchant [setup](https://experienceleague.adobe.com/docs/experience-platform/edge/fundamentals/datastreams.html?lang=en); data can be used by merchants inside the Adobe Experience Platform for detailed analytics, targeted merchandising, real time customer data profiles, and more)
 

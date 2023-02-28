@@ -258,6 +258,17 @@ Sets the `ReferrerUrl` context.
 -   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/referrerUrl.ts)
 -   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L230)
 
+#### `setRequisitionList`
+
+```javascript
+mse.context.setRequisitionList(requisitionListCtx);
+```
+
+Sets the `RequisitionList` context.
+
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/requisitionList.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L236)
+
 #### `setSearchExtension`
 
 ```javascript
@@ -347,6 +358,7 @@ mse.context.getPage();
 mse.context.getProduct();
 mse.context.getRecommendations();
 mse.context.getReferrerUrl();
+mse.context.getRequisitionList();
 mse.context.getProduct();
 mse.context.getRecommendations();
 mse.context.getRecommendationsExtension();
@@ -367,6 +379,10 @@ mse.publish.addToCart();
 
 ```javascript
 mse.publish.createAccount(ctx);
+```
+
+```javascript
+mse.publish.createRequisitionList();
 ```
 
 ```javascript
@@ -497,6 +513,7 @@ These functions subscribe to events:
 ```javascript
 mse.subscribe.addToCart(handler, options);
 mse.subscribe.createAccount(handler, options);
+mse.subscribe.createRequisitionList(handler, options);
 mse.subscribe.custom(handler, options);
 mse.subscribe.customUrl(handler, options);
 mse.subscribe.editAccount(handler, options);
@@ -535,6 +552,7 @@ These functions unsubscribe from events:
 ```javascript
 mse.unsubscribe.addToCart(handler);
 mse.unsubscribe.createAccount(handler);
+mse.unsubscribe.createRequisitionList(handler);
 mse.unsubscribe.custom(handler);
 mse.unsubscribe.customUrl(handler);
 mse.unsubscribe.editAccount(handler);
