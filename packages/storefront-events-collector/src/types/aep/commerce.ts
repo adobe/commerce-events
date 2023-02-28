@@ -85,8 +85,8 @@ export type ProductListViews = {
 
 type RequisitionList = {
     ID: string,
-    name: string,
-    description: string
+    name?: string,
+    description?: string
 }
 
 /**

@@ -7,11 +7,7 @@ const createContext = (requisitionList?: RequisitionList): RequisitionListContex
     const requisitionListCtx = requisitionList ?? mse.context.getRequisitionList();
 
     if (!requisitionListCtx) {
-        return {
-            id: "",
-            name: "",
-            description: ""
-        }
+        return null;
     }
 
     const context: RequisitionListContext = {
