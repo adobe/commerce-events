@@ -19,6 +19,7 @@ import {
     ShoppingCart,
     StorefrontInstance,
     Account,
+    RequisitionList,
 } from "../src/types/schemas/";
 import { CustomContext } from "../src/types/contexts";
 
@@ -230,6 +231,12 @@ export const generateRecommendationsContext = (overrides?: Partial<Recommendatio
 export const generateReferrerUrlContext = (overrides?: Partial<ReferrerUrl>): ReferrerUrl => ({
     referrerUrl: "https://www.test.org",
     ...overrides,
+});
+
+export const generateRequisitionListContext = (overrides?: Partial<RequisitionList>): RequisitionList => ({
+    id: "1",
+    name: "Requisition List 1",
+    description: "This is requisition list 1"
 });
 
 export const generateSearchInputContext = (overrides?: Partial<SearchInput>): SearchInput => ({

@@ -4,5 +4,6 @@ export * from "./custom";
 export * from "./page";
 export * from "./product";
 export * from "./recommendations";
+export * from "./requisitionList"
 export * from "./search";
 export * from "./shoppingCart";

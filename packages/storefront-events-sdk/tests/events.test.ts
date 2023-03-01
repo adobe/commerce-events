@@ -54,6 +54,23 @@ describe("events", () => {
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
+    test("create requisition list", async () => {
+        const eventHandler = jest.fn((eventObj) => {
+            expect(eventObj).toEqual({
+                event: events.CREATE_REQUISITION_LIST,
+                eventInfo: expect.any(Object),
+            });
+        });
+
+        mdl.subscribe.createRequisitionList(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.createRequisitionList();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.createRequisitionList(eventHandler);
+        mdl.publish.createRequisitionList();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+    });
+
     test("custom", async () => {
         const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({

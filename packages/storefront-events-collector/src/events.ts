@@ -5,6 +5,7 @@ import {
     addToCartHandler,
     addToCartHandlerAEP,
     createAccountHandlerAEP,
+    createRequisitionListHandlerAEP,
     customHandlerAEP,
     editAccountHandlerAEP,
     initiateCheckoutHandler,
@@ -97,6 +98,9 @@ const handleAepSearchRequestSent = handleIf(isAep, searchRequestSentHandlerAEP);
 const handleSnowplowSearchResponseReceived = handleIf(isCommerce, searchResponseReceivedHandler);
 const handleAepSearchResponseReceived = handleIf(isAep, searchResponseReceivedHandlerAEP);
 
+// requisitionList
+const handleAepCreateRequisitionList = handleIf(isAep, createRequisitionListHandlerAEP);
+
 const subscribeToEvents = (): void => {
     const mse = window.magentoStorefrontEvents;
 
@@ -129,6 +133,7 @@ const subscribeToEvents = (): void => {
         mse.subscribe.addToCart(handleAepAddToCart);
         mse.subscribe.custom(handleAepCustom);
         mse.subscribe.createAccount(handleAepCreateAccount);
+        mse.subscribe.createRequisitionList(handleAepCreateRequisitionList);
         mse.subscribe.editAccount(handleAepEditAccount);
         mse.subscribe.initiateCheckout(handleAepInitiateCheckout);
         mse.subscribe.openCart(handleAepOpenCart);
@@ -178,6 +183,7 @@ const unsubscribeFromEvents = (): void => {
     try {
         mse.unsubscribe.addToCart(handleAepAddToCart);
         mse.unsubscribe.createAccount(handleAepCreateAccount);
+        mse.unsubscribe.createRequisitionList(handleAepCreateRequisitionList);
         mse.unsubscribe.custom(handleAepCustom);
         mse.unsubscribe.editAccount(handleAepEditAccount);
         mse.unsubscribe.initiateCheckout(handleAepInitiateCheckout);

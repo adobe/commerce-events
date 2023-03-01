@@ -18,6 +18,7 @@ import {
     StorefrontInstance,
     Recommendations,
     ReferrerUrl,
+    RequisitionList,
     SearchInput,
     SearchResults,
     DataServicesExtension,
@@ -157,6 +158,13 @@ export default class ContextManager extends Base {
 
     setReferrerUrl(context: ReferrerUrl): void {
         this.setContext<ReferrerUrl>(contexts.REFERRER_URL_CONTEXT, context);
+    }
+
+    getRequisitionList(): RequisitionList {
+        return this.getContext<RequisitionList>(contexts.REQUISITION_LIST_CONTEXT);
+    }
+    setRequisitionList(context: RequisitionList): void {
+        this.setContext<RequisitionList>(contexts.REQUISITION_LIST_CONTEXT, context);
     }
 
     getSearchExtension(): SearchExtension {

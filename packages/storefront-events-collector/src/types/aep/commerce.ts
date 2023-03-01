@@ -10,6 +10,8 @@ export type Commerce = {
     order?: Order;
     promotionID?: string;
     productViews?: ProductView;
+    requisitionList?: RequisitionList;
+    requisitionListOpens?: RequisitionListOpens;
     shipping?: Shipping;
 };
 
@@ -78,5 +80,19 @@ export type ProductListAdds = {
 
 /** View or views of a product-list has occurred. */
 export type ProductListViews = {
+    value: number;
+};
+
+type RequisitionList = {
+    ID: string,
+    name?: string,
+    description?: string
+}
+
+/**
+ * Creation of a new requisition list
+ */
+export type RequisitionListOpens = {
+    id?: string;
     value: number;
 };

@@ -13,6 +13,7 @@ import {
     generateProductContext,
     generateRecommendationsContext,
     generateReferrerUrlContext,
+    generateRequisitionListContext,
     generateSearchInputContext,
     generateSearchResultsContext,
     generateShopperContext,
@@ -119,6 +120,13 @@ describe("contexts", () => {
         expect(mdl.context.getReferrerUrl()).toBeUndefined();
         mdl.context.setReferrerUrl(context);
         expect(mdl.context.getReferrerUrl()).toEqual(context);
+    });
+
+    test("requisition list context", () => {
+        const context = generateRequisitionListContext();
+        expect(mdl.context.getRequisitionList()).toBeUndefined();
+        mdl.context.setRequisitionList(context);
+        expect(mdl.context.getRequisitionList()).toEqual(context);
     });
 
     test("search input context", () => {

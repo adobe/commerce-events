@@ -4,6 +4,7 @@ import events from "../events";
 export type EventName =
     | typeof events.ADD_TO_CART
     | typeof events.CREATE_ACCOUNT
+    | typeof events.CREATE_REQUISITION_LIST
     | typeof events.CUSTOM
     | typeof events.CUSTOM_URL
     | typeof events.DATA_LAYER_CHANGE

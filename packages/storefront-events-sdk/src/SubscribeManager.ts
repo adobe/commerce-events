@@ -11,6 +11,10 @@ export default class SubscribeManager extends Base {
         this.addEventListener(events.CREATE_ACCOUNT, handler, options);
     }
 
+    createRequisitionList(handler: EventHandler, options?: ListenerOptions): void {
+        this.addEventListener(events.CREATE_REQUISITION_LIST, handler, options);
+    }
+
     custom(handler: EventHandler, options?: ListenerOptions): void {
         this.addEventListener(events.CUSTOM, handler, options);
     }
