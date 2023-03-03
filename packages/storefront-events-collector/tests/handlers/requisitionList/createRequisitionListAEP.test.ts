@@ -13,6 +13,9 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
 
     expect(sendEvent).toHaveBeenCalledWith({
         commerce: {
+            personalEmail: {
+                address: "beacon3@commerce.com",
+            },
             requisitionListOpens: {
                 value: 1,
             },
@@ -20,10 +23,7 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
                 ID: "1",
                 name: "Req List 1",
                 description: "This is req list 1",
-            },
-            personalEmail: {
-                address: "beacon3@commerce.com",
-            },
+            }
         },
         _id: undefined,
         eventType: "commerce.requisitionListOpens",
