@@ -21,6 +21,7 @@ const events = {
     RECS_UNIT_VIEW: "recs-unit-view",
     REFERRER_URL: "referrer-url",
     REMOVE_FROM_CART: "remove-from-cart",
+    REMOVE_FROM_REQUISITION_LIST: "remove-from-requisition-list",
     SEARCH_CATEGORY_CLICK: "search-category-click",
     SEARCH_PRODUCT_CLICK: "search-product-click",
     SEARCH_REQUEST_SENT: "search-request-sent",

@@ -342,6 +342,23 @@ describe("events", () => {
         expect(eventHandler).toHaveBeenCalledTimes(1);
     });
 
+    test("remove from requisition list", async () => {
+        const eventHandler = jest.fn((eventObj) => {
+            expect(eventObj).toEqual({
+                event: events.REMOVE_FROM_REQUISITION_LIST,
+                eventInfo: expect.any(Object),
+            });
+        });
+
+        mdl.subscribe.removeFromRequisitionList(eventHandler);
+        expect(eventHandler).not.toHaveBeenCalled();
+        mdl.publish.removeFromRequisitionList();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+        mdl.unsubscribe.removeFromRequisitionList(eventHandler);
+        mdl.publish.removeFromRequisitionList();
+        expect(eventHandler).toHaveBeenCalledTimes(1);
+    });
+
     test("search category click", async () => {
         const eventHandler = jest.fn((eventObj) => {
             expect(eventObj).toEqual({
