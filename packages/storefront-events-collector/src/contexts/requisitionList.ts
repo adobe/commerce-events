@@ -13,7 +13,7 @@ const createContext = (requisitionList?: RequisitionList): RequisitionListContex
     const context: RequisitionListContext = {
         id: requisitionListCtx.id,
         name: requisitionListCtx.name,
-        description: requisitionListCtx.description
+        description: requisitionListCtx.description,
     };
 
     return context;

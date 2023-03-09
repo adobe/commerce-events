@@ -1,14 +1,24 @@
 import schemas from "../schemas";
 
-import { ExperiencePlatformConnectorExtension } from "@adobe/commerce-events-sdk";
+import { AEP, ExperiencePlatformConnectorExtension } from "@adobe/commerce-events-sdk";
 
 import { ExperiencePlatformConnectorExtensionContext } from "../types/contexts";
 
 const createContext = (
-    extension?: ExperiencePlatformConnectorExtension,
+    experiencePlatformConnectorExtension?: ExperiencePlatformConnectorExtension,
+    aep?: AEP,
 ): ExperiencePlatformConnectorExtensionContext => {
     const mse = window.magentoStorefrontEvents;
-    const experiencePlatformExtensionCtx = extension ?? mse.context.getExperiencePlatformConnectorExtension();
+    const experiencePlatformExtensionCtx =
+        experiencePlatformConnectorExtension ?? mse.context.getExperiencePlatformConnectorExtension();
+
+    const aepContext = aep ?? mse.context.getAEP();
+    const setupComplete =
+        aepContext &&
+        aepContext.datastreamId &&
+        aepContext.datastreamId !== "" &&
+        aepContext.imsOrgId &&
+        aepContext.imsOrgId !== "";
 
     if (!experiencePlatformExtensionCtx) {
         return {
@@ -21,6 +31,7 @@ const createContext = (
         schema: schemas.EXPERIENCE_PLATFORM_CONNECTOR_EXTENSION_SCHEMA_URL,
         data: {
             version: experiencePlatformExtensionCtx.version,
+            setupComplete: setupComplete,
         },
     };
 
