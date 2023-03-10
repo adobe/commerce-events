@@ -2,13 +2,12 @@ import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/eve
 
 import { sendEvent } from "../../alloy";
 import { BeaconSchema } from "../../types/aep";
-import { createProductListItems } from "../../utils/aep/productListItems";
 
 const XDM_EVENT_TYPE = "commerce.requisitionListRemovals";
 
 /** Sends an event to aep with an addToCart payload */
 const aepHandler = async (event: Event): Promise<void> => {
-    const { changedProductsContext, debugContext, customContext, requisitionListContext, storefrontInstanceContext } = event.eventInfo;
+    const { requisitionListItemsContext, debugContext, customContext, requisitionListContext, storefrontInstanceContext } = event.eventInfo;
 
     let payload: BeaconSchema;
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
@@ -23,7 +22,16 @@ const aepHandler = async (event: Event): Promise<void> => {
                     description: requisitionListContext?.description
                 },
             },
-            productListItems: createProductListItems(changedProductsContext, storefrontInstanceContext)
+            productListItems: requisitionListItemsContext?.items?.map((item) => {
+                return {
+                    SKU: item.sku,
+                    name: item.name,
+                    quantity: item.quantity,
+                    priceTotal: item.pricing?.regularPrice,
+                    currencyCode: item.pricing?.currencyCode ?? storefrontInstanceContext.storeViewCurrencyCode,
+                    selectedOptions: item.selectedOptions
+                }
+            }),
         };
     }
 
