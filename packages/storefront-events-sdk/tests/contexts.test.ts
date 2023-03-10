@@ -14,6 +14,7 @@ import {
     generateRecommendationsContext,
     generateReferrerUrlContext,
     generateRequisitionListContext,
+    generateRequisitionListItemsContext,
     generateSearchInputContext,
     generateSearchResultsContext,
     generateShopperContext,
@@ -127,6 +128,13 @@ describe("contexts", () => {
         expect(mdl.context.getRequisitionList()).toBeUndefined();
         mdl.context.setRequisitionList(context);
         expect(mdl.context.getRequisitionList()).toEqual(context);
+    });
+
+    test("requisition list items context", () => {
+        const context = generateRequisitionListItemsContext();
+        expect(mdl.context.getRequisitionListItems()).toBeUndefined();
+        mdl.context.setRequisitionListItems(context);
+        expect(mdl.context.getRequisitionListItems()).toEqual(context);
     });
 
     test("search input context", () => {

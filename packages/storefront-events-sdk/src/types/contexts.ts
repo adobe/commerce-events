@@ -17,6 +17,7 @@ import {
     RecommendationsExtension,
     ReferrerUrl,
     RequisitionList,
+    RequisitionListItems,
     SearchExtension,
     SearchInput,
     SearchResults,
@@ -42,6 +43,7 @@ export type ContextName =
     | typeof contexts.RECOMMENDATIONS_EXTENSION_CONTEXT
     | typeof contexts.REFERRER_URL_CONTEXT
     | typeof contexts.REQUISITION_LIST_CONTEXT
+    | typeof contexts.REQUISITION_LIST_ITEMS_CONTEXT
     | typeof contexts.SEARCH_EXTENSION_CONTEXT
     | typeof contexts.SEARCH_INPUT_CONTEXT
     | typeof contexts.SEARCH_RESULTS_CONTEXT
@@ -67,6 +69,7 @@ export type Context = {
     [contexts.RECOMMENDATIONS_CONTEXT]: Recommendations;
     [contexts.REFERRER_URL_CONTEXT]: ReferrerUrl;
     [contexts.REQUISITION_LIST_CONTEXT]: RequisitionList;
+    [contexts.REQUISITION_LIST_ITEMS_CONTEXT]: RequisitionListItems;
     [contexts.SEARCH_EXTENSION_CONTEXT]?: SearchExtension;
     [contexts.SEARCH_INPUT_CONTEXT]: SearchInput;
     [contexts.SEARCH_RESULTS_CONTEXT]: SearchResults;
