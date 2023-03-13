@@ -44,27 +44,27 @@ const createContext = (
             ...(product.prices && {
                 prices: {
                     maximum: {
-                        final: product.prices.maximum.final,
-                        regular: product.prices.maximum.regular,
-                        finalAdjustments: product.prices.maximum.finalAdjustments.map((finalAdjustment) => ({
-                            code: finalAdjustment.code,
-                            amount: finalAdjustment.amount,
+                        final: product.prices.maximum?.final,
+                        regular: product.prices.maximum?.regular,
+                        finalAdjustments: product.prices.maximum?.finalAdjustments?.map((finalAdjustment) => ({
+                            code: finalAdjustment?.code,
+                            amount: finalAdjustment?.amount,
                         })),
-                        regularAdjustments: product.prices.maximum.regularAdjustments.map((finalAdjustment) => ({
-                            code: finalAdjustment.code,
-                            amount: finalAdjustment.amount,
+                        regularAdjustments: product.prices.maximum?.regularAdjustments?.map((finalAdjustment) => ({
+                            code: finalAdjustment?.code,
+                            amount: finalAdjustment?.amount,
                         })),
                     },
                     minimum: {
-                        final: product.prices.minimum.final,
-                        regular: product.prices.minimum.regular,
-                        finalAdjustments: product.prices.minimum.finalAdjustments.map((finalAdjustment) => ({
-                            code: finalAdjustment.code,
-                            amount: finalAdjustment.amount,
+                        final: product.prices.minimum?.final,
+                        regular: product.prices.minimum?.regular,
+                        finalAdjustments: product.prices.minimum?.finalAdjustments?.map((finalAdjustment) => ({
+                            code: finalAdjustment?.code,
+                            amount: finalAdjustment?.amount,
                         })),
-                        regularAdjustments: product.prices.minimum.regularAdjustments.map((finalAdjustment) => ({
-                            code: finalAdjustment.code,
-                            amount: finalAdjustment.amount,
+                        regularAdjustments: product.prices.minimum?.regularAdjustments?.map((finalAdjustment) => ({
+                            code: finalAdjustment?.code,
+                            amount: finalAdjustment?.amount,
                         })),
                     },
                 },
