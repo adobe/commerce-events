@@ -7,6 +7,10 @@ export default class SubscribeManager extends Base {
         this.addEventListener(events.ADD_TO_CART, handler, options);
     }
 
+    addToRequisitionList(handler: EventHandler, options?: ListenerOptions): void {
+        this.addEventListener(events.ADD_TO_REQUISITION_LIST, handler, options);
+    }
+
     createAccount(handler: EventHandler, options?: ListenerOptions): void {
         this.addEventListener(events.CREATE_ACCOUNT, handler, options);
     }
@@ -41,6 +45,10 @@ export default class SubscribeManager extends Base {
 
     openCart(handler: EventHandler, options?: ListenerOptions): void {
         this.addEventListener(events.OPEN_CART, handler, options);
+    }
+
+    orderPageView(handler: EventHandler, options?: ListenerOptions): void {
+        this.addEventListener(events.ORDER_PAGE_VIEW, handler, options);
     }
 
     pageActivitySummary(handler: EventHandler, options?: ListenerOptions): void {

@@ -25,6 +25,7 @@ import {
     RecommendationsExtension,
     SearchExtension,
 } from "./types/schemas";
+import { OrderProducts } from "./types/schemas/orderProducts";
 
 export default class ContextManager extends Base {
     getAEP(): AEP {
@@ -120,6 +121,14 @@ export default class ContextManager extends Base {
         this.setContext<Order>(contexts.ORDER_CONTEXT, context);
     }
 
+    getOrderPage(): OrderProducts {
+        return this.getContext<OrderProducts>(contexts.ORDER_PAGE_CONTEXT);
+    }
+
+    setOrderPage(context: OrderProducts) {
+        this.setContext<OrderProducts>(contexts.ORDER_PAGE_CONTEXT, context);
+    }
+
     getPage(): Page {
         return this.getContext<Page>(contexts.PAGE_CONTEXT);
     }
@@ -163,6 +172,7 @@ export default class ContextManager extends Base {
     getRequisitionList(): RequisitionList {
         return this.getContext<RequisitionList>(contexts.REQUISITION_LIST_CONTEXT);
     }
+
     setRequisitionList(context: RequisitionList): void {
         this.setContext<RequisitionList>(contexts.REQUISITION_LIST_CONTEXT, context);
     }

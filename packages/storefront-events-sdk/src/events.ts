@@ -1,5 +1,6 @@
 const events = {
     ADD_TO_CART: "add-to-cart",
+    ADD_TO_REQUISITION_LIST: "add-to-requisition-list",
     CREATE_ACCOUNT: "create-account",
     CREATE_REQUISITION_LIST: "create-requisition-list",
     CUSTOM: "commerce-custom",
@@ -9,6 +10,7 @@ const events = {
     EDIT_ACCOUNT: "edit-account",
     INITIATE_CHECKOUT: "initiate-checkout",
     OPEN_CART: "open-cart",
+    ORDER_PAGE_VIEW: "order-page-view",
     PAGE_ACTIVITY_SUMMARY: "page-activity-summary",
     PAGE_VIEW: "page-view",
     PLACE_ORDER: "place-order",

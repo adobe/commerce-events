@@ -3,6 +3,7 @@ import events from "../events";
 
 export type EventName =
     | typeof events.ADD_TO_CART
+    | typeof events.ADD_TO_REQUISITION_LIST
     | typeof events.CREATE_ACCOUNT
     | typeof events.CREATE_REQUISITION_LIST
     | typeof events.CUSTOM
@@ -12,6 +13,7 @@ export type EventName =
     | typeof events.EDIT_ACCOUNT
     | typeof events.INITIATE_CHECKOUT
     | typeof events.OPEN_CART
+    | typeof events.ORDER_PAGE_VIEW
     | typeof events.PAGE_ACTIVITY_SUMMARY
     | typeof events.PAGE_VIEW
     | typeof events.PLACE_ORDER

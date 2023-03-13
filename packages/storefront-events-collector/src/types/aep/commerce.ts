@@ -12,6 +12,7 @@ export type Commerce = {
     productViews?: ProductView;
     requisitionList?: RequisitionList;
     requisitionListOpens?: RequisitionListOpens;
+    requisitionListAdds?: RequisitionListAdds;
     shipping?: Shipping;
 };
 
@@ -64,7 +65,7 @@ export type ProductListAdds = {
 /**
  * Addition of a product to an empty product list
  */
- export type ProductListOpens = {
+export type ProductListOpens = {
     id?: string;
     value: number;
 };
@@ -73,7 +74,7 @@ export type ProductListAdds = {
  * Removal or decrease in quantity of a product from the product list, for example a product is deleted
  * from a shopping cart.
  */
- export type ProductListRemovals = {
+export type ProductListRemovals = {
     id?: string;
     value: number;
 };
@@ -84,15 +85,23 @@ export type ProductListViews = {
 };
 
 type RequisitionList = {
-    ID: string,
-    name?: string,
-    description?: string
-}
+    ID: string;
+    name?: string;
+    description?: string;
+};
 
 /**
  * Creation of a new requisition list
  */
 export type RequisitionListOpens = {
+    id?: string;
+    value: number;
+};
+
+/**
+ * Addition of a products to a requisition list
+ */
+export type RequisitionListAdds = {
     id?: string;
     value: number;
 };

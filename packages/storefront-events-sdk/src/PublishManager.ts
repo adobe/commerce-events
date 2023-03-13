@@ -15,12 +15,16 @@ export default class PublishManager extends Base {
         this.pushEvent(events.ADD_TO_CART, { customContext: context });
     }
 
+    addToRequisitionList(context?: CustomContext): void {
+        this.pushEvent(events.ADD_TO_REQUISITION_LIST, { customContext: context });
+    }
+
     createAccount(context?: CustomContext): void {
         this.pushEvent(events.CREATE_ACCOUNT, { customContext: context });
     }
 
     createRequisitionList(context?: CustomContext): void {
-        this.pushEvent(events.CREATE_REQUISITION_LIST, {customContext: context});
+        this.pushEvent(events.CREATE_REQUISITION_LIST, { customContext: context });
     }
 
     custom(context?: CustomContext): void {
@@ -41,6 +45,10 @@ export default class PublishManager extends Base {
 
     openCart(context?: CustomContext): void {
         this.pushEvent(events.OPEN_CART, { customContext: context });
+    }
+
+    orderPageView(context?: CustomContext): void {
+        this.pushEvent(events.ORDER_PAGE_VIEW, { customContext: context });
     }
 
     pageActivitySummary(context?: CustomContext): void {

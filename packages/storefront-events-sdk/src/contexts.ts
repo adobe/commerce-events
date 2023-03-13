@@ -10,6 +10,7 @@ const contexts = {
     EXPERIENCE_PLATFORM_CONNECTOR_EXTENSION_CONTEXT: "experiencePlatformConnectorExtensionContext",
     MAGENTO_EXTENSION_CONTEXT: "magentoExtensionContext",
     ORDER_CONTEXT: "orderContext",
+    ORDER_PAGE_CONTEXT: "orderPageContext",
     PAGE_CONTEXT: "pageContext",
     PRODUCT_CONTEXT: "productContext",
     RECOMMENDATIONS_CONTEXT: "recommendationsContext",

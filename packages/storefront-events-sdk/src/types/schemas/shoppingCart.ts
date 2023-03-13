@@ -32,7 +32,7 @@ export type ShoppingCartItem = {
     quantity: number;
 };
 
-type ConfigurableOption = {
+export type ConfigurableOption = {
     id: number;
     optionLabel: string;
     valueId: number;

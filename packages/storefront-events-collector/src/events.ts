@@ -4,6 +4,7 @@ import { createEventForwardingCtx } from "./contexts";
 import {
     addToCartHandler,
     addToCartHandlerAEP,
+    addToRequisitionListHandlerAEP,
     createAccountHandlerAEP,
     createRequisitionListHandlerAEP,
     customHandlerAEP,
@@ -99,6 +100,7 @@ const handleSnowplowSearchResponseReceived = handleIf(isCommerce, searchResponse
 const handleAepSearchResponseReceived = handleIf(isAep, searchResponseReceivedHandlerAEP);
 
 // requisitionList
+const handleAepAddToRequisitionList = handleIf(isAep, addToRequisitionListHandlerAEP);
 const handleAepCreateRequisitionList = handleIf(isAep, createRequisitionListHandlerAEP);
 
 const subscribeToEvents = (): void => {
@@ -131,6 +133,7 @@ const subscribeToEvents = (): void => {
     // AEP events
     try {
         mse.subscribe.addToCart(handleAepAddToCart);
+        mse.subscribe.addToRequisitionList(handleAepAddToRequisitionList);
         mse.subscribe.custom(handleAepCustom);
         mse.subscribe.createAccount(handleAepCreateAccount);
         mse.subscribe.createRequisitionList(handleAepCreateRequisitionList);
@@ -182,6 +185,7 @@ const unsubscribeFromEvents = (): void => {
     // AEP events
     try {
         mse.unsubscribe.addToCart(handleAepAddToCart);
+        mse.unsubscribe.addToRequisitionList(handleAepAddToRequisitionList);
         mse.unsubscribe.createAccount(handleAepCreateAccount);
         mse.unsubscribe.createRequisitionList(handleAepCreateRequisitionList);
         mse.unsubscribe.custom(handleAepCustom);

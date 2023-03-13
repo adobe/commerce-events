@@ -7,6 +7,10 @@ export default class UnsubscribeManager extends Base {
         this.removeEventListener(events.ADD_TO_CART, handler);
     }
 
+    addToRequisitionList(handler: EventHandler): void {
+        this.removeEventListener(events.ADD_TO_REQUISITION_LIST, handler);
+    }
+
     createAccount(handler: EventHandler): void {
         this.removeEventListener(events.CREATE_ACCOUNT, handler);
     }
@@ -41,6 +45,10 @@ export default class UnsubscribeManager extends Base {
 
     openCart(handler: EventHandler): void {
         this.removeEventListener(events.OPEN_CART, handler);
+    }
+
+    orderPageView(handler: EventHandler): void {
+        this.removeEventListener(events.ORDER_PAGE_VIEW, handler);
     }
 
     pageActivitySummary(handler: EventHandler): void {
