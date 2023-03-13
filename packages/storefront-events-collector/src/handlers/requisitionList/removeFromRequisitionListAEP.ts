@@ -2,6 +2,7 @@ import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/eve
 
 import { sendEvent } from "../../alloy";
 import { BeaconSchema } from "../../types/aep";
+import { createProductListItemsFromRequisitionListItems } from "../../utils/aep/requisitionList";
 
 const XDM_EVENT_TYPE = "commerce.requisitionListRemovals";
 
@@ -22,16 +23,7 @@ const aepHandler = async (event: Event): Promise<void> => {
                     description: requisitionListContext?.description
                 },
             },
-            productListItems: requisitionListItemsContext?.items?.map((item) => {
-                return {
-                    SKU: item.sku,
-                    name: item.name,
-                    quantity: item.quantity,
-                    priceTotal: (item.pricing?.regularPrice || 0) * item.quantity,
-                    currencyCode: item.pricing?.currencyCode ?? storefrontInstanceContext.storeViewCurrencyCode,
-                    selectedOptions: item.selectedOptions
-                }
-            }),
+            productListItems: createProductListItemsFromRequisitionListItems(requisitionListItemsContext, storefrontInstanceContext),
         };
     }
 
