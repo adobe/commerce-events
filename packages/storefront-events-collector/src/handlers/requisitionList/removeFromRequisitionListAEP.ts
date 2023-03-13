@@ -27,7 +27,7 @@ const aepHandler = async (event: Event): Promise<void> => {
                     SKU: item.sku,
                     name: item.name,
                     quantity: item.quantity,
-                    priceTotal: item.pricing?.regularPrice,
+                    priceTotal: (item.pricing?.regularPrice || 0) * item.quantity,
                     currencyCode: item.pricing?.currencyCode ?? storefrontInstanceContext.storeViewCurrencyCode,
                     selectedOptions: item.selectedOptions
                 }
