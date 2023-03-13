@@ -21,6 +21,9 @@ const handler = async (event: Event): Promise<void> => {
             personalEmail: {
                 address: accountContext?.emailAddress,
             },
+            personalEmail: {
+                address: accountContext?.emailAddress,
+            },
         };
     }
 
