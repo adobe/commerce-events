@@ -17,8 +17,8 @@ const createProductListItemsFromRequisitionListItems = (
         return {
             SKU: item.sku,
             name: item.name,
-            quantity: item.quantity,
-            priceTotal: (item.pricing?.regularPrice || 0) * item.quantity,
+            quantity: Number(item.quantity),
+            priceTotal: (Number(item.pricing?.regularPrice) || 0) * Number(item.quantity),
             currencyCode: item.pricing?.currencyCode ?? storefrontContext.storeViewCurrencyCode,
             selectedOptions: item.selectedOptions
         }
