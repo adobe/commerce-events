@@ -84,7 +84,7 @@ export type ProductListViews = {
     value: number;
 };
 
-type RequisitionList = {
+export type RequisitionList = {
     ID: string,
     name?: string,
     description?: string

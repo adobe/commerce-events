@@ -2,7 +2,7 @@ import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/eve
 
 import { sendEvent } from "../../alloy";
 import { BeaconSchema } from "../../types/aep";
-import { createProductListItemsFromRequisitionListItems } from "../../utils/aep/requisitionList";
+import { createProductListItemsFromRequisitionListItems, createRequisitionList } from "../../utils/aep/requisitionList";
 
 const XDM_EVENT_TYPE = "commerce.requisitionListRemovals";
 
@@ -17,11 +17,7 @@ const aepHandler = async (event: Event): Promise<void> => {
     } else {
         payload = {
             commerce: {
-                requisitionList: {
-                    ID: requisitionListContext?.id,
-                    name: requisitionListContext?.name,
-                    description: requisitionListContext?.description
-                },
+                requisitionList: createRequisitionList(requisitionListContext),
             },
             productListItems: createProductListItemsFromRequisitionListItems(requisitionListItemsContext, storefrontInstanceContext),
         };

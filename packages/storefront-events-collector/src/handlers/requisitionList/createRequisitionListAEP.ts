@@ -3,6 +3,9 @@ import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/eve
 import { sendEvent } from "../../alloy";
 import { BeaconSchema } from "../../types/aep";
 
+import { createRequisitionList } from "../../utils/aep/requisitionList";
+
+
 const XDM_EVENT_TYPE = "commerce.requisitionListOpens";
 
 const handler = async (event: Event): Promise<void> => {
@@ -14,11 +17,7 @@ const handler = async (event: Event): Promise<void> => {
     } else {
         payload = {
             commerce: {
-                requisitionList: {
-                    ID: requisitionListContext?.id,
-                    name: requisitionListContext?.name,
-                    description: requisitionListContext?.description
-                },
+                requisitionList: createRequisitionList(requisitionListContext),
             },
         };
     }
