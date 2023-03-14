@@ -13,7 +13,6 @@ const createProductListItemsFromRequisitionListItems = (
     requisitionListItemsContext: RequisitionListItems,
     storefrontContext: StorefrontInstance,
 ): ProductListItem[] => {
-    
     return requisitionListItemsContext.items?.map((item) => {
         return {
             SKU: item.sku,
@@ -21,20 +20,17 @@ const createProductListItemsFromRequisitionListItems = (
             quantity: Number(item.quantity),
             priceTotal: (Number(item.pricing?.regularPrice) || 0) * Number(item.quantity),
             currencyCode: item.pricing?.currencyCode ?? storefrontContext.storeViewCurrencyCode,
-            selectedOptions: item.selectedOptions
-        }
+            selectedOptions: item.selectedOptions,
+        };
     });
 };
 
-const createRequisitionList = (
-    requisitionListContext: RequisitionListContext
-) : RequisitionList => {
-    return { 
-                ID: requisitionListContext?.id?.toString(),
-                name: requisitionListContext?.name,
-                description: requisitionListContext?.description,
-           }
+const createRequisitionList = (requisitionListContext: RequisitionListContext): RequisitionList => {
+    return {
+        ID: requisitionListContext?.id?.toString(),
+        name: requisitionListContext?.name,
+        description: requisitionListContext?.description,
+    };
 };
 
-export { createProductListItemsFromRequisitionListItems,
-         createRequisitionList };
+export { createProductListItemsFromRequisitionListItems, createRequisitionList };
