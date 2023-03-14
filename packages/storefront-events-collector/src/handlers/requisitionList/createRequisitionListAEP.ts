@@ -9,7 +9,7 @@ import { createRequisitionList } from "../../utils/aep/requisitionList";
 const XDM_EVENT_TYPE = "commerce.requisitionListOpens";
 
 const handler = async (event: Event): Promise<void> => {
-    const { debugContext, requisitionListContext, customContext } = event.eventInfo;
+    const { accountContext, debugContext, requisitionListContext, customContext } = event.eventInfo;
     let payload: BeaconSchema;
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
         // override payload on custom context
@@ -18,6 +18,9 @@ const handler = async (event: Event): Promise<void> => {
         payload = {
             commerce: {
                 requisitionList: createRequisitionList(requisitionListContext),
+            },
+            personalEmail: {
+                address: accountContext?.emailAddress,
             },
         };
     }
