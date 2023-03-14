@@ -117,6 +117,10 @@ export default class PublishManager extends Base {
         this.pushEvent(events.REMOVE_FROM_CART, { customContext: context });
     }
 
+    removeFromRequisitionList(context?: CustomContext): void {
+        this.pushEvent(events.REMOVE_FROM_REQUISITION_LIST, { customContext: context });
+    }
+
     searchCategoryClick(
         searchUnitId: SearchResultUnit["searchUnitId"],
         name: SearchResultCategory["name"],

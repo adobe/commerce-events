@@ -20,6 +20,7 @@ import {
     StorefrontInstance,
     Account,
     RequisitionList,
+    RequisitionListItems
 } from "../src/types/schemas/";
 import { CustomContext } from "../src/types/contexts";
 
@@ -237,6 +238,24 @@ export const generateRequisitionListContext = (overrides?: Partial<RequisitionLi
     id: "1",
     name: "Requisition List 1",
     description: "This is requisition list 1"
+});
+
+export const generateRequisitionListItemsContext = (overrides?: Partial<RequisitionListItems>): RequisitionListItems => ({
+    items: [
+        {
+            productId: 111111,
+            name: "T-Shirt",
+            sku: "ts001",
+            pricing: {
+                regularPrice: 20.0,
+                minimalPrice: 20.0,
+                maximalPrice: 20.0,
+                currencyCode: "USD",
+            },
+            selectedOptions: [],
+            quantity: 1,
+        },
+    ]
 });
 
 export const generateSearchInputContext = (overrides?: Partial<SearchInput>): SearchInput => ({

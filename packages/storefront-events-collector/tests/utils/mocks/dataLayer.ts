@@ -22,7 +22,7 @@ import {
     StorefrontInstance,
 } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
 
-import { mockAepCtx, mockChangedProductsCtx, mockEventForwardingCtx } from "./context";
+import { mockAepCtx, mockChangedProductsCtx, mockEventForwardingCtx, mockRequisitionListItemsCtx } from "./context";
 
 const mockAccount: Account = {
     firstName: "firstName",
@@ -466,6 +466,7 @@ const mockEvent: Event = {
         recommendationsContext: mockRecommendations,
         referrerUrlContext: mockReferrerUrl,
         requisitionListContext: mockRequisitionList,
+        requisitionListItemsContext: mockRequisitionListItemsCtx,
         searchInputContext: mockSearchInput,
         searchResultsContext: mockSearchResults,
         shopperContext: mockShopper,

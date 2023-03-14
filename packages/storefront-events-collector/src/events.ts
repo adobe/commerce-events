@@ -24,6 +24,7 @@ import {
     recsUnitRenderHandler,
     recsUnitViewHandler,
     removeFromCartHandlerAEP,
+    removeFromRequisitionListHandlerAEP,
     searchCategoryClickHandler,
     searchProductClickHandler,
     searchRequestSentHandler,
@@ -100,6 +101,7 @@ const handleAepSearchResponseReceived = handleIf(isAep, searchResponseReceivedHa
 
 // requisitionList
 const handleAepCreateRequisitionList = handleIf(isAep, createRequisitionListHandlerAEP);
+const handleAepRemoveFromRequisitionList = handleIf(isAep, removeFromRequisitionListHandlerAEP);
 
 const subscribeToEvents = (): void => {
     const mse = window.magentoStorefrontEvents;
@@ -141,6 +143,7 @@ const subscribeToEvents = (): void => {
         mse.subscribe.placeOrder(handleAepPlaceOrder);
         mse.subscribe.productPageView(handleAepProductView);
         mse.subscribe.removeFromCart(handleAepRemoveFromCart);
+        mse.subscribe.removeFromRequisitionList(handleAepRemoveFromRequisitionList);
         mse.subscribe.searchRequestSent(handleAepSearchRequestSent);
         mse.subscribe.searchResponseReceived(handleAepSearchResponseReceived);
         mse.subscribe.shoppingCartView(handleAepShoppingCartView);
@@ -192,6 +195,7 @@ const unsubscribeFromEvents = (): void => {
         mse.unsubscribe.placeOrder(handleAepPlaceOrder);
         mse.unsubscribe.productPageView(handleAepProductView);
         mse.unsubscribe.removeFromCart(handleAepRemoveFromCart);
+        mse.unsubscribe.removeFromRequisitionList(handleAepRemoveFromRequisitionList);
         mse.unsubscribe.searchRequestSent(handleAepSearchRequestSent);
         mse.unsubscribe.searchResponseReceived(handleAepSearchResponseReceived);
         mse.unsubscribe.shoppingCartView(handleAepShoppingCartView);

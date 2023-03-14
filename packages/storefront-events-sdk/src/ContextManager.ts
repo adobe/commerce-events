@@ -19,6 +19,7 @@ import {
     Recommendations,
     ReferrerUrl,
     RequisitionList,
+    RequisitionListItems,
     SearchInput,
     SearchResults,
     DataServicesExtension,
@@ -163,8 +164,17 @@ export default class ContextManager extends Base {
     getRequisitionList(): RequisitionList {
         return this.getContext<RequisitionList>(contexts.REQUISITION_LIST_CONTEXT);
     }
+
     setRequisitionList(context: RequisitionList): void {
         this.setContext<RequisitionList>(contexts.REQUISITION_LIST_CONTEXT, context);
+    }
+    
+    getRequisitionListItems(): RequisitionListItems {
+        return this.getContext<RequisitionListItems>(contexts.REQUISITION_LIST_ITEMS_CONTEXT);
+    }
+    
+    setRequisitionListItems(context: RequisitionListItems): void {
+        this.setContext<RequisitionListItems>(contexts.REQUISITION_LIST_ITEMS_CONTEXT, context);
     }
 
     getSearchExtension(): SearchExtension {

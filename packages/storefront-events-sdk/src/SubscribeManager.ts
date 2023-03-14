@@ -91,6 +91,10 @@ export default class SubscribeManager extends Base {
         this.addEventListener(events.REMOVE_FROM_CART, handler, options);
     }
 
+    removeFromRequisitionList(handler: EventHandler, options?: ListenerOptions): void {
+        this.addEventListener(events.REMOVE_FROM_REQUISITION_LIST, handler, options);
+    }
+
     searchCategoryClick(handler: EventHandler): void {
         this.addEventListener(events.SEARCH_CATEGORY_CLICK, handler);
     }

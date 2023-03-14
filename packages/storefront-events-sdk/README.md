@@ -269,6 +269,17 @@ Sets the `RequisitionList` context.
 -   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/requisitionList.ts)
 -   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L236)
 
+#### `setRequisitionList`
+
+```javascript
+mse.context.setRequisitionListItems(requisitionListItemsCtx);
+```
+
+Sets the `RequisitionListItems` context.
+
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/requisitionList.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L243)
+
 #### `setSearchExtension`
 
 ```javascript
@@ -357,11 +368,10 @@ mse.context.getOrder();
 mse.context.getPage();
 mse.context.getProduct();
 mse.context.getRecommendations();
+mse.context.getRecommendationsExtension();
 mse.context.getReferrerUrl();
 mse.context.getRequisitionList();
-mse.context.getProduct();
-mse.context.getRecommendations();
-mse.context.getRecommendationsExtension();
+mse.context.getRequisitionListItems();
 mse.context.getSearchExtension();
 mse.context.getSearchInput();
 mse.context.getSearchResults();
@@ -460,6 +470,10 @@ mse.publish.removeFromCart(ctx);
 ```
 
 ```javascript
+mse.publish.removeFromRequisitionList(ctx);
+```
+
+```javascript
 // requires searchResultsContext to be set
 mse.publish.searchCategoryClick(searchUnitId, name, ctx);
 ```
@@ -533,6 +547,7 @@ mse.subscribe.recsUnitRender(handler, options);
 mse.subscribe.recsUnitView(handler, options);
 mse.subscribe.referrerUrl(handler, options);
 mse.subscribe.removeFromCart(handler, options);
+mse.subscribe.removeFromRequisitionList(handler, options);
 mse.subscribe.searchCategoryClick(handler, options);
 mse.subscribe.searchProductClick(handler, options);
 mse.subscribe.searchRequestSent(handler, options);
@@ -572,6 +587,7 @@ mse.unsubscribe.recsUnitRender(handler);
 mse.unsubscribe.recsUnitView(handler);
 mse.unsubscribe.referrerUrl(handler);
 mse.unsubscribe.removeFromCart(handler);
+mse.unsubscribe.removeFromRequisitionList(handler);
 mse.unsubscribe.searchCategoryClick(handler);
 mse.unsubscribe.searchProductClick(handler);
 mse.unsubscribe.searchRequestSent(handler);

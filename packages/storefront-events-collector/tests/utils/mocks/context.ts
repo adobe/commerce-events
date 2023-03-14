@@ -363,6 +363,33 @@ const mockRecommendedItemsCtx = [
     },
 ];
 
+const mockRequisitionListItemsCtx = {
+    items: [
+        {
+            productId: 111111,
+            name: "T-Shirt",
+            sku: mockProductCtx.sku,
+            pricing: {
+                regularPrice: 20.0,
+                currencyCode: "USD",
+            },
+            selectedOptions: [],
+            quantity: 1,
+        },
+        {
+            productId: 222222,
+            name: "Hoodie",
+            sku: "h001",
+            pricing: {
+                regularPrice: 50.0,
+                currencyCode: "USD",
+            },
+            selectedOptions: [],
+            quantity: 1,
+        },
+    ],
+}
+
 export {
     mockAepCtx,
     mockChangedProductsCtx,
@@ -374,6 +401,7 @@ export {
     mockRecommendationsExtensionCtx,
     mockRecommendationUnitCtx,
     mockRecommendedItemsCtx,
+    mockRequisitionListItemsCtx,
     mockSearchExtensionCtx,
     mockSearchInputCtx,
     mockSearchResultCategoryCtx,
