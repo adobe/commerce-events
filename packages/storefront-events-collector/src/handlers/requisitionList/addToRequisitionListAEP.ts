@@ -35,9 +35,8 @@ const handler = async (event: Event): Promise<void> => {
 
     payload._id = debugContext?.eventId;
     payload.eventType = XDM_EVENT_TYPE;
-    console.log(payload);
+
     sendEvent(payload);
-    debugger;
 };
 
 export default handler;

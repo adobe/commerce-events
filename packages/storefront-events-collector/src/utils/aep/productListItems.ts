@@ -26,7 +26,7 @@ const createProductListItems = (
                     value: String(option.valueLabel),
                 });
             });
-            // debugger;
+
             const productListItem: ProductListItem = {
                 SKU: item.product?.sku,
                 name: item.product?.name,

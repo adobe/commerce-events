@@ -10,7 +10,6 @@ const events = {
     EDIT_ACCOUNT: "edit-account",
     INITIATE_CHECKOUT: "initiate-checkout",
     OPEN_CART: "open-cart",
-    ORDER_PAGE_VIEW: "order-page-view",
     PAGE_ACTIVITY_SUMMARY: "page-activity-summary",
     PAGE_VIEW: "page-view",
     PLACE_ORDER: "place-order",

@@ -47,10 +47,6 @@ export default class UnsubscribeManager extends Base {
         this.removeEventListener(events.OPEN_CART, handler);
     }
 
-    orderPageView(handler: EventHandler): void {
-        this.removeEventListener(events.ORDER_PAGE_VIEW, handler);
-    }
-
     pageActivitySummary(handler: EventHandler): void {
         this.removeEventListener(events.PAGE_ACTIVITY_SUMMARY, handler);
     }

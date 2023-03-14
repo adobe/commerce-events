@@ -47,10 +47,6 @@ export default class PublishManager extends Base {
         this.pushEvent(events.OPEN_CART, { customContext: context });
     }
 
-    orderPageView(context?: CustomContext): void {
-        this.pushEvent(events.ORDER_PAGE_VIEW, { customContext: context });
-    }
-
     pageActivitySummary(context?: CustomContext): void {
         this.pushEvent(events.PAGE_ACTIVITY_SUMMARY, {
             customContext: context,

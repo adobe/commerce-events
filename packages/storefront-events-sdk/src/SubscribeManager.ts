@@ -47,10 +47,6 @@ export default class SubscribeManager extends Base {
         this.addEventListener(events.OPEN_CART, handler, options);
     }
 
-    orderPageView(handler: EventHandler, options?: ListenerOptions): void {
-        this.addEventListener(events.ORDER_PAGE_VIEW, handler, options);
-    }
-
     pageActivitySummary(handler: EventHandler, options?: ListenerOptions): void {
         this.addEventListener(events.PAGE_ACTIVITY_SUMMARY, handler, options);
     }
