@@ -95,6 +95,10 @@ export default class UnsubscribeManager extends Base {
         this.removeEventListener(events.REMOVE_FROM_CART, handler);
     }
 
+    removeFromRequisitionList(handler: EventHandler): void {
+        this.removeEventListener(events.REMOVE_FROM_REQUISITION_LIST, handler);
+    }
+
     searchCategoryClick(handler: EventHandler): void {
         this.removeEventListener(events.SEARCH_CATEGORY_CLICK, handler);
     }

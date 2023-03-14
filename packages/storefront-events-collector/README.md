@@ -68,6 +68,7 @@ The collector listens for the following events.
 B2B events
 
 -   `createRequisitionList`
+-   `removeFromRequisitionList`
 
 The handlers forward events to two edges:
 
@@ -96,6 +97,9 @@ The handlers forward events to two edges:
     B2B events
 
     `createRequisitionList`
+
+    `removeFromRequisitionList`
+
 
 
 -   [Adobe Experience Platform (AEP)](https://business.adobe.com/products/experience-platform/adobe-experience-platform.html) (requires a subscription and additional merchant [setup](https://experienceleague.adobe.com/docs/experience-platform/edge/fundamentals/datastreams.html?lang=en); data can be used by merchants inside the Adobe Experience Platform for detailed analytics, targeted merchandising, real time customer data profiles, and more)

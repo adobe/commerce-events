@@ -26,6 +26,7 @@ export type EventName =
     | typeof events.RECS_UNIT_VIEW
     | typeof events.REFERRER_URL
     | typeof events.REMOVE_FROM_CART
+    | typeof events.REMOVE_FROM_REQUISITION_LIST
     | typeof events.SEARCH_CATEGORY_CLICK
     | typeof events.SEARCH_PRODUCT_CLICK
     | typeof events.SEARCH_REQUEST_SENT
