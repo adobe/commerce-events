@@ -1,7 +1,8 @@
 import { StorefrontInstance } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
 import { RequisitionListItems } from "@adobe/magento-storefront-events-sdk/src/types/schemas";
+import { RequisitionListContext } from "src/types/contexts";
 
-import { ProductListItem } from "../../types/aep";
+import { ProductListItem, RequisitionList } from "../../types/aep";
 
 /**
  * create a list of requisition list items from the `RequisitionListItems` context for AEP
@@ -25,4 +26,15 @@ const createProductListItemsFromRequisitionListItems = (
     });
 };
 
-export { createProductListItemsFromRequisitionListItems };
+const createRequisitionList = (
+    requisitionListContext: RequisitionListContext
+) : RequisitionList => {
+    return { 
+                ID: requisitionListContext?.id?.toString(),
+                name: requisitionListContext?.name,
+                description: requisitionListContext?.description,
+           }
+};
+
+export { createProductListItemsFromRequisitionListItems,
+         createRequisitionList };
