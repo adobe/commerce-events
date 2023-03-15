@@ -1,4 +1,3 @@
-
 import { Product } from "./product";
 
 export type RequisitionList = {
@@ -15,10 +14,6 @@ export type RequisitionListItem = Product & {
 export type RequisitionListItems = {
     items: Array<RequisitionListItem>;
 };
-
-export type RequisitionListItems = {
-    items: Array<RequisitionListItem>;
-}
 
 export type SelectedOption = {
     attribute: string;
