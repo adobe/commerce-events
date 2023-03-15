@@ -7,6 +7,10 @@ export default class SubscribeManager extends Base {
         this.addEventListener(events.ADD_TO_CART, handler, options);
     }
 
+    addToRequisitionList(handler: EventHandler, options?: ListenerOptions): void {
+        this.addEventListener(events.ADD_TO_REQUISITION_LIST, handler, options);
+    }
+
     createAccount(handler: EventHandler, options?: ListenerOptions): void {
         this.addEventListener(events.CREATE_ACCOUNT, handler, options);
     }

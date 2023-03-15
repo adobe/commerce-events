@@ -8,7 +8,13 @@ const XDM_EVENT_TYPE = "commerce.requisitionListRemovals";
 
 /** Sends an event to aep with an addToCart payload */
 const aepHandler = async (event: Event): Promise<void> => {
-    const { requisitionListItemsContext, debugContext, customContext, requisitionListContext, storefrontInstanceContext } = event.eventInfo;
+    const {
+        requisitionListItemsContext,
+        debugContext,
+        customContext,
+        requisitionListContext,
+        storefrontInstanceContext,
+    } = event.eventInfo;
 
     let payload: BeaconSchema;
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
@@ -19,7 +25,11 @@ const aepHandler = async (event: Event): Promise<void> => {
             commerce: {
                 requisitionList: createRequisitionList(requisitionListContext),
             },
-            productListItems: createProductListItemsFromRequisitionListItems(requisitionListItemsContext, storefrontInstanceContext),
+
+            productListItems: createProductListItemsFromRequisitionListItems(
+                requisitionListItemsContext,
+                storefrontInstanceContext,
+            ),
         };
     }
 

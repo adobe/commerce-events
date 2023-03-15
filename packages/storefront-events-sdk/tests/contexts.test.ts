@@ -9,6 +9,7 @@ import {
     generateEventForwardingContext,
     generateMagentoExtensionContext,
     generateOrderContext,
+    generateOrderViewContext,
     generatePageContext,
     generateProductContext,
     generateRecommendationsContext,
@@ -93,6 +94,13 @@ describe("contexts", () => {
         expect(mdl.context.getOrder()).toBeUndefined();
         mdl.context.setOrder(context);
         expect(mdl.context.getOrder()).toEqual(context);
+    });
+
+    test("order page context", () => {
+        const context = generateOrderViewContext();
+        expect(mdl.context.getOrderPage()).toBeUndefined();
+        mdl.context.setOrderPage(context);
+        expect(mdl.context.getOrderPage()).toEqual(context);
     });
 
     test("page context", () => {

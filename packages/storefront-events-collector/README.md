@@ -67,6 +67,7 @@ The collector listens for the following events.
 
 B2B events
 
+-   `addToRequisitionList`
 -   `createRequisitionList`
 -   `removeFromRequisitionList`
 
@@ -95,6 +96,8 @@ The handlers forward events to two edges:
     `custom`
 
     B2B events
+
+    `addToRequisitionList`
 
     `createRequisitionList`
 

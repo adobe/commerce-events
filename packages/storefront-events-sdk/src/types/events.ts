@@ -3,6 +3,7 @@ import events from "../events";
 
 export type EventName =
     | typeof events.ADD_TO_CART
+    | typeof events.ADD_TO_REQUISITION_LIST
     | typeof events.CREATE_ACCOUNT
     | typeof events.CREATE_REQUISITION_LIST
     | typeof events.CUSTOM

@@ -204,6 +204,17 @@ Sets the `Order` context.
 -   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/order.ts)
 -   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L62)
 
+#### `setOrderPage`
+
+```javascript
+mse.context.setOrderPage(orderProductsCtx);
+```
+
+Sets the `OrderProducts` context.
+
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/orderProducts.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L83)
+
 #### `setPage`
 
 ```javascript
@@ -365,6 +376,7 @@ mse.context.getEventForwarding();
 mse.context.getMagentoExtension();
 mse.context.getDataServicesExtension();
 mse.context.getOrder();
+mse.context.getOrderPage();
 mse.context.getPage();
 mse.context.getProduct();
 mse.context.getRecommendations();

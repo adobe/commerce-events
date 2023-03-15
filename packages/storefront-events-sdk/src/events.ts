@@ -1,5 +1,6 @@
 const events = {
     ADD_TO_CART: "add-to-cart",
+    ADD_TO_REQUISITION_LIST: "add-to-requisition-list",
     CREATE_ACCOUNT: "create-account",
     CREATE_REQUISITION_LIST: "create-requisition-list",
     CUSTOM: "commerce-custom",
