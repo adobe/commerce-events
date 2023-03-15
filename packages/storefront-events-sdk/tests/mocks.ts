@@ -20,9 +20,10 @@ import {
     StorefrontInstance,
     Account,
     RequisitionList,
-    RequisitionListItems
+    RequisitionListItems,
 } from "../src/types/schemas/";
 import { CustomContext } from "../src/types/contexts";
+import { OrderProducts } from "../src/types/schemas/orderProducts";
 
 export const generateAccountContext = (overrides?: Partial<Account>): Account => ({
     firstName: "firstName",
@@ -76,6 +77,11 @@ export const generateOrderContext = (overrides?: Partial<Order>): Order => ({
     salesTax: 7,
     subtotalExcludingTax: 111,
     subtotalIncludingTax: 123,
+    ...overrides,
+});
+
+export const generateOrderViewContext = (overrides?: Partial<OrderProducts>) => ({
+    items: [generateProductContext()],
     ...overrides,
 });
 
@@ -237,10 +243,12 @@ export const generateReferrerUrlContext = (overrides?: Partial<ReferrerUrl>): Re
 export const generateRequisitionListContext = (overrides?: Partial<RequisitionList>): RequisitionList => ({
     id: "1",
     name: "Requisition List 1",
-    description: "This is requisition list 1"
+    description: "This is requisition list 1",
 });
 
-export const generateRequisitionListItemsContext = (overrides?: Partial<RequisitionListItems>): RequisitionListItems => ({
+export const generateRequisitionListItemsContext = (
+    overrides?: Partial<RequisitionListItems>,
+): RequisitionListItems => ({
     items: [
         {
             productId: 111111,
@@ -255,7 +263,7 @@ export const generateRequisitionListItemsContext = (overrides?: Partial<Requisit
             selectedOptions: [],
             quantity: 1,
         },
-    ]
+    ],
 });
 
 export const generateSearchInputContext = (overrides?: Partial<SearchInput>): SearchInput => ({

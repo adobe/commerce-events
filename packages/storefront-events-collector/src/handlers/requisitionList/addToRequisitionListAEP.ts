@@ -7,8 +7,14 @@ const XDM_EVENT_TYPE = "commerce.requisitionListAdds";
 
 /** Sends an event to aep with an addToRequisitionList payload */
 const handler = async (event: Event): Promise<void> => {
-    const { changedProductsContext, requisitionListContext, debugContext, customContext, storefrontInstanceContext } =
-        event.eventInfo;
+    const {
+        accountContext,
+        changedProductsContext,
+        requisitionListContext,
+        debugContext,
+        customContext,
+        storefrontInstanceContext,
+    } = event.eventInfo;
 
     let payload: BeaconSchema;
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
@@ -24,6 +30,9 @@ const handler = async (event: Event): Promise<void> => {
                 },
             },
             productListItems: createProductListItems(changedProductsContext, storefrontInstanceContext),
+            personalEmail: {
+                address: accountContext?.emailAddress,
+            },
         };
     }
 
