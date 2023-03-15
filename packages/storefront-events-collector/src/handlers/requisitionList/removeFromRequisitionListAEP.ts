@@ -25,6 +25,7 @@ const aepHandler = async (event: Event): Promise<void> => {
             commerce: {
                 requisitionList: createRequisitionList(requisitionListContext),
             },
+
             productListItems: createProductListItemsFromRequisitionListItems(
                 requisitionListItemsContext,
                 storefrontInstanceContext,
