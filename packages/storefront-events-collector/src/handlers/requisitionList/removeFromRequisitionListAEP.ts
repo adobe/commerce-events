@@ -9,6 +9,7 @@ const XDM_EVENT_TYPE = "commerce.requisitionListRemovals";
 /** Sends an event to aep with an addToCart payload */
 const aepHandler = async (event: Event): Promise<void> => {
     const {
+        accountContext,
         requisitionListItemsContext,
         debugContext,
         customContext,
@@ -30,6 +31,9 @@ const aepHandler = async (event: Event): Promise<void> => {
                 requisitionListItemsContext,
                 storefrontInstanceContext,
             ),
+            personalEmail: {
+                address: accountContext?.emailAddress,
+            },
         };
     }
 
