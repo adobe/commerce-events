@@ -40,6 +40,9 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
                 selectedOptions: [],
             },
         ],
+        personalEmail: {
+            address: "beacon3@commerce.com",
+        },
         _id: undefined,
         eventType: "commerce.requisitionListRemovals",
     });
