@@ -2,6 +2,7 @@ import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/eve
 import { sendEvent } from "../../alloy";
 import { BeaconSchema } from "../../types/aep";
 import { createProductListItems } from "../../utils/aep/productListItems";
+import { createProductListItemsFromRequisitionListItems } from "../../utils/aep/requisitionList";
 
 const XDM_EVENT_TYPE = "commerce.requisitionListAdds";
 
@@ -11,6 +12,7 @@ const handler = async (event: Event): Promise<void> => {
         accountContext,
         changedProductsContext,
         requisitionListContext,
+        requisitionListItemsContext,
         debugContext,
         customContext,
         storefrontInstanceContext,
@@ -29,7 +31,10 @@ const handler = async (event: Event): Promise<void> => {
                     description: requisitionListContext?.description,
                 },
             },
-            productListItems: createProductListItems(changedProductsContext, storefrontInstanceContext),
+            productListItems: requisitionListItemsContext ? 
+                              createProductListItemsFromRequisitionListItems(requisitionListItemsContext, storefrontInstanceContext) 
+                              : 
+                              createProductListItems(changedProductsContext, storefrontInstanceContext),
             personalEmail: {
                 address: accountContext?.emailAddress,
             },
