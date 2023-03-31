@@ -3,6 +3,7 @@ import { sendEvent } from "../../alloy";
 import { BeaconSchema } from "../../types/aep";
 import { createProductListItems } from "../../utils/aep/productListItems";
 import { createProductListItemsFromRequisitionListItems } from "../../utils/aep/requisitionList";
+import { createRequisitionList } from "../../utils/aep/requisitionList";
 
 const XDM_EVENT_TYPE = "commerce.requisitionListAdds";
 
