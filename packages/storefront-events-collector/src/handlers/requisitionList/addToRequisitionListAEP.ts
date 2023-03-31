@@ -25,11 +25,7 @@ const handler = async (event: Event): Promise<void> => {
     } else {
         payload = {
             commerce: {
-                requisitionList: {
-                    ID: requisitionListContext?.id,
-                    name: requisitionListContext?.name,
-                    description: requisitionListContext?.description,
-                },
+                requisitionList: createRequisitionList(requisitionListContext)
             },
             productListItems: requisitionListItemsContext ? 
                               createProductListItemsFromRequisitionListItems(requisitionListItemsContext, storefrontInstanceContext) 
