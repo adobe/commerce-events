@@ -156,6 +156,7 @@ const mockDataServicesExtensionCtx = {
 
 const mockExperiencePlatformExtensionCtx = {
     version: "1.2.3",
+    setupComplete: false,
 };
 
 const mockRecommendationsExtensionCtx = {

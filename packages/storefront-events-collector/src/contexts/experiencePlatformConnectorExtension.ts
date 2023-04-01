@@ -31,7 +31,7 @@ const createContext = (
         schema: schemas.EXPERIENCE_PLATFORM_CONNECTOR_EXTENSION_SCHEMA_URL,
         data: {
             version: experiencePlatformExtensionCtx.version,
-            setupComplete: setupComplete,
+            setupComplete: !!setupComplete,
         },
     };
 
