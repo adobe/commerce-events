@@ -62,7 +62,7 @@ export type ProductListAdds = {
 /**
  * Addition of a product to an empty product list
  */
- export type ProductListOpens = {
+export type ProductListOpens = {
     id?: string;
     value: number;
 };
@@ -80,4 +80,3 @@ export type ProductListRemovals = {
 export type ProductListViews = {
     value: number;
 };
-

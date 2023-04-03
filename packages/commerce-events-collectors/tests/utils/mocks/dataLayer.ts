@@ -434,10 +434,10 @@ const mockReferrerUrl: ReferrerUrl = {
     referrerUrl: "https://magento.com",
 };
 
-const mockRequisitionList  = {
+const mockRequisitionList = {
     id: "1",
     name: "Req List 1",
-    description: "This is req list 1"
+    description: "This is req list 1",
 };
 
 const mockCustomUrl: CustomUrl = {

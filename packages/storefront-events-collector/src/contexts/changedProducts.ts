@@ -11,7 +11,7 @@ const createContext = (changedProducts?: ChangedProducts): ChangedProductsContex
     }
 
     const context: ChangedProductsContext = {
-        items: cartEventCtx.items
+        items: cartEventCtx.items,
     };
 
     return context;

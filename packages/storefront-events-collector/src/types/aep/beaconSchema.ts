@@ -53,7 +53,7 @@ export type SearchRequest = {
 };
 
 export type SearchResponse = {
-    id?: string; /** contains ID of the search request so the two can be mapped to each other */
+    id?: string /** contains ID of the search request so the two can be mapped to each other */;
     value: number;
 };
 

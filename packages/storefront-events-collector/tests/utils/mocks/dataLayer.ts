@@ -438,7 +438,7 @@ const mockReferrerUrl: ReferrerUrl = {
 const mockRequisitionList: RequisitionList = {
     id: "1",
     name: "Req List 1",
-    description: "This is req list 1"
+    description: "This is req list 1",
 };
 
 const mockCustomUrl: CustomUrl = {
