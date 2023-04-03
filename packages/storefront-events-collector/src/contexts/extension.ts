@@ -14,10 +14,14 @@ const createContext = (extension?: MagentoExtension): ExtensionContext => {
         };
     }
 
+    const version =
+        magentoExtensionCtx.magentoExtensionVersion && magentoExtensionCtx.magentoExtensionVersion !== ""
+            ? magentoExtensionCtx.magentoExtensionVersion
+            : "unspecified";
     const context = {
         schema: schemas.MAGENTO_EXTENSION_SCHEMA_URL,
         data: {
-            magentoExtensionVersion: magentoExtensionCtx.magentoExtensionVersion ?? 'unspecified',
+            magentoExtensionVersion: version,
         },
     };
 
