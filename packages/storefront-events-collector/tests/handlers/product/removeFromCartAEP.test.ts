@@ -14,7 +14,7 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
     expect(sendEvent).toHaveBeenCalledWith({
         commerce: {
             cart: {
-                cartID: "111111"
+                cartID: "111111",
             },
             productListRemovals: {
                 value: 1,

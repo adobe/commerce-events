@@ -9,19 +9,19 @@ const handler = (event: Event): void => {
     const cartItems = changedProductsContext?.items || shoppingCartContext?.items || [];
     cartItems?.forEach((item) => {
         let productCtx;
-        if(item.product.sku === productContext.sku){
+        if (item.product.sku === productContext.sku) {
             productCtx = createProductCtx(productContext);
         } else {
             productCtx = createProductFromCartItem(item);
         }
         const shoppingCartCtx = createShoppingCartCtx(shoppingCartContext);
-    
+
         const context: Array<SelfDescribingJson> = [productCtx];
-    
+
         if (shoppingCartCtx) {
             context.push(shoppingCartCtx);
         }
-    
+
         trackStructEvent({
             category: "product",
             action: "add-to-cart",

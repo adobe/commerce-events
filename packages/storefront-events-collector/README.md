@@ -103,8 +103,6 @@ The handlers forward events to two edges:
 
     `removeFromRequisitionList`
 
-
-
 -   [Adobe Experience Platform (AEP)](https://business.adobe.com/products/experience-platform/adobe-experience-platform.html) (requires a subscription and additional merchant [setup](https://experienceleague.adobe.com/docs/experience-platform/edge/fundamentals/datastreams.html?lang=en); data can be used by merchants inside the Adobe Experience Platform for detailed analytics, targeted merchandising, real time customer data profiles, and more)
 
     Required contexts:
@@ -142,9 +140,10 @@ Events are not set to AEP Edge unless explicitly configured (`EventForwarding.ae
 Custom events are supported for the Adobe Experience Platform only. Custom data will not be forwarded to Adobe Commerce dashboards and metrics trackers.
 
 For any `custom` event, the collector:
-  - adds`identityMap` with `ECID` as a primary identity
-  - includes `email` in `identityMap` as a secondary identity *if* `personalEmail.address` is set in the event
-  - wraps the full event inside an `xdm` object before forwarding to the Edge
+
+-   adds`identityMap` with `ECID` as a primary identity
+-   includes `email` in `identityMap` as a secondary identity _if_ `personalEmail.address` is set in the event
+-   wraps the full event inside an `xdm` object before forwarding to the Edge
 
 Example:
 
@@ -152,13 +151,13 @@ Custom event published through MSE SDK:
 
 ```javascript
 mse.publish.custom({
-  customContext: { 
-    customStrAttr: "cheetah", 
-    customNumAttr: 128, 
-    personalEmail: {
-      address: "runs@safari.ke"
-    }
-  }
+    customContext: {
+        customStrAttr: "cheetah",
+        customNumAttr: 128,
+        personalEmail: {
+            address: "runs@safari.ke",
+        },
+    },
 });
 ```
 
@@ -201,9 +200,9 @@ Product view with overrides published though MSE SDK:
 
 ```javascript
 mse.publish.productPageView({
-  customContext: { 
-    customCode: "okapi" 
-  }
+    customContext: {
+        customCode: "okapi",
+    },
 });
 ```
 
@@ -235,11 +234,11 @@ Product view with Adobe Commerce overrides published though MSE SDK:
 
 ```javascript
 mse.publish.productPageView({
-  customContext: { 
-    commerce: { 
-      customCode: "mongoose" 
-    } 
-  }
+    customContext: {
+        commerce: {
+            customCode: "mongoose",
+        },
+    },
 });
 ```
 
@@ -339,4 +338,3 @@ If you have any questions or encounter any issues, please reach out at these loc
 [acdl]: https://github.com/adobe/adobe-client-data-layer
 [unpkg]: https://unpkg.com/@adobe/magento-storefront-event-collector/dist/index.js
 [issues]: https://github.com/adobe/commerce-events/issues
-

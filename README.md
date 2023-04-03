@@ -22,29 +22,25 @@ Under the dev script, our built files are hosted at:
 -   sdk - `http://localhost:8080/index.js`
 -   collector - `http://localhost:8081/index.js`
 
-
 ## Release process
-
 
 ### QA
 
 Merging a change to the `main` branch triggers a github action that builds and deploys the latest code to QA: https://unpkg.com/@adobe/magento-storefront-event-collector@qa/dist/index.js.
 
-
 ### Production
 
 Release steps:
 
-- create a PR with a version bump in the package.json and package-lock.json in the package(s) you're releasing (example PR [here](https://github.com/adobe/commerce-events/pull/56/files))
+-   create a PR with a version bump in the package.json and package-lock.json in the package(s) you're releasing (example PR [here](https://github.com/adobe/commerce-events/pull/56/files))
 
-- once the PR is approved and merged, create a [new release tag for the repo](https://github.com/adobe/commerce-events/tags)
+-   once the PR is approved and merged, create a [new release tag for the repo](https://github.com/adobe/commerce-events/tags)
 
 Creating a new release tag triggers a github action that builds and deploys the latest code to Prod: https://unpkg.com/@adobe/magento-storefront-event-collector/dist/index.js.
 
 ### NPM Packages
 
-| Name                                                                                 | NPM Namespace                                | version |
-| ------------------------------------------------------------------------------------ | -------------------------------------------- | ------- |
-| [storefront-events-sdk](./packages/storefront-events-sdk)                            | `@adobe/magento-storefront-events-sdk`       | 1.x     |
-| [storefront-events-collector](./packages/storefront-events-collector)                | `@adobe/magento-storefront-event-collector`  | 1.x     |
-
+| Name                                                                  | NPM Namespace                               | version |
+| --------------------------------------------------------------------- | ------------------------------------------- | ------- |
+| [storefront-events-sdk](./packages/storefront-events-sdk)             | `@adobe/magento-storefront-events-sdk`      | 1.x     |
+| [storefront-events-collector](./packages/storefront-events-collector) | `@adobe/magento-storefront-event-collector` | 1.x     |

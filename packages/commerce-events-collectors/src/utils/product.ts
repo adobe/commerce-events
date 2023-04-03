@@ -24,17 +24,17 @@ const createPricing = (ctx: Product): ProductPricing | undefined => {
 };
 
 const createProductFromCartItem = (ctx: ShoppingCartItem): ProductContext => {
-    const pricing : ProductPricing = {
+    const pricing: ProductPricing = {
         regularPrice: ctx.prices.price.value,
         currencyCode: ctx.prices.price.currency || null,
     };
-    let productId : any = ctx.product.productId;
+    let productId: any = ctx.product.productId;
 
     const newCtx: Product = {
-        canonicalUrl:  null,
-        categories:  ctx.product.categories || [],
-        countryOfManufacture:  null,
-        createdAt:  null,
+        canonicalUrl: null,
+        categories: ctx.product.categories || [],
+        countryOfManufacture: null,
+        createdAt: null,
         mainImageUrl: ctx.product.mainImageUrl,
         manufacturer: null,
         name: ctx.product.name,
@@ -42,14 +42,14 @@ const createProductFromCartItem = (ctx: ShoppingCartItem): ProductContext => {
         newToDate: null,
         productId: parseInt(productId),
         sku: ctx.product.sku,
-        pricing:  pricing,
+        pricing: pricing,
         productType: null,
         specialFromDate: null,
         specialToDate: null,
         topLevelSku: ctx.product.topLevelSku || null,
         updatedAt: null,
-    }
+    };
     return createProductCtx(newCtx);
-}
+};
 
 export { createPricing, createProductFromCartItem };

@@ -48,7 +48,7 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
                 currencyCode: "USD",
                 discountAmount: 0,
                 selectedOptions: [],
-                productImageUrl: undefined
+                productImageUrl: undefined,
             },
             {
                 SKU: "h001",
@@ -58,7 +58,7 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
                 currencyCode: "USD",
                 discountAmount: 0,
                 selectedOptions: [],
-                productImageUrl: undefined
+                productImageUrl: undefined,
             },
         ],
         _id: undefined,

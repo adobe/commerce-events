@@ -26,12 +26,11 @@ const handler = async (event: Event): Promise<void> => {
     } else {
         payload = {
             commerce: {
-                requisitionList: createRequisitionList(requisitionListContext)
+                requisitionList: createRequisitionList(requisitionListContext),
             },
-            productListItems: requisitionListItemsContext ? 
-                              createProductListItemsFromRequisitionListItems(requisitionListItemsContext, storefrontInstanceContext) 
-                              : 
-                              createProductListItems(changedProductsContext, storefrontInstanceContext),
+            productListItems: requisitionListItemsContext
+                ? createProductListItemsFromRequisitionListItems(requisitionListItemsContext, storefrontInstanceContext)
+                : createProductListItems(changedProductsContext, storefrontInstanceContext),
             personalEmail: {
                 address: accountContext?.emailAddress,
             },

@@ -15,7 +15,7 @@
         "ace": "turbo run ace --parallel",
         "dev": "turbo run dev --parallel",
         "test": "turbo run test",
-        "lint": "turbo run lint",
+        "lint": "turbo run lint --filter=./packages/storefront-events-*",
         "format": "prettier --write \"**/*.{ts,tsx,md}\"",
         "postinstall": "yarn build"
     },

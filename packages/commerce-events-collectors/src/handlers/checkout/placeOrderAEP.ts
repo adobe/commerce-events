@@ -9,8 +9,14 @@ const XDM_EVENT_TYPE = "commerce.purchases";
 
 /** Sends an event to aep with a checkout complete payload */
 const aepHandler = async (event: Event): Promise<void> => {
-    const { accountContext, storefrontInstanceContext, orderContext, shoppingCartContext, debugContext, customContext } =
-        event.eventInfo;
+    const {
+        accountContext,
+        storefrontInstanceContext,
+        orderContext,
+        shoppingCartContext,
+        debugContext,
+        customContext,
+    } = event.eventInfo;
 
     let payload: BeaconSchema;
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {

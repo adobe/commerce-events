@@ -19,7 +19,7 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
             requisitionList: {
                 ID: "1",
                 name: "Req List 1",
-                description: "This is req list 1"
+                description: "This is req list 1",
             },
         },
         productListItems: [
