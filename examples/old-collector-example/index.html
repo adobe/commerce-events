@@ -120,25 +120,31 @@
             </button>
 
             <button
-                onclick="magentoStorefrontEvents.publish.searchRequestSent('search-bar')"
+                onclick="magentoStorefrontEvents.publish.searchRequestSent('livesearch-plp')"
             >
                 searchRequestSent
             </button>
 
             <button
-                onclick="magentoStorefrontEvents.publish.searchResponseReceived('search-bar')"
+                onclick="magentoStorefrontEvents.publish.searchResponseReceived('livesearch-plp')"
             >
                 searchResponseReceived
             </button>
 
             <button
-                onclick="magentoStorefrontEvents.publish.searchResultsView('search-bar')"
+                onclick="magentoStorefrontEvents.publish.categoryResultsView()"
             >
-                searchResultsView
+                categoryResultsView
             </button>
 
             <button
-                onclick="magentoStorefrontEvents.publish.searchSuggestionClick('search-bar', 'red pants')"
+                onclick="magentoStorefrontEvents.publish.searchResultsView('livesearch-plp')"
+            >
+                searchResultsView
+             </button>
+
+            <button
+                onclick="magentoStorefrontEvents.publish.searchSuggestionClick('livesearch-plp', 'red pants')"
             >
                 searchSuggestionClick
             </button>

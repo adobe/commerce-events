@@ -119,6 +119,10 @@ export default class UnsubscribeManager extends Base {
         this.removeEventListener(events.SEARCH_RESULTS_VIEW, handler);
     }
 
+    categoryResultsView(handler: EventHandler): void {
+        this.removeEventListener(events.CATEGORY_RESULTS_VIEW, handler);
+    }
+
     searchSuggestionClick(handler: EventHandler): void {
         this.removeEventListener(events.SEARCH_SUGGESTION_CLICK, handler);
     }

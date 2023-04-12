@@ -119,6 +119,10 @@ export default class SubscribeManager extends Base {
         this.addEventListener(events.SEARCH_RESULTS_VIEW, handler);
     }
 
+    categoryResultsView(handler: EventHandler): void {
+        this.addEventListener(events.CATEGORY_RESULTS_VIEW, handler);
+    }
+
     searchSuggestionClick(handler: EventHandler): void {
         this.addEventListener(events.SEARCH_SUGGESTION_CLICK, handler);
     }

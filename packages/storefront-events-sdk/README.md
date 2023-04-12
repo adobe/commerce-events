@@ -512,6 +512,11 @@ mse.publish.searchResultsView(searchUnitId, ctx);
 
 ```javascript
 // requires searchResultsContext to be set
+mse.publish.categoryResultsView(searchUnitId, ctx);
+```
+
+```javascript
+// requires searchResultsContext to be set
 mse.publish.searchSuggestionClick(searchUnitId, suggestion, ctx);
 ```
 
@@ -565,6 +570,7 @@ mse.subscribe.searchProductClick(handler, options);
 mse.subscribe.searchRequestSent(handler, options);
 mse.subscribe.searchResponseReceived(handler, options);
 mse.subscribe.searchResultsView(handler, options);
+mse.subscribe.categoryResultsView(handler, options);
 mse.subscribe.searchSuggestionClick(handler, options);
 mse.subscribe.shoppingCartView(handler, options);
 mse.subscribe.signIn(handler, options);
@@ -605,6 +611,7 @@ mse.unsubscribe.searchProductClick(handler);
 mse.unsubscribe.searchRequestSent(handler);
 mse.unsubscribe.searchResponseReceived(handler);
 mse.unsubscribe.searchResultsView(handler);
+mse.unsubscribe.categoryResultsView(handler);
 mse.unsubscribe.searchSuggestionClick(handler);
 mse.unsubscribe.shoppingCartView(handler);
 mse.unsubscribe.signIn(handler);
