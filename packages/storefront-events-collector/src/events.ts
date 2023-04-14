@@ -33,6 +33,7 @@ import {
     searchResponseReceivedHandler,
     searchResponseReceivedHandlerAEP,
     searchResultsViewHandler,
+    categoryResultsViewHandler,
     searchSuggestionClickHandler,
     shoppingCartViewHandler,
     shoppingCartViewHandlerAEP,
@@ -126,6 +127,7 @@ const subscribeToEvents = (): void => {
         mse.subscribe.searchRequestSent(handleSnowplowSearchRequestSent);
         mse.subscribe.searchResponseReceived(handleSnowplowSearchResponseReceived);
         mse.subscribe.searchResultsView(searchResultsViewHandler);
+        mse.subscribe.categoryResultsView(categoryResultsViewHandler);
         mse.subscribe.searchSuggestionClick(searchSuggestionClickHandler);
         mse.subscribe.shoppingCartView(handleSnowplowShoppingCartView);
     } catch (e) {
@@ -178,6 +180,7 @@ const unsubscribeFromEvents = (): void => {
         mse.unsubscribe.searchRequestSent(handleSnowplowSearchRequestSent);
         mse.unsubscribe.searchResponseReceived(handleSnowplowSearchResponseReceived);
         mse.unsubscribe.searchResultsView(searchResultsViewHandler);
+        mse.unsubscribe.categoryResultsView(categoryResultsViewHandler);
         mse.unsubscribe.searchSuggestionClick(searchSuggestionClickHandler);
         mse.unsubscribe.shoppingCartView(shoppingCartViewHandler);
         mse.unsubscribe.shoppingCartView(handleSnowplowShoppingCartView);

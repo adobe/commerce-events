@@ -5,4 +5,5 @@ export { default as searchRequestSentHandlerAEP } from "./searchRequestSentAEP";
 export { default as searchResponseReceivedHandler } from "./searchResponseReceived";
 export { default as searchResponseReceivedHandlerAEP } from "./searchResponseReceivedAEP";
 export { default as searchResultsViewHandler } from "./searchResultsView";
+export { default as categoryResultsViewHandler } from "./categoryResultsView";
 export { default as searchSuggestionClickHandler } from "./searchSuggestionClick";

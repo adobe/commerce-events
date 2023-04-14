@@ -28,6 +28,7 @@ const events = {
     SEARCH_REQUEST_SENT: "search-request-sent",
     SEARCH_RESPONSE_RECEIVED: "search-response-received",
     SEARCH_RESULTS_VIEW: "search-results-view",
+    CATEGORY_RESULTS_VIEW: "category-results-view",
     SEARCH_SUGGESTION_CLICK: "search-suggestion-click",
     SHOPPING_CART_VIEW: "shopping-cart-view",
     SIGN_IN: "sign-in",

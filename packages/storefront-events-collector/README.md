@@ -58,6 +58,7 @@ The collector listens for the following events.
 -   `searchRequestSent`
 -   `searchResponseReceived`
 -   `searchResultsView`
+-   `categoryResultsView`
 -   `searchSuggestionClick`
 -   `createAccount`
 -   `editAccount`
@@ -126,6 +127,8 @@ The handlers forward events to two edges:
     `searchProductClick`
 
     `searchResultsView`
+
+    `categoryResultsView`
 
     `searchSuggestionClick`
 

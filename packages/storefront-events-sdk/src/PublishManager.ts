@@ -170,6 +170,13 @@ export default class PublishManager extends Base {
         });
     }
 
+    categoryResultsView(searchUnitId: SearchResultUnit["searchUnitId"], context?: CustomContext): void {
+        this.pushEvent(events.CATEGORY_RESULTS_VIEW, {
+            searchUnitId,
+            customContext: context,
+        });
+    }
+
     searchSuggestionClick(
         searchUnitId: SearchResultUnit["searchUnitId"],
         suggestion: SearchResultSuggestion["suggestion"],
