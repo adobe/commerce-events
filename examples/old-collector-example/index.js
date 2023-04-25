@@ -14,7 +14,7 @@ import {
     mockShopper,
     mockShoppingCart,
     mockStorefront,
-} from "../../packages/commerce-events-collectors/tests/utils/mocks";
+} from "../../packages/storefront-events-collector/tests/utils/mocks";
 
 const mse = window.magentoStorefrontEvents;
 

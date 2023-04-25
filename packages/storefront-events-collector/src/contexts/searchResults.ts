@@ -26,6 +26,8 @@ const createContext = (searchUnitId: string, searchResults?: SearchResults): Sea
         data: {
             searchUnitId: searchResultsUnit.searchUnitId,
             searchRequestId: searchResultsUnit.searchRequestId,
+            rankingType: searchResultsUnit.rankingType,
+            trendingWindow: searchResultsUnit.trendingWindow,
             executionTime: searchResultsUnit.executionTime,
             products: searchResultsUnit.products,
             categories: searchResultsUnit.categories,
