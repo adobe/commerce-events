@@ -218,6 +218,8 @@ const mockSearchResultProductCtx = {
 const mockSearchResultsCtx = {
     searchUnitId: "search-bar",
     searchRequestId: "abc123",
+    rankingType: "viewed-also-viewed",
+    trendingWindow: "7days",
     executionTime: 378.39,
     products: [
         {

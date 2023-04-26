@@ -5,6 +5,8 @@ export type SearchResults = {
 export type SearchResultUnit = {
     searchUnitId: string;
     searchRequestId: string;
+    rankingType?: string;
+    trendingWindow?: string;
     executionTime?: number;
     products: Array<SearchResultProduct>;
     categories: Array<SearchResultCategory>;

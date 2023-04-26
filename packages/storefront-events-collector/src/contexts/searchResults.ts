@@ -24,18 +24,10 @@ const createContext = (searchUnitId: string, searchResults?: SearchResults): Sea
     const context: SearchResultsContext = {
         schema: schemas.SEARCH_RESULTS_SCHEMA_URL,
         data: {
-            searchUnitId: searchResultsUnit.searchUnitId,
-            searchRequestId: searchResultsUnit.searchRequestId,
-            executionTime: searchResultsUnit.executionTime,
-            products: searchResultsUnit.products,
-            categories: searchResultsUnit.categories,
-            suggestions: searchResultsUnit.suggestions,
+            ...searchResultsUnit,
             productCount: searchResultsUnit.products.length,
             categoryCount: searchResultsUnit.categories.length,
             suggestionCount: searchResultsUnit.suggestions.length,
-            page: searchResultsUnit.page,
-            perPage: searchResultsUnit.perPage,
-            facets: searchResultsUnit.facets,
         },
     };
 

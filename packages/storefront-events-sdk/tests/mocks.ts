@@ -288,6 +288,8 @@ export const generateSearchResultsContext = (overrides?: Partial<SearchResults>)
         {
             searchUnitId: "search-bar",
             searchRequestId: "abc123",
+            rankingType: "viewed-also-viewed",
+            trendingWindow: "7days",
             executionTime: 476.27,
             products: [],
             categories: [],
