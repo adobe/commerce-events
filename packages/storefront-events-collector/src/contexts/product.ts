@@ -29,7 +29,7 @@ const createContext = (product?: Product): ProductContext => {
             updatedAt: productCtx.updatedAt,
             manufacturer: productCtx.manufacturer,
             countryOfManufacture: productCtx.countryOfManufacture,
-            categories: productCtx.categories,
+            categories: productCtx.categories?.map((category) => category.toString()),
             productType: productCtx.productType,
             pricing: createPricing(productCtx),
             canonicalUrl: productCtx.canonicalUrl,
