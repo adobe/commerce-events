@@ -29,5 +29,5 @@ const mse = window.magentoStorefrontEvents;
 /* set before firing event */
 mse.context.setRecommendations(recommendationsCtx);
 
-mse.publish.recsUnitRender({unitId});
+mse.publish.recsUnitRender({ unitId });
 ```

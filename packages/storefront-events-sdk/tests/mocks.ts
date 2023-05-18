@@ -69,7 +69,7 @@ export const generateOrderContext = (overrides?: Partial<Order>): Order => ({
     appliedCouponCode: "",
     email: "test@test.com",
     grandTotal: 123,
-    orderId: 1293949,
+    orderId: "1293949",
     orderType: "instant_purchase",
     otherTax: 5,
     paymentMethodCode: "giftcard",

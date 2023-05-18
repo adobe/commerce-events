@@ -2,7 +2,7 @@ export type Order = {
     appliedCouponCode: string;
     email: string;
     grandTotal: number;
-    orderId: number;
+    orderId: string;
     orderType?: "checkout" | "instant_purchase";
     otherTax: number;
     /** @deprecated - use payments instead */

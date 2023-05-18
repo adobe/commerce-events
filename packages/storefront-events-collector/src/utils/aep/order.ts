@@ -30,7 +30,7 @@ const createOrder = (
             return {
                 paymentAmount: Number(payment.total || 0),
                 paymentType: getAepPaymentCode(payment.paymentMethodCode),
-                transactionID: orderContext?.orderId.toString(),
+                transactionID: String(orderContext?.orderId),
                 currencyCode: storefrontInstanceContext?.storeViewCurrencyCode,
             };
         });
@@ -40,7 +40,7 @@ const createOrder = (
             {
                 paymentAmount: Number(orderContext?.grandTotal || 0),
                 paymentType: getAepPaymentCode(orderContext?.paymentMethodCode),
-                transactionID: orderContext?.orderId?.toString(),
+                transactionID: String(orderContext?.orderId),
                 currencyCode: storefrontInstanceContext?.storeViewCurrencyCode,
             },
         ];
@@ -50,7 +50,7 @@ const createOrder = (
     const orderType = orderContext?.orderType === "instant_purchase" ? "instant_purchase" : "checkout";
 
     return {
-        purchaseID: orderContext?.orderId.toString(),
+        purchaseID: String(orderContext?.orderId),
         currencyCode: storefrontInstanceContext?.storeViewCurrencyCode,
         payments,
         orderType,
