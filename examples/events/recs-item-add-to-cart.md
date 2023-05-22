@@ -30,5 +30,5 @@ const mse = window.magentoStorefrontEvents;
 /* set before firing event */
 mse.context.setRecommendations(recommendationsCtx);
 
-mse.publish.recsItemAddToCartClick({unitId});
+mse.publish.recsItemAddToCartClick({ unitId });
 ```

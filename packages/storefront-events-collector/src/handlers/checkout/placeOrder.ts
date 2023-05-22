@@ -17,7 +17,7 @@ const handler = (event: Event): void => {
     trackStructEvent({
         category: "checkout",
         action: "place-order",
-        label: orderContext?.orderId.toString(),
+        label: String(orderContext?.orderId),
         property: pageContext?.pageType,
         context,
     });
