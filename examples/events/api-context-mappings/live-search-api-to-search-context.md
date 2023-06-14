@@ -20,7 +20,7 @@ const filters = []; // can be any
 
 const sort = []; // can be any
 
-const searchInputUnit: SearchInputUnit = {
+const searchInputUnit = {
     searchUnitId,
     searchRequestId,
     queryTypes: ["products"],
@@ -82,7 +82,7 @@ const facets = results.facets
     : [];
 
 // create search result unit
-const searchResultUnit: SearchResultUnit = {
+const searchResultUnit = {
     searchUnitId,
     searchRequestId, // must be searchRequestId from corresponding request
     products,
