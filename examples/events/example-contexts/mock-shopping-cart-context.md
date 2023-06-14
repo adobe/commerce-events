@@ -1,4 +1,4 @@
-## Shopping cart context
+## Shopping Cart context
 
 ### Used
 
@@ -9,6 +9,10 @@
 -   view-cart
 -   initiate-checkout
 -   complete-checkout
+
+### Full schema and required fields
+
+[Shopping Cart schema](../../../packages/storefront-events-sdk/src/types/schemas/shoppingCart.ts)
 
 ### Mock data
 

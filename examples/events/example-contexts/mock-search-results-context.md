@@ -1,4 +1,4 @@
-## Search input context
+## Search Results context
 
 ### Used
 
@@ -7,6 +7,10 @@
 -   category-results-view
 -   search-product-click
 -   search-category-click
+
+### Full schema and required fields
+
+[Search Results schema](../../../packages/storefront-events-sdk/src/types/schemas/searchResults.ts)
 
 ### Mock data
 

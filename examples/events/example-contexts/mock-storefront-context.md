@@ -4,6 +4,10 @@
 
 -   all events
 
+### Full schema and required fields
+
+[Storefront schema](../../../packages/storefront-events-sdk/src/types/schemas/storefrontInstance.ts)
+
 ### Mock data
 
 ```javascript

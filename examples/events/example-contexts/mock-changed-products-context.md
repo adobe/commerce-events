@@ -1,4 +1,4 @@
-## Changed products context
+## Changed Products context
 
 Represent product changes in cart.
 
@@ -6,6 +6,10 @@ Represent product changes in cart.
 
 -   add-to-cart
 -   remove-from-cart
+
+### Full schema and required fields
+
+[Changed Products schema](../../../packages/storefront-events-sdk/src/types/schemas/changedProducts.ts)
 
 ### Mock data
 

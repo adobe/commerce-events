@@ -1,4 +1,4 @@
-## Event forwarding context
+## Event Forwarding context
 
 Contains configuration for forwarding events to Adobe Sensei and Adobe DX/AEP Edge.
 
@@ -9,6 +9,10 @@ Contains configuration for forwarding events to Adobe Sensei and Adobe DX/AEP Ed
 ### Used
 
 -   all events
+
+### Full schema and required fields
+
+[Event Forwarding schema](../../../packages/storefront-events-sdk/src/types/schemas/eventForwarding.ts)
 
 ### Mock data
 

@@ -1,4 +1,4 @@
-## Recommendation unit context
+## Recommendation Unit context
 
 ### Used
 
@@ -7,6 +7,10 @@
 -   recs-unit-view
 -   recs-item-click
 -   recs-item-add-to-cart
+
+### Full schema and required fields
+
+[Recommendations schema](../../../packages/storefront-events-sdk/src/types/schemas/recommendations.ts
 
 ### Mock data
 
