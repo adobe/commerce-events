@@ -1,14 +1,14 @@
 ## Live Search API -> Search events mappings
 
-All Live Search headless implementations must track Live Search [request](../search-request-sent.md) and [response](../recs-response-received.md) events for Intelligent Merchandising, conversion tracking, attributions, and performance dashboards to function properly.
+All Adobe Commerce Live Search headless implementations must track Live Search API [request](../search-request-sent.md) and [response](../search-response-received.md) events for Intelligent Merchandising, conversion tracking, attributions, and performance dashboards to function properly.
 
 Headless implementations can use the examples provided here to tie API requests and responses to request and response events.
 
-Search Input context example [here](../example-contexts/mock-search-input-context.md).
+`SearchInput` context example [here](../example-contexts/mock-search-input-context.md).
 
-Search Results context example [here](../example-contexts/mock-search-results-context.md).
+`SearchResults` context example [here](../example-contexts/mock-search-results-context.md).
 
-**1. Set input context and generate request sent event**
+**1. Set `SearchInput` context and generate `searchRequestSent` event**
 
 ```javascript
 const searchUnitId = "custom-client-identifier"; // can be any
@@ -56,7 +56,7 @@ const response = await fetch(liveSearchAPIUrl, {
 const results = await response.json();
 ```
 
-**3. Set results context and generate response received event**
+**3. Set `SearchResults` context and generate `searchResponseReceived` event**
 
 ```javascript
 // create products
