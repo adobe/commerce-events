@@ -5,6 +5,10 @@
 -   product view
 -   product add to cart
 
+### Full schema and required fields
+
+[Product schema](../../../packages/storefront-events-sdk/src/types/schemas/product.ts)
+
 ### Mock data
 
 ```javascript

@@ -8,6 +8,10 @@ Contains configuration settings for forwarding events to Adobe DX/AEP Edge
 
 -   Adobe DX/AEP clients not using Launch Tags: all events
 
+### Full schema and required fields
+
+[AEP schema](../../../packages/storefront-events-sdk/src/types/schemas/aep.ts)
+
 ### Mock data
 
 ```javascript
