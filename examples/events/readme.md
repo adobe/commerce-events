@@ -12,13 +12,29 @@ The events in the table below are the minimum required set of events for Adobe S
 
 #### Performance dashboards
 
-TODO
+Live Search and Product Recs dashboards in Commerce Admin utilize event data to show conversion rates and other perofrmance metrics.
 
 #### Adobe DX
 
 TODO
 
-### Required contexts in all events
+### Required events
+
+**Required events for Live Search dashboard**
+
+Unique Searches, Zero Result Searches, Zero Result Rate, and Popular Searches tables use `searchRequestSent` and `searchResponseReceived` data.
+
+Avg. click position and Click-Through Rate use `searchRequestSent`, `searchResponseReceived`, and `searchProductClick` data.
+
+Conversion rate uses `searchRequestSent`, `searchResponseReceived`, `searchProductClick`, `productView`, `addToCart`, and `checkout` data.
+
+**Required events for Product Recommendations dashboard**
+
+TODO
+
+### Required contexts
+
+**All events**
 
 `page`
 

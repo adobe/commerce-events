@@ -32,7 +32,7 @@ const res = await client.fetchPreconfigured(/* props */);
 
 **4. Set `Recommendations` context and generate `recsResponseReceived` event**
 
-````javascript
+```javascript
 const { data } = res;
 mse.context.setRecommendations({ units: data.results });
 mse.publish.recsResponseReceived();
