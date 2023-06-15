@@ -1,4 +1,4 @@
-## commerce events examples
+## Commerce events examples
 
 ### Event purposes and usage
 
@@ -16,7 +16,15 @@ Live Search and Product Recs dashboards in Commerce Admin utilize event data to 
 
 #### Adobe DX
 
-TODO
+All commerce events published through the Storefront Events SDK are written to the `adobeDataLayer` in a shopper's browser. Adobe Commerce clients can easily set up data forwarding from the `adobeDataLayer` to the Adobe Digital Experience platform using one of two options:
+
+(1) [Adobe Experience Platform Tags](https://experienceleague.adobe.com/docs/commerce-merchant-services/experience-platform-connector/event-forwarding/using-tags.html?lang=en)
+
+OR
+
+(2) Setting [`EventForwarding`](./example-contexts/mock-event-forwarding-context.md) and [`AEP`](./example-contexts/mock-aep-context.md) contexts at storefront application level (same time as `storefront` context).
+
+**NOTE** it is imporant to set `EventForwarding` to `{ aep: false }` for all clients using AEP Launch Tags.
 
 ### Required events
 
@@ -43,13 +51,3 @@ TODO
 Setting `page` and `storefront` contexts should happen at the page level/storefront application layer rather than when generating individual events (for example, in a PHP storefront, the PHP application container is responsible for setting them at runtime).
 
 The contexts are included in all event generation examples as a reminder that they are required for events to be processed correctly.
-
-### Optional contexts in all events
-
-`eventForwarding`
-
-`aep`
-
-Setting `eventForwarding` and `aep` contexts should happen at the page level/storefront application layer.
-
-**NOTE** it is imporant to set `eventForwarding` to `{ aep: false }` for all clients using AEP Launch Tags.
