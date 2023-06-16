@@ -22,7 +22,7 @@ All commerce events published through the Storefront Events SDK are written to t
 
 OR
 
-(2) Setting [`EventForwarding`](./example-contexts/mock-event-forwarding-context.md) and [`AEP`](./example-contexts/mock-aep-context.md) contexts at storefront application level (same time as `storefront` context).
+(2) Setting [`EventForwarding`](./example-contexts/mock-event-forwarding-context.md) and [`AEP`](./example-contexts/mock-aep-context.md) contexts at storefront application level (same time as `Storefront` context).
 
 **NOTE** it is imporant to set `EventForwarding` to `{ aep: false }` for all clients using AEP Launch Tags.
 
@@ -44,10 +44,33 @@ TODO
 
 **All events**
 
-`page`
+`Page`
 
-`storefront`
+`Storefront`
 
-Setting `page` and `storefront` contexts should happen at the page level/storefront application layer rather than when generating individual events (for example, in a PHP storefront, the PHP application container is responsible for setting them at runtime).
+Setting `Page` and `Storefront` contexts should happen at the page level/storefront application layer rather than when generating individual events (for example, in a PHP storefront, the PHP application container is responsible for setting them at runtime).
 
 The contexts are included in all event generation examples as a reminder that they are required for events to be processed correctly.
+
+
+### Debugging
+
+#### Adobe Data Layer
+
+All events published through the Storefront Events SDK are written to the `adobeDataLayer` object in a shopper's browser. You can check contexts and fields in your events in Dev Tools -> Console, `window.adobeDataLayer`.
+
+Search Response Received example
+
+![search response received example](/examples/search_response_received.png)
+
+Recs Item Click example
+
+![recs item click example](/examples/recs_item_click.png)
+
+#### Snowplow Debugger
+
+TODO
+
+#### AEP Debugger
+
+TODO
