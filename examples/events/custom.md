@@ -1,5 +1,11 @@
 ## custom
 
+Publishing a custom event writes the custom event to the `adobeDataLayer`.
+
+If AEP data collection is enabled on the Storefront Event Collector, custom events are forwarded to DX as described [here](https://experienceleague.adobe.com/docs/commerce-merchant-services/experience-platform-connector/event-forwarding/custom-events.html?lang=en).
+
+If AEP data collection is not enabled, clients can configure [Adobe Experience Platform Tags](https://experienceleague.adobe.com/docs/commerce-merchant-services/experience-platform-connector/event-forwarding/using-tags.html?lang=en) to read custom events from the data layer and forward to Adobe DX.
+
 Custom events are not forwarded to Adobe Commerce and Sensei analytics and aren't used in intelligent strategies calculatiions.
 
 ### 🤖 Intelligent strategies
@@ -27,4 +33,24 @@ mse.publish.custom();
 
 ### Example
 
-TODO
+Custom event - category nav click.
+
+```javascript
+mse.publish.custom({
+    customContext: {
+        {
+            eventType: "navigationClick",
+            categories: [
+                {
+                    name: "Pants",
+                    url: "https://magento.com/category/pants",
+                },
+                {
+                    name: "Bottoms",
+                    url: "https://magento.com/category/bottoms",
+                },
+            ],
+        }
+    },
+});
+```
