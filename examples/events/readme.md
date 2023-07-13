@@ -52,7 +52,6 @@ Setting `Page` and `Storefront` contexts should happen at the page level/storefr
 
 The contexts are included in all event generation examples as a reminder that they are required for events to be processed correctly.
 
-
 ### Debugging
 
 #### Adobe Data Layer
