@@ -3,7 +3,7 @@ export type SearchResults = {
 };
 
 export type SearchResultUnit = {
-    searchUnitId: string;
+    searchUnitId: string; // must match searchUnitId in request
     searchRequestId: string;
     rankingType?: string;
     trendingWindow?: string;
