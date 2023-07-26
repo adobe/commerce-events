@@ -2,7 +2,6 @@ import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/eve
 import { sendEvent } from "../../alloy";
 import { BeaconSchema } from "../../types/aep";
 import { createProductListItems } from "../../utils/aep/productListItems";
-import { createProductListItemsFromRequisitionListItems } from "../../utils/aep/requisitionList";
 import { createRequisitionList } from "../../utils/aep/requisitionList";
 
 const XDM_EVENT_TYPE = "commerce.requisitionListAdds";
@@ -19,25 +18,24 @@ const handler = async (event: Event): Promise<void> => {
         storefrontInstanceContext,
     } = event.eventInfo;
 
-    let payload: BeaconSchema;
+    let payload: BeaconSchema = {};
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
         // override payload on custom context
         payload = customContext as BeaconSchema;
-    } else {
-        payload = {
-            commerce: {
-                requisitionList: createRequisitionList(requisitionListContext),
-            },
-            productListItems: requisitionListItemsContext
-                ? createProductListItemsFromRequisitionListItems(requisitionListItemsContext, storefrontInstanceContext)
-                : createProductListItems(changedProductsContext, storefrontInstanceContext),
-            personalEmail: {
-                address: accountContext?.emailAddress,
-            },
-        };
     }
 
     payload.commerce = payload.commerce || {};
+    payload.commerce.requisitionList = createRequisitionList(payload.commerce.requisitionList, requisitionListContext);
+
+    payload.productListItems = createProductListItems(
+        payload.productListItems,
+        changedProductsContext,
+        requisitionListItemsContext,
+        storefrontInstanceContext,
+    );
+
+    payload.personalEmail = payload.personalEmail || {};
+    payload.personalEmail.address = payload.personalEmail.address || accountContext?.emailAddress;
 
     payload.commerce.requisitionListAdds = {
         value: 1,

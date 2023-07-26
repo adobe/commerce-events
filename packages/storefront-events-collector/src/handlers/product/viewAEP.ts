@@ -9,25 +9,28 @@ const XDM_EVENT_TYPE = "commerce.productViews";
 const aepHandler = async (event: Event): Promise<void> => {
     const { productContext, debugContext, customContext, storefrontInstanceContext } = event.eventInfo;
 
-    let payload: BeaconSchema;
+    let payload: BeaconSchema = {};
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
         // override payload on custom context
         payload = customContext as BeaconSchema;
-    } else {
-        const productListItem: ProductListItem = {
-            SKU: productContext?.sku,
-            name: productContext?.name,
-            productImageUrl: productContext?.mainImageUrl,
-            priceTotal: productContext?.pricing?.specialPrice ?? productContext?.pricing?.regularPrice,
-            currencyCode:
-                productContext?.pricing?.currencyCode ?? storefrontInstanceContext?.storeViewCurrencyCode ?? undefined,
-            discountAmount: getDiscountAmount(productContext),
-        };
-
-        payload = {
-            productListItems: [productListItem],
-        };
     }
+
+    const productListItemFromCustomContext: ProductListItem | undefined = payload.productListItems?.length
+        ? payload.productListItems[0]
+        : undefined;
+
+    const productListItem = productListItemFromCustomContext || {};
+
+    productListItem.SKU = productListItem.SKU || productContext?.sku;
+    productListItem.name = productListItem.name || productContext?.name;
+    productListItem.productImageUrl = productListItem.productImageUrl || productContext?.mainImageUrl;
+    productListItem.priceTotal =
+        productListItem.priceTotal || (productContext?.pricing?.specialPrice ?? productContext?.pricing?.regularPrice);
+    productListItem.currencyCode =
+        productListItem?.currencyCode ||
+        (productContext?.pricing?.currencyCode ?? storefrontInstanceContext?.storeViewCurrencyCode ?? undefined);
+    productListItem.discountAmount = productListItem?.discountAmount || getDiscountAmount(productContext);
+    payload.productListItems = [productListItem];
 
     payload.commerce = payload.commerce || {};
 

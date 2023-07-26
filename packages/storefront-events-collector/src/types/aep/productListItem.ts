@@ -6,11 +6,11 @@ export type ProductListItem = {
     /**
      * product sku
      */
-    SKU: string;
+    SKU?: string;
     /**
      * product name as displayed on page
      */
-    name: string;
+    name?: string;
     /**
      * product main image URL
      */

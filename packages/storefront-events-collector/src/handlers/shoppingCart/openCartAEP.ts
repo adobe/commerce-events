@@ -9,22 +9,23 @@ const XDM_EVENT_TYPE = "commerce.productListOpens";
 const handler = async (event: Event): Promise<void> => {
     const { changedProductsContext, shoppingCartContext, debugContext, storefrontInstanceContext, customContext } =
         event.eventInfo;
-    let payload: BeaconSchema;
+    let payload: BeaconSchema = {};
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
         // override payload on custom context
         payload = customContext as BeaconSchema;
-    } else {
-        payload = {
-            commerce: {
-                cart: {
-                    cartID: shoppingCartContext?.id,
-                },
-            },
-            productListItems: createProductListItems(changedProductsContext, storefrontInstanceContext),
-        };
     }
 
     payload.commerce = payload.commerce || {};
+
+    payload.commerce.cart = payload.commerce.cart || {};
+    payload.commerce.cart.cartID = payload.commerce.cart.cartID || shoppingCartContext?.id;
+
+    payload.productListItems = createProductListItems(
+        payload.productListItems,
+        changedProductsContext,
+        undefined,
+        storefrontInstanceContext,
+    );
 
     payload.commerce.productListOpens = {
         value: 1,

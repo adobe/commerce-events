@@ -154,11 +154,9 @@ Custom event published through MSE SDK:
 
 ```javascript
 mse.publish.custom({
-    customContext: {
-        customStrAttr: "cheetah",
-        customNumAttr: 128,
-        personalEmail: {
-            address: "runs@safari.ke",
+    commerce: {
+        saveForLaters: {
+            value: 1,
         },
     },
 });
@@ -169,7 +167,7 @@ In AEP Edge:
 ```javascript
 {
   xdm: {
-    identityMap = {
+    identityMap: {
       ECID: [
         {
           id: 'ecid1234',
@@ -183,8 +181,11 @@ In AEP Edge:
         }
       ]
     },
-    customStrAttr: 'cheetah',
-    customNumAttr: 128
+    commerce: {
+        saveForLaters: {
+            value: 1
+        }
+    }
   }
 }
 ```
@@ -195,53 +196,34 @@ In AEP Edge:
 
 Attribute overrides for standard events are supported for the Experience Platform only. Custom data will not be forwarded to Commerce dashboards and metrics trackers.
 
-For any event with a set `customContext`, the collector overrides `personId` and Adobe Analytics counters, and forwards all other attributes set in `customContext`.
+For any event with a set `customContext`, the collector overrides joins fields set in the relevant contexts with fields in `customContext`. The use case for overrides is when a developer wants to reuse and extend contexts set by other parts of the page in already supporte events.
 
-Examples:
+_Note_ when overriding custom events, event forwarding to AEP should be turned off for that event type in order to avoid-double counting.
 
-Product view with overrides published though MSE SDK:
-
-```javascript
-mse.publish.productPageView({
-    customContext: {
-        customCode: "okapi",
-    },
-});
-```
-
-In AEP Edge:
-
-```javascript
-{
-  xdm: {
-    eventType: 'commerce.productViews',
-    identityMap = {
-      ECID: [
-        {
-          id: 'ecid1234',
-          primary: true
-        }
-      ]
-    },
-    customCode: 'okapi',
-    commerce: {
-      productViews: {
-        value : 1
-      }
-    }
-  }
-}
-```
+Example:
 
 Product view with Adobe Commerce overrides published though MSE SDK:
 
+Product context (set by another script on the page):
+
+```javascript
+{
+}
+```
+
 ```javascript
 mse.publish.productPageView({
-    customContext: {
-        commerce: {
-            customCode: "mongoose",
+    productListItems: [
+        {
+            productCategories: [
+                {
+                    categoryID: "cat_15",
+                    categoryName: "summer pants",
+                    categoryPath: "pants/mens/summer",
+                },
+            ],
         },
-    },
+    ],
 });
 ```
 
@@ -251,20 +233,28 @@ In AEP Edge:
 {
   xdm: {
     eventType: 'commerce.productViews',
-    identityMap = {
+    identityMap: {
       ECID: [
         {
           id: 'ecid1234',
-          primary: true
+          primary: true,
         }
       ]
     },
     commerce: {
-      customCode: 'mongoose',
       productViews: {
-        value : 1
+        value : 1,
       }
-    }
+    },
+    productListItems: [{
+        SKU: "1234",
+        name: "leora summer pants",
+        productCategories: [{
+            categoryID: "cat_15",
+            categoryName: "summer pants",
+            categoryPath: "pants/mens/summer",
+        }],
+    }],
   }
 }
 ```

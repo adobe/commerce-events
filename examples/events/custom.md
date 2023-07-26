@@ -33,24 +33,14 @@ mse.publish.custom();
 
 ### Example
 
-Custom event - category nav click.
+Custom event - save for later event.
 
 ```javascript
 mse.publish.custom({
-    customContext: {
-        {
-            eventType: "navigationClick",
-            categories: [
-                {
-                    name: "Pants",
-                    url: "https://magento.com/category/pants",
-                },
-                {
-                    name: "Bottoms",
-                    url: "https://magento.com/category/bottoms",
-                },
-            ],
-        }
+    commerce: {
+        saveForLaters: {
+            value: 1,
+        },
     },
 });
 ```

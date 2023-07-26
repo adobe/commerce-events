@@ -18,28 +18,31 @@ const aepHandler = async (event: Event): Promise<void> => {
         customContext,
     } = event.eventInfo;
 
-    let payload: BeaconSchema;
+    let payload: BeaconSchema = {};
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
         // override payload on custom context
         payload = customContext as BeaconSchema;
-    } else {
-        payload = {
-            commerce: {
-                order: createOrder(orderContext, storefrontInstanceContext),
-                promotionID: orderContext?.appliedCouponCode,
-                shipping: {
-                    shippingMethod: orderContext?.shipping?.shippingMethod,
-                    shippingAmount: Number(orderContext?.shipping?.shippingAmount) || 0,
-                },
-            },
-            personalEmail: {
-                address: accountContext?.emailAddress,
-            },
-            productListItems: createProductListItems(shoppingCartContext, storefrontInstanceContext),
-        };
     }
 
     payload.commerce = payload.commerce || {};
+
+    payload.commerce.order = createOrder(payload.commerce.order, orderContext, storefrontInstanceContext);
+    payload.commerce.promotionID = payload.commerce.promotionID || orderContext?.appliedCouponCode;
+    payload.commerce.shipping = payload.commerce.shipping || {};
+    payload.commerce.shipping.shippingMethod =
+        payload.commerce.shipping.shippingMethod || orderContext?.shipping?.shippingMethod;
+    payload.commerce.shipping.shippingAmount =
+        payload.commerce.shipping.shippingAmount || Number(orderContext?.shipping?.shippingAmount) || 0;
+
+    payload.personalEmail = payload.personalEmail || {};
+    payload.personalEmail.address = payload.personalEmail.address || accountContext?.emailAddress;
+
+    payload.productListItems = createProductListItems(
+        payload.productListItems,
+        shoppingCartContext,
+        undefined,
+        storefrontInstanceContext,
+    );
 
     payload.commerce.purchases = {
         value: 1,
