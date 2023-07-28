@@ -2,7 +2,15 @@
 
 ### 🤖 Intelligent strategies
 
--   Conversion tracking, data integrity
+-   None
+
+### 📈 Reporting
+
+-   Avg. click position
+-   Unique searches
+-   Popular searches
+-   Zero results searches
+-   Zero results rate
 
 ### ⤴️ Publishing pages and conditions
 

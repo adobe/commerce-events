@@ -5,6 +5,12 @@
 -   Conversion tracking, data integrity
 -   Most clicked
 
+### 📈 Reporting
+
+-   Avg. click position
+-   Click-through rate
+-   Conversion rate
+
 ### ⤴️ Publishing pages and conditions
 
 -   Search bar

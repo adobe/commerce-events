@@ -2,9 +2,12 @@
 
 ### 🤖 Intelligent strategies
 
--   Conversion tracking, data integrity
 -   Bought also bought
 -   Viewed also bought
+
+### 📈 Reporting
+
+-   Conversion rate (recs and search)
 
 ### ⤴️ Publishing pages and conditions
 
