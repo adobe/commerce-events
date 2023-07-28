@@ -2,8 +2,12 @@
 
 ### 🤖 Intelligent strategies
 
--   Conversion tracking, data integrity
 -   Most added to cart
+
+### 📈 Reporting
+
+-   Click-through rate (recs)
+-   Conversion rate
 
 ### ⤴️ Publishing pages and conditions
 

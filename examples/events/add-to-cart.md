@@ -2,7 +2,6 @@
 
 ### 🤖 Intelligent strategies
 
--   Conversion tracking, data integrity
 -   Most added to cart
 
 ### ⤴️ Publishing pages and conditions

@@ -2,7 +2,6 @@
 
 ### 🤖 Intelligent strategies
 
--   Conversion tracking, data integrity
 -   Trending
 -   Most viewed
 -   Viewed also viewed

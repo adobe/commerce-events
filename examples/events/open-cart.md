@@ -4,7 +4,7 @@ On first item in cart. Also used as `initiate-cart`.
 
 ### 🤖 Intelligent strategies
 
--   Conversion tracking, data integrity
+-   None
 
 ### ⤴️ Publishing pages and conditions
 

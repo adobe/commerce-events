@@ -28,17 +28,37 @@ OR
 
 ### Required events
 
-**Required events for Live Search dashboard**
+**Required events for [Live Search dashboard](https://experienceleague.adobe.com/docs/commerce-merchant-services/live-search/live-search-admin/performance.html?lang=en)**
 
-Unique Searches, Zero Result Searches, Zero Result Rate, and Popular Searches tables use `searchRequestSent` and `searchResponseReceived` data.
+Unique Searches: `search-request-sent` and `search-response-received`
 
-Avg. click position and Click-Through Rate use `searchRequestSent`, `searchResponseReceived`, and `searchProductClick` data.
+Zero Result Searches: `search-request-sent` and `search-response-received`
 
-Conversion rate uses `searchRequestSent`, `searchResponseReceived`, `searchProductClick`, `productView`, `addToCart`, and `checkout` data.
+Zero Result Rate: `search-request-sent` and `search-response-received`
 
-**Required events for Product Recommendations dashboard**
+Popular Searches table: `search-request-sent` and `search-response-received`
 
-TODO
+Avg. click position: `search-request-sent`, `search-response-received`, and `search-product-click`
+
+Click-Through Rate: `search-request-sent`, `search-response-received`, and `search-product-click`
+
+Conversion rate: `search-request-sent`, `search-response-received`, `search-product-click`, `product-view`, `add-to-cart`, and `place-order`
+
+**Required events for [Product Recommendations dashboard](https://experienceleague.adobe.com/docs/commerce-merchant-services/product-recommendations/admin/workspace.html?lang=en)**
+
+Impressions: `recs-unit-render` and `recs-view`
+
+Views: `recs-view`
+
+Clicks: `recs-item-click` and `recs-add-to-cart-click`
+
+Revenue: `recs-item-click`, `recs-add-to-cart click`, and `place-order`
+
+LT Revenue: `recs-item-click`, `recs-add-to-cart click`, and `place-order`
+
+CTR: `recs-unit-render`, `recs-item-click`, and `recs-add-to-cart-click`
+
+vCTR: `recs-unit-render`, `recs-view`, `recs-item-click`, and `recs-add-to-cart-click`
 
 ### Required contexts
 

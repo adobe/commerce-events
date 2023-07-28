@@ -2,7 +2,7 @@
 
 ### 🤖 Intelligent strategies
 
--   Conversion tracking, data integrity
+-   None
 
 ### ⤴️ Publishing pages and conditions
 

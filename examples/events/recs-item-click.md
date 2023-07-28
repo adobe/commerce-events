@@ -5,6 +5,11 @@
 -   Conversion tracking, data integrity
 -   Most clicked
 
+### 📈 Reporting
+
+-   Click-through rate (recs)
+-   Conversion rate
+
 ### ⤴️ Publishing pages and conditions
 
 -   Recs carousel
