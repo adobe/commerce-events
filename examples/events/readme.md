@@ -30,35 +30,35 @@ OR
 
 **Required events for [Live Search dashboard](https://experienceleague.adobe.com/docs/commerce-merchant-services/live-search/live-search-admin/performance.html?lang=en)**
 
-Unique Searches: `search-request-sent` and `search-response-received`
+Unique Searches: [`search-request-sent`](./search-request-sent.md) and [`search-response-received`](./search-response-received.md)
 
-Zero Result Searches: `search-request-sent` and `search-response-received`
+Zero Result Searches: [`search-request-sent`](./search-request-sent.md) and [`search-response-received`](./search-response-received.md)
 
-Zero Result Rate: `search-request-sent` and `search-response-received`
+Zero Result Rate: [`search-request-sent`](./search-request-sent.md) and [`search-response-received`](./search-response-received.md)
 
-Popular Searches table: `search-request-sent` and `search-response-received`
+Popular Searches table: [`search-request-sent`](./search-request-sent.md) and [`search-response-received`](./search-response-received.md)
 
-Avg. click position: `search-request-sent`, `search-response-received`, and `search-product-click`
+Avg. click position: [`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md), and [`search-product-click`](./search-product-click.md)
 
-Click-Through Rate: `search-request-sent`, `search-response-received`, and `search-product-click`
+Click-Through Rate: [`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md), and [`search-product-click`](./search-product-click.md)
 
-Conversion rate: `search-request-sent`, `search-response-received`, `search-product-click`, `product-view`, `add-to-cart`, and `place-order`
+Conversion rate: [`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md), [`search-product-click`](./search-product-click.md), [`product-view`](./product-page-view.md), [`add-to-cart`](./add-to-cart.md), and [`place-order`](./place-order.md)
 
 **Required events for [Product Recommendations dashboard](https://experienceleague.adobe.com/docs/commerce-merchant-services/product-recommendations/admin/workspace.html?lang=en)**
 
-Impressions: `recs-unit-render` and `recs-view`
+Impressions: [`recs-unit-render`](./recs-unit-render.md) and [`recs-unit-view`](./recs-unit-view.md)
 
-Views: `recs-view`
+Views: [`recs-unit-view`](./recs-unit-view.md)
 
-Clicks: `recs-item-click` and `recs-add-to-cart-click`
+Clicks: [`recs-item-click`](./recs-item-click.md) and [`recs-add-to-cart-click`](./recs-item-add-to-cart.md)
 
-Revenue: `recs-item-click`, `recs-add-to-cart click`, and `place-order`
+Revenue: [`recs-item-click`](./recs-item-click.md), [`recs-add-to-cart-click`](./recs-item-add-to-cart.md), and [`place-order`](./place-order.md)
 
-LT Revenue: `recs-item-click`, `recs-add-to-cart click`, and `place-order`
+LT Revenue: [`recs-item-click`](./recs-item-click.md), [`recs-add-to-cart-click`](./recs-item-add-to-cart.md), and [`place-order`](./place-order.md)
 
-CTR: `recs-unit-render`, `recs-item-click`, and `recs-add-to-cart-click`
+CTR: [`recs-unit-render`](./recs-unit-render.md), [`recs-item-click`](./recs-item-click.md), and [`recs-add-to-cart-click`](./recs-item-add-to-cart.md)
 
-vCTR: `recs-unit-render`, `recs-view`, `recs-item-click`, and `recs-add-to-cart-click`
+vCTR: [`recs-unit-render`](./recs-unit-render.md), [`recs-unit-view`](./recs-unit-view.md), `recs-item-click`, and `recs-add-to-cart-click`
 
 ### Required contexts
 
