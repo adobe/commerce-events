@@ -30,35 +30,27 @@ OR
 
 **Required events for [Live Search dashboard](https://experienceleague.adobe.com/docs/commerce-merchant-services/live-search/live-search-admin/performance.html?lang=en)**
 
-Unique Searches: [`search-request-sent`](./search-request-sent.md) and [`search-response-received`](./search-response-received.md)
-
-Zero Result Searches: [`search-request-sent`](./search-request-sent.md) and [`search-response-received`](./search-response-received.md)
-
-Zero Result Rate: [`search-request-sent`](./search-request-sent.md) and [`search-response-received`](./search-response-received.md)
-
-Popular Searches table: [`search-request-sent`](./search-request-sent.md) and [`search-response-received`](./search-response-received.md)
-
-Avg. click position: [`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md), and [`search-product-click`](./search-product-click.md)
-
-Click-Through Rate: [`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md), and [`search-product-click`](./search-product-click.md)
-
-Conversion rate: [`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md), [`search-product-click`](./search-product-click.md), [`product-view`](./product-page-view.md), [`add-to-cart`](./add-to-cart.md), and [`place-order`](./place-order.md)
+| Dashboard area        | Events                                                                                                                                                                                                                                                                                                                                 | Join field           |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| Unique searches       | [`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md)                                                                                                                                                                                                                         | searchRequestId      |
+| Zero results searches | [`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md)                                                                                                                                                                                                                         | searchRequestId      |
+| Zero results rate     | [`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md)                                                                                                                                                                                                                         | searchRequestId      |
+| Popular searches      | [`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md)                                                                                                                                                                                                                         | searchRequestId      |
+| Avg. click position   | [`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md), [`search-results-view`](./search-results-view.md), [`search-product-click`](./search-product-click.md)                                                                                                                 | searchRequestId      |
+| Click-through rate    | [`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md), [`search-results-view`](./search-results-view.md), [`search-product-click`](./search-product-click.md)                                                                                                                 | searchRequestId, sku |
+| Conversion rate       | [`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md), [`search-results-view`](./search-results-view.md), [`search-product-click`](./search-product-click.md), [`product-view`](./product-page-view.md), [`add-to-cart`](./add-to-cart.md), [`place-order`](./place-order.md) | searchRequestId, sku |
 
 **Required events for [Product Recommendations dashboard](https://experienceleague.adobe.com/docs/commerce-merchant-services/product-recommendations/admin/workspace.html?lang=en)**
 
-Impressions: [`recs-unit-render`](./recs-unit-render.md) and [`recs-unit-view`](./recs-unit-view.md)
-
-Views: [`recs-unit-view`](./recs-unit-view.md)
-
-Clicks: [`recs-item-click`](./recs-item-click.md) and [`recs-add-to-cart-click`](./recs-item-add-to-cart.md)
-
-Revenue: [`recs-item-click`](./recs-item-click.md), [`recs-add-to-cart-click`](./recs-item-add-to-cart.md), and [`place-order`](./place-order.md)
-
-LT Revenue: [`recs-item-click`](./recs-item-click.md), [`recs-add-to-cart-click`](./recs-item-add-to-cart.md), and [`place-order`](./place-order.md)
-
-CTR: [`recs-unit-render`](./recs-unit-render.md), [`recs-item-click`](./recs-item-click.md), and [`recs-add-to-cart-click`](./recs-item-add-to-cart.md)
-
-vCTR: [`recs-unit-render`](./recs-unit-render.md), [`recs-unit-view`](./recs-unit-view.md), `recs-item-click`, and `recs-add-to-cart-click`
+| Dashboard column | Events                                                                                                                                                                                                                                                                                          | Join field  |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| Impressions      | [`recs-request-sent`](./recs-request-sent.md), [`recs-response-received`](./recs-response-received.md), [`recs-unit-render`](./recs-unit-view.md)                                                                                                                                               | unitId      |
+| Views            | [`recs-request-sent`](./recs-request-sent.md), [`recs-response-received`](./recs-response-received.md), [`recs-unit-render`](./recs-unit-render.md), [`recs-unit-view`](./recs-unit-view.md)                                                                                                    | unitId      |
+| Clicks           | [`recs-request-sent`](./recs-request-sent.md), [`recs-response-received`](./recs-response-received.md), [`recs-item-click`](./recs-item-click.md), [`recs-add-to-cart-click`](./recs-item-add-to-cart.md)                                                                                       | unitId      |
+| Revenue          | [`recs-request-sent`](./recs-request-sent.md), [`recs-response-received`](./recs-response-received.md), [`recs-item-click`](./recs-item-click.md), [`recs-add-to-cart-click`](./recs-item-add-to-cart.md), [`place-order`](./place-order.md)                                                    | unitId, sku |
+| LT Revenue       | [`recs-request-sent`](./recs-request-sent.md), [`recs-response-received`](./recs-response-received.md), [`recs-item-click`](./recs-item-click.md), [`recs-add-to-cart-click`](./recs-item-add-to-cart.md), [`place-order`](./place-order.md)                                                    | unitId, sku |
+| CTR              | [`recs-request-sent`](./recs-request-sent.md), [`recs-response-received`](./recs-response-received.md), [`recs-unit-render`](./recs-unit-render.md), [`recs-item-click`](./recs-item-click.md), [`recs-add-to-cart-click`](./recs-item-add-to-cart.md)                                          | unitId, sku |
+| vCTR             | [`recs-request-sent`](./recs-request-sent.md), [`recs-response-received`](./recs-response-received.md), [`recs-unit-render`](./recs-unit-render.md), [`recs-unit-view`](./recs-unit-view.md), [`recs-item-click`](./recs-item-click.md), [`recs-add-to-cart-click`](./recs-item-add-to-cart.md) | unitId, sku |
 
 ### Required contexts
 
