@@ -1,28 +1,15 @@
 import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/events";
 
+import * as sdkSchemas from "@adobe/magento-storefront-events-sdk/src/types/schemas";
+
 import { sendEvent } from "../../alloy";
-import { BeaconSchema } from "../../types/aep";
+import { createAccountPayload } from "../../../src/utils/aep/account";
 
 const XDM_EVENT_TYPE = "userAccount.updateProfile";
 const aepHandler = async (event: Event): Promise<void> => {
     const { debugContext, accountContext, customContext } = event.eventInfo;
 
-    let payload: BeaconSchema;
-    if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
-        // override payload on custom context
-        payload = customContext as BeaconSchema;
-    } else {
-        payload = {
-            person: {
-                accountID: accountContext?.accountId,
-                accountType: accountContext?.accountType,
-                personalEmailID: accountContext?.emailAddress,
-            },
-            personalEmail: {
-                address: accountContext?.emailAddress,
-            },
-        };
-    }
+    const payload = createAccountPayload(customContext, accountContext as sdkSchemas.Account);
 
     payload.userAccount = {
         updateProfile: 1,

@@ -17,48 +17,27 @@
 
     <body>
         <div class="events">
-            <button onclick="magentoStorefrontEvents.publish.custom({customFieldStr: 'strValue', customFieldNum: 1.45})">
-                customEvent
-            </button>
+            <h3>Page</h3>
+            <div class="event-group">
 
             <button onclick="magentoStorefrontEvents.publish.pageView()">
                 pageView
             </button>
+            </div>
 
-            <button onclick="publishCustomPageView()">
-                customPageView
-            </button>
+            <h3>Product</h3>
+            <div class="event-group">
+                <button onclick="magentoStorefrontEvents.publish.productPageView()">
+                    productPageView
+                </button>
+    
+                <button onclick="magentoStorefrontEvents.publish.addToCart()">
+                    addToCart
+                </button>
+            </div>
 
-            <script>
-                function publishCustomPageView() {
-                    magentoStorefrontEvents.publish.custom({
-                        eventType: "web.webpagedetails.pageViews",
-                        web: {
-                            webPageDetails: {
-                                pageViews: {
-                                    value: 1,
-                                },
-                            },
-                        },
-                    });
-                }
-            </script>
-
-            <button onclick="magentoStorefrontEvents.publish.productPageView(
-                {
-                commerce: {
-                    productViews: {
-                        value: 1,
-                    },
-                },
-                })">
-                productPageView
-            </button>
-
-            <button onclick="magentoStorefrontEvents.publish.addToCart()">
-                addToCart
-            </button>
-
+            <h3>Cart</h3>
+            <div class="event-group">
             <button
                 onclick="magentoStorefrontEvents.publish.shoppingCartView()"
             >
@@ -68,10 +47,20 @@
             <button onclick="magentoStorefrontEvents.publish.initiateCheckout()">
                 initiateCheckout
             </button>
+            </div>
+
+            <h3>Checkout</h3>
+
+            <div class="event-group">
 
             <button onclick="magentoStorefrontEvents.publish.placeOrder()">
                 placeOrder
             </button>
+            </div>
+
+            <h3>Product Recs</h3>
+
+            <div class="event-group">
 
             <button
                 onclick="magentoStorefrontEvents.publish.recsItemAddToCartClick('abc123', 111111)"
@@ -106,6 +95,12 @@
             >
                 recsUnitView
             </button>
+
+            </div>
+
+            <h3>Live Search</h3>
+
+            <div class="event-group">
 
             <button
                 onclick="magentoStorefrontEvents.publish.searchCategoryClick('search-bar', 'Bottoms')"
@@ -148,6 +143,11 @@
             >
                 searchSuggestionClick
             </button>
+            </div>
+
+            <h3>Account</h3>
+
+            <div class="event-group">
 
             <button
                 onclick="magentoStorefrontEvents.publish.createAccount()"
@@ -172,6 +172,48 @@
             >
                 signOut
             </button>
+
+            </div>
+
+            <h3>Custom</h3>
+            <div class="event-group">
+
+            <button onclick="publishCustomEvent()">
+                custom: save for later
+            </button>
+            </div>
+
+            <script>
+                function publishCustomEvent() {
+                    magentoStorefrontEvents.publish.custom({
+                        commerce: {
+                            saveForLaters: {
+                                value: 1
+                            }
+                        }
+                    });
+                }
+            </script>
+
+            <button onclick="publishProductPageViewOverride()">
+                custom override: product view
+            </button>
+            </div>
+
+            <script>
+                function publishProductPageViewOverride() {
+                    magentoStorefrontEvents.publish.productPageView({
+                        productListItems: [{
+                            productCategories: [{
+                                categoryID: "cat_15",
+                                categoryName: "summer pants",
+                                categoryPath: "pants/mens/summer"
+                            }]
+                        }]
+                    });
+                }
+            </script>
+            
         </div>
     </body>
 </html>

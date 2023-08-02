@@ -22,7 +22,7 @@ export type ProductView = {
 };
 
 export type Cart = {
-    cartID: string | null;
+    cartID?: string | null;
 };
 
 export type Purchases = {

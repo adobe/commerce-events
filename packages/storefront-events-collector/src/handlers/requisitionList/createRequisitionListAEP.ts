@@ -9,22 +9,17 @@ const XDM_EVENT_TYPE = "commerce.requisitionListOpens";
 
 const handler = async (event: Event): Promise<void> => {
     const { accountContext, debugContext, requisitionListContext, customContext } = event.eventInfo;
-    let payload: BeaconSchema;
+    let payload: BeaconSchema = {};
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
         // override payload on custom context
         payload = customContext as BeaconSchema;
-    } else {
-        payload = {
-            commerce: {
-                requisitionList: createRequisitionList(requisitionListContext),
-            },
-            personalEmail: {
-                address: accountContext?.emailAddress,
-            },
-        };
     }
 
     payload.commerce = payload.commerce || {};
+    payload.commerce.requisitionList = createRequisitionList(payload.commerce.requisitionList, requisitionListContext);
+
+    payload.personalEmail = payload.personalEmail || {};
+    payload.personalEmail.address = payload.personalEmail.address || accountContext?.emailAddress;
 
     payload.commerce.requisitionListOpens = {
         value: 1,

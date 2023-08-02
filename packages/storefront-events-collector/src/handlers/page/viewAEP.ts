@@ -9,23 +9,17 @@ const XDM_EVENT_TYPE = "web.webpagedetails.pageViews";
 const aepHandler = async (event: Event): Promise<void> => {
     const { pageContext, debugContext, customContext } = event.eventInfo;
 
-    let payload: BeaconSchema;
+    let payload: BeaconSchema = {};
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
         // override payload on custom context
         payload = customContext as BeaconSchema;
-    } else {
-        payload = {
-            web: {
-                webPageDetails: {
-                    pageViews: {
-                        value: 1,
-                    },
-                    siteSection: pageContext?.pageType,
-                    name: pageContext?.pageName,
-                },
-            },
-        };
     }
+
+    payload.web = payload.web || {};
+    payload.web.webPageDetails = payload.web.webPageDetails || {};
+    payload.web.webPageDetails.pageViews = { value: 1 };
+    payload.web.webPageDetails.siteSection = payload.web.webPageDetails.siteSection || pageContext?.pageType;
+    payload.web.webPageDetails.name = payload.web.webPageDetails.name || pageContext?.pageName;
 
     payload._id = debugContext?.eventId;
     payload.eventType = XDM_EVENT_TYPE;

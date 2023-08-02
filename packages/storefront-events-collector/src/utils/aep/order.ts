@@ -19,13 +19,18 @@ const getAepPaymentCode = (paymentMethodCode: string) => {
 };
 
 const createOrder = (
+    orderFromCustomContext: Order | undefined,
     orderContext: sdkSchemas.Order,
     storefrontInstanceContext: sdkSchemas.StorefrontInstance,
 ): Order => {
     let payments: Payment[] = [];
 
+    if (orderFromCustomContext?.payments?.length) {
+        // try custom context first
+        payments = orderFromCustomContext.payments;
+    }
     if (orderContext?.payments?.length) {
-        // try payments array first
+        // payments array
         payments = orderContext.payments.map((payment) => {
             return {
                 paymentAmount: Number(payment.total || 0),
@@ -35,7 +40,7 @@ const createOrder = (
             };
         });
     } else {
-        // no payments array, try deprecated top level payment fields
+        // no payments array, use deprecated top level payment fields
         payments = [
             {
                 paymentAmount: Number(orderContext?.grandTotal || 0),
@@ -50,8 +55,8 @@ const createOrder = (
     const orderType = orderContext?.orderType === "instant_purchase" ? "instant_purchase" : "checkout";
 
     return {
-        purchaseID: String(orderContext?.orderId),
-        currencyCode: storefrontInstanceContext?.storeViewCurrencyCode,
+        purchaseID: orderFromCustomContext?.purchaseID || String(orderContext?.orderId),
+        currencyCode: orderFromCustomContext?.currencyCode || storefrontInstanceContext?.storeViewCurrencyCode,
         payments,
         orderType,
     };

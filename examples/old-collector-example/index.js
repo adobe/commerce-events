@@ -36,15 +36,13 @@ mse.context.setStorefrontInstance(mockStorefront);
 
 /* beacon/experience platform specific code below*/
 mse.context.setAEP({
-    imsOrgId: "53A16ACB5CC1D3760A495C99@AdobeOrg",
-    // datastreamId: "1144fb8d-b234-4c44-85ac-af91ed64c2dd:dev", // aniham
-    datastreamId: 'b9a5f976-dbd9-48c7-96f9-cfb1c641d466', // ani commerce
-    // datastreamId: "4d8ccd3b-9463-43bf-862a-c908fad3b20b", // beacon
+    imsOrgId: "DEDB2A52641B1D460A495F8E@AdobeOrg",
+    datastreamId: '869fcdfe-abda-4bd5-b948-d9c1595c42e9', // ani commerce
 });
+
 mse.context.setEventForwarding({
     commerce: true,
     aep: true,
 });
 /* end beacon */
 
-// mse.publish.pageView();

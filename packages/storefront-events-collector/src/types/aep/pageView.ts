@@ -5,12 +5,12 @@ export type PageViews = {
 
 /** Details about the web page where the web interaction occurred. */
 export type WebPageDetails = {
-    pageViews: PageViews;
+    pageViews?: PageViews;
     name?: string;
     siteSection?: string;
 };
 
 /** Link clicks, web page details, referrer information, and browser details. */
 export type Web = {
-    webPageDetails: WebPageDetails;
+    webPageDetails?: WebPageDetails;
 };

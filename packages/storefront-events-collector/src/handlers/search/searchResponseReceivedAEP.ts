@@ -24,19 +24,17 @@ const handler = async (event: Event): Promise<void> => {
         return { SKU: product.sku, name: product.name, productImageUrl: product.imageUrl };
     });
 
-    let payload: BeaconSchema;
+    let payload: BeaconSchema = {};
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
         // override payload on custom context
         payload = customContext as BeaconSchema;
-    } else {
-        payload = {
-            siteSearch: {
-                suggestions: suggestions,
-                numberOfResults: searchResultsCtx?.data?.productCount as number,
-            },
-            productListItems,
-        };
     }
+
+    payload.siteSearch = {
+        suggestions: suggestions,
+        numberOfResults: searchResultsCtx?.data?.productCount as number,
+    };
+    payload.productListItems = productListItems;
 
     payload.searchResponse = {
         value: 1,
