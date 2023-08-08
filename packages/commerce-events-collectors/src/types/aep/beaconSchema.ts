@@ -21,7 +21,6 @@ export type BeaconSchema = {
 export type Account = {
     accountID?: string;
     accountType?: string;
-    personalEmailID?: string;
 };
 
 export type Email = {

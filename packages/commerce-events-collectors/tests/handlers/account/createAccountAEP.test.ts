@@ -15,7 +15,6 @@ test("sends correctly structured event to AEP by default", async () => {
         person: {
             accountID: undefined,
             accountType: undefined,
-            personalEmailID: "beacon3@commerce.com",
         },
         personalEmail: { address: "beacon3@commerce.com" },
         userAccount: { createProfile: 1 },
@@ -73,7 +72,6 @@ test("includes optional params if provided", async () => {
         person: {
             accountID: "44",
             accountType: "some-account-type",
-            personalEmailID: "beacon3@commerce.com",
         },
         personalEmail: { address: "beacon3@commerce.com" },
         userAccount: { createProfile: 1 },
