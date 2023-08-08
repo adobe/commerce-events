@@ -16,7 +16,6 @@ const aepHandler = async (event: Event): Promise<void> => {
             person: {
                 accountID: accountContext?.accountId,
                 accountType: accountContext?.accountType,
-                personalEmailID: accountContext?.emailAddress,
             },
             personalEmail: {
                 address: accountContext?.emailAddress,

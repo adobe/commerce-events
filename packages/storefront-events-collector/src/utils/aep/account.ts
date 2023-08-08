@@ -11,7 +11,6 @@ const createAccountPayload = (customContext: any, accountContext: sdkSchemas.Acc
 
     payload.person = payload.person || {};
     payload.person.accountID = payload.person.accountID || accountContext?.accountId;
-    payload.person.personalEmailID = payload.person.personalEmailID || accountContext?.emailAddress;
 
     payload.personalEmail = payload.personalEmail || {};
     payload.personalEmail.address = payload.personalEmail.address || accountContext?.emailAddress;
