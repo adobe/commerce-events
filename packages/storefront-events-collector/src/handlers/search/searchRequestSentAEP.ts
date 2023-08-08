@@ -4,11 +4,13 @@ import { SearchFilter, SearchSort } from "@adobe/magento-storefront-events-sdk/d
 import { sendEvent } from "../../alloy";
 import { createSearchInputCtx } from "../../contexts";
 import { BeaconSchema, Filter, Sort } from "../../types/aep";
+import { createCommerceScope } from "../../utils/aep/commerceScope";
 
 const XDM_EVENT_TYPE = "searchRequest";
 
 const handler = async (event: Event): Promise<void> => {
-    const { searchUnitId, searchInputContext, debugContext, customContext } = event.eventInfo;
+    const { searchUnitId, searchInputContext, debugContext, storefrontInstanceContext, customContext } =
+        event.eventInfo;
 
     let payload: BeaconSchema = {};
 
@@ -62,6 +64,9 @@ const handler = async (event: Event): Promise<void> => {
     if (searchInputCtx) {
         payload.searchRequest.id = searchInputCtx.data.searchRequestId as string;
     }
+
+    payload.commerce = payload.commerce || {};
+    payload.commerce.commerceScope = createCommerceScope(storefrontInstanceContext);
 
     payload._id = debugContext?.eventId;
     payload.eventType = XDM_EVENT_TYPE;

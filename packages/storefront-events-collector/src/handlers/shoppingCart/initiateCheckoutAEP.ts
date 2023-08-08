@@ -3,6 +3,7 @@ import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/eve
 import { sendEvent } from "../../alloy";
 import { BeaconSchema } from "../../types/aep";
 import { createProductListItems } from "../../utils/aep/productListItems";
+import { createCommerceScope } from "../../utils/aep/commerceScope";
 
 const XDM_EVENT_TYPE = "commerce.checkouts";
 
@@ -26,9 +27,12 @@ const handler = async (event: Event): Promise<void> => {
         undefined,
         storefrontInstanceContext,
     );
+
     payload.commerce.checkouts = {
         value: 1,
     };
+
+    payload.commerce.commerceScope = createCommerceScope(storefrontInstanceContext);
 
     payload._id = debugContext?.eventId;
     payload.eventType = XDM_EVENT_TYPE;

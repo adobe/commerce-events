@@ -21,6 +21,12 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
                 name: "Req List 1",
                 description: "This is req list 1",
             },
+            commerceScope: {
+                environmentID: "aaaaaa",
+                storeCode: "magento",
+                storeViewCode: "default",
+                websiteCode: "website",
+            },
         },
         personalEmail: {
             address: "beacon3@commerce.com",

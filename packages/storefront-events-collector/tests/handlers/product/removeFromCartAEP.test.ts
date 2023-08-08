@@ -13,6 +13,12 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
 
     expect(sendEvent).toHaveBeenCalledWith({
         commerce: {
+            commerceScope: {
+                environmentID: "aaaaaa",
+                storeCode: "magento",
+                storeViewCode: "default",
+                websiteCode: "website",
+            },
             cart: {
                 cartID: "111111",
             },
