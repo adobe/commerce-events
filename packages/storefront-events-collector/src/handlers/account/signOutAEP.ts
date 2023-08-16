@@ -2,10 +2,11 @@ import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/eve
 
 import { sendEvent } from "../../alloy";
 import { BeaconSchema } from "../../types/aep";
+import { createCommerceScope } from "../../utils/aep/commerceScope";
 
 const XDM_EVENT_TYPE = "userAccount.logout";
 const aepHandler = async (event: Event): Promise<void> => {
-    const { debugContext, customContext } = event.eventInfo;
+    const { debugContext, storefrontInstanceContext, customContext } = event.eventInfo;
 
     let payload: BeaconSchema = {};
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
@@ -16,6 +17,9 @@ const aepHandler = async (event: Event): Promise<void> => {
     payload.userAccount = {
         logout: 1,
     };
+
+    payload.commerce = payload.commerce || {};
+    payload.commerce.commerceScope = createCommerceScope(storefrontInstanceContext);
 
     payload._id = debugContext?.eventId;
     payload.eventType = XDM_EVENT_TYPE;

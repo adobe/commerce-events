@@ -19,6 +19,12 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
             productListOpens: {
                 value: 1,
             },
+            commerceScope: {
+                environmentID: "aaaaaa",
+                storeCode: "magento",
+                storeViewCode: "default",
+                websiteCode: "website",
+            },
         },
         productListItems: [
             {

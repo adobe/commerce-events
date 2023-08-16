@@ -6,6 +6,7 @@ export type Commerce = {
     productListViews?: ProductListViews;
     cart?: Cart;
     checkouts?: Checkout;
+    commerceScope?: CommerceScope;
     purchases?: Purchases;
     order?: Order;
     promotionID?: string;
@@ -15,6 +16,13 @@ export type Commerce = {
     requisitionListAdds?: RequisitionListAdds;
     requisitionListRemovals?: RequisitionListRemovals;
     shipping?: Shipping;
+};
+
+export type CommerceScope = {
+    environmentID: string;
+    storeCode?: string;
+    storeViewCode?: string;
+    websiteCode?: string;
 };
 
 export type ProductView = {

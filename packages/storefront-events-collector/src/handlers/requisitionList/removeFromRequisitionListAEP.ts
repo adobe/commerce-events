@@ -4,6 +4,7 @@ import { sendEvent } from "../../alloy";
 import { BeaconSchema } from "../../types/aep";
 import { createRequisitionList } from "../../utils/aep/requisitionList";
 import { createProductListItems } from "../../utils/aep/productListItems";
+import { createCommerceScope } from "../../utils/aep/commerceScope";
 
 const XDM_EVENT_TYPE = "commerce.requisitionListRemovals";
 
@@ -41,6 +42,8 @@ const aepHandler = async (event: Event): Promise<void> => {
     payload.commerce.requisitionListRemovals = {
         value: 1,
     };
+
+    payload.commerce.commerceScope = createCommerceScope(storefrontInstanceContext);
 
     payload._id = debugContext?.eventId;
     payload.eventType = XDM_EVENT_TYPE;
