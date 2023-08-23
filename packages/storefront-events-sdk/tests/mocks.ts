@@ -23,7 +23,6 @@ import {
     RequisitionListItems,
 } from "../src/types/schemas/";
 import { CustomContext } from "../src/types/contexts";
-import { OrderProducts } from "../src/types/schemas/orderProducts";
 
 export const generateAccountContext = (overrides?: Partial<Account>): Account => ({
     firstName: "firstName",
@@ -239,6 +238,7 @@ export const generateRequisitionListContext = (overrides?: Partial<RequisitionLi
     id: "1",
     name: "Requisition List 1",
     description: "This is requisition list 1",
+    ...overrides,
 });
 
 export const generateRequisitionListItemsContext = (
@@ -259,6 +259,7 @@ export const generateRequisitionListItemsContext = (
             quantity: 1,
         },
     ],
+    ...overrides,
 });
 
 export const generateOrderViewContext = (overrides?: Partial<RequisitionListItems>): RequisitionListItems => ({
@@ -282,6 +283,7 @@ export const generateOrderViewContext = (overrides?: Partial<RequisitionListItem
             quantity: 1,
         },
     ],
+    ...overrides,
 });
 
 export const generateSearchInputContext = (overrides?: Partial<SearchInput>): SearchInput => ({
