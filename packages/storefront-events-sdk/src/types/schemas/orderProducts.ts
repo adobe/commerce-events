@@ -1,6 +1,4 @@
-import { RequisitionListItem } from "./requisitionList";
+import { RequisitionListItems } from "./requisitionList";
 
 /** The products on the sales-order-view page */
-export type OrderProducts = {
-    items: RequisitionListItem[];
-};
+export type OrderProducts = RequisitionListItems;

@@ -14,6 +14,7 @@ const handler = async (event: Event): Promise<void> => {
         changedProductsContext,
         requisitionListContext,
         requisitionListItemsContext,
+        orderPageContext,
         debugContext,
         customContext,
         storefrontInstanceContext,
@@ -28,13 +29,19 @@ const handler = async (event: Event): Promise<void> => {
     payload.commerce = payload.commerce || {};
     payload.commerce.requisitionList = createRequisitionList(payload.commerce.requisitionList, requisitionListContext);
 
+    if (orderPageContext) {
+        const requisitionContext = orderPageContext;
+    } else {
+        const requisitionContext = requisitionListItemsContext;
+    }
+
     payload.productListItems = createProductListItems(
         payload.productListItems,
         changedProductsContext,
         requisitionListItemsContext,
+        orderPageContext,
         storefrontInstanceContext,
     );
-
     payload.personalEmail = payload.personalEmail || {};
     payload.personalEmail.address = payload.personalEmail.address || accountContext?.emailAddress;
 

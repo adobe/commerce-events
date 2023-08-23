@@ -22,3 +22,4 @@ export * from "./searchResults";
 export * from "./shopper";
 export * from "./shoppingCart";
 export * from "./storefrontInstance";
+export * from "./orderProducts";

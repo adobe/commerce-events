@@ -25,6 +25,7 @@ const handler = async (event: Event): Promise<void> => {
         payload.productListItems,
         changedProductsContext,
         undefined,
+        undefined,
         storefrontInstanceContext,
     );
 
