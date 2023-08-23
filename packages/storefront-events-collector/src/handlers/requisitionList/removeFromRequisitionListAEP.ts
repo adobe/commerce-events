@@ -33,7 +33,6 @@ const aepHandler = async (event: Event): Promise<void> => {
         payload.productListItems,
         undefined,
         requisitionListItemsContext,
-        undefined,
         storefrontInstanceContext,
     );
 

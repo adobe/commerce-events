@@ -16,7 +16,6 @@ const createProductListItems = (
     productListItemsFromCustomContext: ProductListItem[] | undefined,
     cartContext: { items?: Array<ShoppingCartItem> } | undefined,
     requisitionListItemsContext: RequisitionListItems | undefined,
-    orderPageContext: RequisitionListItems | undefined,
     storefrontContext: StorefrontInstance,
 ): ProductListItem[] => {
     const returnList: ProductListItem[] = [];
@@ -26,9 +25,6 @@ const createProductListItems = (
     productListItemsFromCustomContext?.forEach((item) => {
         productListFromCustomContextMap.set(item.SKU as string, item);
     });
-    if (orderPageContext) {
-        requisitionListItemsContext = orderPageContext;
-    }
     if (requisitionListItemsContext) {
         requisitionListItemsContext.items?.map((item) => {
             const productListItemFromCustomContext = productListFromCustomContextMap.get(item.sku);
