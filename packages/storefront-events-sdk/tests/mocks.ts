@@ -261,7 +261,28 @@ export const generateRequisitionListItemsContext = (
     ],
 });
 
-export const generateOrderViewContext = generateRequisitionListItemsContext();
+export const generateOrderViewContext = (overrides?: Partial<RequisitionListItems>): RequisitionListItems => ({
+    items: [
+        {
+            productId: 111111,
+            name: "T-Shirt",
+            sku: "ts001",
+            pricing: {
+                regularPrice: 20.0,
+                minimalPrice: 20.0,
+                maximalPrice: 20.0,
+                currencyCode: "USD",
+            },
+            selectedOptions: [
+                {
+                    value: "S",
+                    attribute: "size",
+                },
+            ],
+            quantity: 1,
+        },
+    ],
+});
 
 export const generateSearchInputContext = (overrides?: Partial<SearchInput>): SearchInput => ({
     units: [

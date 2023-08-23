@@ -376,7 +376,12 @@ const mockRequisitionListItemsCtx = {
                 regularPrice: 20.0,
                 currencyCode: "USD",
             },
-            selectedOptions: [],
+            selectedOptions: [
+                {
+                    attribute: "size",
+                    value: "S",
+                },
+            ],
             quantity: 1,
         },
         {
