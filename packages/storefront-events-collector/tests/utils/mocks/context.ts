@@ -393,6 +393,8 @@ const mockRequisitionListItemsCtx = {
     ],
 };
 
+const mockOrderPageCtx = mockRequisitionListItemsCtx;
+
 export {
     mockAepCtx,
     mockChangedProductsCtx,
@@ -400,6 +402,7 @@ export {
     mockEventForwardingCtx,
     mockExperiencePlatformExtensionCtx,
     mockExtensionCtx,
+    mockOrderPageCtx,
     mockProductCtx,
     mockRecommendationsExtensionCtx,
     mockRecommendationUnitCtx,

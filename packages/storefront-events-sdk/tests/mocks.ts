@@ -80,11 +80,6 @@ export const generateOrderContext = (overrides?: Partial<Order>): Order => ({
     ...overrides,
 });
 
-export const generateOrderViewContext = (overrides?: Partial<OrderProducts>) => ({
-    items: [generateProductContext()],
-    ...overrides,
-});
-
 export const generatePageContext = (overrides?: Partial<Page>): Page => ({
     pageType: "pdp",
     eventType: "visibilityHidden",
@@ -265,6 +260,8 @@ export const generateRequisitionListItemsContext = (
         },
     ],
 });
+
+export const generateOrderViewContext = generateRequisitionListItemsContext();
 
 export const generateSearchInputContext = (overrides?: Partial<SearchInput>): SearchInput => ({
     units: [
