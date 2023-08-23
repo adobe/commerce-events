@@ -25,6 +25,7 @@ const createProductListItems = (
     productListItemsFromCustomContext?.forEach((item) => {
         productListFromCustomContextMap.set(item.SKU as string, item);
     });
+
     if (requisitionListItemsContext) {
         requisitionListItemsContext.items?.map((item) => {
             const productListItemFromCustomContext = productListFromCustomContextMap.get(item.sku);

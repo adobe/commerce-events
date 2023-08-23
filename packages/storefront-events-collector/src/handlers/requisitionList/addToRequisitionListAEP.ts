@@ -29,10 +29,7 @@ const handler = async (event: Event): Promise<void> => {
     payload.commerce = payload.commerce || {};
     payload.commerce.requisitionList = createRequisitionList(payload.commerce.requisitionList, requisitionListContext);
 
-    let requisitionContext = requisitionListItemsContext;
-    if (orderPageContext) {
-        requisitionContext = orderPageContext;
-    }
+    const requisitionContext = requisitionListItemsContext || orderPageContext;
 
     payload.productListItems = createProductListItems(
         payload.productListItems,
