@@ -42,9 +42,9 @@
         "@adobe/adobe-client-data-layer": "^2.0.2",
         "@adobe/magento-storefront-events-sdk": "*",
         "@adobe/alloy": "^2.9.0",
-        "@snowplow/browser-plugin-link-click-tracking": "^3.0.2",
-        "@snowplow/browser-plugin-performance-timing": "^3.0.1",
-        "@snowplow/browser-tracker": "^3.0.1"
+        "@snowplow/browser-plugin-link-click-tracking": "^3.14.0",
+        "@snowplow/browser-plugin-performance-timing": "^3.14.0",
+        "@snowplow/browser-tracker": "^3.14.0"
     },
     "devDependencies": {
         "@types/jest": "^26.0.23",
