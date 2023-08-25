@@ -12,7 +12,7 @@ let alloyInstance: AlloyInstance;
  */
 const configure = async (instance: AlloyInstance): Promise<AlloyInstance> => {
     const aepCtx: AEPContext = createContext();
-    if (aepCtx.datastreamId !== "" && aepCtx.imsOrgId !== "") {
+    if (!!aepCtx.datastreamId && !!aepCtx.imsOrgId) {
         const alloyConfig: ConfigOptions = {
             edgeConfigId: aepCtx.datastreamId as string,
             orgId: aepCtx.imsOrgId as string,
@@ -98,7 +98,7 @@ const hasConfig = (): boolean => {
     const eventForwarding = context.getEventForwarding();
     const config = context.getAEP();
 
-    return (eventForwarding?.aep || false) && config.datastreamId !== "" && config.imsOrgId !== "";
+    return !!eventForwarding?.aep && !!config.datastreamId && !!config.imsOrgId;
 };
 
 /**

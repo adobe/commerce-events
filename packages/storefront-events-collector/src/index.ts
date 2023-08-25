@@ -30,7 +30,7 @@ const addCustomNameToAlloyNamespace = (customName: string) =>
         });
     })(window, [customName]);
 
-/** initialize alloy if magentoStorefrontEvents exists and aep is set to true */
+/** initialize alloy if magentoStorefrontEvents exists and aep contenxt set up right */
 const initializeAlloy = async () => {
     try {
         const sdk = window.magentoStorefrontEvents;
@@ -62,7 +62,7 @@ const initializeAlloy = async () => {
                 await setConsent();
             } catch {
                 clearInterval(consentInterval);
-                console.warn("Consent could not be set.");
+                console.warn("Alloy consent could not be set.");
             }
         }, 1000);
     } catch (error) {
@@ -71,14 +71,25 @@ const initializeAlloy = async () => {
 };
 
 const initialize = async () => {
-    configureSnowplow({
-        appId: "magento-storefront-event-collector",
-        collectorUrl: SNOWPLOW_COLLECTOR_URL,
-        collectorPath: SNOWPLOW_COLLECTOR_PATH,
-    });
+    const { context } = window.magentoStorefrontEvents;
+    const eventForwarding = context.getEventForwarding();
 
-    await initializeAlloy();
-    subscribeToEvents();
+    const sendToSnowplow = eventForwarding?.commerce === false ? false : true;
+    const sendToAEP = eventForwarding?.aep === hasConfig() ? true : false;
+
+    if (sendToSnowplow) {
+        configureSnowplow({
+            appId: "magento-storefront-event-collector",
+            collectorUrl: SNOWPLOW_COLLECTOR_URL,
+            collectorPath: SNOWPLOW_COLLECTOR_PATH,
+        });
+    }
+
+    if (sendToAEP) {
+        await initializeAlloy();
+    }
+
+    subscribeToEvents(sendToSnowplow, sendToAEP);
 };
 
 /**
