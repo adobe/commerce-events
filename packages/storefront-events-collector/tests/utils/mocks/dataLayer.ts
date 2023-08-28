@@ -1,4 +1,3 @@
-import { ExperiencePlatformConnectorExtension } from "@adobe/commerce-events-sdk";
 import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/events";
 import {
     Account,
@@ -20,6 +19,7 @@ import {
     Shopper,
     ShoppingCart,
     StorefrontInstance,
+    ExperiencePlatformConnectorExtension,
 } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
 
 import { mockAepCtx, mockChangedProductsCtx, mockEventForwardingCtx, mockRequisitionListItemsCtx } from "./context";
