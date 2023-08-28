@@ -1,6 +1,6 @@
 import schemas from "../schemas";
 
-import { AEP, ExperiencePlatformConnectorExtension } from "@adobe/commerce-events-sdk";
+import { AEP, ExperiencePlatformConnectorExtension } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
 
 import { ExperiencePlatformConnectorExtensionContext } from "../types/contexts";
 
