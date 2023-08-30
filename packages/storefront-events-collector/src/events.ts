@@ -1,215 +1,117 @@
-import { Event, EventHandler } from "@adobe/magento-storefront-events-sdk/dist/types/types/events";
+import * as handlers from "./handlers";
 
-import { createEventForwardingCtx } from "./contexts";
-import {
-    addToCartHandler,
-    addToCartHandlerAEP,
-    addToRequisitionListHandlerAEP,
-    createAccountHandlerAEP,
-    createRequisitionListHandlerAEP,
-    customHandlerAEP,
-    editAccountHandlerAEP,
-    initiateCheckoutHandler,
-    initiateCheckoutHandlerAEP,
-    openCartHandlerAEP,
-    pageViewHandler,
-    pageViewHandlerAEP,
-    placeOrderHandler,
-    placeOrderHandlerAEP,
-    productViewHandler,
-    productViewHandlerAEP,
-    recsItemAddToCartClickHandler,
-    recsItemClickHandler,
-    recsRequestSentHandler,
-    recsResponseReceivedHandler,
-    recsUnitRenderHandler,
-    recsUnitViewHandler,
-    removeFromCartHandlerAEP,
-    removeFromRequisitionListHandlerAEP,
-    searchCategoryClickHandler,
-    searchProductClickHandler,
-    searchRequestSentHandler,
-    searchRequestSentHandlerAEP,
-    searchResponseReceivedHandler,
-    searchResponseReceivedHandlerAEP,
-    searchResultsViewHandler,
-    categoryResultsViewHandler,
-    searchSuggestionClickHandler,
-    shoppingCartViewHandler,
-    shoppingCartViewHandlerAEP,
-    signInHandlerAEP,
-    signOutHandlerAEP,
-} from "./handlers";
-import { EventForwardingContext } from "./types/contexts";
+const subscribeToEvents = (sendToSnowplow: boolean, sendToAEP: boolean): void => {
+    const mse = window.magentoStorefrontEvents;
 
-const isCommerce = (event: Event): boolean => {
-    const ctx: EventForwardingContext = createEventForwardingCtx(event.eventInfo.eventForwardingContext);
-    // default to true unless explicitly set to false
-    return ctx.commerce === false ? false : true;
-};
-
-const isAep = (event: Event): boolean => {
-    const ctx: EventForwardingContext = createEventForwardingCtx(event.eventInfo.eventForwardingContext);
-    return ctx.aep ?? false;
-};
-
-const handleIf = (predicate: (e: Event) => boolean, handler: EventHandler): EventHandler => {
-    return (event: Event) => {
-        if (predicate(event)) {
-            handler(event);
+    // Snowplow events
+    if (sendToSnowplow) {
+        try {
+            mse.subscribe.addToCart(handlers.addToCartHandler);
+            mse.subscribe.initiateCheckout(handlers.initiateCheckoutHandler);
+            mse.subscribe.pageView(handlers.pageViewHandler);
+            mse.subscribe.placeOrder(handlers.placeOrderHandler);
+            mse.subscribe.productPageView(handlers.productViewHandler);
+            mse.subscribe.recsItemAddToCartClick(handlers.recsItemAddToCartClickHandler);
+            mse.subscribe.recsItemClick(handlers.recsItemClickHandler);
+            mse.subscribe.recsRequestSent(handlers.recsRequestSentHandler);
+            mse.subscribe.recsResponseReceived(handlers.recsResponseReceivedHandler);
+            mse.subscribe.recsUnitRender(handlers.recsUnitRenderHandler);
+            mse.subscribe.recsUnitView(handlers.recsUnitViewHandler);
+            mse.subscribe.searchCategoryClick(handlers.searchCategoryClickHandler);
+            mse.subscribe.searchProductClick(handlers.searchProductClickHandler);
+            mse.subscribe.searchRequestSent(handlers.searchRequestSentHandler);
+            mse.subscribe.searchResponseReceived(handlers.searchResponseReceivedHandler);
+            mse.subscribe.searchResultsView(handlers.searchResultsViewHandler);
+            mse.subscribe.categoryResultsView(handlers.categoryResultsViewHandler);
+            mse.subscribe.searchSuggestionClick(handlers.searchSuggestionClickHandler);
+            mse.subscribe.shoppingCartView(handlers.shoppingCartViewHandler);
+        } catch (e) {
+            console.error(`error subscribing to Commerce events: ${JSON.stringify(e)}`);
         }
-    };
-};
-
-// custom event - AEP only
-const handleAepCustom = handleIf(isAep, customHandlerAEP);
-
-// page
-const handleSnowplowPageView = handleIf(isCommerce, pageViewHandler);
-const handleAepPageView = handleIf(isAep, pageViewHandlerAEP);
-
-// cart
-const handleSnowplowInitiateCheckout = handleIf(isCommerce, initiateCheckoutHandler);
-const handleAepInitiateCheckout = handleIf(isAep, initiateCheckoutHandlerAEP);
-const handleAepOpenCart = handleIf(isAep, openCartHandlerAEP);
-
-// product
-const handleSnowplowAddToCart = handleIf(isCommerce, addToCartHandler);
-const handleAepAddToCart = handleIf(isAep, addToCartHandlerAEP);
-const handleAepRemoveFromCart = handleIf(isAep, removeFromCartHandlerAEP);
-
-// shopping cart view
-const handleSnowplowShoppingCartView = handleIf(isCommerce, shoppingCartViewHandler);
-const handleAepShoppingCartView = handleIf(isAep, shoppingCartViewHandlerAEP);
-
-const handleSnowplowProductView = handleIf(isCommerce, productViewHandler);
-const handleAepProductView = handleIf(isAep, productViewHandlerAEP);
-
-// order
-const handleSnowplowPlaceOrder = handleIf(isCommerce, placeOrderHandler);
-const handleAepPlaceOrder = handleIf(isAep, placeOrderHandlerAEP);
-
-// account
-const handleAepSignIn = handleIf(isAep, signInHandlerAEP);
-const handleAepSignOut = handleIf(isAep, signOutHandlerAEP);
-const handleAepCreateAccount = handleIf(isAep, createAccountHandlerAEP);
-const handleAepEditAccount = handleIf(isAep, editAccountHandlerAEP);
-
-// search
-const handleSnowplowSearchRequestSent = handleIf(isCommerce, searchRequestSentHandler);
-const handleAepSearchRequestSent = handleIf(isAep, searchRequestSentHandlerAEP);
-const handleSnowplowSearchResponseReceived = handleIf(isCommerce, searchResponseReceivedHandler);
-const handleAepSearchResponseReceived = handleIf(isAep, searchResponseReceivedHandlerAEP);
-
-// requisitionList
-const handleAepAddToRequisitionList = handleIf(isAep, addToRequisitionListHandlerAEP);
-const handleAepCreateRequisitionList = handleIf(isAep, createRequisitionListHandlerAEP);
-const handleAepRemoveFromRequisitionList = handleIf(isAep, removeFromRequisitionListHandlerAEP);
-
-const subscribeToEvents = (): void => {
-    const mse = window.magentoStorefrontEvents;
-
-    // Snowplow events
-    try {
-        mse.subscribe.addToCart(handleSnowplowAddToCart);
-        mse.subscribe.initiateCheckout(handleSnowplowInitiateCheckout);
-        mse.subscribe.pageView(handleSnowplowPageView);
-        mse.subscribe.placeOrder(handleSnowplowPlaceOrder);
-        mse.subscribe.productPageView(handleSnowplowProductView);
-        mse.subscribe.recsItemAddToCartClick(recsItemAddToCartClickHandler);
-        mse.subscribe.recsItemClick(recsItemClickHandler);
-        mse.subscribe.recsRequestSent(recsRequestSentHandler);
-        mse.subscribe.recsResponseReceived(recsResponseReceivedHandler);
-        mse.subscribe.recsUnitRender(recsUnitRenderHandler);
-        mse.subscribe.recsUnitView(recsUnitViewHandler);
-        mse.subscribe.searchCategoryClick(searchCategoryClickHandler);
-        mse.subscribe.searchProductClick(searchProductClickHandler);
-        mse.subscribe.searchRequestSent(handleSnowplowSearchRequestSent);
-        mse.subscribe.searchResponseReceived(handleSnowplowSearchResponseReceived);
-        mse.subscribe.searchResultsView(searchResultsViewHandler);
-        mse.subscribe.categoryResultsView(categoryResultsViewHandler);
-        mse.subscribe.searchSuggestionClick(searchSuggestionClickHandler);
-        mse.subscribe.shoppingCartView(handleSnowplowShoppingCartView);
-    } catch (e) {
-        console.error(`error subscribing to Commerce events: ${JSON.stringify(e)}`);
     }
 
     // AEP events
-    try {
-        mse.subscribe.addToCart(handleAepAddToCart);
-        mse.subscribe.addToRequisitionList(handleAepAddToRequisitionList);
-        mse.subscribe.custom(handleAepCustom);
-        mse.subscribe.createAccount(handleAepCreateAccount);
-        mse.subscribe.createRequisitionList(handleAepCreateRequisitionList);
-        mse.subscribe.editAccount(handleAepEditAccount);
-        mse.subscribe.initiateCheckout(handleAepInitiateCheckout);
-        mse.subscribe.openCart(handleAepOpenCart);
-        mse.subscribe.pageView(handleAepPageView);
-        mse.subscribe.placeOrder(handleAepPlaceOrder);
-        mse.subscribe.productPageView(handleAepProductView);
-        mse.subscribe.removeFromCart(handleAepRemoveFromCart);
-        mse.subscribe.removeFromRequisitionList(handleAepRemoveFromRequisitionList);
-        mse.subscribe.searchRequestSent(handleAepSearchRequestSent);
-        mse.subscribe.searchResponseReceived(handleAepSearchResponseReceived);
-        mse.subscribe.shoppingCartView(handleAepShoppingCartView);
-        mse.subscribe.signIn(handleAepSignIn);
-        mse.subscribe.signOut(handleAepSignOut);
-    } catch (e) {
-        console.error(`error subscribing to Experience events: ${JSON.stringify(e)}`);
+    if (sendToAEP) {
+        try {
+            mse.subscribe.addToCart(handlers.addToCartHandlerAEP);
+            mse.subscribe.addToRequisitionList(handlers.addToRequisitionListHandlerAEP);
+            mse.subscribe.custom(handlers.customHandlerAEP);
+            mse.subscribe.createAccount(handlers.createAccountHandlerAEP);
+            mse.subscribe.createRequisitionList(handlers.createRequisitionListHandlerAEP);
+            mse.subscribe.editAccount(handlers.editAccountHandlerAEP);
+            mse.subscribe.initiateCheckout(handlers.initiateCheckoutHandlerAEP);
+            mse.subscribe.openCart(handlers.openCartHandlerAEP);
+            mse.subscribe.pageView(handlers.pageViewHandler);
+            mse.subscribe.placeOrder(handlers.placeOrderHandlerAEP);
+            mse.subscribe.productPageView(handlers.productViewHandlerAEP);
+            mse.subscribe.removeFromCart(handlers.removeFromCartHandlerAEP);
+            mse.subscribe.removeFromRequisitionList(handlers.removeFromRequisitionListHandlerAEP);
+            mse.subscribe.searchRequestSent(handlers.searchRequestSentHandlerAEP);
+            mse.subscribe.searchResponseReceived(handlers.searchResponseReceivedHandlerAEP);
+            mse.subscribe.shoppingCartView(handlers.shoppingCartViewHandlerAEP);
+            mse.subscribe.signIn(handlers.signInHandlerAEP);
+            mse.subscribe.signOut(handlers.signOutHandlerAEP);
+        } catch (e) {
+            console.error(`error subscribing to Experience events: ${JSON.stringify(e)}`);
+        }
     }
 };
 
-const unsubscribeFromEvents = (): void => {
+const unsubscribeFromEvents = (sendToSnowplow: boolean, sendToAEP: boolean): void => {
     const mse = window.magentoStorefrontEvents;
 
     // Snowplow events
-    try {
-        mse.unsubscribe.addToCart(handleSnowplowAddToCart);
-        mse.unsubscribe.initiateCheckout(handleSnowplowInitiateCheckout);
-        mse.unsubscribe.pageView(handleSnowplowPageView);
-        mse.unsubscribe.placeOrder(handleSnowplowPlaceOrder);
-        mse.unsubscribe.productPageView(handleSnowplowProductView);
-        mse.unsubscribe.recsItemAddToCartClick(recsItemAddToCartClickHandler);
-        mse.unsubscribe.recsItemClick(recsItemClickHandler);
-        mse.unsubscribe.recsRequestSent(recsRequestSentHandler);
-        mse.unsubscribe.recsResponseReceived(recsResponseReceivedHandler);
-        mse.unsubscribe.recsUnitRender(recsUnitRenderHandler);
-        mse.unsubscribe.recsUnitView(recsUnitViewHandler);
-        mse.unsubscribe.searchCategoryClick(searchCategoryClickHandler);
-        mse.unsubscribe.searchProductClick(searchProductClickHandler);
-        mse.unsubscribe.searchRequestSent(handleSnowplowSearchRequestSent);
-        mse.unsubscribe.searchResponseReceived(handleSnowplowSearchResponseReceived);
-        mse.unsubscribe.searchResultsView(searchResultsViewHandler);
-        mse.unsubscribe.categoryResultsView(categoryResultsViewHandler);
-        mse.unsubscribe.searchSuggestionClick(searchSuggestionClickHandler);
-        mse.unsubscribe.shoppingCartView(shoppingCartViewHandler);
-        mse.unsubscribe.shoppingCartView(handleSnowplowShoppingCartView);
-    } catch (e) {
-        console.error(`error unsubscribing from Commerce events: ${JSON.stringify(e)}`);
+    if (sendToSnowplow) {
+        try {
+            mse.unsubscribe.addToCart(handlers.addToCartHandler);
+            mse.unsubscribe.initiateCheckout(handlers.initiateCheckoutHandler);
+            mse.unsubscribe.pageView(handlers.pageViewHandler);
+            mse.unsubscribe.placeOrder(handlers.placeOrderHandler);
+            mse.unsubscribe.productPageView(handlers.productViewHandler);
+            mse.unsubscribe.recsItemAddToCartClick(handlers.recsItemAddToCartClickHandler);
+            mse.unsubscribe.recsItemClick(handlers.recsItemClickHandler);
+            mse.unsubscribe.recsRequestSent(handlers.recsRequestSentHandler);
+            mse.unsubscribe.recsResponseReceived(handlers.recsResponseReceivedHandler);
+            mse.unsubscribe.recsUnitRender(handlers.recsUnitRenderHandler);
+            mse.unsubscribe.recsUnitView(handlers.recsUnitViewHandler);
+            mse.unsubscribe.searchCategoryClick(handlers.searchCategoryClickHandler);
+            mse.unsubscribe.searchProductClick(handlers.searchProductClickHandler);
+            mse.unsubscribe.searchRequestSent(handlers.searchRequestSentHandler);
+            mse.unsubscribe.searchResponseReceived(handlers.searchResponseReceivedHandler);
+            mse.unsubscribe.searchResultsView(handlers.searchResultsViewHandler);
+            mse.unsubscribe.categoryResultsView(handlers.categoryResultsViewHandler);
+            mse.unsubscribe.searchSuggestionClick(handlers.searchSuggestionClickHandler);
+            mse.unsubscribe.shoppingCartView(handlers.shoppingCartViewHandler);
+            mse.unsubscribe.shoppingCartView(handlers.shoppingCartViewHandler);
+        } catch (e) {
+            console.error(`error unsubscribing from Commerce events: ${JSON.stringify(e)}`);
+        }
     }
 
     // AEP events
-    try {
-        mse.unsubscribe.addToCart(handleAepAddToCart);
-        mse.unsubscribe.addToRequisitionList(handleAepAddToRequisitionList);
-        mse.unsubscribe.createAccount(handleAepCreateAccount);
-        mse.unsubscribe.createRequisitionList(handleAepCreateRequisitionList);
-        mse.unsubscribe.custom(handleAepCustom);
-        mse.unsubscribe.editAccount(handleAepEditAccount);
-        mse.unsubscribe.initiateCheckout(handleAepInitiateCheckout);
-        mse.unsubscribe.openCart(handleAepOpenCart);
-        mse.unsubscribe.pageView(handleAepPageView);
-        mse.unsubscribe.placeOrder(handleAepPlaceOrder);
-        mse.unsubscribe.productPageView(handleAepProductView);
-        mse.unsubscribe.removeFromCart(handleAepRemoveFromCart);
-        mse.unsubscribe.removeFromRequisitionList(handleAepRemoveFromRequisitionList);
-        mse.unsubscribe.searchRequestSent(handleAepSearchRequestSent);
-        mse.unsubscribe.searchResponseReceived(handleAepSearchResponseReceived);
-        mse.unsubscribe.shoppingCartView(handleAepShoppingCartView);
-        mse.unsubscribe.signIn(handleAepSignIn);
-        mse.unsubscribe.signOut(handleAepSignOut);
-    } catch (e) {
-        console.error(`error unsubscribing from Experience events: ${JSON.stringify(e)}`);
+    if (sendToAEP) {
+        try {
+            mse.unsubscribe.addToCart(handlers.addToCartHandlerAEP);
+            mse.unsubscribe.addToRequisitionList(handlers.addToRequisitionListHandlerAEP);
+            mse.unsubscribe.createAccount(handlers.createAccountHandlerAEP);
+            mse.unsubscribe.createRequisitionList(handlers.createRequisitionListHandlerAEP);
+            mse.unsubscribe.custom(handlers.customHandlerAEP);
+            mse.unsubscribe.editAccount(handlers.editAccountHandlerAEP);
+            mse.unsubscribe.initiateCheckout(handlers.initiateCheckoutHandlerAEP);
+            mse.unsubscribe.openCart(handlers.openCartHandlerAEP);
+            mse.unsubscribe.pageView(handlers.pageViewHandlerAEP);
+            mse.unsubscribe.placeOrder(handlers.placeOrderHandlerAEP);
+            mse.unsubscribe.productPageView(handlers.productViewHandlerAEP);
+            mse.unsubscribe.removeFromCart(handlers.removeFromCartHandlerAEP);
+            mse.unsubscribe.removeFromRequisitionList(handlers.removeFromRequisitionListHandlerAEP);
+            mse.unsubscribe.searchRequestSent(handlers.searchRequestSentHandlerAEP);
+            mse.unsubscribe.searchResponseReceived(handlers.searchResponseReceivedHandlerAEP);
+            mse.unsubscribe.shoppingCartView(handlers.shoppingCartViewHandlerAEP);
+            mse.unsubscribe.signIn(handlers.signInHandlerAEP);
+            mse.unsubscribe.signOut(handlers.signOutHandlerAEP);
+        } catch (e) {
+            console.error(`error unsubscribing from Experience events: ${JSON.stringify(e)}`);
+        }
     }
 };
 
