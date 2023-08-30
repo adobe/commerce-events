@@ -40,7 +40,7 @@
         "pre-commit:clean": "rm -rf dist/ coverage/ && yarn lint:fix && yarn format:fix && yarn test && yarn build"
     },
     "dependencies": {
-        "@adobe/commerce-events-sdk": "*",
+        "@adobe/magento-storefront-events-sdk": "*",
         "@adobe/alloy": "^2.9.0"
     },
     "devDependencies": {
