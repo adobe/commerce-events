@@ -21,6 +21,12 @@ const aepHandler = async (event: Event): Promise<void> => {
     payload.web.webPageDetails.siteSection = payload.web.webPageDetails.siteSection || pageContext?.pageType;
     payload.web.webPageDetails.name = payload.web.webPageDetails.name || pageContext?.pageName;
 
+    payload.web.webPageDetails.URL = window.document.URL;
+
+    payload.web.webReferrer = {
+        URL: window.document.referrer,
+    };
+
     payload._id = debugContext?.eventId;
     payload.eventType = XDM_EVENT_TYPE;
 
