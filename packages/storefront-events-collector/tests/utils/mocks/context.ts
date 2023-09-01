@@ -130,6 +130,7 @@ const mockStorefrontCtx = {
     websiteCode: "website",
     websiteId: 333333,
     websiteName: "website",
+    storefrontTemplate: "Franklin",
 };
 
 const mockAepCtx = {
