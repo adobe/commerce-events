@@ -7,17 +7,13 @@ const createContext = (extension?: RecommendationsExtension): RecommendationsExt
     const mse = window.magentoStorefrontEvents;
     const recommendationsExtensionCtx = extension ?? mse.context.getRecommendationsExtension();
 
-    if (!recommendationsExtensionCtx) {
-        return {
-            schema: schemas.RECOMMENDATIONS_EXTENSION_SCHEMA_URL,
-            data: {},
-        };
-    }
-
     const context = {
         schema: schemas.RECOMMENDATIONS_EXTENSION_SCHEMA_URL,
         data: {
-            version: recommendationsExtensionCtx.version,
+            version:
+                recommendationsExtensionCtx?.version && !!recommendationsExtensionCtx.version
+                    ? recommendationsExtensionCtx.version
+                    : "unspecified",
         },
     };
 
