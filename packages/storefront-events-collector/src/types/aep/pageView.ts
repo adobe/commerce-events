@@ -7,10 +7,16 @@ export type PageViews = {
 export type WebPageDetails = {
     pageViews?: PageViews;
     name?: string;
+    URL?: string;
     siteSection?: string;
+};
+
+export type Referrer = {
+    URL?: string;
 };
 
 /** Link clicks, web page details, referrer information, and browser details. */
 export type Web = {
     webPageDetails?: WebPageDetails;
+    webReferrer?: Referrer;
 };

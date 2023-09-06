@@ -41,7 +41,7 @@ const subscribeToEvents = (sendToSnowplow: boolean, sendToAEP: boolean): void =>
             mse.subscribe.editAccount(handlers.editAccountHandlerAEP);
             mse.subscribe.initiateCheckout(handlers.initiateCheckoutHandlerAEP);
             mse.subscribe.openCart(handlers.openCartHandlerAEP);
-            mse.subscribe.pageView(handlers.pageViewHandler);
+            mse.subscribe.pageView(handlers.pageViewHandlerAEP);
             mse.subscribe.placeOrder(handlers.placeOrderHandlerAEP);
             mse.subscribe.productPageView(handlers.productViewHandlerAEP);
             mse.subscribe.removeFromCart(handlers.removeFromCartHandlerAEP);
