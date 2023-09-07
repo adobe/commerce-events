@@ -11,6 +11,7 @@ import {
     ExperiencePlatformConnectorExtension,
     MagentoExtension,
     Order,
+    OrderProducts,
     Page,
     Product,
     Recommendations,
@@ -37,6 +38,7 @@ export type ContextName =
     | typeof contexts.EXPERIENCE_PLATFORM_CONNECTOR_EXTENSION_CONTEXT
     | typeof contexts.MAGENTO_EXTENSION_CONTEXT
     | typeof contexts.ORDER_CONTEXT
+    | typeof contexts.ORDER_PAGE_CONTEXT
     | typeof contexts.PAGE_CONTEXT
     | typeof contexts.PRODUCT_CONTEXT
     | typeof contexts.RECOMMENDATIONS_CONTEXT
@@ -63,6 +65,7 @@ export type Context = {
     [contexts.EXPERIENCE_PLATFORM_CONNECTOR_EXTENSION_CONTEXT]?: ExperiencePlatformConnectorExtension;
     [contexts.MAGENTO_EXTENSION_CONTEXT]: MagentoExtension;
     [contexts.ORDER_CONTEXT]: Order;
+    [contexts.ORDER_PAGE_CONTEXT]: OrderProducts;
     [contexts.PAGE_CONTEXT]: Page;
     [contexts.PRODUCT_CONTEXT]: Product;
     [contexts.RECOMMENDATIONS_EXTENSION_CONTEXT]?: RecommendationsExtension;

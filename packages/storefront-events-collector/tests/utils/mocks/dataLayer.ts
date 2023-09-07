@@ -22,7 +22,13 @@ import {
     ExperiencePlatformConnectorExtension,
 } from "@adobe/magento-storefront-events-sdk/dist/types/types/schemas";
 
-import { mockAepCtx, mockChangedProductsCtx, mockEventForwardingCtx, mockRequisitionListItemsCtx } from "./context";
+import {
+    mockAepCtx,
+    mockChangedProductsCtx,
+    mockEventForwardingCtx,
+    mockRequisitionListItemsCtx,
+    mockOrderPageCtx,
+} from "./context";
 
 const mockAccount: Account = {
     firstName: "firstName",
@@ -463,6 +469,7 @@ const mockEvent: Event = {
         customUrlContext: mockCustomUrl,
         magentoExtensionContext: mockExtension,
         orderContext: mockOrder,
+        orderPageContext: mockOrderPageCtx,
         pageContext: mockPage,
         productContext: mockProduct,
         recommendationsContext: mockRecommendations,

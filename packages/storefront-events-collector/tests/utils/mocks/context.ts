@@ -376,7 +376,12 @@ const mockRequisitionListItemsCtx = {
                 regularPrice: 20.0,
                 currencyCode: "USD",
             },
-            selectedOptions: [],
+            selectedOptions: [
+                {
+                    attribute: "size",
+                    value: "S",
+                },
+            ],
             quantity: 1,
         },
         {
@@ -393,6 +398,8 @@ const mockRequisitionListItemsCtx = {
     ],
 };
 
+const mockOrderPageCtx = mockRequisitionListItemsCtx;
+
 export {
     mockAepCtx,
     mockChangedProductsCtx,
@@ -400,6 +407,7 @@ export {
     mockEventForwardingCtx,
     mockExperiencePlatformExtensionCtx,
     mockExtensionCtx,
+    mockOrderPageCtx,
     mockProductCtx,
     mockRecommendationsExtensionCtx,
     mockRecommendationUnitCtx,

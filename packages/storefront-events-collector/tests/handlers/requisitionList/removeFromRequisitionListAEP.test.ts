@@ -35,7 +35,12 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
                 quantity: 1,
                 priceTotal: 20,
                 currencyCode: "USD",
-                selectedOptions: [],
+                selectedOptions: [
+                    {
+                        attribute: "size",
+                        value: "S",
+                    },
+                ],
             },
             {
                 SKU: "h001",
