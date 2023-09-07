@@ -337,6 +337,7 @@ const mockStorefront: StorefrontInstance = {
     websiteCode: "website",
     websiteId: 333333,
     websiteName: "website",
+    storefrontTemplate: "Franklin",
 };
 
 const mockShopper: Shopper = {

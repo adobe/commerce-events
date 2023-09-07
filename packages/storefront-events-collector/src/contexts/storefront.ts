@@ -32,6 +32,7 @@ const createContext = (storefront?: StorefrontInstance): StorefrontContext => {
             websiteCode: storefrontCtx.websiteCode,
             websiteName: storefrontCtx.websiteName,
             websiteId: storefrontCtx.websiteId,
+            storefrontTemplate: storefrontCtx.storefrontTemplate,
         },
     };
 
