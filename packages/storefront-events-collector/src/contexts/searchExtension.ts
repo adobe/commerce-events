@@ -7,17 +7,13 @@ const createContext = (extension?: SearchExtension): SearchExtensionContext => {
     const mse = window.magentoStorefrontEvents;
     const searchExtensionCtx = extension ?? mse.context.getSearchExtension();
 
-    if (!searchExtensionCtx) {
-        return {
-            schema: schemas.SEARCH_EXTENSION_SCHEMA_URL,
-            data: {},
-        };
-    }
-
     const context = {
         schema: schemas.SEARCH_EXTENSION_SCHEMA_URL,
         data: {
-            version: searchExtensionCtx.version,
+            version:
+                searchExtensionCtx?.version && !!searchExtensionCtx.version
+                    ? searchExtensionCtx.version
+                    : "unspecified",
         },
     };
 

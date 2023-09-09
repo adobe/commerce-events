@@ -7,17 +7,13 @@ const createContext = (extension?: DataServicesExtension): DataServicesExtension
     const mse = window.magentoStorefrontEvents;
     const dataServicesExtensionCtx = extension ?? mse.context.getDataServicesExtension();
 
-    if (!dataServicesExtensionCtx) {
-        return {
-            schema: schemas.DATA_SERVICES_EXTENSION_SCHEMA_URL,
-            data: {},
-        };
-    }
-
     const context = {
         schema: schemas.DATA_SERVICES_EXTENSION_SCHEMA_URL,
         data: {
-            version: dataServicesExtensionCtx.version,
+            version:
+                dataServicesExtensionCtx?.version && dataServicesExtensionCtx.version !== ""
+                    ? dataServicesExtensionCtx.version
+                    : "unspecified",
         },
     };
 

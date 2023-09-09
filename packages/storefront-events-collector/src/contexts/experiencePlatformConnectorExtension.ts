@@ -16,24 +16,15 @@ const createContext = (
         experiencePlatformConnectorExtension ?? mse.context.getExperiencePlatformConnectorExtension();
 
     const aepContext = aep ?? mse.context.getAEP();
-    const setupComplete =
-        aepContext &&
-        aepContext.datastreamId &&
-        aepContext.datastreamId !== "" &&
-        aepContext.imsOrgId &&
-        aepContext.imsOrgId !== "";
-
-    if (!experiencePlatformExtensionCtx) {
-        return {
-            schema: schemas.EXPERIENCE_PLATFORM_CONNECTOR_EXTENSION_SCHEMA_URL,
-            data: {},
-        };
-    }
+    const setupComplete = !!aepContext?.datastreamId && !!aepContext?.imsOrgId;
 
     const context = {
         schema: schemas.EXPERIENCE_PLATFORM_CONNECTOR_EXTENSION_SCHEMA_URL,
         data: {
-            version: experiencePlatformExtensionCtx.version,
+            version:
+                experiencePlatformExtensionCtx?.version && !!experiencePlatformExtensionCtx.version
+                    ? experiencePlatformExtensionCtx.version
+                    : "unspecified",
             setupComplete: !!setupComplete,
         },
     };
