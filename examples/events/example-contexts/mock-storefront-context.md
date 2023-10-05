@@ -27,5 +27,6 @@ const mockStorefrontCtx = {
     storeViewName: "default",
     baseCurrencyCode: "USD",
     storeViewCurrencyCode: "USD",
+    storefrontTemplate: "Other",
 };
 ```
