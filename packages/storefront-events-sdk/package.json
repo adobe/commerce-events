@@ -17,7 +17,7 @@
         "type": "git",
         "url": "git+https://github.com/adobe/commerce-events"
     },
-    "homepage": "https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk#readme",
+    "homepage": "https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk#readme",
     "bugs": {
         "url": "https://github.com/adobe/commerce-events/issues"
     },

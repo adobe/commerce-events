@@ -107,8 +107,8 @@ mse.context.setAEP(aepCtx);
 
 Sets the `AEP` context which can be used by event handlers to forward events to the Adobe Experience Platform. A client must have an AEP subscription and provide a valid [IMS Org Id and Datastream Id](https://experienceleague.adobe.com/docs/experience-platform/edge/fundamentals/datastreams.html?lang=en).
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/aep.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L25)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/aep.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L25)
 
 #### `setCategory`
 
@@ -118,8 +118,8 @@ mse.context.setCategory(categoryCtx);
 
 Sets the `Category` context.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/category.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L31)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/category.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L31)
 
 #### `setChangedProducts`
 
@@ -148,8 +148,8 @@ mse.context.setCustomUrl(customUrlCtx);
 
 Sets the `CustomUrl` context.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/customUrl.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L40)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/customUrl.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L40)
 
 #### `setEventForwarding`
 
@@ -159,8 +159,8 @@ mse.context.setEventForwarding(eventForwardingCtx);
 
 Sets the `EventForwarding` context. Tells a handler if it should forward events to Adobe Commerce DataSolutions (`commerce: true`), Adobe Experience Platform (`aep: true`), or both.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/eventForwarding.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L47)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/eventForwarding.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L47)
 
 #### `setMagentoExtension` @deprecated
 
@@ -172,8 +172,8 @@ Sets the `MagentoExtension` context. Includes Data Services extension version.
 
 This field is deprecated. `setDataServicesExtension` should be used instead.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/magentoExtension.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L55)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/magentoExtension.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L55)
 
 #### `setDataServicesExtension`
 
@@ -183,7 +183,7 @@ mse.context.setDataServicesExtension(dataServicesExtensionCtx);
 
 Sets the `DataServicesExtension` context. Includes Data Services extension version.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/dataServicesExtension.ts)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/dataServicesExtension.ts)
 
 #### `setExperiencePlatformConnectorExtension`
 
@@ -201,8 +201,8 @@ mse.context.setOrder(orderCtx);
 
 Sets the `Order` context.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/order.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L62)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/order.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L62)
 
 #### `setOrderPage`
 
@@ -212,8 +212,8 @@ mse.context.setOrderPage(orderProductsCtx);
 
 Sets the `OrderProducts` context.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/orderProducts.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L83)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/orderProducts.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L83)
 
 #### `setPage`
 
@@ -223,8 +223,8 @@ mse.context.setPage(pageCtx);
 
 Sets the `Page` context.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/page.ts)
--   [context example](<(https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L76)>)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/page.ts)
+-   [context example](<(https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L76)>)
 
 #### `setProduct`
 
@@ -234,8 +234,8 @@ mse.context.setProduct(productCtx);
 
 Sets the `Product` context.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/product.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L88)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/product.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L88)
 
 #### `setRecommendations`
 
@@ -245,8 +245,8 @@ mse.context.setRecommendations(recommendationsCtx);
 
 Sets the `Recommendations` context.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/recommendations.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L105)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/recommendations.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L105)
 
 #### `setRecommendationsExtension`
 
@@ -256,7 +256,7 @@ mse.context.setRecommendationsExtension(recommendationsExtensionCtx);
 
 Sets the `RecommendationsExtension` context. Includes Recommendations extension version.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/recommendationsExtension.ts)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/recommendationsExtension.ts)
 
 #### `setReferrerUrl`
 
@@ -266,8 +266,8 @@ mse.context.setReferrerUrl(referrerUrlCtx);
 
 Sets the `ReferrerUrl` context.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/referrerUrl.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L230)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/referrerUrl.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L230)
 
 #### `setRequisitionList`
 
@@ -277,8 +277,8 @@ mse.context.setRequisitionList(requisitionListCtx);
 
 Sets the `RequisitionList` context.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/requisitionList.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L236)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/requisitionList.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L236)
 
 #### `setRequisitionList`
 
@@ -288,8 +288,8 @@ mse.context.setRequisitionListItems(requisitionListItemsCtx);
 
 Sets the `RequisitionListItems` context.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/requisitionList.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L243)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/requisitionList.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L243)
 
 #### `setSearchExtension`
 
@@ -299,7 +299,7 @@ mse.context.setSearchExtension(searchExtensionCtx);
 
 Sets the `SearchExtension` context. Includes Live Search extension version.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/searchExtension.ts)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/searchExtension.ts)
 
 #### `setSearchInput`
 
@@ -309,8 +309,8 @@ mse.context.setSearchInput(searchInputCtx);
 
 Sets the `SearchInput` context.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/searchInput.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L237)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/searchInput.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L237)
 
 #### `setSearchResults`
 
@@ -320,8 +320,8 @@ mse.context.setSearchResults(searchResultsCtx);
 
 Sets the `SearchResults` context.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/searchResults.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L255)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/searchResults.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L255)
 
 #### `setShopper`
 
@@ -331,8 +331,8 @@ mse.context.setShopper(shopperCtx);
 
 Sets the `Shopper` context.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/shopper.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L294)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/shopper.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L294)
 
 #### `setShoppingCart`
 
@@ -342,8 +342,8 @@ mse.context.setShoppingCart(shoppingCartCtx);
 
 Sets the `ShoppingCart` context.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/shoppingCart.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L298)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/shoppingCart.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L298)
 
 #### `setStorefrontInstance`
 
@@ -353,8 +353,8 @@ mse.context.setStorefrontInstance(storefrontCtx);
 
 Sets the `StorefrontInstance` context. This context is used when forwarding data to Adobe Commerce Data Services to identify the Adobe Commerce instance associated with the data.
 
--   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/commerce-events-sdk/src/types/schemas/storefrontInstance.ts)
--   [context example](https://github.com/adobe/commerce-events/blob/main/packages/commerce-events-sdk/tests/mocks.ts#L345)
+-   [context schema definition](https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-sdk/src/types/schemas/storefrontInstance.ts)
+-   [context example](https://github.com/adobe/commerce-events/blob/main/packages/storefront-events-sdk/tests/mocks.ts#L345)
 
 #### `setContext`
 
