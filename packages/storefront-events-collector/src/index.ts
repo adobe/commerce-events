@@ -75,7 +75,7 @@ const initialize = async () => {
     const eventForwarding = context.getEventForwarding();
 
     const sendToSnowplow = eventForwarding?.commerce === false ? false : true;
-    const sendToAEP = eventForwarding?.aep === hasConfig() ? true : false;
+    const sendToAEP = eventForwarding?.aep && hasConfig() ? true : false;
 
     if (sendToSnowplow) {
         configureSnowplow({
