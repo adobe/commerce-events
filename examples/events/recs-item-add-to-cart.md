@@ -16,11 +16,11 @@
 
 ### 🛄 Required contexts
 
-`page`
+[`page`](./example-contexts/mock-page-context.md)
 
-`storefront`
+[`storefront`](./example-contexts/mock-storefront-context.md)
 
-`recommendations`
+[`recommendations`](./example-contexts/mock-recommendations-context.md)
 
 ### 🔧 Usage
 

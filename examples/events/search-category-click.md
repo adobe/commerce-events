@@ -11,11 +11,11 @@
 
 ### 🛄 Required contexts
 
-`page`
+[`page`](./example-contexts/mock-page-context.md)
 
-`storefront`
+[`storefront`](./example-contexts/mock-storefront-context.md)
 
-`searchResults`
+[`searchResults`](./example-contexts/mock-search-results-context.md)
 
 ### 🔧 Usage
 
@@ -29,5 +29,5 @@ const mse = window.magentoStorefrontEvents;
 /* set before firing event */
 mse.context.setSearchResults(searchResultsCtx);
 
-mse.publish.searchProductClick("search-bar", { categoryId });
+mse.publish.searchCategoryClick("search-bar", { categoryId });
 ```
