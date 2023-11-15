@@ -21,11 +21,11 @@
 
 ### 🛄 Required contexts
 
-`page`
+[`page`](./example-contexts/mock-page-context.md)
 
-`storefront`
+[`storefront`](./example-contexts/mock-storefront-context.md)
 
-`searchInput`
+[`searchInput`](./example-contexts/mock-search-input-context.md)
 
 ### 🔧 Usage
 

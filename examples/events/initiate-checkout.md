@@ -13,11 +13,11 @@
 
 ### 🛄 Required contexts
 
-`page`
+[`page`](./example-contexts/mock-page-context.md)
 
-`storefront`
+[`storefront`](./example-contexts/mock-storefront-context.md)
 
-`shoppingCart`
+[`shoppingCart`](./example-contexts/mock-shopping-cart-context.md)
 
 ### 🔧 Usage
 
