@@ -78,10 +78,9 @@ Recs Item Click example
 
 ![recs item click example](/examples/recs_item_click.png)
 
-#### Snowplow Debugger
+#### Further debugging using browser extensions
 
-TODO
+[Debugging dashboards and Intelligent Services](./snowplow-debugger/README.md)
 
-#### AEP Debugger
+[Debugging AEP events](./aep-debugger/README.md)
 
-TODO

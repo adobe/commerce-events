@@ -1,0 +1,88 @@
+{
+    "description": "Schema for Search Input Entity",
+    "properties": {
+      "searchUnitId": {
+        "type": "string"
+      },
+      "source": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "queryTypes": {
+        "type": "array"
+      },
+      "searchRequestId": {
+        "type": "string"
+      },
+      "query": {
+        "type": "string"
+      },
+      "page": {
+        "type": "number"
+      },
+      "perPage": {
+        "type": "number"
+      },
+      "filter": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "description": "Array of refinements",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "values": {
+              "type": "array"
+            },
+            "operator": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "sort": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "description": "sorts applied for search",
+          "properties": {
+            "attribute": {
+              "type": "string"
+            },
+            "direction": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+      "searchUnitId",
+      "query",
+      "queryTypes",
+      "searchRequestId",
+      "perPage",
+      "page",
+      "filter",
+      "sort"
+    ],
+    "self": {
+      "vendor": "com.adobe.magento.entity",
+      "name": "search-input",
+      "format": "jsonschema",
+      "version": "1-0-11"
+    },
+    "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
+  }
+  

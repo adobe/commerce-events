@@ -1,0 +1,190 @@
+{
+    "description": "Schema for recommended item events",
+    "properties": {
+      "unitId": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "serviceRank": {
+        "type": "integer"
+      },
+      "displayRank": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "sku": {
+        "type": "string",
+        "maxLength": 64
+      },
+      "url": {
+        "type": "string",
+        "maxLength": 2083
+      },
+      "imageUrl": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 2083
+      },
+      "prices": {
+        "type": "object",
+        "properties": {
+          "maximum": {
+            "type": "object",
+            "properties": {
+              "final": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "regular": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "finalAdjustments": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "amount"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "regularAdjustments": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "amount"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "final",
+              "regular"
+            ],
+            "additionalProperties": false
+          },
+          "minimum": {
+            "type": "object",
+            "properties": {
+              "final": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "regular": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "finalAdjustments": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "amount"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "regularAdjustments": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "amount"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "final",
+              "regular"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "maximum",
+          "minimum"
+        ],
+        "additionalProperties": false
+      },
+      "currencyCode": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 3
+      }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+      "unitId",
+      "serviceRank",
+      "displayRank",
+      "name",
+      "sku",
+      "url",
+      "imageUrl"
+    ],
+    "self": {
+      "vendor": "com.adobe.magento.entity",
+      "name": "recommended-item",
+      "format": "jsonschema",
+      "version": "1-0-4"
+    },
+    "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
+  }
+  
