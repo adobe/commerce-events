@@ -28,6 +28,8 @@ OR
 
 ### Required events
 
+**IMPORTANT** All new page loads should generate a [`page-view`](./page-view.md) event. The Commerce ML jobs will not process events correctly if they weren't generated on a page with a tracked `page-view`.
+
 **Required events for [Live Search dashboard](https://experienceleague.adobe.com/docs/commerce-merchant-services/live-search/live-search-admin/performance.html?lang=en)**
 
 | Dashboard area        | Events                                                                                                                                                                                                                                                                                                                                                               | Join field           |
