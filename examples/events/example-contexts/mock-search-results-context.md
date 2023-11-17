@@ -12,7 +12,7 @@
 
 [Search Results schema](../../../packages/storefront-events-sdk/src/types/schemas/searchResults.ts)
 
-_Note_ It is important that `searchUnitId` matches `searchUnitId` in request for the context to be processed by Commerce correctly.
+**IMPORTANT** `searchUnitId` must match `searchUnitId` in request for the context to be processed by Commerce correctly.
 
 ### Mock data
 
