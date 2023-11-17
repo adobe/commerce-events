@@ -38,4 +38,4 @@ Instructions on overriding schema:
 
 ### Additional resources
 
-More information and detailed list of schema override steps can be found under [Snowplow Inspector Adding Schemas](https://docs.snowplow.io/docs/testing-debugging/snowplow-inspector/adding-schemas/)
+More information and detailed list of schema override steps under [Snowplow Inspector Adding Schemas](https://docs.snowplow.io/docs/testing-debugging/snowplow-inspector/adding-schemas/)
