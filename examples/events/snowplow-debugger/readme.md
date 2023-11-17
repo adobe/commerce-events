@@ -6,7 +6,7 @@ Intelligent Services data collection uses a third party platform (Snowplow) to v
 
 ![event flow](/examples/event_flow.png)
 
-The (Snowplow Debugger browser extension)[https://chromewebstore.google.com/detail/snowplow-inspector/maplkdomeamdlngconidoefjpogkmljm?pli=1] is a helpful tool to validate/fix schemas during event instrumentation.
+The [Snowplow Debugger browser extension](https://chromewebstore.google.com/detail/snowplow-inspector/maplkdomeamdlngconidoefjpogkmljm?pli=1) is a helpful tool to validate/fix schemas during event instrumentation.
 
 ### Troubleshooting and overriding schemas
 
