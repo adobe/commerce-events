@@ -1,0 +1,209 @@
+{
+    "description": "Schema for Search Results Entity",
+    "properties": {
+      "searchUnitId": {
+        "type": "string"
+      },
+      "searchRequestId": {
+        "type": "string"
+      },
+      "rankingType": {
+        "type": "string"
+      },
+      "trendingWindow": {
+        "type": "string"
+      },
+      "executionTime": {
+        "type": "number"
+      },
+      "products": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "description": "Schema for Product Search Result Entity",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "rank": {
+              "type": "number"
+            },
+            "sku": {
+              "type": "string"
+            },
+            "imageUrl": {
+              "type": "string"
+            },
+            "price": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false,
+          "type": "object",
+          "required": [
+            "name",
+            "url",
+            "rank",
+            "sku",
+            "imageUrl"
+          ],
+          "self": {
+            "vendor": "com.adobe.magento.entity",
+            "name": "search-result-product",
+            "format": "jsonschema",
+            "version": "1-0-1"
+          },
+          "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
+        }
+      },
+      "suggestions": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "description": "Schema for Suggestion Search Results ",
+          "properties": {
+            "suggestion": {
+              "type": "string"
+            },
+            "rank": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false,
+          "type": "object",
+          "required": [
+            "suggestion",
+            "rank"
+          ],
+          "self": {
+            "vendor": "com.adobe.magento.entity",
+            "name": "search-result-suggestion",
+            "format": "jsonschema",
+            "version": "1-0-0"
+          },
+          "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
+        }
+      },
+      "categories": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "description": "Schema for Category Search Results",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "rank": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false,
+          "type": "object",
+          "required": [
+            "name",
+            "url",
+            "rank"
+          ],
+          "self": {
+            "vendor": "com.adobe.magento.entity",
+            "name": "search-result-category",
+            "format": "jsonschema",
+            "version": "1-0-1"
+          },
+          "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
+        }
+      },
+      "page": {
+        "type": "number"
+      },
+      "perPage": {
+        "type": "number"
+      },
+      "productCount": {
+        "type": "number"
+      },
+      "categoryCount": {
+        "type": "number"
+      },
+      "suggestionCount": {
+        "type": "number"
+      },
+      "facets": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "properties": {
+            "attribute": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "buckets": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "additionalProperties": true,
+                "required": [
+                  "title"
+                ]
+              }
+            }
+          },
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "attribute",
+            "title",
+            "type",
+            "buckets"
+          ]
+        }
+      }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+      "searchUnitId",
+      "searchRequestId",
+      "products",
+      "suggestions",
+      "categories",
+      "page",
+      "perPage",
+      "productCount",
+      "categoryCount",
+      "suggestionCount",
+      "facets"
+    ],
+    "self": {
+      "vendor": "com.adobe.magento.entity",
+      "name": "search-results",
+      "format": "jsonschema",
+      "version": "1-0-11"
+    },
+    "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
+  }
+  

@@ -1,0 +1,96 @@
+{
+    "description": "Schema for Magento storefront instance",
+    "properties": {
+      "environmentId": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "instanceId": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "environment": {
+        "type": "string",
+        "maxLength": 16
+      },
+      "storeUrl": {
+        "type": "string",
+        "maxLength": 2083
+      },
+      "websiteId": {
+        "type": "integer"
+      },
+      "websiteCode": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "storeId": {
+        "type": "integer"
+      },
+      "storeCode": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "storeViewId": {
+        "type": "integer"
+      },
+      "storeViewCode": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "websiteName": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "storeName": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "storeViewName": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "baseCurrencyCode": {
+        "type": "string",
+        "maxLength": 3
+      },
+      "storeViewCurrencyCode": {
+        "type": "string",
+        "maxLength": 3
+      },
+      "catalogExtensionVersion": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 16
+      },
+      "storefrontTemplate": {
+        "type": "string",
+        "maxLength": 256
+      }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+      "environmentId",
+      "environment",
+      "storeUrl",
+      "websiteId",
+      "storeId",
+      "storeViewId",
+      "websiteName",
+      "storeName",
+      "storeViewName",
+      "baseCurrencyCode",
+      "storeViewCurrencyCode"
+    ],
+    "self": {
+      "vendor": "com.adobe.magento.entity",
+      "name": "storefront-instance",
+      "format": "jsonschema",
+      "version": "3-0-1"
+    },
+    "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
+  }
+  

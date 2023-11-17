@@ -1,0 +1,175 @@
+{
+    "description": "Schema for Recommendations API Request events",
+    "properties": {
+      "instanceId": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 256
+      },
+      "environmentId": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 256
+      },
+      "alternateEnvironmentId": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "websiteCode": {
+        "type": "string"
+      },
+      "storeId": {
+        "type": "integer"
+      },
+      "storeCode": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "storeViewId": {
+        "type": "integer"
+      },
+      "storeViewCode": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "defaultStoreViewCode": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "cartSkus": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "string"
+        }
+      },
+      "userViewHistorySkus": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "string"
+        }
+      },
+      "userPurchaseHistorySkus": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": "string"
+        }
+      },
+      "currentSku": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "pageType": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "category": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "units": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "unitInstanceId": {
+              "type": "string"
+            },
+            "unitName": {
+              "type": "string"
+            },
+            "filterQueryString": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "offset": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "limit": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "randomizationWeight": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "randomizationSeed": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "rankerBlended": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "signal": {
+                    "type": "string"
+                  },
+                  "key": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "boost": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+      "websiteCode",
+      "storeCode",
+      "storeViewCode"
+    ],
+    "self": {
+      "vendor": "com.adobe.magento.entity",
+      "name": "recs-api-request",
+      "format": "jsonschema",
+      "version": "2-0-13"
+    },
+    "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
+  }
+  

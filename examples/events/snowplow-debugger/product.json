@@ -1,0 +1,177 @@
+{
+    "description": "Schema for product events",
+    "properties": {
+      "productId": {
+        "type": "integer"
+      },
+      "name": {
+        "maxLength": 256
+      },
+      "sku": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "topLevelSku": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 256
+      },
+      "specialToDate": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 23
+      },
+      "specialFromDate": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 23
+      },
+      "newToDate": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 23
+      },
+      "newFromDate": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 23
+      },
+      "createdAt": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 23
+      },
+      "updatedAt": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 23
+      },
+      "manufacturer": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 256
+      },
+      "countryOfManufacture": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 256
+      },
+      "categories": {
+        "type": "array",
+        "items": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 256
+        }
+      },
+      "productType": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 256
+      },
+      "pricing": {
+        "type": "object",
+        "properties": {
+          "regularPrice": {
+            "type": "number"
+          },
+          "minimalPrice": {
+            "type": "number"
+          },
+          "maximalPrice": {
+            "type": "number"
+          },
+          "specialPrice": {
+            "type": "number"
+          },
+          "tierPricing": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "customerGroupId": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "qty": {
+                  "type": "number"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "customerGroupId",
+                "qty",
+                "value"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "currencyCode": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 3
+          }
+        },
+        "required": [
+          "regularPrice",
+          "currencyCode"
+        ],
+        "additionalProperties": false
+      },
+      "canonicalUrl": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 2083
+      },
+      "mainImageUrl": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 2083
+      }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+      "name",
+      "sku"
+    ],
+    "self": {
+      "vendor": "com.adobe.magento.entity",
+      "name": "product",
+      "format": "jsonschema",
+      "version": "2-0-5"
+    },
+    "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
+  }

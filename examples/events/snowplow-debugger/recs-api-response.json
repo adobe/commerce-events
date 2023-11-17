@@ -1,0 +1,44 @@
+{
+    "description": "Schema for Recommendations API Response events",
+    "properties": {
+      "totalResults": {
+        "type": "integer"
+      },
+      "results": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "unitId": {
+              "type": "string"
+            },
+            "unitName": {
+              "type": "string"
+            },
+            "totalProducts": {
+              "type": "integer"
+            },
+            "primaryProducts": {
+              "type": "integer"
+            },
+            "backupProducts": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+      "totalResults"
+    ],
+    "self": {
+      "vendor": "com.adobe.magento.entity",
+      "name": "recs-api-response",
+      "format": "jsonschema",
+      "version": "1-0-3"
+    },
+    "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
+  }
+  

@@ -1,0 +1,70 @@
+{
+    "description": "Schema for recommendation unit events",
+    "properties": {
+      "name": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "unitId": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "itemsCount": {
+        "type": "integer"
+      },
+      "backupsCount": {
+        "type": "integer"
+      },
+      "configType": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "source": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "recType": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "placement": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 256
+      },
+      "yOffsetTop": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "yOffsetBottom": {
+        "type": [
+          "number",
+          "null"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+      "name",
+      "unitId",
+      "itemsCount",
+      "backupsCount",
+      "configType",
+      "source",
+      "recType",
+      "placement"
+    ],
+    "self": {
+      "vendor": "com.adobe.magento.entity",
+      "name": "recommendation-unit",
+      "format": "jsonschema",
+      "version": "1-0-4"
+    },
+    "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
+  }
+  
