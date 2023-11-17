@@ -10,7 +10,7 @@ The (Snowplow Debugger browser extension)[https://chromewebstore.google.com/deta
 
 ### Troubleshooting and overriding schemas
 
-Occassionaly a schema in the debugger will show up as `Unrecognized`. That is due to data collection schemas being out of sync with what's in the Snowplow registry. To work around this issue you override the schemas in your browser. 
+Occassionaly a schema in the debugger will show up as `Unrecognized`. That is due to data collection schemas being out of sync with what's in the Snowplow registry. To work around this issue you override the schemas in your browser.
 
 Instructions on overriding schema:
 

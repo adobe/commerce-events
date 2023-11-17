@@ -83,4 +83,3 @@ Recs Item Click example
 [Debugging dashboards and Intelligent Services](./snowplow-debugger/README.md)
 
 [Debugging AEP events](./aep-debugger/README.md)
-
