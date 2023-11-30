@@ -54,6 +54,10 @@ OR
 | CTR              | [`page-view`](./page-view.md),[`recs-request-sent`](./recs-request-sent.md), [`recs-response-received`](./recs-response-received.md), [`recs-unit-render`](./recs-unit-render.md), [`recs-item-click`](./recs-item-click.md), [`recs-add-to-cart-click`](./recs-item-add-to-cart.md)                                          | unitId, sku |
 | vCTR             | [`page-view`](./page-view.md),[`recs-request-sent`](./recs-request-sent.md), [`recs-response-received`](./recs-response-received.md), [`recs-unit-render`](./recs-unit-render.md), [`recs-unit-view`](./recs-unit-view.md), [`recs-item-click`](./recs-item-click.md), [`recs-add-to-cart-click`](./recs-item-add-to-cart.md) | unitId, sku |
 
+#### Other use cases and applications
+
+
+
 ### Required contexts
 
 **All events**

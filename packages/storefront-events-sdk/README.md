@@ -105,13 +105,13 @@ Required contexts per event under [examples/events/](../../examples/events/).
 
 ### Publish
 
-Pre-defined publishable events listed in the [PublishManager](./src/PublishManager.ts). Any event that's not part of the `PublishManager` should be handled as a custom event.
+Pre-defined publishable events are listed in the [PublishManager](./src/PublishManager.ts). Any event that is not part of the `PublishManager` should be handled as a custom event.
 
-A list of examples on publishing each event is available under [examples](../../examples/).
+A list of examples on publishing events is available under [examples](../../examples/).
 
 ### Subscribe
 
-Supported subscibe events are defined in the [SubscribeManager](./src/SubscribeManager.ts). Any event that's not part of the `SubscribeManager` should be handled as a custom event.
+Supported `subscibe` events are defined in the [SubscribeManager](./src/SubscribeManager.ts). Any event that is not part of the `SubscribeManager` should be handled as a custom event.
 
 Note that a large number of custom events with different schemas is an anti-pattern (most events you need should be supported by `SubscribeManager`). If there are standard events you believe should be supported by `SubscribeManager`, please submit an [issue](https://github.com/adobe/commerce-events/issues).
 
@@ -119,7 +119,7 @@ Note that it is rare for an application utilizing the SDK to have to subscribe t
 
 ### Unsubscribe
 
-Supported unsubscibe events are defined in the [UnubscribeManager](./src/UnsubscribeManager.ts).
+Supported `unsubscibe` events are defined in the [UnubscribeManager](./src/UnsubscribeManager.ts).
 
 As noted above, it is rare for an SDK and Collector user to have to call these functions directly.
 
