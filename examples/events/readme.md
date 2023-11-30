@@ -56,6 +56,12 @@ OR
 
 #### Other use cases and applications
 
+A number of Adobe Commerce products utilizing commerce event collection send data additional data that is used for Product Analytics and other internal tracking.
+
+##### Tracking storefront templates
+
+Set [strorefront context](./example-contexts/mock-storefront-context.md) to the [storefront template](../../packages/storefront-events-sdk/src/types/schemas/storefrontInstance.ts) for your store. If your storefront is not yet defined in the Commerce Events schema, you can request for it to be added following the contribution guildelines [here](../../CONTRIBUTING.md).
+
 
 
 ### Required contexts
