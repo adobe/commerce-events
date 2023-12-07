@@ -13,6 +13,7 @@ export type Commerce = {
     productViews?: ProductView;
     requisitionList?: RequisitionList;
     requisitionListOpens?: RequisitionListOpens;
+    requisitionListDeletes?: RequisitionListDeletes;
     requisitionListAdds?: RequisitionListAdds;
     requisitionListRemovals?: RequisitionListRemovals;
     shipping?: Shipping;
@@ -103,6 +104,14 @@ export type RequisitionList = {
  * Creation of a new requisition list
  */
 export type RequisitionListOpens = {
+    id?: string;
+    value: number;
+};
+
+/**
+ * Delete existed requisition list
+ */
+export type RequisitionListDeletes = {
     id?: string;
     value: number;
 };

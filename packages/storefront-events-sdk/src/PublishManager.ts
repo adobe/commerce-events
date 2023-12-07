@@ -27,6 +27,10 @@ export default class PublishManager extends Base {
         this.pushEvent(events.CREATE_REQUISITION_LIST, { customContext: context });
     }
 
+    deleteRequisitionList(context?: CustomContext): void {
+        this.pushEvent(events.DELETE_REQUISITION_LIST, { customContext: context });
+    }
+
     custom(context?: CustomContext): void {
         this.pushEvent(events.CUSTOM, { customContext: context });
     }

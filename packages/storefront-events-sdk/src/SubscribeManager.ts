@@ -19,6 +19,10 @@ export default class SubscribeManager extends Base {
         this.addEventListener(events.CREATE_REQUISITION_LIST, handler, options);
     }
 
+    deleteRequisitionList(handler: EventHandler, options?: ListenerOptions): void {
+        this.addEventListener(events.DELETE_REQUISITION_LIST, handler, options);
+    }
+
     custom(handler: EventHandler, options?: ListenerOptions): void {
         this.addEventListener(events.CUSTOM, handler, options);
     }
