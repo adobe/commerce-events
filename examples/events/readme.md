@@ -56,7 +56,7 @@ OR
 
 #### Other use cases and applications
 
-A number of Adobe Commerce products utilizing commerce event collection send data additional data that is used for Product Analytics and other internal tracking.
+A number of Adobe Commerce products utilizing commerce event collection send data additional data that is used for [Adobe Product Analytics](https://business.adobe.com/products/product-analytics/adobe-product-analytics.html) and other internal tracking.
 
 ##### Tracking storefront templates
 
