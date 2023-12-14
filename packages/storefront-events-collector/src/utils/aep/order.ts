@@ -35,7 +35,7 @@ const createOrder = (
             return {
                 paymentAmount: Number(payment.total || 0),
                 paymentType: getAepPaymentCode(payment.paymentMethodCode),
-                transactionID: payment.orderId ? String(payment.orderId) : String(orderContext?.orderId),
+                transactionID: payment?.orderId ? String(payment.orderId) : String(orderContext?.orderId),
                 currencyCode: storefrontInstanceContext?.storeViewCurrencyCode,
             };
         });
