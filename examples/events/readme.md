@@ -54,6 +54,16 @@ OR
 | CTR              | [`page-view`](./page-view.md),[`recs-request-sent`](./recs-request-sent.md), [`recs-response-received`](./recs-response-received.md), [`recs-unit-render`](./recs-unit-render.md), [`recs-item-click`](./recs-item-click.md), [`recs-add-to-cart-click`](./recs-item-add-to-cart.md)                                          | unitId, sku |
 | vCTR             | [`page-view`](./page-view.md),[`recs-request-sent`](./recs-request-sent.md), [`recs-response-received`](./recs-response-received.md), [`recs-unit-render`](./recs-unit-render.md), [`recs-unit-view`](./recs-unit-view.md), [`recs-item-click`](./recs-item-click.md), [`recs-add-to-cart-click`](./recs-item-add-to-cart.md) | unitId, sku |
 
+#### Other use cases and applications
+
+A number of Adobe Commerce products utilizing commerce event collection send data additional data that is used for [Adobe Product Analytics](https://business.adobe.com/products/product-analytics/adobe-product-analytics.html) and other internal tracking.
+
+##### Tracking storefront templates
+
+Set [strorefront context](./example-contexts/mock-storefront-context.md) to the [storefront template](../../packages/storefront-events-sdk/src/types/schemas/storefrontInstance.ts) for your store. If your storefront is not yet defined in the Commerce Events schema, follow the contribution guildelines [here](../../CONTRIBUTING.md) to have it added.
+
+
+
 ### Required contexts
 
 **All events**
