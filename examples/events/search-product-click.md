@@ -38,5 +38,5 @@ const mse = window.magentoStorefrontEvents;
 /* set before firing event */
 mse.context.setSearchResults(searchResultsCtx);
 
-mse.publish.searchProductClick("search-bar", { productId });
+mse.publish.searchProductClick("search-bar", "sku123");
 ```
