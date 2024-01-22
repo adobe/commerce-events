@@ -3,6 +3,7 @@ export * from "./aep";
 export * from "./address";
 export * from "./category";
 export * from "./changedProducts";
+export * from "./channel";
 export * from "./customUrl";
 export * from "./debug";
 export * from "./eventForwarding";

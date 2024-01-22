@@ -5,6 +5,7 @@ import {
     AEP,
     Category,
     ChangedProducts,
+    Channel,
     CustomUrl,
     Debug,
     EventForwarding,
@@ -59,6 +60,14 @@ export default class ContextManager extends Base {
 
     setCategory(context: Category): void {
         this.setContext<Category>(contexts.CATEGORY_CONTEXT, context);
+    }
+
+    getChannel(): Channel {
+        return this.getContext<Channel>(contexts.CHANNEL_CONTEXT);
+    }
+
+    setChannel(context: Channel): void {
+        this.setContext<Channel>(contexts.CHANNEL_CONTEXT, context);
     }
 
     getDebug(): Debug {

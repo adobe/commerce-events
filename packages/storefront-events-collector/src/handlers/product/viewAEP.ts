@@ -8,7 +8,7 @@ import { createCommerceScope } from "../../utils/aep/commerceScope";
 const XDM_EVENT_TYPE = "commerce.productViews";
 
 const aepHandler = async (event: Event): Promise<void> => {
-    const { productContext, debugContext, customContext, storefrontInstanceContext } = event.eventInfo;
+    const { productContext, debugContext, customContext, storefrontInstanceContext, channelContext } = event.eventInfo;
 
     let payload: BeaconSchema = {};
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
@@ -34,6 +34,7 @@ const aepHandler = async (event: Event): Promise<void> => {
     payload.productListItems = [productListItem];
 
     payload.commerce = payload.commerce || {};
+    payload.commerce.channel = payload.commerce.channel || channelContext?.type;
 
     payload.commerce.productViews = {
         value: 1,
