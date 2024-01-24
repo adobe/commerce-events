@@ -23,7 +23,7 @@ const aepHandler = async (event: Event): Promise<void> => {
 
     payload._id = debugContext?.eventId;
     payload.eventType = XDM_EVENT_TYPE;
-    sendEvent(payload);
+    sendEvent(payload, event);
 };
 
 export default aepHandler;

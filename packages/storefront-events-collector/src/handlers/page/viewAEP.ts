@@ -7,7 +7,7 @@ import { BeaconSchema } from "../../types/aep";
 const XDM_EVENT_TYPE = "web.webpagedetails.pageViews";
 
 const aepHandler = async (event: Event): Promise<void> => {
-    const { pageContext, debugContext, customContext, channelContext } = event.eventInfo;
+    const { pageContext, debugContext, customContext } = event.eventInfo;
 
     let payload: BeaconSchema = {};
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
@@ -30,10 +30,7 @@ const aepHandler = async (event: Event): Promise<void> => {
     payload._id = debugContext?.eventId;
     payload.eventType = XDM_EVENT_TYPE;
 
-    payload.commerce = payload.commerce || {};
-    payload.commerce.channel = payload.commerce.channel || channelContext?.type;
-
-    const response = await sendEvent(payload);
+    const response = await sendEvent(payload, event);
 
     // TODO: make sure context is set to use segments
     const userSegmentIds = getSegmentIds(response?.destinations);
