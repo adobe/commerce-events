@@ -2,6 +2,7 @@ import { CustomUrl } from "../src/types/schemas/customUrl";
 import {
     AEP,
     Category,
+    Channel,
     Debug,
     EventForwarding,
     MagentoExtension,
@@ -38,6 +39,11 @@ export const generateDebugContext = (overrides?: Partial<Debug>): Debug => ({
 export const generateAEPContext = (overrides?: Partial<AEP>): AEP => ({
     imsOrgId: "1234@AdobeOrg",
     datastreamId: "1234:dev",
+    ...overrides,
+});
+
+export const generateChannelContext = (overrides?: Partial<Channel>): Channel => ({
+    type: "test.web",
     ...overrides,
 });
 

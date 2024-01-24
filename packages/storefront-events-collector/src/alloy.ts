@@ -4,6 +4,7 @@ import createContext from "./contexts/aep";
 import { BeaconSchema, IdentityMap } from "./types/aep";
 import { AlloySendEventResponse } from "./types/aep/segments";
 import { AEPContext } from "./types/contexts";
+import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/events";
 
 let alloyInstance: AlloyInstance;
 
@@ -49,8 +50,10 @@ const setExistingAlloy = async (name: string) => {
 /**
  * sends event payload that matches the BeaconSchema that's been defined
  */
-const sendEvent = async (schema: BeaconSchema): Promise<AlloySendEventResponse | undefined> => {
+const sendEvent = async (schema: BeaconSchema, event: Event): Promise<AlloySendEventResponse | undefined> => {
     try {
+        const { channelContext }  = event.eventInfo;
+
         // attach identity field
         const result: AlloyIndentity = (await alloyInstance("getIdentity")) as AlloyIndentity;
 
@@ -64,6 +67,9 @@ const sendEvent = async (schema: BeaconSchema): Promise<AlloySendEventResponse |
                 },
             ],
         };
+
+        schema.commerce = schema.commerce || {};
+        schema.commerce.channel = schema.commerce.channel || channelContext?.type;
 
         if (schema.personalEmail?.address) {
             identityMap.email = [

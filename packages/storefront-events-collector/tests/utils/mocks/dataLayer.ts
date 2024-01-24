@@ -3,6 +3,7 @@ import {
     Account,
     ChangedProducts,
     Category,
+    Channel,
     CustomUrl,
     DataServicesExtension,
     MagentoExtension,
@@ -42,6 +43,10 @@ const mockCategory: Category = {
     name: "pants",
     urlKey: "pants",
     urlPath: "/categories/pants",
+};
+
+const mockChannel: Channel = {
+    type: "test.wev",
 };
 
 const mockExtension: MagentoExtension = {
@@ -466,6 +471,7 @@ const mockEvent: Event = {
         accountContext: mockAccount,
         categoryContext: mockCategory,
         changedProductsContext: mockChangedProducts,
+        channelContext: mockChannel,
         customContext: {},
         customUrlContext: mockCustomUrl,
         magentoExtensionContext: mockExtension,
@@ -494,6 +500,7 @@ export {
     mockAccount,
     mockCategory,
     mockChangedProducts,
+    mockChannel,
     mockDataServicesExtension,
     mockEvent,
     mockExperiencePlatformConnectorExtenion,

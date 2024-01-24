@@ -2,7 +2,7 @@ const contexts = {
     AEP_CONTEXT: "aepContext",
     ACCOUNT_CONTEXT: "accountContext",
     CHANGED_PRODUCTS_CONTEXT: "changedProductsContext",
-    CHANNEL_CONTEXT: "ChannelContext",
+    CHANNEL_CONTEXT: "channelContext",
     CATEGORY_CONTEXT: "categoryContext",
     CUSTOM_URL_CONTEXT: "customUrlContext",
     DATA_SERVICES_EXTENSION_CONTEXT: "dataServicesExtensionContext",
