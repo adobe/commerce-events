@@ -59,6 +59,7 @@ const mockShoppingCartCtx = {
     possibleOnepageCheckout: false,
     giftMessageSelected: false,
     giftWrappingSelected: false,
+    discountAmount: 0,
 };
 
 const mockChangedProductsCtx = {
