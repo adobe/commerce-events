@@ -23,7 +23,8 @@ const aepHandler = async (event: Event): Promise<void> => {
     payload.commerce.cart.cartID = payload.commerce.cart.cartID || shoppingCartContext?.id;
 
     payload.commerce.order = payload.commerce.order || {};
-    payload.commerce.order.discountAmount = payload.commerce.order.discountAmount || shoppingCartContext?.discountAmount;
+    payload.commerce.order.discountAmount =
+        payload.commerce.order.discountAmount || shoppingCartContext?.discountAmount;
 
     payload.productListItems = createProductListItems(
         payload.productListItems,

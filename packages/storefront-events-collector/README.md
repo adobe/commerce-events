@@ -100,10 +100,9 @@ The handlers forward events to two edges:
     B2B events
 
     `createRequisitionList`
-- 
-    `deleteRequisitionList`
-- 
-    `addToRequisitionList`
+
+-   `deleteRequisitionList`
+-   `addToRequisitionList`
 
     `removeFromRequisitionList`
 
