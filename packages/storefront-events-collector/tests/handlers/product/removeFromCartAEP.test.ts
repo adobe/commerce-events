@@ -13,7 +13,6 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
 
     expect(sendEvent).toHaveBeenCalledWith({
         commerce: {
-            commerceChannel: "test.web",
             commerceScope: {
                 environmentID: "aaaaaa",
                 storeCode: "magento",
@@ -51,5 +50,5 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
         ],
         _id: undefined,
         eventType: "commerce.productListRemovals",
-    });
+    }, mockEvent);
 });

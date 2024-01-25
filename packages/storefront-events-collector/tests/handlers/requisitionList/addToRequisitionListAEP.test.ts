@@ -13,7 +13,6 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
 
     expect(sendEvent).toHaveBeenCalledWith({
         commerce: {
-            commerceChannel: "test.web",
             requisitionListAdds: {
                 value: 1,
             },
@@ -57,5 +56,5 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
         },
         _id: undefined,
         eventType: "commerce.requisitionListAdds",
-    });
+    }, mockEvent);
 });
