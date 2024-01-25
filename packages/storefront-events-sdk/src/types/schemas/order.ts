@@ -14,6 +14,7 @@ export type Order = {
     shipping?: Shipping;
     subtotalExcludingTax: number;
     subtotalIncludingTax: number;
+    discountAmount?: number;
 };
 
 export type Payment = {

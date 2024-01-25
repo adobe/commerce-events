@@ -46,6 +46,7 @@ const createContext = (shoppingCart?: ShoppingCart): ShoppingCartContext | null 
             subtotalIncludingTax: shoppingCartCtx.prices?.subtotalIncludingTax?.value || 0,
             giftMessageSelected: shoppingCartCtx.giftMessageSelected,
             giftWrappingSelected: shoppingCartCtx.giftWrappingSelected,
+            discountAmount: shoppingCartCtx.discountAmount || 0,
         },
     };
 
