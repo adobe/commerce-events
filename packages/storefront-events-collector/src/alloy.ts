@@ -52,7 +52,7 @@ const setExistingAlloy = async (name: string) => {
  */
 const sendEvent = async (schema: BeaconSchema, event: Event): Promise<AlloySendEventResponse | undefined> => {
     try {
-        const { channelContext }  = event.eventInfo;
+        const { channelContext } = event.eventInfo;
 
         // attach identity field
         const result: AlloyIndentity = (await alloyInstance("getIdentity")) as AlloyIndentity;
