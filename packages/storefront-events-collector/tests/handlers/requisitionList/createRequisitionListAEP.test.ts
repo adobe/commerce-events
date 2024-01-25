@@ -11,27 +11,30 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
 
     expect(sendEvent).toHaveBeenCalledTimes(1);
 
-    expect(sendEvent).toHaveBeenCalledWith({
-        commerce: {
-            requisitionListOpens: {
-                value: 1,
+    expect(sendEvent).toHaveBeenCalledWith(
+        {
+            commerce: {
+                requisitionListOpens: {
+                    value: 1,
+                },
+                requisitionList: {
+                    ID: "1",
+                    name: "Req List 1",
+                    description: "This is req list 1",
+                },
+                commerceScope: {
+                    environmentID: "aaaaaa",
+                    storeCode: "magento",
+                    storeViewCode: "default",
+                    websiteCode: "website",
+                },
             },
-            requisitionList: {
-                ID: "1",
-                name: "Req List 1",
-                description: "This is req list 1",
+            personalEmail: {
+                address: "beacon3@commerce.com",
             },
-            commerceScope: {
-                environmentID: "aaaaaa",
-                storeCode: "magento",
-                storeViewCode: "default",
-                websiteCode: "website",
-            },
+            _id: undefined,
+            eventType: "commerce.requisitionListOpens",
         },
-        personalEmail: {
-            address: "beacon3@commerce.com",
-        },
-        _id: undefined,
-        eventType: "commerce.requisitionListOpens",
-    }, mockEvent);
+        mockEvent,
+    );
 });
