@@ -27,4 +27,5 @@ export type Product = {
     };
     canonicalUrl?: string | null;
     mainImageUrl?: string | null;
+    discountAmount?: number;
 };

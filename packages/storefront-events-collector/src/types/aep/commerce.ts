@@ -39,12 +39,13 @@ export type Purchases = {
 };
 
 export type Order = {
-    purchaseID: string;
+    purchaseID?: string;
     purchaseOrderNumber?: string;
-    payments: Payment[];
+    payments?: Payment[];
     priceTotal?: number;
     currencyCode?: string;
     orderType?: "checkout" | "instant_purchase";
+    discountAmount?: number;
 };
 
 export type Shipping = {

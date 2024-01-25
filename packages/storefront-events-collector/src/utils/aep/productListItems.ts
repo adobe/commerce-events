@@ -65,7 +65,7 @@ const createProductListItems = (
                 currencyCode:
                     productListItemFromCustomContext?.currencyCode ||
                     (item.prices?.price?.currency ?? storefrontContext.storeViewCurrencyCode),
-                discountAmount: productListItemFromCustomContext?.discountAmount || getDiscountAmount(item.product),
+                discountAmount: productListItemFromCustomContext?.discountAmount || item.product?.discountAmount,
                 selectedOptions: productListItemFromCustomContext?.selectedOptions || selectedOptions,
             };
 
