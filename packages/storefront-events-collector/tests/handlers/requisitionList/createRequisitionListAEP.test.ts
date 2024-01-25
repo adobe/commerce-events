@@ -13,7 +13,7 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
 
     expect(sendEvent).toHaveBeenCalledWith({
         commerce: {
-            channel: "test.web",
+            commerceChannel: "test.web",
             requisitionListOpens: {
                 value: 1,
             },

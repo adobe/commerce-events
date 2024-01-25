@@ -5,7 +5,7 @@ export type Commerce = {
     productListRemovals?: ProductListRemovals;
     productListViews?: ProductListViews;
     cart?: Cart;
-    channel?: string;
+    commerceChannel?: string;
     checkouts?: Checkout;
     commerceScope?: CommerceScope;
     purchases?: Purchases;
