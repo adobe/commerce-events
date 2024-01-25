@@ -31,7 +31,6 @@ export type ShoppingCartItem = {
     product: Product;
     configurableOptions?: Array<ConfigurableOption>;
     quantity: number;
-    discountAmount: number;
 };
 
 export type ConfigurableOption = {

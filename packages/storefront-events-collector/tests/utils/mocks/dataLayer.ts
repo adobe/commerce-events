@@ -129,6 +129,7 @@ const mockProduct: Product = {
     },
     canonicalUrl: "https://magento.com/tshirt",
     mainImageUrl: "https://magento.com/tshirt.jpg",
+    discountAmount: 0,
 };
 
 const mockRecommendations: Recommendations = {
@@ -276,6 +277,7 @@ const mockShoppingCart: ShoppingCart = {
                     maximalPrice: 20.0,
                     currencyCode: "USD",
                 },
+                discountAmount: 0,
             },
             configurableOptions: [],
             quantity: 1,
@@ -300,6 +302,7 @@ const mockShoppingCart: ShoppingCart = {
                     maximalPrice: 50.0,
                     currencyCode: "USD",
                 },
+                discountAmount: 0,
             },
             configurableOptions: [],
             quantity: 1,
