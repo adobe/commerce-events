@@ -68,8 +68,7 @@ const sendEvent = async (schema: BeaconSchema, event: Event): Promise<AlloySendE
             ],
         };
 
-        schema.commerce = schema.commerce || {};
-        schema.commerce.commerceChannel = schema.commerce.commerceChannel || channelContext?.type;
+        schema.channel = schema.channel || channelContext?.type;
 
         if (schema.personalEmail?.address) {
             identityMap.email = [

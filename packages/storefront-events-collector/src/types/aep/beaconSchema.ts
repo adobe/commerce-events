@@ -6,6 +6,7 @@ import { ProductListItem } from "./productListItem";
 export type BeaconSchema = {
     _id?: string;
     eventType?: string;
+    channel?: string;
     commerce?: Commerce;
     identityMap?: IdentityMap;
     productListItems?: ProductListItem[];
