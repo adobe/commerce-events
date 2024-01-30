@@ -46,7 +46,8 @@ const mockCategory: Category = {
 };
 
 const mockChannel: Channel = {
-    type: "test.wev",
+    _id: "https://ns.adobe.com/xdm/channels/web",
+    _type: "https://ns.adobe.com/xdm/channel-types/web",
 };
 
 const mockExtension: MagentoExtension = {

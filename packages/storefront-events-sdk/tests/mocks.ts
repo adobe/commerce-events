@@ -43,7 +43,8 @@ export const generateAEPContext = (overrides?: Partial<AEP>): AEP => ({
 });
 
 export const generateChannelContext = (overrides?: Partial<Channel>): Channel => ({
-    type: "test.web",
+    _id: "https://ns.adobe.com/xdm/channels/web",
+    _type: "https://ns.adobe.com/xdm/channel-types/web",
     ...overrides,
 });
 

@@ -1,3 +1,4 @@
+import { Channel } from "./channel";
 import { Commerce } from "./commerce";
 import { Web } from "./pageView";
 import { ProductListItem } from "./productListItem";
@@ -6,7 +7,7 @@ import { ProductListItem } from "./productListItem";
 export type BeaconSchema = {
     _id?: string;
     eventType?: string;
-    channel?: string;
+    channel?: Channel;
     commerce?: Commerce;
     identityMap?: IdentityMap;
     productListItems?: ProductListItem[];
