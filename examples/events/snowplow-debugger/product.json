@@ -9,7 +9,8 @@
       },
       "sku": {
         "type": "string",
-        "maxLength": 256
+        "maxLength": 256,
+        "minLength": 1
       },
       "topLevelSku": {
         "type": [
