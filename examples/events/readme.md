@@ -62,8 +62,6 @@ A number of Adobe Commerce products utilizing commerce event collection send dat
 
 Set [strorefront context](./example-contexts/mock-storefront-context.md) to the [storefront template](../../packages/storefront-events-sdk/src/types/schemas/storefrontInstance.ts) for your store. If your storefront is not yet defined in the Commerce Events schema, follow the contribution guildelines [here](../../CONTRIBUTING.md) to have it added.
 
-
-
 ### Required contexts
 
 **All events**
