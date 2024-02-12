@@ -11,44 +11,47 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
 
     expect(sendEvent).toHaveBeenCalledTimes(1);
 
-    expect(sendEvent).toHaveBeenCalledWith({
-        commerce: {
-            cart: {
-                cartID: "111111",
+    expect(sendEvent).toHaveBeenCalledWith(
+        {
+            commerce: {
+                cart: {
+                    cartID: "111111",
+                },
+                productListOpens: {
+                    value: 1,
+                },
+                commerceScope: {
+                    environmentID: "aaaaaa",
+                    storeCode: "magento",
+                    storeViewCode: "default",
+                    websiteCode: "website",
+                },
             },
-            productListOpens: {
-                value: 1,
-            },
-            commerceScope: {
-                environmentID: "aaaaaa",
-                storeCode: "magento",
-                storeViewCode: "default",
-                websiteCode: "website",
-            },
+            productListItems: [
+                {
+                    SKU: "aaaaaa",
+                    name: "T-Shirt",
+                    quantity: 1,
+                    priceTotal: 20,
+                    productImageUrl: undefined,
+                    currencyCode: "USD",
+                    discountAmount: 0,
+                    selectedOptions: [],
+                },
+                {
+                    SKU: "h001",
+                    name: "Hoodie",
+                    quantity: 1,
+                    priceTotal: 50,
+                    productImageUrl: undefined,
+                    currencyCode: "USD",
+                    discountAmount: 0,
+                    selectedOptions: [],
+                },
+            ],
+            _id: undefined,
+            eventType: "commerce.productListOpens",
         },
-        productListItems: [
-            {
-                SKU: "aaaaaa",
-                name: "T-Shirt",
-                quantity: 1,
-                priceTotal: 20,
-                productImageUrl: undefined,
-                currencyCode: "USD",
-                discountAmount: 0,
-                selectedOptions: [],
-            },
-            {
-                SKU: "h001",
-                name: "Hoodie",
-                quantity: 1,
-                priceTotal: 50,
-                productImageUrl: undefined,
-                currencyCode: "USD",
-                discountAmount: 0,
-                selectedOptions: [],
-            },
-        ],
-        _id: undefined,
-        eventType: "commerce.productListOpens",
-    });
+        mockEvent,
+    );
 });
