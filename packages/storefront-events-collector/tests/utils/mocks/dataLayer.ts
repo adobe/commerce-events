@@ -3,6 +3,7 @@ import {
     Account,
     ChangedProducts,
     Category,
+    Channel,
     CustomUrl,
     DataServicesExtension,
     MagentoExtension,
@@ -42,6 +43,11 @@ const mockCategory: Category = {
     name: "pants",
     urlKey: "pants",
     urlPath: "/categories/pants",
+};
+
+const mockChannel: Channel = {
+    _id: "https://ns.adobe.com/xdm/channels/web",
+    _type: "https://ns.adobe.com/xdm/channel-types/web",
 };
 
 const mockExtension: MagentoExtension = {
@@ -466,6 +472,7 @@ const mockEvent: Event = {
         accountContext: mockAccount,
         categoryContext: mockCategory,
         changedProductsContext: mockChangedProducts,
+        channelContext: mockChannel,
         customContext: {},
         customUrlContext: mockCustomUrl,
         magentoExtensionContext: mockExtension,
@@ -494,6 +501,7 @@ export {
     mockAccount,
     mockCategory,
     mockChangedProducts,
+    mockChannel,
     mockDataServicesExtension,
     mockEvent,
     mockExperiencePlatformConnectorExtenion,

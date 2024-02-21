@@ -21,6 +21,7 @@ export type Payment = {
     paymentMethodCode: string;
     paymentMethodName: string;
     total: number;
+    orderId?: string;
 };
 
 export type Shipping = {

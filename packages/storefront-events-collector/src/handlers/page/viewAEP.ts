@@ -30,7 +30,7 @@ const aepHandler = async (event: Event): Promise<void> => {
     payload._id = debugContext?.eventId;
     payload.eventType = XDM_EVENT_TYPE;
 
-    const response = await sendEvent(payload);
+    const response = await sendEvent(payload, event);
 
     // TODO: make sure context is set to use segments
     const userSegmentIds = getSegmentIds(response?.destinations);
