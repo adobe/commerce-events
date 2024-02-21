@@ -38,6 +38,7 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
                         },
                     ],
                     orderType: "checkout",
+                    discountAmount: 0,
                 },
                 promotionID: "",
                 shipping: { shippingMethod: "ground", shippingAmount: 5.99 },
