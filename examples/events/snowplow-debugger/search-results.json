@@ -217,7 +217,7 @@
       "vendor": "com.adobe.magento.entity",
       "name": "search-results",
       "format": "jsonschema",
-      "version": "1-0-12"
+      "version": "2-0-1"
     },
     "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
   }
