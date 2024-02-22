@@ -5,7 +5,9 @@
         "type": "integer"
       },
       "name": {
-        "maxLength": 256
+        "type": "string",
+        "maxLength": 256,
+        "minLength": 1
       },
       "sku": {
         "type": "string",
@@ -172,7 +174,7 @@
       "vendor": "com.adobe.magento.entity",
       "name": "product",
       "format": "jsonschema",
-      "version": "3-0-0"
+      "version": "2-0-7"
     },
     "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
   }

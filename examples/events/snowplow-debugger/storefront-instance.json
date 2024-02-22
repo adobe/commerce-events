@@ -3,7 +3,8 @@
     "properties": {
       "environmentId": {
         "type": "string",
-        "maxLength": 256
+        "maxLength": 256,
+        "minLength": 1
       },
       "instanceId": {
         "type": "string",
@@ -11,11 +12,13 @@
       },
       "environment": {
         "type": "string",
-        "maxLength": 16
+        "maxLength": 16,
+        "minLength": 1
       },
       "storeUrl": {
         "type": "string",
-        "maxLength": 2083
+        "maxLength": 2083,
+        "minLength": 1
       },
       "websiteId": {
         "type": "integer"
@@ -40,23 +43,28 @@
       },
       "websiteName": {
         "type": "string",
-        "maxLength": 256
+        "maxLength": 256,
+        "minLength": 1
       },
       "storeName": {
         "type": "string",
-        "maxLength": 256
+        "maxLength": 256,
+        "minLength": 1
       },
       "storeViewName": {
         "type": "string",
-        "maxLength": 256
+        "maxLength": 256,
+        "minLength": 1
       },
       "baseCurrencyCode": {
         "type": "string",
-        "maxLength": 3
+        "maxLength": 3,
+        "minLength": 1
       },
       "storeViewCurrencyCode": {
         "type": "string",
-        "maxLength": 3
+        "maxLength": 3,
+        "minLength": 1
       },
       "catalogExtensionVersion": {
         "type": [
@@ -89,8 +97,7 @@
       "vendor": "com.adobe.magento.entity",
       "name": "storefront-instance",
       "format": "jsonschema",
-      "version": "3-0-1"
+      "version": "3-0-2"
     },
     "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
   }
-  
