@@ -1,7 +1,7 @@
 import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/events";
 
 import { sendEvent } from "../../alloy";
-import { BeaconSchema } from "../../types/aep";
+import { BeaconSchema, Order } from "../../types/aep";
 import { createProductListItems } from "../../utils/aep/productListItems";
 import { createCommerceScope } from "../../utils/aep/commerceScope";
 
@@ -18,6 +18,9 @@ const aepHandler = async (event: Event): Promise<void> => {
     }
 
     payload.commerce = payload.commerce || {};
+
+    payload.commerce.order = payload.commerce.order || ({} as Order);
+    payload.commerce.order.discountAmount = shoppingCartContext?.discountAmount || 0;
 
     payload.commerce.cart = payload.commerce.cart || {};
     payload.commerce.cart.cartID = payload.commerce.cart.cartID || shoppingCartContext?.id;
