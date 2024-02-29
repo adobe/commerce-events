@@ -5,7 +5,7 @@ import { BeaconSchema } from "../../types/aep";
 
 const aepHandler = async (event: Event): Promise<void> => {
     const { customContext } = event.eventInfo;
-    sendEvent(customContext as BeaconSchema);
+    sendEvent(customContext as BeaconSchema, event);
 };
 
 export default aepHandler;

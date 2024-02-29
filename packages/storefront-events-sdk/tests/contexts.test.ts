@@ -3,6 +3,7 @@ import {
     generateAccountContext,
     generateAEPContext,
     generateCategoryContext,
+    generateChannelContext,
     generateCustomContext,
     generateCustomUrlContext,
     generateDebugContext,
@@ -52,6 +53,13 @@ describe("contexts", () => {
         expect(mdl.context.getAEP()).toBeUndefined();
         mdl.context.setAEP(context);
         expect(mdl.context.getAEP()).toEqual(context);
+    });
+
+    test("channel context", () => {
+        const context = generateChannelContext();
+        expect(mdl.context.getChannel()).toBeUndefined();
+        mdl.context.setChannel(context);
+        expect(mdl.context.getChannel()).toEqual(context);
     });
 
     test("category context", () => {

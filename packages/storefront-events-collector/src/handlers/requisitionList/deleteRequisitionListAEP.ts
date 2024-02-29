@@ -6,7 +6,7 @@ import { BeaconSchema } from "../../types/aep";
 import { createRequisitionList } from "../../utils/aep/requisitionList";
 import { createCommerceScope } from "../../utils/aep/commerceScope";
 
-const XDM_EVENT_TYPE = "commerce.requisitionListOpens";
+const XDM_EVENT_TYPE = "commerce.requisitionListDeletes";
 
 const handler = async (event: Event): Promise<void> => {
     const { accountContext, debugContext, requisitionListContext, customContext, storefrontInstanceContext } =
@@ -23,7 +23,7 @@ const handler = async (event: Event): Promise<void> => {
     payload.personalEmail = payload.personalEmail || {};
     payload.personalEmail.address = payload.personalEmail.address || accountContext?.emailAddress;
 
-    payload.commerce.requisitionListOpens = {
+    payload.commerce.requisitionListDeletes = {
         value: 1,
     };
 

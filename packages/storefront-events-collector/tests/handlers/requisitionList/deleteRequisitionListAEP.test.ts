@@ -1,20 +1,20 @@
 jest.mock("../../../src/alloy");
 import { sendEvent } from "../../../src/alloy";
-import { createRequisitionListHandlerAEP } from "../../../src/handlers";
+import { deleteRequisitionListHandlerAEP } from "../../../src/handlers";
 import { mockEvent } from "../../utils/mocks";
 
 const AEPevent = { ...mockEvent };
 delete AEPevent.eventInfo.customContext;
 
 test("correctly structures AEP event and calls alloy.sendEvent", () => {
-    createRequisitionListHandlerAEP(mockEvent);
+    deleteRequisitionListHandlerAEP(mockEvent);
 
     expect(sendEvent).toHaveBeenCalledTimes(1);
 
     expect(sendEvent).toHaveBeenCalledWith(
         {
             commerce: {
-                requisitionListOpens: {
+                requisitionListDeletes: {
                     value: 1,
                 },
                 requisitionList: {
@@ -33,7 +33,7 @@ test("correctly structures AEP event and calls alloy.sendEvent", () => {
                 address: "beacon3@commerce.com",
             },
             _id: undefined,
-            eventType: "commerce.requisitionListOpens",
+            eventType: "commerce.requisitionListDeletes",
         },
         mockEvent,
     );

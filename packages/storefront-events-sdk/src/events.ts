@@ -3,6 +3,7 @@ const events = {
     ADD_TO_REQUISITION_LIST: "add-to-requisition-list",
     CREATE_ACCOUNT: "create-account",
     CREATE_REQUISITION_LIST: "create-requisition-list",
+    DELETE_REQUISITION_LIST: "delete-requisition-list",
     CUSTOM: "commerce-custom",
     CUSTOM_URL: "custom-url",
     DATA_LAYER_CHANGE: "adobeDataLayer:change",

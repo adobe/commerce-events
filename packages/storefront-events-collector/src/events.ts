@@ -38,6 +38,7 @@ const subscribeToEvents = (sendToSnowplow: boolean, sendToAEP: boolean): void =>
             mse.subscribe.custom(handlers.customHandlerAEP);
             mse.subscribe.createAccount(handlers.createAccountHandlerAEP);
             mse.subscribe.createRequisitionList(handlers.createRequisitionListHandlerAEP);
+            mse.subscribe.deleteRequisitionList(handlers.deleteRequisitionListHandlerAEP);
             mse.subscribe.editAccount(handlers.editAccountHandlerAEP);
             mse.subscribe.initiateCheckout(handlers.initiateCheckoutHandlerAEP);
             mse.subscribe.openCart(handlers.openCartHandlerAEP);
@@ -95,6 +96,7 @@ const unsubscribeFromEvents = (sendToSnowplow: boolean, sendToAEP: boolean): voi
             mse.unsubscribe.addToRequisitionList(handlers.addToRequisitionListHandlerAEP);
             mse.unsubscribe.createAccount(handlers.createAccountHandlerAEP);
             mse.unsubscribe.createRequisitionList(handlers.createRequisitionListHandlerAEP);
+            mse.unsubscribe.deleteRequisitionList(handlers.deleteRequisitionListHandlerAEP);
             mse.unsubscribe.custom(handlers.customHandlerAEP);
             mse.unsubscribe.editAccount(handlers.editAccountHandlerAEP);
             mse.unsubscribe.initiateCheckout(handlers.initiateCheckoutHandlerAEP);
