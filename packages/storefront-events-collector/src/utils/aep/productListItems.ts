@@ -35,7 +35,7 @@ const createProductListItems = (
                 quantity: productListItemFromCustomContext?.quantity || Number(item.quantity),
                 priceTotal:
                     productListItemFromCustomContext?.priceTotal ||
-                    Number(((Number(item.pricing?.regularPrice) || 0) * Number(item.quantity)).toFixed(2)),
+                    formatPrice(((Number(item.pricing?.regularPrice) || 0) * Number(item.quantity))),
                 currencyCode:
                     productListItemFromCustomContext?.currencyCode ||
                     (item.pricing?.currencyCode ?? storefrontContext.storeViewCurrencyCode),
@@ -61,7 +61,7 @@ const createProductListItems = (
                 quantity: productListItemFromCustomContext?.quantity || item.quantity,
                 priceTotal:
                     productListItemFromCustomContext?.priceTotal ||
-                    Number((item.prices?.price?.value * item.quantity).toFixed(2)) ||
+                    formatPrice((item.prices?.price?.value * item.quantity)) ||
                     0,
                 productImageUrl: productListItemFromCustomContext?.productImageUrl || item.product.mainImageUrl,
                 currencyCode:
@@ -75,6 +75,10 @@ const createProductListItems = (
         });
     }
     return returnList;
+};
+
+const formatPrice = (value: number) => {
+    return Number(value.toFixed(2));
 };
 
 export { createProductListItems };
