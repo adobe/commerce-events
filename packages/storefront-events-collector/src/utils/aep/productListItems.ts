@@ -35,7 +35,7 @@ const createProductListItems = (
                 quantity: productListItemFromCustomContext?.quantity || Number(item.quantity),
                 priceTotal:
                     productListItemFromCustomContext?.priceTotal ||
-                    formatPrice(((Number(item.pricing?.regularPrice) || 0) * Number(item.quantity))),
+                    formatPrice((Number(item.pricing?.regularPrice) || 0) * Number(item.quantity)),
                 currencyCode:
                     productListItemFromCustomContext?.currencyCode ||
                     (item.pricing?.currencyCode ?? storefrontContext.storeViewCurrencyCode),
@@ -61,7 +61,7 @@ const createProductListItems = (
                 quantity: productListItemFromCustomContext?.quantity || item.quantity,
                 priceTotal:
                     productListItemFromCustomContext?.priceTotal ||
-                    formatPrice((item.prices?.price?.value * item.quantity)) ||
+                    formatPrice(item.prices?.price?.value * item.quantity) ||
                     0,
                 productImageUrl: productListItemFromCustomContext?.productImageUrl || item.product.mainImageUrl,
                 currencyCode:
