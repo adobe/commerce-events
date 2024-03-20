@@ -79,43 +79,60 @@ The handlers forward events to two edges:
 
     Required contexts:
 
-    -   `StorefrontInstance`
+    `StorefrontInstance`
 
     Events not forwarded to Adobe Commerce:
 
-    -   `createAccount`
-    -   `editAccount`
-    -   `openCart`
-    -   `removeFromCart`
-    -   `signIn`
-    -   `signOut`
-    -   `custom`
+    `createAccount`
 
-    B2B events:
+    `editAccount`
 
-    -   `createRequisitionList`
-    -   `deleteRequisitionList`
-    -   `addToRequisitionList`
-    -   `removeFromRequisitionList`
+    `openCart`
+
+    `removeFromCart`
+
+    `signIn`
+
+    `signOut`
+
+    `custom`
+
+    B2B events
+
+    `createRequisitionList`
+
+-   `deleteRequisitionList`
+-   `addToRequisitionList`
+
+    `removeFromRequisitionList`
 
 -   [Adobe Experience Platform (AEP)](https://business.adobe.com/products/experience-platform/adobe-experience-platform.html) (requires a subscription and additional merchant [setup](https://experienceleague.adobe.com/docs/experience-platform/edge/fundamentals/datastreams.html?lang=en); data can be used by merchants inside the Adobe Experience Platform for detailed analytics, targeted merchandising, real time customer data profiles, and more)
 
     Required contexts:
 
-    -   `AEP`
-    -   `EventForwarding.aep: true`
+    `AEP`
+
+    `EventForwarding.aep: true`
 
     Events not forwarded to AEP Edge:
 
-    -   `recsItemAddToCartClick`
-    -   `recsItemClick`
-    -   `recsRequestSent`
-    -   `searchResponseReceived`
-    -   `searchCategoryClick`
-    -   `searchProductClick`
-    -   `searchResultsView`
-    -   `categoryResultsView`
-    -   `searchSuggestionClick`
+    `recsItemAddToCartClick`
+
+    `recsItemClick`
+
+    `recsRequestSent`
+
+    `searchResponseReceived`
+
+    `searchCategoryClick`
+
+    `searchProductClick`
+
+    `searchResultsView`
+
+    `categoryResultsView`
+
+    `searchSuggestionClick`
 
 ### Turning off collection per edge
 

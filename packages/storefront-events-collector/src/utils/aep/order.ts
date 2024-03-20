@@ -59,7 +59,6 @@ const createOrder = (
         currencyCode: orderFromCustomContext?.currencyCode || storefrontInstanceContext?.storeViewCurrencyCode,
         payments,
         orderType,
-        discountAmount: orderContext?.discountAmount,
     };
 };
 

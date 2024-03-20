@@ -35,7 +35,7 @@ const createProductListItems = (
                 quantity: productListItemFromCustomContext?.quantity || Number(item.quantity),
                 priceTotal:
                     productListItemFromCustomContext?.priceTotal ||
-                    formatPrice((Number(item.pricing?.regularPrice) || 0) * Number(item.quantity)),
+                    (Number(item.pricing?.regularPrice) || 0) * Number(item.quantity),
                 currencyCode:
                     productListItemFromCustomContext?.currencyCode ||
                     (item.pricing?.currencyCode ?? storefrontContext.storeViewCurrencyCode),
@@ -60,17 +60,12 @@ const createProductListItems = (
                 name: productListItemFromCustomContext?.name || item.product?.name,
                 quantity: productListItemFromCustomContext?.quantity || item.quantity,
                 priceTotal:
-                    productListItemFromCustomContext?.priceTotal ||
-                    formatPrice(item.prices?.price?.value * item.quantity) ||
-                    0,
+                    productListItemFromCustomContext?.priceTotal || item.prices?.price?.value * item.quantity || 0,
                 productImageUrl: productListItemFromCustomContext?.productImageUrl || item.product.mainImageUrl,
                 currencyCode:
                     productListItemFromCustomContext?.currencyCode ||
                     (item.prices?.price?.currency ?? storefrontContext.storeViewCurrencyCode),
-                discountAmount:
-                    productListItemFromCustomContext?.discountAmount ||
-                    item.discountAmount ||
-                    getDiscountAmount(item.product),
+                discountAmount: productListItemFromCustomContext?.discountAmount || getDiscountAmount(item.product),
                 selectedOptions: productListItemFromCustomContext?.selectedOptions || selectedOptions,
             };
 
@@ -78,10 +73,6 @@ const createProductListItems = (
         });
     }
     return returnList;
-};
-
-const formatPrice = (value: number) => {
-    return Number(value.toFixed(2));
 };
 
 export { createProductListItems };

@@ -192,7 +192,6 @@ type ShoppingCart = {
     possibleOnepageCheckout?: boolean;
     giftMessageSelected?: boolean;
     giftWrappingSelected?: boolean;
-    discountAmount?: number;
 };
 
 type ShoppingCartItem = {
@@ -203,7 +202,6 @@ type ShoppingCartItem = {
     cartItemId: string;
     productSku: string;
     mainImageUrl?: string;
-    discountAmount?: number;
 };
 
 type Storefront = {

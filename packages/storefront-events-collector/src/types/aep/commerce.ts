@@ -45,7 +45,6 @@ export type Order = {
     priceTotal?: number;
     currencyCode?: string;
     orderType?: "checkout" | "instant_purchase";
-    discountAmount?: number;
 };
 
 export type Shipping = {

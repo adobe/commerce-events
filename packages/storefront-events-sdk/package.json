@@ -1,6 +1,6 @@
 {
     "name": "@adobe/magento-storefront-events-sdk",
-    "version": "1.8.0",
+    "version": "1.7.1",
     "description": "SDK for working with events on an Adobe Commerce storefront",
     "license": "MIT",
     "main": "./dist/index.js",

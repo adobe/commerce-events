@@ -12,7 +12,6 @@ export type ShoppingCart = {
     giftMessageSelected?: boolean;
     giftWrappingSelected?: boolean;
     source?: string; // ui component or page that the customer used to add a product to cart
-    discountAmount?: number;
 };
 
 type Price = {
@@ -31,7 +30,6 @@ export type ShoppingCartItem = {
     product: Product;
     configurableOptions?: Array<ConfigurableOption>;
     quantity: number;
-    discountAmount?: number;
 };
 
 export type ConfigurableOption = {
