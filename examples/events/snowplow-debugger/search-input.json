@@ -2,7 +2,8 @@
     "description": "Schema for Search Input Entity",
     "properties": {
       "searchUnitId": {
-        "type": "string"
+        "type": "string",
+        "minLength": 1
       },
       "source": {
         "type": [
@@ -11,7 +12,8 @@
         ]
       },
       "queryTypes": {
-        "type": "array"
+        "type": "array",
+        "minLength": 1
       },
       "searchRequestId": {
         "type": "string",
@@ -19,7 +21,8 @@
         "minLength": 1
       },
       "query": {
-        "type": "string"
+        "type": "string",
+        "minLength": 1
       },
       "page": {
         "type": "number"
@@ -83,7 +86,7 @@
       "vendor": "com.adobe.magento.entity",
       "name": "search-input",
       "format": "jsonschema",
-      "version": "1-0-11"
+      "version": "2-0-1"
     },
     "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
   }
