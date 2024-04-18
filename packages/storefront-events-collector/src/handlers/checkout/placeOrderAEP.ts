@@ -10,7 +10,7 @@ const XDM_EVENT_TYPE = "commerce.purchases";
 
 /** Sends an event to aep with a checkout complete payload */
 const aepHandler = async (event: Event): Promise<void> => {
-    try{
+    try {
         const {
             accountContext,
             storefrontInstanceContext,
@@ -29,8 +29,9 @@ const aepHandler = async (event: Event): Promise<void> => {
         payload.commerce = payload.commerce || {};
 
         payload.commerce.order = createOrder(payload.commerce.order, orderContext, storefrontInstanceContext);
-        payload.commerce.order.discountAmount =
-            Number(payload.commerce.order.discountAmount || shoppingCartContext?.discountAmount || 0);
+        payload.commerce.order.discountAmount = Number(
+            payload.commerce.order.discountAmount || shoppingCartContext?.discountAmount || 0,
+        );
         payload.commerce.promotionID = payload.commerce.promotionID || orderContext?.appliedCouponCode;
         payload.commerce.shipping = payload.commerce.shipping || {};
         payload.commerce.shipping.shippingMethod =
