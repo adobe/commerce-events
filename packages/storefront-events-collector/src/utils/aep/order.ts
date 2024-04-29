@@ -10,12 +10,6 @@ const getAepPaymentCode = (paymentMethodCode: string) => {
             return "wire_transfer";
         case "cashondelivery":
             return "cash";
-        case "credit_card":
-            return "credit_card";
-        case "debit_card":
-            return "debit_card";
-        case "gift_card":
-            return "gift_card";
         case "purchaseorder":
         case "free":
         case "companycredit":
