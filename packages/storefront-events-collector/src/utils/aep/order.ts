@@ -2,28 +2,6 @@ import * as sdkSchemas from "@adobe/magento-storefront-events-sdk/src/types/sche
 
 import { Order, Payment } from "../../types/aep";
 
-const getAepPaymentCode = (paymentMethodCode: string) => {
-    switch (paymentMethodCode) {
-        case "checkmo":
-            return "check";
-        case "banktransfer":
-            return "wire_transfer";
-        case "cashondelivery":
-            return "cash";
-        case "credit_card":
-            return "credit_card";
-        case "debit_card":
-            return "debit_card";
-        case "gift_card":
-            return "gift_card";
-        case "purchaseorder":
-        case "free":
-        case "companycredit":
-        default:
-            return "other";
-    }
-};
-
 const createOrder = (
     orderFromCustomContext: Order | undefined,
     orderContext: sdkSchemas.Order,
@@ -40,7 +18,7 @@ const createOrder = (
         payments = orderContext.payments.map((payment) => {
             return {
                 paymentAmount: Number(payment.total || 0),
-                paymentType: getAepPaymentCode(payment.paymentMethodCode),
+                paymentType: payment.paymentMethodCode,
                 transactionID: payment?.orderId ? String(payment.orderId) : String(orderContext?.orderId),
                 currencyCode: storefrontInstanceContext?.storeViewCurrencyCode,
             };
@@ -50,7 +28,7 @@ const createOrder = (
         payments = [
             {
                 paymentAmount: Number(orderContext?.grandTotal || 0),
-                paymentType: getAepPaymentCode(orderContext?.paymentMethodCode),
+                paymentType: orderContext?.paymentMethodCode,
                 transactionID: String(orderContext?.orderId),
                 currencyCode: storefrontInstanceContext?.storeViewCurrencyCode,
             },
