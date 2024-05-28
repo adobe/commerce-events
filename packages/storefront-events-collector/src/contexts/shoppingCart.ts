@@ -29,9 +29,12 @@ const createContext = (shoppingCart?: ShoppingCart): ShoppingCartContext | null 
     const shoppingCartCtx = shoppingCart ?? mse.context.getShoppingCart();
 
     if (!shoppingCartCtx) {
+        //returns empty data with default values for required fields
         return {
             schema: schemas.SHOPPING_CART_SCHEMA_URL,
-            data: {},
+            data: {
+                totalQuantity: 0,
+            },
         };
     }
 
