@@ -29,18 +29,18 @@ We can simply add our new package workflow by adding the below lines to the end 
 
 When you create a Pull Request and it is merged into the `main` branch, your package is then built and pushed to [npm](npmjs.com). You can see the piplines running [here](https://github.com/adobe/commerce-events/actions). If you search for your package name, you should see the latest build as version `0.0.0-<github commit hash>` and should also have a qa tag.
 
-### - UNPKG Access
+### - JSDELIVR Access
 
 > :memo: The 2.x packages will be located at `/umd/index.js` or `umd.index.js`
 
-[unpkg](https://unpkg.com/) is a fast, global content delivery network for everything on npm. We can access our package by going to the url
+[jsdelivr](https://jsdelivr.com/) is a fast, global content delivery network for everything on npm. We can access our package by going to the url
 
--   `https://unpkg.com/@adobe/commerce-events-<package-name>@qa/dist/index.js`
+-   `https://cdn.jsdelivr.net/npm/@adobe/commerce-events-<package-name>@qa/dist/index.js`
 
 Using the sdk as an example, you should be able to access your file on the cdn in your html like so:
 
 ```html
-<script async defer src="https://unpkg.com/@adobe/commerce-events-sdk@qa/dist/index.js"></script>
+<script async defer src="https://cdn.jsdelivr.net/npm/@adobe/commerce-events-sdk@qa/dist/index.js"></script>
 ```
 
 ## Github Actions (CI/CD) for "Prod"

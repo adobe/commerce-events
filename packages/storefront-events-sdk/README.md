@@ -22,12 +22,12 @@ Our context schemas are designed to simplify forwarding to two edges:
 
 ## Installation
 
-This SDK can be used as a hosted script, or bundled in a JavaScript application. The script version is hosted on [unpkg][unpkg], and the bundled version is hosted on [npm][npm].
+This SDK can be used as a hosted script, or bundled in a JavaScript application. The script version is hosted on [jsdelivr][jsdelivr], and the bundled version is hosted on [npm][npm].
 
 To load the SDK as a script, use the following snippet.
 
 ```
-<script src="https://unpkg.com/@adobe/commerce-events-sdk/dist/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@adobe/commerce-events-sdk/dist/index.js"></script>
 ```
 
 To install the script as a dependency, run this command.
@@ -140,5 +140,5 @@ If you have any questions or encounter any issues, please reach out on [GitHub][
 [contributing-badge]: https://img.shields.io/badge/PRs-welcome-success?style=flat-square
 [commerce]: https://business.adobe.com/products/magento/magento-commerce.html
 [collectors]: https://github.com/adobe/commerce-events/tree/main/packages/storefront-events-collector
-[unpkg]: https://unpkg.com/@adobe/magento-storefront-events-sdk/dist/index.js
+[jsdelivr]: https://cdn.jsdelivr.net/npm/@adobe/magento-storefront-events-sdk/dist/index.js
 [issues]: https://github.com/adobe/commerce-events/issues

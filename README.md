@@ -26,7 +26,7 @@ Under the dev script, our built files are hosted at:
 
 ### QA
 
-Merging a change to the `main` branch triggers a github action that builds and deploys the latest code to QA: https://unpkg.com/@adobe/magento-storefront-event-collector@qa/dist/index.js.
+Merging a change to the `main` branch triggers a github action that builds and deploys the latest code to QA: https://cdn.jsdelivr.net/npm/@adobe/magento-storefront-event-collector@qa/dist/index.js.
 
 ### Production
 
@@ -36,7 +36,7 @@ Release steps:
 
 -   once the PR is approved and merged, create a [new release tag for the repo](https://github.com/adobe/commerce-events/tags)
 
-Creating a new release tag triggers a github action that builds and deploys the latest code to Prod: https://unpkg.com/@adobe/magento-storefront-event-collector/dist/index.js.
+Creating a new release tag triggers a github action that builds and deploys the latest code to Prod: https://cdn.jsdelivr.net/npm/@adobe/magento-storefront-event-collector/dist/index.js.
 
 ### NPM Packages
 
