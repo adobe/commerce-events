@@ -3,11 +3,13 @@
     "properties": {
       "name": {
         "type": "string",
-        "maxLength": 256
+        "maxLength": 256,
+        "minLength": 1
       },
       "unitId": {
         "type": "string",
-        "maxLength": 256
+        "maxLength": 256,
+        "minLength": 1
       },
       "itemsCount": {
         "type": "integer"
@@ -17,15 +19,18 @@
       },
       "configType": {
         "type": "string",
-        "maxLength": 256
+        "maxLength": 256,
+        "minLength": 1
       },
       "source": {
         "type": "string",
-        "maxLength": 256
+        "maxLength": 256,
+        "minLength": 1
       },
       "recType": {
         "type": "string",
-        "maxLength": 256
+        "maxLength": 256,
+        "minLength": 1
       },
       "placement": {
         "type": [
@@ -63,8 +68,7 @@
       "vendor": "com.adobe.magento.entity",
       "name": "recommendation-unit",
       "format": "jsonschema",
-      "version": "1-0-4"
+      "version": "1-0-5"
     },
     "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
   }
-  
