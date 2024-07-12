@@ -16,7 +16,7 @@ const mockProductCtx = {
     productId: 1153,
     name: "Felicia Maxi Dress",
     sku: "VD04",
-    topLevelSku: "VD04",
+    topLevelSku: "VD04", // This is required in most cases and will be mandatory in future releases.
     categories: ["14", "15", "21"],
     pricing: {
         regularPrice: 19.99,
