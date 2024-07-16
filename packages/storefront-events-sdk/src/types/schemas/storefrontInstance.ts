@@ -2,7 +2,7 @@
 export type StorefrontInstance = {
     environmentId: string;
     instanceId?: string;
-    environment: string; // "prod" or "non-prod"
+    environment: string; // "Production" or "Testing"
     storeUrl: string;
     websiteId: number;
     websiteCode?: string;
