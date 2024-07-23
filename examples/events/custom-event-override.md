@@ -12,7 +12,7 @@ const mse = window.magentoStorefrontEvents;
 mse.publish.productPageView(customCtx);
 ```
 
-### Example - adding categories product
+### Example 1 - adding categories product
 
 ```javascript
 magentoStorefrontEvents.publish.productPageView({
@@ -27,5 +27,51 @@ magentoStorefrontEvents.publish.productPageView({
             ],
         },
     ],
+});
+```
+
+### Example 2 - adding custom context before publishing event
+
+```javascript
+const mse = window.magentoStorefrontEvents;
+
+mse.context.setCustom({
+  productListItems: [
+    {
+      productCategories: [
+        {
+          categoryID: "cat_15",
+          categoryName: "summer pants",
+          categoryPath: "pants/mens/summer",
+        },
+      ],
+    },
+  ],
+});
+
+mse.publish.productPageView();
+```
+
+### Example 3 - custom context set in publisher will overwrite custom context set in ACDL before.
+
+In this example page view event will have **Custom Page Name 2** in `web.webPageDetails.name` field
+
+```javascript
+const mse = window.magentoStorefrontEvents;
+
+mse.context.setCustom({
+  web: {
+    webPageDetails: {
+      name: 'Custom Page Name 1'
+    },
+  },
+});
+
+mse.publish.pageView({
+  web: {
+    webPageDetails: {
+      name: 'Custom Page Name 2'
+    },
+  },
 });
 ```
