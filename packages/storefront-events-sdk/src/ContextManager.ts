@@ -1,6 +1,6 @@
 import { Base } from "./Base";
 import contexts from "./contexts";
-import {CustomContext} from "./types/contexts";
+import { CustomContext } from "./types/contexts";
 import {
     Account,
     AEP,
