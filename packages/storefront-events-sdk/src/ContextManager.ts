@@ -1,5 +1,6 @@
 import { Base } from "./Base";
 import contexts from "./contexts";
+import {CustomContext} from "./types/contexts";
 import {
     Account,
     AEP,
@@ -97,6 +98,14 @@ export default class ContextManager extends Base {
             contexts.EXPERIENCE_PLATFORM_CONNECTOR_EXTENSION_CONTEXT,
             context,
         );
+    }
+
+    getCustom(): CustomContext {
+        return this.getContext<CustomContext>(contexts.CUSTOM_CONTEXT);
+    }
+
+    setCustom(context: CustomContext): void {
+        this.setContext<CustomContext>(contexts.CUSTOM_CONTEXT, context);
     }
 
     getCustomUrl(): CustomUrl {

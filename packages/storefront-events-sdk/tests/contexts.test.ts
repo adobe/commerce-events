@@ -194,4 +194,11 @@ describe("contexts", () => {
         mdl.context.setContext("custom", context);
         expect(mdl.context.getContext("custom")).toEqual(context);
     });
+
+    test("custom context set by contextManager", () => {
+        const context = generateCustomContext();
+        expect(mdl.context.getCustom()).toBeUndefined();
+        mdl.context.setCustom(context);
+        expect(mdl.context.getCustom()).toEqual(context);
+    });
 });
