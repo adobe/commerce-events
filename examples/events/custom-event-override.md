@@ -52,7 +52,7 @@ mse.context.setCustom({
 mse.publish.productPageView();
 ```
 
-### Example 3 - custom context set in publisher will overwrite custom context set in ACDL before.
+### Example 3 - the custom context set in the publisher overwrites the custom context previously set in ACDL.
 
 In this example page view event will have **Custom Page Name 2** in `web.webPageDetails.name` field
 
