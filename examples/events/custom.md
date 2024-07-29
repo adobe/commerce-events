@@ -33,7 +33,8 @@ mse.publish.custom();
 
 ### Example
 
-Custom event - save for later event.
+Custom event - save for later event. 
+Context set in the `custom()` will override context previously set in `mse.context.setCustom(customCtx)`
 
 ```javascript
 mse.publish.custom({

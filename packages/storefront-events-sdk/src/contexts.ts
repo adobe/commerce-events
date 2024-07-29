@@ -4,6 +4,7 @@ const contexts = {
     CHANGED_PRODUCTS_CONTEXT: "changedProductsContext",
     CHANNEL_CONTEXT: "channelContext",
     CATEGORY_CONTEXT: "categoryContext",
+    CUSTOM_CONTEXT: "customContext",
     CUSTOM_URL_CONTEXT: "customUrlContext",
     DATA_SERVICES_EXTENSION_CONTEXT: "dataServicesExtensionContext",
     DEBUG_CONTEXT: "debugContext",

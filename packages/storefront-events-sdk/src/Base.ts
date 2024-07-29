@@ -33,6 +33,12 @@ export abstract class Base {
 
     // Push event to ACDL
     protected pushEvent(event: EventName, context: CustomContext = {}): void {
+        // if param context.customContext was set as the default by publishManager, it will be removed
+        // so that a separately set custom context can be applied
+        // otherwise param context.customContext will override previously set custom context
+        if (context && context.customContext === undefined) {
+            delete context.customContext;
+        }
         window.adobeDataLayer.push((acdl: AdobeClientDataLayer) => {
             acdl.push({
                 event,
