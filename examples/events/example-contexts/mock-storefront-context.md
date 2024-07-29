@@ -14,7 +14,7 @@
 const mockStorefrontCtx = {
     environmentId: "aaaaaa",
     instanceId: "bbbbbb",
-    environment: "production",
+    environment: "Production",
     storeUrl: "https://example.com",
     websiteId: 333333,
     websiteCode: "website",
