@@ -44,6 +44,8 @@ const createOrder = (
         payments,
         orderType,
         discountAmount: orderContext?.discountAmount,
+        priceTotal: Number(orderContext?.grandTotal || 0),
+        taxAmount: Number(orderContext?.taxAmount || 0),
     };
 };
 
