@@ -22,21 +22,24 @@
         ]
       },
       "websiteCode": {
-        "type": "string"
+        "type": "string",
+        "minLength": 1
       },
       "storeId": {
         "type": "integer"
       },
       "storeCode": {
         "type": "string",
-        "maxLength": 256
+        "maxLength": 256,
+        "minLength": 1
       },
       "storeViewId": {
         "type": "integer"
       },
       "storeViewCode": {
         "type": "string",
-        "maxLength": 256
+        "maxLength": 256,
+        "minLength": 1
       },
       "defaultStoreViewCode": {
         "type": [
@@ -168,8 +171,7 @@
       "vendor": "com.adobe.magento.entity",
       "name": "recs-api-request",
       "format": "jsonschema",
-      "version": "2-0-13"
+      "version": "2-0-14"
     },
     "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
   }
-  

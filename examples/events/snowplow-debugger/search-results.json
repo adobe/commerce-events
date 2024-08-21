@@ -2,7 +2,8 @@
     "description": "Schema for Search Results Entity",
     "properties": {
       "searchUnitId": {
-        "type": "string"
+        "type": "string",
+        "minLength": 1
       },
       "searchRequestId": {
         "type": "string",
@@ -27,19 +28,23 @@
           "description": "Schema for Product Search Result Entity",
           "properties": {
             "name": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             },
             "url": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             },
             "rank": {
               "type": "number"
             },
             "sku": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             },
             "imageUrl": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             },
             "price": {
               "type": "number"
@@ -72,7 +77,8 @@
           "description": "Schema for Suggestion Search Results ",
           "properties": {
             "suggestion": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             },
             "rank": {
               "type": "number"
@@ -102,10 +108,12 @@
           "description": "Schema for Category Search Results",
           "properties": {
             "name": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             },
             "url": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             },
             "rank": {
               "type": "number"
@@ -150,20 +158,25 @@
         "items": {
           "properties": {
             "attribute": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             },
             "title": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             },
             "type": {
-              "type": "string"
+              "type": "string",
+              "minLength": 1
             },
             "buckets": {
               "type": "array",
+              "minLength": 1,
               "items": {
                 "properties": {
                   "title": {
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1
                   }
                 },
                 "type": "object",
@@ -204,7 +217,7 @@
       "vendor": "com.adobe.magento.entity",
       "name": "search-results",
       "format": "jsonschema",
-      "version": "1-0-11"
+      "version": "2-0-1"
     },
     "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
   }
