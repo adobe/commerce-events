@@ -1,86 +1,88 @@
 {
-    "description": "Schema for shopping-cart event",
-    "properties": {
-      "cartId": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
-      "itemsCount": {
-        "type": "integer"
-      },
-      "subtotalExcludingTax": {
-        "type": "number"
-      },
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "type": "object",
+  "self": {
+    "vendor": "com.adobe.magento.entity",
+    "name": "shopping-cart",
+    "format": "jsonschema",
+    "version": "3-0-0"
+  },
+  "description": "Schema for shopping-cart event",
+  "properties": {
+    "cartId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "itemsCount": {
+      "type": "integer"
+    },
+    "subtotalExcludingTax": {
+      "type": "number"
+    },
+    "items": {
+      "type": "array",
       "items": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "offerPrice": {
-              "type": "number"
-            },
-            "basePrice": {
-              "type": "number"
-            },
-            "qty": {
-              "type": "integer"
-            },
-            "productName": {
-              "type": "string",
-              "maxLength": 256
-            },
-            "cartItemId": {
-              "type": "string"
-            },
-            "productSku": {
-              "type": "string",
-              "maxLength": 256
-            },
-            "mainImageUrl": {
-              "type": "string",
-              "maxLength": 2083
-            }
+        "type": "object",
+        "properties": {
+          "offerPrice": {
+            "type": "number"
           },
-          "required": [
-            "cartItemId",
-            "productName",
-            "productSku",
-            "basePrice",
-            "offerPrice",
-            "qty"
-          ],
-          "additionalProperties": false
-        }
-      },
-      "possibleOnepageCheckout": {
-        "type": "boolean"
-      },
-      "subtotalIncludingTax": {
-        "type": "number"
-      },
-      "giftMessageSelected": {
-        "type": "boolean"
-      },
-      "subtotalAmount": {
-        "type": "number"
-      },
-      "giftWrappingSelected": {
-        "type": "boolean"
+          "basePrice": {
+            "type": "number"
+          },
+          "qty": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "productName": {
+            "type": "string",
+            "maxLength": 256
+          },
+          "cartItemId": {
+            "type": "string",
+            "maxLength": 256
+          },
+          "productSku": {
+            "type": "string",
+            "maxLength": 256,
+            "minLength": 1
+          },
+          "mainImageUrl": {
+            "type": "string",
+            "maxLength": 2083
+          }
+        },
+        "required": [
+          "cartItemId",
+          "productName",
+          "productSku",
+          "basePrice",
+          "offerPrice",
+          "qty"
+        ],
+        "additionalProperties": false
       }
     },
-    "additionalProperties": false,
-    "type": "object",
-    "required": [
-      "itemsCount"
-    ],
-    "self": {
-      "vendor": "com.adobe.magento.entity",
-      "name": "shopping-cart",
-      "format": "jsonschema",
-      "version": "2-0-0"
+    "possibleOnepageCheckout": {
+      "type": "boolean"
     },
-    "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
-  }
-  
+    "subtotalIncludingTax": {
+      "type": "number"
+    },
+    "giftMessageSelected": {
+      "type": "boolean"
+    },
+    "subtotalAmount": {
+      "type": "number"
+    },
+    "giftWrappingSelected": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "itemsCount"
+  ],
+  "additionalProperties": false
+}
