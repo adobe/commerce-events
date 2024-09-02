@@ -2,7 +2,7 @@ export type Product = {
     productId: number;
     name: string;
     sku: string;
-    topLevelSku?: string | null;
+    topLevelSku?: string | null; // This is required in most cases and will be mandatory in future releases.
     specialToDate?: string | null;
     specialFromDate?: string | null;
     newToDate?: string | null;
