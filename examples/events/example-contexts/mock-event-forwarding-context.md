@@ -18,7 +18,7 @@ Contains configuration for forwarding events to Adobe Sensei and Adobe DX/AEP Ed
 
 ```javascript
 const mockEventForwardingCtx = {
-    snowplow: true,
+    commerce: true,
     aep: false,
 };
 ```
