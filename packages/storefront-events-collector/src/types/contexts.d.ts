@@ -223,7 +223,7 @@ type Storefront = {
     websiteCode?: string;
     websiteId: number;
     websiteName: string;
-    storefrontTemplate?: "Luma" | "Hyva" | "AEM CIF" | "Franklin" | "PWA Studio" | "Other";
+    storefrontTemplate?: "Luma" | "EDS" | "Hyva" | "AEM CIF" | "Franklin" | "PWA Studio" | "Other";
 };
 
 type Tracker = {
