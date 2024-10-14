@@ -2,7 +2,7 @@ export type Product = {
     productId: number;
     name: string;
     sku: string;
-    /** for configurable products topLevelSku is an SKU of parent product, for simple product it is the same as sku */
+    /** topLevelSku is an SKU of parent product. For product with no parent it's equal to the sku */
     topLevelSku?: string | null; // This is required in most cases and will be mandatory in future releases.
     specialToDate?: string | null;
     specialFromDate?: string | null;
