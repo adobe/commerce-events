@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+# the sdk image is failing for whatever reason, but we can get both sdk and collector scripts from 1 image 
+#   sdk:
+#     container_name: storefront_events_sdk
+#     build:
+#       context: .
+#       dockerfile: ./packages/storefront-events-sdk/Dockerfile
+#     restart: unless-stopped
+#     ports:
+#       - 8080:8080
+#     networks:
+#       - app_network
+  collector:
+    container_name: storefront_events_collector
+    build:
+      context: .
+      dockerfile: ./packages/storefront-events-collector/Dockerfile
+    restart: unless-stopped
+    ports:
+      - 8081:8081
+    networks:
+      - app_network
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  app_network:
+    # external: true
