@@ -1,0 +1,21 @@
+{
+    "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+    "type": "object",
+    "self": {
+        "vendor": "com.adobe.magento.entity",
+        "name": "magento-js-tracker",
+        "format": "jsonschema",
+        "version": "2-0-0"
+    },
+    "description": "Schema for Magento JS Tracker",
+    "properties": {
+        "magentoJsVersion": {
+            "type": "string",
+            "maxLength": 256
+        }
+    },
+    "required": [
+        "magentoJsVersion"
+    ],
+    "additionalProperties": false
+}

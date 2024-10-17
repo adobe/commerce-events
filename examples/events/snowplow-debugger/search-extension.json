@@ -1,0 +1,19 @@
+{
+    "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+    "type": "object",
+    "self": {
+        "vendor": "com.adobe.magento.entity",
+        "name": "search-extension",
+        "format": "jsonschema",
+        "version": "1-0-0"
+    },
+    "description": "context information about the Live Search extension",
+    "properties": {
+        "version": {
+            "type": "string",
+            "maxLength": 256,
+            "description": "version of the PHP LS extension"
+        }
+    },
+    "additionalProperties": false
+}
