@@ -19,8 +19,6 @@
 
 [`product`](./example-contexts/mock-product-context.md)
 
-[`shoppingCart`](./example-contexts/mock-shopping-cart-context.md)
-
 ### 🔧 Usage
 
 ```javascript
@@ -32,7 +30,6 @@ const mse = window.magentoStorefrontEvents;
 
 /* set before firing event */
 mse.context.setProduct(productCtx);
-mse.context.setShoppingCart(shoppingCartCtx);
 
 mse.publish.productPageView();
 ```
