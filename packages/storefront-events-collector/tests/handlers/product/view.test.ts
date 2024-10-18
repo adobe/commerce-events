@@ -23,7 +23,7 @@ test("sends snowplow event", () => {
             {
                 data: mockProductCtxNoId,
                 schema: schemas.PRODUCT_SCHEMA_URL,
-            }
+            },
         ],
     });
 });
