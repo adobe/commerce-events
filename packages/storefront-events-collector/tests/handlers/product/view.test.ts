@@ -9,7 +9,7 @@ import { mockEvent, mockProductCtx } from "../../utils/mocks";
 
 test("sends snowplow event", () => {
     // we don't send product id to snowplow anymore, but don't want to break mocks for any aep tests
-    const { ...mockProductCtxNoId } = mockProductCtx;
+    const { productId, ...mockProductCtxNoId } = mockProductCtx;
 
     productViewHandler(mockEvent);
 
