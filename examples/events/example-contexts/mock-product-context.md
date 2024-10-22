@@ -14,10 +14,13 @@
 ```javascript
 const mockProductCtx = {
     productId: 1153,
-    name: "Felicia Maxi Dress",
-    sku: "VD04",
-    topLevelSku: "VD04", // This is required in most cases and will be mandatory in future releases.
+    name: "Juno Jacket",
+    sku: "WJ06-XS-Green",
+    topLevelSku: "WJ06", // This is required in most cases and will be mandatory in future releases.
     categories: ["14", "15", "21"],
+    productType: "configurable",  
+    mainImageUrl: "https://example.com/product/image-wj06-xs-green.jpg",
+    canonicalUrl: "https://example.com/juno-jacket.html?___store=default", //URL in current store
     pricing: {
         regularPrice: 19.99,
         minimalPrice: 10.99,
