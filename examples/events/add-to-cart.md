@@ -1,6 +1,8 @@
 ## add-to-cart
 
-[!WARNING]  `topLevelSku` is a required field of the product context in `add-to-cart` and `product-page-view` events.  Beginning in 2025 any events without `topLevelSku` populated will fail validation.  See [product context](example-contexts/mock-product-context.md) for more detail.
+> [!WARNING] 
+> `topLevelSku` is a required field of the product context in `add-to-cart` and `product-page-view` events.
+> Beginning in 2025 any events without `topLevelSku` will fail validation.  See [product context](example-contexts/mock-product-context.md) for more detail.
 
 ### 🤖 Intelligent strategies
 
