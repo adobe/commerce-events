@@ -1,7 +1,7 @@
 ## Product context
 
-**WARNING** `topLevelSku` is a required field of the product context in `add-to-cart` and `product-page-view` events.  Beginning in 2025 any events without `topLevelSku` populated will fail validation.  
-**NOTE** For simple, downloadable, and virtual products with no configurable options `topLevelSku` is the same as the product SKU.  For grouped, bundled, and configurable products `topLevelSku` is the parent product SKU of the associated item.
+[!WARNING] `topLevelSku` is a required field of the product context in `add-to-cart` and `product-page-view` events.  Beginning in 2025 any events without `topLevelSku` populated will fail validation.  
+[!NOTE]  For simple, downloadable, and virtual products with no configurable options `topLevelSku` is the same as the product SKU.  For grouped, bundled, and configurable products `topLevelSku` is the parent product SKU of the associated item.
 ### Used
 
 -   product view
