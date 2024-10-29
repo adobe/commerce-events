@@ -2,6 +2,8 @@
 > [!WARNING] 
 > `topLevelSku` is a required field of the product context in `add-to-cart` and `product-page-view` events.
 > Beginning in 2025 any events without `topLevelSku` will fail validation.  See [product context](example-contexts/mock-product-context.md) for more detail.
+>
+> `storeCode` and `storeViewCode` are required fields of the storefront context in all events.  Beginning in 2025 any events without `storeCode` or `storeViewCode` will fail validation.  
 
 ### Event purposes and usage
 
