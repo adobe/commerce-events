@@ -1,19 +1,14 @@
 import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/events";
 import { SelfDescribingJson, trackStructEvent } from "@snowplow/browser-tracker";
 
-import { createProductCtx, createShoppingCartCtx } from "../../contexts";
+import { createProductCtx } from "../../contexts";
 
 const handler = (event: Event): void => {
-    const { pageContext, productContext, shoppingCartContext } = event.eventInfo;
+    const { pageContext, productContext } = event.eventInfo;
 
     const productCtx = createProductCtx(productContext);
-    const shoppingCartCtx = createShoppingCartCtx(shoppingCartContext);
 
     const context: Array<SelfDescribingJson> = [productCtx];
-
-    if (shoppingCartCtx) {
-        context.push(shoppingCartCtx);
-    }
 
     trackStructEvent({
         category: "product",
