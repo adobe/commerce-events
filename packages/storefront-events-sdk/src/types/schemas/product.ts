@@ -1,23 +1,13 @@
 export type Product = {
-    productId: number;
-    name: string;
-    sku: string;
-    /**
-     * For simple, downloadable, and virtual products with no configurable options topLevelSku is the same
-     * as the product SKU.
-     * For grouped, bundled, and configurable products topLevelSku is the parent product SKU of the associated item.
-     */
-    topLevelSku?: string | null; // This is required in most cases and will be mandatory in future releases.
-    specialToDate?: string | null;
-    specialFromDate?: string | null;
-    newToDate?: string | null;
-    newFromDate?: string | null;
-    createdAt?: string | null;
-    updatedAt?: string | null;
-    manufacturer?: string | null;
-    countryOfManufacture?: string | null;
+    canonicalUrl?: string | null;
     categories?: string[] | null;
-    productType?: string | null;
+    countryOfManufacture?: string | null;
+    createdAt?: string | null;
+    mainImageUrl?: string | null;
+    manufacturer?: string | null;
+    name: string;
+    newFromDate?: string | null;
+    newToDate?: string | null;
     pricing?: {
         regularPrice: number;
         minimalPrice?: number;
@@ -30,6 +20,16 @@ export type Product = {
         }[];
         currencyCode: string | null;
     };
-    canonicalUrl?: string | null;
-    mainImageUrl?: string | null;
+    productId: number;
+    productType?: string | null;
+    sku: string;
+    specialToDate?: string | null;
+    specialFromDate?: string | null;
+    /**
+     * For simple, downloadable, and virtual products with no configurable options topLevelSku is the same
+     * as the product SKU.
+     * For grouped, bundled, and configurable products topLevelSku is the parent product SKU of the associated item.
+    */
+    topLevelSku?: string | null; // This is required in most cases and will be mandatory in future releases.
+    updatedAt?: string | null;  
 };
