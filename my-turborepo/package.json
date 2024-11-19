@@ -2,10 +2,6 @@
   "name": "with-docker",
   "version": "0.0.0",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
     "build": "turbo run build",
     "clean": "turbo run clean",
@@ -19,9 +15,13 @@
     "prettier": "^3.2.5",
     "turbo": "^2.3.0"
   },
-  "packageManager": "yarn@1.22.19",
   "engines": {
     "node": ">=14.0.0",
     "npm": ">=7.0.0"
-  }
+  },
+  "packageManager": "npm@10.8.2",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }
