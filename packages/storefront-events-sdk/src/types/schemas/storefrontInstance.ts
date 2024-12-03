@@ -16,5 +16,6 @@ export type StorefrontInstance = {
     baseCurrencyCode: string;
     storeViewCurrencyCode: string;
     catalogExtensionVersion?: string | null;
+    locale?: string | null; // this field should stay null
     storefrontTemplate?: "Luma" | "EDS" | "Hyva" | "AEM CIF" | "Franklin" | "PWA Studio" | "Other";
 };
