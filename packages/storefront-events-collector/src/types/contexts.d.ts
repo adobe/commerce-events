@@ -212,6 +212,7 @@ type Storefront = {
     environment: string;
     environmentId: string;
     instanceId?: string;
+    locale?: string | null;
     storeCode?: string;
     storeId: number;
     storeName: string;

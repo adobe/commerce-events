@@ -133,6 +133,46 @@ const mockStorefrontCtx = {
     storefrontTemplate: "EDS",
 };
 
+const mockCcdmStorefrontCtx = {
+    baseCurrencyCode: "USD",
+    environment: "production",
+    environmentId: "aaaaaa",
+    instanceId: "bbbbbb",
+    locale: "en_US",
+    storeCode: "",
+    storeId: 111111,
+    storeName: "magento",
+    storeUrl: "https://magento.com",
+    storeViewCode: "",
+    storeViewCurrencyCode: "USD",
+    storeViewId: 222222,
+    storeViewName: "default",
+    websiteCode: "",
+    websiteId: 333333,
+    websiteName: "website",
+    //storefrontTemplate: "EDS",
+};
+
+const mockCcdmStorefrontProcessedCtx = {
+    baseCurrencyCode: "USD",
+    environment: "production",
+    environmentId: "aaaaaa",
+    instanceId: "bbbbbb",
+    locale: "en_US",
+    storeCode: "STORE_CODE",
+    storeId: 111111,
+    storeName: "magento",
+    storeUrl: "https://magento.com",
+    storeViewCode: "en_US",
+    storeViewCurrencyCode: "USD",
+    storeViewId: 222222,
+    storeViewName: "default",
+    websiteCode: "WEBSITE_CODE",
+    websiteId: 333333,
+    websiteName: "website",
+    //storefrontTemplate: "EDS",
+};
+
 const mockAepCtx = {
     imsOrgId: "1234@AdobeOrg",
     datastreamId: "1234:dev",
@@ -423,5 +463,7 @@ export {
     mockShopperCtx,
     mockShoppingCartCtx,
     mockStorefrontCtx,
+    mockCcdmStorefrontCtx,
+    mockCcdmStorefrontProcessedCtx,
     mockTrackerCtx,
 };
