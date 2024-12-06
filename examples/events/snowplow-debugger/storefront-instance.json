@@ -66,10 +66,7 @@
         "maxLength": 16
       },
       "locale": {
-        "type": [
-          "string",
-          "null"
-        ],
+        "type": "string",
         "maxLength": 16
       },
       "storefrontTemplate": {
@@ -96,7 +93,7 @@
       "vendor": "com.adobe.magento.entity",
       "name": "storefront-instance",
       "format": "jsonschema",
-      "version": "3-0-1"
+      "version": "3-0-2"
     },
     "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
   }
