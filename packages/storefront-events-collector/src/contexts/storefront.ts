@@ -2,7 +2,7 @@ import { StorefrontInstance } from "@adobe/magento-storefront-events-sdk/dist/ty
 
 import schemas from "../schemas";
 import { StorefrontContext } from "../types/contexts";
-import {getCcdmData} from "../utils/ccdm";
+import { getCcdmData } from "../utils/ccdm";
 
 const createContext = (storefront?: StorefrontInstance): StorefrontContext => {
     const mse = window.magentoStorefrontEvents;
@@ -37,7 +37,7 @@ const createContext = (storefront?: StorefrontInstance): StorefrontContext => {
 
     const context: StorefrontContext = {
         schema: schemas.STOREFRONT_INSTANCE_SCHEMA_URL,
-        data: {...mainData, ...getCcdmData(storefrontCtx)},
+        data: { ...mainData, ...getCcdmData(storefrontCtx) },
     };
 
     return context;
