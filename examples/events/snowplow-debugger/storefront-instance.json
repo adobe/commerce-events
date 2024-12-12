@@ -70,7 +70,7 @@
             "string",
             "null"
         ],
-        "maxLength": 16
+        "maxLength": 256
       },
       "storefrontTemplate": {
         "type": "string",
