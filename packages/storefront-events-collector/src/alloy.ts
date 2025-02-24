@@ -1,7 +1,7 @@
 /* TS wrapper around `@adobe/alloy`*/
 import { AlloyIndentity, AlloyInstance, ConfigOptions } from "./aep/types/alloy.types";
 import createContext from "./contexts/aep";
-import { BeaconSchema, IdentityMap } from "./types/aep";
+import { BeaconSchema, CustomIdentityMap, IdentityMap } from "./types/aep";
 import { AlloySendEventResponse } from "./types/aep/segments";
 import { AEPContext } from "./types/contexts";
 import { Event } from "@adobe/magento-storefront-events-sdk/dist/types/types/events";
@@ -59,29 +59,10 @@ const sendEvent = async (schema: BeaconSchema, event: Event): Promise<AlloySendE
 
         const ecid = result.identity.ECID || "000000000000000000000000000000000000";
 
-        const identityMap: IdentityMap = {
-            ECID: [
-                {
-                    id: ecid,
-                    primary: true,
-                },
-            ],
-        };
-
         schema.channel = schema.channel || channelContext;
-
-        if (schema.personalEmail?.address) {
-            identityMap.email = [
-                {
-                    id: schema.personalEmail?.address,
-                    primary: false,
-                },
-            ];
-        }
-
         schema.personID = ecid; // TODO: for backwards compatibility, deprecated
-        schema.identityMap = identityMap;
-
+        schema.identityMap = getCustomIdentityMap(ecid, schema);
+console.log(schema.identityMap)
         const xdm = { xdm: { ...schema } };
 
         // send async
@@ -104,6 +85,36 @@ const hasConfig = (): boolean => {
     const config = context.getAEP();
 
     return !!eventForwarding?.aep && !!config.datastreamId && !!config.imsOrgId;
+};
+
+const getCustomIdentityMap = (ecid: string, schema: BeaconSchema): IdentityMap | CustomIdentityMap => {
+    const { context } = window.magentoStorefrontEvents;
+    const eventForwarding = context.getEventForwarding();
+    const config = context.getAEP();
+
+    if (eventForwarding && config?.identityMap) {
+        return config.identityMap;
+    }
+
+    const identityMap: IdentityMap = {
+        ECID: [
+            {
+                id: ecid,
+                primary: true,
+            },
+        ],
+    };
+
+    if (schema.personalEmail?.address) {
+        identityMap.email = [
+            {
+                id: schema.personalEmail?.address,
+                primary: false,
+            },
+        ];
+    }
+
+    return identityMap;
 };
 
 /**

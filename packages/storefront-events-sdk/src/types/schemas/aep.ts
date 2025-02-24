@@ -3,4 +3,5 @@ export type AEP = {
     datastreamId: string;
     webSdkName?: string;
     edgeDomain?: string;
+    identityMap?: [{ id: string; primary: boolean }];
 };
