@@ -62,7 +62,7 @@ const sendEvent = async (schema: BeaconSchema, event: Event): Promise<AlloySendE
         schema.channel = schema.channel || channelContext;
         schema.personID = ecid; // TODO: for backwards compatibility, deprecated
         schema.identityMap = getCustomIdentityMap(ecid, schema);
-console.log(schema.identityMap)
+
         const xdm = { xdm: { ...schema } };
 
         // send async
