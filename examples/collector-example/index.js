@@ -37,12 +37,16 @@ mse.context.setStorefrontInstance(mockStorefront);
 /* beacon/experience platform specific code below*/
 mse.context.setAEP({
     imsOrgId: "DEDB2A52641B1D460A495F8E@AdobeOrg",
-    datastreamId: '869fcdfe-abda-4bd5-b948-d9c1595c42e9', // ani commerce
+    datastreamId: '869fcdfe-abda-4bd5-b948-d9c1595c42e9', // ani commerce,
+    // Custom identities. This removes ECID and email identities.
+    identityMap: {
+        "3pIdentity": [{ id: "4", mandatory: true }],
+    },
 });
 
 mse.context.setEventForwarding({
     commerce: true,
     aep: true,
 });
-/* end beacon */
 
+/* end beacon */
