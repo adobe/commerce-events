@@ -38,7 +38,7 @@ const configure = async (instance: AlloyInstance): Promise<AlloyInstance> => {
 const setExistingAlloy = async (name: string) => {
     try {
         if (window.hasOwnProperty(name)) {
-            alloyInstance = (window as any)[name];
+            alloyInstance = (window as unknown as Record<string, AlloyInstance>)[name];
         } else {
             throw new Error();
         }
@@ -106,15 +106,13 @@ const getCustomIdentityMap = (ecid: string, schema: BeaconSchema): IdentityMap |
     if (config?.identityMap) {
         const hasPrimaryIdentity = Object.values(config.identityMap)
             .flat()
-            .some(identity => identity.primary);
+            .some((identity) => identity.primary);
 
         /**
          * Check if custom identityMap has a primary identity.
          * Otherwise, add ECID as primary, as for RTCP schemas, primary identity is required.
          */
-        return hasPrimaryIdentity
-            ? config.identityMap
-            : {...config.identityMap, ...baseIdentityMap};
+        return hasPrimaryIdentity ? config.identityMap : { ...config.identityMap, ...baseIdentityMap };
     }
 
     // add email to baseIdentityMap if it exists
