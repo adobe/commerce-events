@@ -37,10 +37,11 @@ mse.context.setStorefrontInstance(mockStorefront);
 /* beacon/experience platform specific code below*/
 mse.context.setAEP({
     imsOrgId: "DEDB2A52641B1D460A495F8E@AdobeOrg",
-    datastreamId: '869fcdfe-abda-4bd5-b948-d9c1595c42e9', // ani commerce,
+    datastreamId: '869fcdfe-abda-4bd5-b948-d9c1595c42e9',
     // Custom identities. This removes ECID and email identities.
+    // if custom identities don't have primary - ECID will be added as primary
     identityMap: {
-        "3pIdentity": [{ id: "4", mandatory: true }],
+        "3pIdentity": [{ id: "4", primary: true }],
     },
 });
 
