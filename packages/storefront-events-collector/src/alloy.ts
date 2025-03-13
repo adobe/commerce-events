@@ -112,11 +112,9 @@ const getCustomIdentityMap = (ecid: string, schema: BeaconSchema): IdentityMap |
          * Check if custom identityMap has a primary identity.
          * Otherwise, add ECID as primary, as for RTCP schemas, primary identity is required.
          */
-        if (!hasPrimaryIdentity) {
-            console.log("Primary identity is not set in custom identityMap. Setting ECID as primary identity.");
-            return {...config.identityMap, ...baseIdentityMap};
-        }
-        return config.identityMap;
+        return hasPrimaryIdentity
+            ? config.identityMap
+            : {...config.identityMap, ...baseIdentityMap};
     }
 
     // add email to baseIdentityMap if it exists
@@ -139,21 +137,17 @@ const getCustomIdentityMap = (ecid: string, schema: BeaconSchema): IdentityMap |
 const setConsent = async (): Promise<void> => {
     const doNotTrackCookie = document.cookie.indexOf("mg_dnt") !== -1;
     const instance = alloyInstance;
-    try {
-        await instance("setConsent", {
-            consent: [
-                {
-                    standard: "Adobe",
-                    version: "1.0",
-                    value: {
-                        general: doNotTrackCookie ? "out" : "in",
-                    },
+    await instance("setConsent", {
+        consent: [
+            {
+                standard: "Adobe",
+                version: "1.0",
+                value: {
+                    general: doNotTrackCookie ? "out" : "in",
                 },
-            ],
-        });
-    } catch (error) {
-        console.error("Error setting consent:", error);
-    }
+            },
+        ],
+    });
 };
 
 /** preconfigured alloy instance that allows us to send an event */
