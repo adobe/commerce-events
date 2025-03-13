@@ -22,14 +22,8 @@ export type BeaconSchema = {
 };
 
 export type IdentityMap = {
-    ECID: {
-        id: string;
-        primary: boolean;
-    }[];
-    email?: {
-        id: string;
-        primary: boolean;
-    }[];
+    ECID: IdentityField[];
+    email?: IdentityField[];
 };
 
 export type CustomIdentityMap = IdentityField[];
