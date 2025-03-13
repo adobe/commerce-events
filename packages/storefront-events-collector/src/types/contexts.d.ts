@@ -243,6 +243,12 @@ type AEPContext = {
     datastreamId?: string;
     webSdkName?: string;
     edgeDomain?: string;
+    identityMap?: [
+        {
+            id: string;
+            primary: boolean;
+        },
+    ];
 };
 
 type SnowplowContext<DataType> = SelfDescribingJson<DataType | Record<string, unknown>>;

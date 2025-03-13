@@ -25,7 +25,14 @@ export const setAdobeCommerceAEPSegmentCookies = (userSegmentIds = "") => {
     document.cookie = `${ADOBE_COMMERCE_AEP_SEGMENT_MEMBERSHIP_COOKIE_NAME}=${userSegmentIds};path=/`;
 };
 
-// i'm not sure the shape of this object so i'm just typing as any to avoid errors
-export const getSegmentIds = (destinations = []) => {
-    return destinations.map(({ segments }: any) => segments.map(({ id }: any) => id)).join(",") || "";
-};
+// We're not sure of the shape of the data (destinations) but it should be array of objects with a `segments` key that contains an array of objects with an `id` key
+interface Segment {
+    id: string;
+}
+
+interface Destination {
+    segments: Segment[];
+}
+
+export const getSegmentIds = (destinations: Destination[] = []) =>
+    destinations.map(({ segments }) => segments.map(({ id }) => id)).join(",") || "";

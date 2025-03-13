@@ -2,6 +2,7 @@ import * as sdkSchemas from "@adobe/magento-storefront-events-sdk/src/types/sche
 
 import { BeaconSchema } from "../../types/aep";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const createAccountPayload = (customContext: any, accountContext: sdkSchemas.Account): BeaconSchema => {
     let payload: BeaconSchema = {};
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {

@@ -4,6 +4,7 @@ import { mockProductCtx } from "../utils/mocks";
 
 test("creates context", () => {
     // we don't send product id to snowplow anymore, but don't want to break mocks for any aep tests
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { productId, ...mockProductCtxNoId } = mockProductCtx;
 
     const ctx = createProductCtx();

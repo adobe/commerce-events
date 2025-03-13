@@ -9,6 +9,7 @@ import { mockEvent, mockProductCtx, mockShoppingCartCtx, mockChangedProductsCtx 
 
 test("sends snowplow event", () => {
     // we don't send product id to snowplow anymore, but don't want to break mocks for any aep tests
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { productId, ...mockProductCtxNoId } = mockProductCtx;
 
     addToCartHandler(mockEvent);
