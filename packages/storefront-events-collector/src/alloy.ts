@@ -38,7 +38,7 @@ const configure = async (instance: AlloyInstance): Promise<AlloyInstance> => {
 const setExistingAlloy = async (name: string) => {
     try {
         if (window.hasOwnProperty(name)) {
-            alloyInstance = (window as any)[name];
+            alloyInstance = (window as unknown as Record<string, AlloyInstance>)[name];
         } else {
             throw new Error();
         }
@@ -87,16 +87,13 @@ const hasConfig = (): boolean => {
     return !!eventForwarding?.aep && !!config.datastreamId && !!config.imsOrgId;
 };
 
+/**
+ * Returns a custom identityMap if it was preset otherwise returns ECID and email (if it exists)
+ */
 const getCustomIdentityMap = (ecid: string, schema: BeaconSchema): IdentityMap | CustomIdentityMap => {
     const { context } = window.magentoStorefrontEvents;
-    const eventForwarding = context.getEventForwarding();
     const config = context.getAEP();
-
-    if (eventForwarding && config?.identityMap) {
-        return config.identityMap;
-    }
-
-    const identityMap: IdentityMap = {
+    const baseIdentityMap: IdentityMap = {
         ECID: [
             {
                 id: ecid,
@@ -105,8 +102,22 @@ const getCustomIdentityMap = (ecid: string, schema: BeaconSchema): IdentityMap |
         ],
     };
 
+    // return preset custom identityMap if it exists
+    if (config?.identityMap) {
+        const hasPrimaryIdentity = Object.values(config.identityMap)
+            .flat()
+            .some((identity) => identity.primary);
+
+        /**
+         * Check if custom identityMap has a primary identity.
+         * Otherwise, add ECID as primary, as for RTCP schemas, primary identity is required.
+         */
+        return hasPrimaryIdentity ? config.identityMap : { ...config.identityMap, ...baseIdentityMap };
+    }
+
+    // add email to baseIdentityMap if it exists
     if (schema.personalEmail?.address) {
-        identityMap.email = [
+        baseIdentityMap.email = [
             {
                 id: schema.personalEmail?.address,
                 primary: false,
@@ -114,7 +125,7 @@ const getCustomIdentityMap = (ecid: string, schema: BeaconSchema): IdentityMap |
         ];
     }
 
-    return identityMap;
+    return baseIdentityMap;
 };
 
 /**
