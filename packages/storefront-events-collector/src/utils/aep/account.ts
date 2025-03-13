@@ -2,7 +2,7 @@ import * as sdkSchemas from "@adobe/magento-storefront-events-sdk/src/types/sche
 
 import { BeaconSchema } from "../../types/aep";
 
-const createAccountPayload = (customContext: any, accountContext: sdkSchemas.Account): BeaconSchema => {
+const createAccountPayload = (customContext: BeaconSchema, accountContext: sdkSchemas.Account): BeaconSchema => {
     let payload: BeaconSchema = {};
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
         // override payload on custom context
