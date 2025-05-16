@@ -1,0 +1,56 @@
+{
+  "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+  "type": "object",
+  "self": {
+    "vendor": "com.adobe.magento.entity",
+    "name": "order",
+    "format": "jsonschema",
+    "version": "1-0-0"
+  },
+  "description": "Schema for Magento order",
+  "properties": {
+    "orderId": {
+      "type": "integer"
+    },
+    "appliedCouponCode": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "email": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "paymentMethodName": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "paymentMethodCode": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "grandTotal": {
+      "type": "number"
+    },
+    "subtotalIncludingTax": {
+      "type": "number"
+    },
+    "subtotalExcludingTax": {
+      "type": "number"
+    },
+    "salesTax": {
+      "type": "number"
+    },
+    "otherTax": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "orderId",
+    "grandTotal",
+    "subtotalIncludingTax",
+    "subtotalExcludingTax",
+    "salesTax",
+    "otherTax"
+  ],
+  "additionalProperties": false
+}
