@@ -34,5 +34,7 @@ const mse = window.magentoStorefrontEvents;
 /* set before firing event */
 mse.context.setRecommendations(recommendationsCtx);
 
-mse.publish.recsItemAddToCartClick({ unitId });
+//unitId of the recommendations unit that was clicked on
+//productId needs to match productId in list of items that corresponds to unitId
+mse.publish.recsItemAddToCartClick({ unitId, productId });
 ```
