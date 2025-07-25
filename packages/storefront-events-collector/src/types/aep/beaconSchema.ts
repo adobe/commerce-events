@@ -9,7 +9,7 @@ export type BeaconSchema = {
     eventType?: string;
     channel?: Channel;
     commerce?: Commerce;
-    identityMap?: IdentityMap;
+    identityMap?: IdentityMap | CustomIdentityMap;
     productListItems?: ProductListItem[];
     web?: Web;
     person?: Account;
@@ -22,14 +22,15 @@ export type BeaconSchema = {
 };
 
 export type IdentityMap = {
-    ECID: {
-        id: string;
-        primary: boolean;
-    }[];
-    email?: {
-        id: string;
-        primary: boolean;
-    }[];
+    ECID: IdentityField[];
+    email?: IdentityField[];
+};
+
+export type CustomIdentityMap = IdentityField[];
+
+export type IdentityField = {
+    id: string;
+    primary: boolean;
 };
 
 export type Account = {

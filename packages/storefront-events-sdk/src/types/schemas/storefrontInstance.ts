@@ -2,7 +2,7 @@
 export type StorefrontInstance = {
     environmentId: string;
     instanceId?: string;
-    environment: string; // "prod" or "non-prod"
+    environment: string; // "Production" or "Testing"
     storeUrl: string;
     websiteId: number;
     websiteCode?: string;
@@ -16,5 +16,6 @@ export type StorefrontInstance = {
     baseCurrencyCode: string;
     storeViewCurrencyCode: string;
     catalogExtensionVersion?: string | null;
-    storefrontTemplate?: "Luma" | "Hyva" | "AEM CIF" | "Franklin" | "PWA Studio" | "Other";
+    locale?: string | null; // this field should stay null
+    storefrontTemplate?: "Luma" | "EDS" | "Hyva" | "AEM CIF" | "Franklin" | "PWA Studio" | "Other";
 };

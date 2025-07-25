@@ -46,6 +46,7 @@ export type Order = {
     currencyCode?: string;
     orderType?: "checkout" | "instant_purchase";
     discountAmount?: number;
+    taxAmount?: number;
 };
 
 export type Shipping = {

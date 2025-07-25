@@ -2,7 +2,7 @@
 
 Contains configuration for forwarding events to Adobe Sensei and Adobe DX/AEP Edge.
 
-**NOTE** `snowplow` option **defaults to true** and must be true for Adobe Sensei Product Recs and Intelligent Merchandising to capture data correctly.
+**NOTE** `commerce` option **defaults to true** and must be true for Adobe Sensei Product Recs and Intelligent Merchandising to capture data correctly.
 
 **NOTE** `aep` option **defaults to false** and must be false for clients using Launch Tags to avoid double-counting events.
 
@@ -18,7 +18,7 @@ Contains configuration for forwarding events to Adobe Sensei and Adobe DX/AEP Ed
 
 ```javascript
 const mockEventForwardingCtx = {
-    snowplow: true,
+    commerce: true,
     aep: false,
 };
 ```

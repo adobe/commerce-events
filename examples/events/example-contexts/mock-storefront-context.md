@@ -1,5 +1,8 @@
 ## Storefront context
 
+> [!WARNING] 
+> `storeCode` and `storeViewCode` are required fields of the storefront context in all events.  Beginning in 2025 any events without `storeCode` or `storeViewCode` will fail validation.  
+
 ### Used
 
 -   all events
@@ -14,7 +17,7 @@
 const mockStorefrontCtx = {
     environmentId: "aaaaaa",
     instanceId: "bbbbbb",
-    environment: "production",
+    environment: "Production",
     storeUrl: "https://example.com",
     websiteId: 333333,
     websiteCode: "website",

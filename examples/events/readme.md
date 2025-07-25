@@ -1,4 +1,9 @@
 ## Commerce events examples
+> [!WARNING] 
+> `topLevelSku` is a required field of the product context in `add-to-cart` and `product-page-view` events.
+> Beginning in 2025 any events without `topLevelSku` will fail validation.  See [product context](example-contexts/mock-product-context.md) for more detail.
+>
+> `storeCode` and `storeViewCode` are required fields of the storefront context in all events.  Beginning in 2025 any events without `storeCode` or `storeViewCode` will fail validation.  
 
 ### Event purposes and usage
 
@@ -40,7 +45,7 @@ OR
 | Popular searches      | [`page-view`](./page-view.md),[`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md)                                                                                                                                                                                                                         | searchRequestId      |
 | Avg. click position   | [`page-view`](./page-view.md),[`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md), [`search-results-view`](./search-results-view.md), [`search-product-click`](./search-product-click.md)                                                                                                                 | searchRequestId      |
 | Click-through rate    | [`page-view`](./page-view.md),[`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md), [`search-results-view`](./search-results-view.md), [`search-product-click`](./search-product-click.md)                                                                                                                 | searchRequestId, sku, parentSku |
-| Conversion rate       | [`page-view`](./page-view.md),[`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md), [`search-results-view`](./search-results-view.md), [`search-product-click`](./search-product-click.md), [`product-view`](./product-page-view.md), [`add-to-cart`](./add-to-cart.md), [`place-order`](./place-order.md) | searchRequestId, sku, parentSku |
+| Conversion rate       | [`page-view`](./page-view.md),[`search-request-sent`](./search-request-sent.md), [`search-response-received`](./search-response-received.md), [`search-results-view`](./search-results-view.md), [`search-product-click`](./search-product-click.md), [`product-page-view`](./product-page-view.md), [`add-to-cart`](./add-to-cart.md), [`place-order`](./place-order.md) | searchRequestId, sku, parentSku |
 
 **Required events for [Product Recommendations dashboard](https://experienceleague.adobe.com/docs/commerce-merchant-services/product-recommendations/admin/workspace.html?lang=en)**
 

@@ -1,4 +1,4 @@
-## search-product-click
+## search-category-click
 
 ### 🤖 Intelligent strategies
 

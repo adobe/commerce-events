@@ -212,6 +212,7 @@ type Storefront = {
     environment: string;
     environmentId: string;
     instanceId?: string;
+    locale?: string | null;
     storeCode?: string;
     storeId: number;
     storeName: string;
@@ -223,7 +224,7 @@ type Storefront = {
     websiteCode?: string;
     websiteId: number;
     websiteName: string;
-    storefrontTemplate?: "Luma" | "Hyva" | "AEM CIF" | "Franklin" | "PWA Studio" | "Other";
+    storefrontTemplate?: "Luma" | "EDS" | "Hyva" | "AEM CIF" | "Franklin" | "PWA Studio" | "Other";
 };
 
 type Tracker = {
@@ -242,6 +243,12 @@ type AEPContext = {
     datastreamId?: string;
     webSdkName?: string;
     edgeDomain?: string;
+    identityMap?: [
+        {
+            id: string;
+            primary: boolean;
+        },
+    ];
 };
 
 type SnowplowContext<DataType> = SelfDescribingJson<DataType | Record<string, unknown>>;

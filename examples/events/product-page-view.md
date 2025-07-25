@@ -1,5 +1,9 @@
 ## product-page-view
 
+> [!WARNING] 
+> `topLevelSku` is a required field of the product context in `add-to-cart` and `product-page-view` events.
+> Beginning in 2025 any events without `topLevelSku` will fail validation.  See [product context](example-contexts/mock-product-context.md) for more detail.
+
 ### 🤖 Intelligent strategies
 
 -   Trending
@@ -19,8 +23,6 @@
 
 [`product`](./example-contexts/mock-product-context.md)
 
-[`shoppingCart`](./example-contexts/mock-shopping-cart-context.md)
-
 ### 🔧 Usage
 
 ```javascript
@@ -32,7 +34,6 @@ const mse = window.magentoStorefrontEvents;
 
 /* set before firing event */
 mse.context.setProduct(productCtx);
-mse.context.setShoppingCart(shoppingCartCtx);
 
 mse.publish.productPageView();
 ```

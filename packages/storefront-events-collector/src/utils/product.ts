@@ -28,6 +28,9 @@ const createProductFromCartItem = (ctx: ShoppingCartItem): ProductContext => {
         regularPrice: ctx.prices.price.value,
         currencyCode: ctx.prices.price.currency || null,
     };
+
+    //I tried to type this correctly, but I would need to cast ctx.product.productId to a string, then to a number, which feels like it could break stuff without a lot of testing.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const productId: any = ctx.product.productId;
 
     const newCtx: Product = {

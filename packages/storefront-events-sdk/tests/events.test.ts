@@ -591,6 +591,35 @@ describe("events", () => {
         mdl.publish.addToCart(customContext);
     });
 
+    test("event publisher doesn't block separately set custom context", () => {
+        const customContext = { foo: "bar" };
+
+        const handler = (event: Event) => {
+            expect(event.eventInfo).toEqual({ customContext });
+            expect(mdl.context.getCustom()).toEqual(customContext);
+        };
+
+        mdl.context.setCustom(customContext);
+        mdl.subscribe.addToCart(handler);
+        mdl.publish.addToCart();
+    });
+
+    test("event publisher overrides custom context in eventInfo if it was set before", () => {
+        const generalContext = { foo1: "general" };
+        const eventContext = { foo2: "event" };
+
+        const handler = (event: Event) => {
+            // values are different because custom context was set through context manager
+            // but event info context was filled by publishManager where custom context was overwritten
+            expect(event.eventInfo.customContext).toEqual(eventContext);
+            expect(mdl.context.getCustom()).toEqual(generalContext);
+        };
+
+        mdl.subscribe.pageView(handler);
+        mdl.context.setCustom(generalContext);
+        mdl.publish.pageView(eventContext);
+    });
+
     test("event context data is not persisted in data layer", () => {
         mdl.context.setCustomUrl({ customUrl: "test.com" });
         mdl.publish.pageView();
