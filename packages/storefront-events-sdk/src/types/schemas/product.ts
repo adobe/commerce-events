@@ -7,7 +7,7 @@ export type Product = {
      * as the product SKU.
      * For grouped, bundled, and configurable products topLevelSku is the parent product SKU of the associated item.
      */
-    topLevelSku: string;
+    topLevelSku?: string | null;
     specialToDate?: string | null;
     specialFromDate?: string | null;
     newToDate?: string | null;

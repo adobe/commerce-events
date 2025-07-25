@@ -49,7 +49,7 @@ const createProductFromCartItem = (ctx: ShoppingCartItem): ProductContext => {
         productType: null,
         specialFromDate: null,
         specialToDate: null,
-        topLevelSku: ctx.product.topLevelSku,
+        topLevelSku: ctx.product.topLevelSku || null,
         updatedAt: null,
     };
     return createProductCtx(newCtx);
