@@ -37,7 +37,7 @@ type Product = {
     productType?: string | null;
     specialFromDate?: string | null;
     specialToDate?: string | null;
-    topLevelSku?: string | null;
+    topLevelSku: string;
     updatedAt?: string | null;
 };
 
