@@ -75,3 +75,26 @@ mse.publish.pageView({
   },
 });
 ```
+
+### Example 4 - adding custom context to productListItems with events with multiple products
+
+```javascript
+const mse = window.magentoStorefrontEvents;
+
+mse.context.setCustom({
+  productListItems: [
+    {
+      SKU: "24-WB01", //Match SKU to override correct product in event payload
+      productCategory: "Hand Bag", //Custom attribute added to event payload
+      name: "Strive Handbag (CustomName)" //Override existing attribute with custom value in event payload
+    },
+    {
+      SKU: "24-MB04",
+      productCategory: "Backpack Bag",
+      name: "Strive Backpack (CustomName)"
+    },
+  ],
+});
+
+mse.publish.shoppingCartView();
+```
