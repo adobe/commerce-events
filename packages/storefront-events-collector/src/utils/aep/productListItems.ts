@@ -22,23 +22,13 @@ const createProductListItems = (
 
     const productListFromCustomContextMap: Map<string, ProductListItem> = new Map();
 
-    /**
-     * If there's only one item in the custom context and it doesn't have a SKU,
-     * then merge this context with every item,
-     * otherwise match by SKU
-     */
-    const generalCustomContext =
-        productListItemsFromCustomContext?.length === 1 && productListItemsFromCustomContext[0]?.SKU === undefined
-            ? productListItemsFromCustomContext[0]
-            : undefined;
-
     productListItemsFromCustomContext?.forEach((item) => {
         productListFromCustomContextMap.set(item.SKU as string, item);
     });
 
     if (requisitionListItemsContext) {
         requisitionListItemsContext.items?.map((item) => {
-            const requisitionListItem = generalCustomContext || productListFromCustomContextMap.get(item.sku) || {};
+            const requisitionListItem = productListFromCustomContextMap.get(item.sku) || {};
 
             // custom SKU is not supported as it is used as identification for merging
             requisitionListItem.SKU = item.sku;
@@ -63,8 +53,7 @@ const createProductListItems = (
                 });
             });
 
-            const productListItem =
-                generalCustomContext || productListFromCustomContextMap.get(item.product?.sku) || {};
+            const productListItem = productListFromCustomContextMap.get(item.product?.sku) || {};
 
             // custom SKU is not supported as it is used as identification for merging
             productListItem.SKU = item.product?.sku;
