@@ -4,6 +4,10 @@ For any event with a set `customContext`, the collector overrides joins fields s
 
 Event overrides are only applicable when forwarding to AEP. They are not applied to Adobe Commerce and Sensei analytics events. Additional info in [README](../../packages/storefront-events-collector/README.md)
 
+> [!NOTE]  
+> When using `customContext` to override product information in the `productListItems` fields, `SKU` is needed to properly match which product to override.  The one exception is the `productPageView` event where only one product should be used and `SKU` is not needed for matching.
+
+
 ### 🔧 Usage
 
 ```javascript
