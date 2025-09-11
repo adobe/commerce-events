@@ -7,7 +7,7 @@ const createAccountPayload = (customContext: any, accountContext: sdkSchemas.Acc
     let payload: BeaconSchema = {};
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
         // override payload on custom context
-        payload = customContext as BeaconSchema;
+        payload = { ...customContext } as BeaconSchema;
     }
 
     payload.person = payload.person || {};

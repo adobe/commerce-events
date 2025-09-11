@@ -28,19 +28,19 @@ const createProductListItems = (
 
     if (requisitionListItemsContext) {
         requisitionListItemsContext.items?.map((item) => {
-            const productListItemFromCustomContext = productListFromCustomContextMap.get(item.sku);
-            const requisitionListItem = {
-                SKU: item.sku,
-                name: productListItemFromCustomContext?.name || item.name,
-                quantity: productListItemFromCustomContext?.quantity || Number(item.quantity),
-                priceTotal:
-                    productListItemFromCustomContext?.priceTotal ||
-                    formatPrice((Number(item.pricing?.regularPrice) || 0) * Number(item.quantity)),
-                currencyCode:
-                    productListItemFromCustomContext?.currencyCode ||
-                    (item.pricing?.currencyCode ?? storefrontContext.storeViewCurrencyCode),
-                selectedOptions: productListItemFromCustomContext?.selectedOptions || item.selectedOptions,
-            };
+            const requisitionListItem = productListFromCustomContextMap.get(item.sku) || {};
+
+            // custom SKU is not supported as it is used as identification for merging
+            requisitionListItem.SKU = item.sku;
+            requisitionListItem.name = requisitionListItem?.name || item.name;
+            requisitionListItem.quantity = requisitionListItem?.quantity || Number(item.quantity);
+            requisitionListItem.priceTotal =
+                requisitionListItem?.priceTotal ||
+                formatPrice((Number(item.pricing?.regularPrice) || 0) * Number(item.quantity));
+            requisitionListItem.currencyCode =
+                requisitionListItem?.currencyCode ||
+                (item.pricing?.currencyCode ?? storefrontContext.storeViewCurrencyCode);
+            requisitionListItem.selectedOptions = requisitionListItem?.selectedOptions || item.selectedOptions;
             returnList.push(requisitionListItem);
         });
     } else {
@@ -53,26 +53,21 @@ const createProductListItems = (
                 });
             });
 
-            const productListItemFromCustomContext = productListFromCustomContextMap.get(item.product?.sku);
+            const productListItem = productListFromCustomContextMap.get(item.product?.sku) || {};
 
-            const productListItem: ProductListItem = {
-                SKU: item.product?.sku,
-                name: productListItemFromCustomContext?.name || item.product?.name,
-                quantity: productListItemFromCustomContext?.quantity || item.quantity,
-                priceTotal:
-                    productListItemFromCustomContext?.priceTotal ||
-                    formatPrice(item.prices?.price?.value * item.quantity) ||
-                    0,
-                productImageUrl: productListItemFromCustomContext?.productImageUrl || item.product.mainImageUrl,
-                currencyCode:
-                    productListItemFromCustomContext?.currencyCode ||
-                    (item.prices?.price?.currency ?? storefrontContext.storeViewCurrencyCode),
-                discountAmount:
-                    productListItemFromCustomContext?.discountAmount ||
-                    item.discountAmount ||
-                    getDiscountAmount(item.product),
-                selectedOptions: productListItemFromCustomContext?.selectedOptions || selectedOptions,
-            };
+            // custom SKU is not supported as it is used as identification for merging
+            productListItem.SKU = item.product?.sku;
+            productListItem.name = productListItem.name || item.product?.name;
+            productListItem.quantity = productListItem?.quantity || item.quantity;
+            productListItem.priceTotal =
+                productListItem?.priceTotal || formatPrice(item.prices?.price?.value * item.quantity) || 0;
+            productListItem.productImageUrl = productListItem?.productImageUrl || item.product.mainImageUrl;
+            productListItem.currencyCode =
+                productListItem?.currencyCode ||
+                (item.prices?.price?.currency ?? storefrontContext.storeViewCurrencyCode);
+            productListItem.discountAmount =
+                productListItem?.discountAmount || item.discountAmount || getDiscountAmount(item.product);
+            productListItem.selectedOptions = productListItem?.selectedOptions || selectedOptions;
 
             returnList.push(productListItem);
         });
