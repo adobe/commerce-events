@@ -5,7 +5,7 @@ For any event with a set `customContext`, the collector overrides joins fields s
 Event overrides are only applicable when forwarding to AEP. They are not applied to Adobe Commerce and Sensei analytics events. Additional info in [README](../../packages/storefront-events-collector/README.md)
 
 > [!NOTE]  
-> When augmenting `productListItems` with custom attributes in AEP event payloads, match products using SKU. This requirement does not apply to `product-page-view`events.
+> When augmenting `productListItems` with custom attributes in AEP event payloads, match products using SKU. This requirement does not apply to `product-page-view` events.
 
 
 ### 🔧 Usage
