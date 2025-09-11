@@ -83,8 +83,6 @@ test("correctly structures AEP event with customContext and calls alloy.sendEven
         }
     } as Event;
 
-    console.log(customContext.productListItems);
-
     shoppingCartViewHandlerAEP(mockedAEPevent);
 
     expect(sendEvent).toHaveBeenCalledTimes(1);
