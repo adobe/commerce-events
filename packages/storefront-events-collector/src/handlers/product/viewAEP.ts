@@ -13,7 +13,7 @@ const aepHandler = async (event: Event): Promise<void> => {
     let payload: BeaconSchema = {};
     if (customContext && Object.keys(customContext as BeaconSchema).length !== 0) {
         // override payload on custom context
-        payload = customContext as BeaconSchema;
+        payload = { ...customContext } as BeaconSchema;
     }
 
     const productListItemFromCustomContext: ProductListItem | undefined = payload.productListItems?.length
