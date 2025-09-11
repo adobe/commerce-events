@@ -76,11 +76,11 @@ test("correctly structures AEP event with customContext and calls alloy.sendEven
         ],
     };
     const mockedAEPevent = {
-        event: 'shopping-cart-view',
+        event: "shopping-cart-view",
         eventInfo: {
             ...AEPevent.eventInfo,
             customContext,
-        }
+        },
     } as Event;
 
     shoppingCartViewHandlerAEP(mockedAEPevent);
