@@ -344,6 +344,7 @@ const mockStorefront: StorefrontInstance = {
     websiteId: 333333,
     websiteName: "website",
     storefrontTemplate: "EDS",
+    viewId: "catalog-view-1",
 };
 
 const mockShopper: Shopper = {

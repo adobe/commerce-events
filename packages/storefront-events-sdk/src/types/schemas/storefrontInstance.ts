@@ -18,4 +18,5 @@ export type StorefrontInstance = {
     catalogExtensionVersion?: string | null;
     locale?: string | null; // this field should stay null
     storefrontTemplate?: "Luma" | "EDS" | "Hyva" | "AEM CIF" | "Franklin" | "PWA Studio" | "Other";
+    viewId?: string | null; // catalog view identifier
 };

@@ -225,6 +225,7 @@ type Storefront = {
     websiteId: number;
     websiteName: string;
     storefrontTemplate?: "Luma" | "EDS" | "Hyva" | "AEM CIF" | "Franklin" | "PWA Studio" | "Other";
+    viewId?: string | null;
 };
 
 type Tracker = {

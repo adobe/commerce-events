@@ -131,6 +131,7 @@ const mockStorefrontCtx = {
     websiteId: 333333,
     websiteName: "website",
     storefrontTemplate: "EDS",
+    viewId: "catalog-view-1", // catalog view identifier
 };
 
 const mockCcdmStorefrontCtx = {
@@ -150,6 +151,7 @@ const mockCcdmStorefrontCtx = {
     websiteCode: "",
     websiteId: 333333,
     websiteName: "website",
+    viewId: "category-electronics", // catalog view identifier
     //storefrontTemplate: "EDS",
 };
 
@@ -170,6 +172,7 @@ const mockCcdmStorefrontProcessedCtx = {
     websiteCode: "WEBSITE_CODE",
     websiteId: 333333,
     websiteName: "website",
+    viewId: "category-electronics", // catalog view identifier
     //storefrontTemplate: "EDS",
 };
 
