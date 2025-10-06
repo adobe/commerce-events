@@ -131,7 +131,7 @@ const mockStorefrontCtx = {
     websiteId: 333333,
     websiteName: "website",
     storefrontTemplate: "EDS",
-    viewId: "catalog-view-1", // catalog view identifier
+    viewId: "catalog-view-1",
 };
 
 const mockCcdmStorefrontCtx = {
@@ -151,7 +151,7 @@ const mockCcdmStorefrontCtx = {
     websiteCode: "",
     websiteId: 333333,
     websiteName: "website",
-    viewId: "category-electronics", // catalog view identifier
+    viewId: "catalog-view-1",
     //storefrontTemplate: "EDS",
 };
 
@@ -172,7 +172,7 @@ const mockCcdmStorefrontProcessedCtx = {
     websiteCode: "WEBSITE_CODE",
     websiteId: 333333,
     websiteName: "website",
-    viewId: "category-electronics", // catalog view identifier
+    viewId: "catalog-view-1",
     //storefrontTemplate: "EDS",
 };
 
