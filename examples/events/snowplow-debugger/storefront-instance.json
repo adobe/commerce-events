@@ -75,6 +75,10 @@
       "storefrontTemplate": {
         "type": "string",
         "maxLength": 256
+      },
+      "viewId": {
+        "type": "string",
+        "maxLength": 256
       }
     },
     "additionalProperties": false,

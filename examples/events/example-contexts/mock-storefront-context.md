@@ -1,7 +1,4 @@
-## Storefront context
-
-> [!WARNING] 
-> `storeCode` and `storeViewCode` are required fields of the storefront context in all events.  Beginning in 2025 any events without `storeCode` or `storeViewCode` will fail validation.  
+## Storefront context 
 
 ### Used
 
@@ -31,5 +28,6 @@ const mockStorefrontCtx = {
     baseCurrencyCode: "USD",
     storeViewCurrencyCode: "USD",
     storefrontTemplate: "Other",
+    viewId: "12345678-1234-1234-1234-123456789abc"
 };
 ```
