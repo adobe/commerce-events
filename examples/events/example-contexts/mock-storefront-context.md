@@ -1,5 +1,13 @@
 ## Storefront context 
 
+> [!NOTE]
+> If you are using Adobe Commerce Optimizer (ACO), the `viewId` and `locale` fields are required in the storefront context. These correspond to the `AC-View-Id` and `AC-Source-Locale` header values respectively. 
+> 
+> For more information on these headers, see the [Adobe Commerce Services API documentation](https://developer.adobe.com/commerce/services/optimizer/merchandising-services/using-the-api/#headers).
+
+> [!TIP] 
+> If you are not using ACO, these fields can be left blank or null.
+
 ### Used
 
 -   all events
@@ -7,6 +15,8 @@
 ### Full schema and required fields
 
 [Storefront schema](../../../packages/storefront-events-sdk/src/types/schemas/storefrontInstance.ts)
+
+
 
 ### Mock data
 
