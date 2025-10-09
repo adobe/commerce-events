@@ -409,6 +409,7 @@ export const generateStorefrontInstanceContext = (overrides?: Partial<Storefront
     storeViewName: "Test store view",
     websiteId: 12345,
     websiteName: "test website name",
+    viewId: "12345678-1234-1234-1234-123456789abc",
     ...overrides,
 });
 

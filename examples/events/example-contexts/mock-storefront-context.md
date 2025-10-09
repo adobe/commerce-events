@@ -1,7 +1,12 @@
-## Storefront context
+## Storefront context 
 
-> [!WARNING] 
-> `storeCode` and `storeViewCode` are required fields of the storefront context in all events.  Beginning in 2025 any events without `storeCode` or `storeViewCode` will fail validation.  
+> [!NOTE]
+> If you are using Adobe Commerce Optimizer (ACO), the `viewId` and `locale` fields are required in the storefront context. These correspond to the `AC-View-Id` and `AC-Source-Locale` header values respectively. 
+> 
+> For more information on these headers, see the [Adobe Commerce Services API documentation](https://developer.adobe.com/commerce/services/optimizer/merchandising-services/using-the-api/#headers).
+
+> [!TIP] 
+> If you are not using ACO, these fields can be left blank or null.
 
 ### Used
 
@@ -10,6 +15,8 @@
 ### Full schema and required fields
 
 [Storefront schema](../../../packages/storefront-events-sdk/src/types/schemas/storefrontInstance.ts)
+
+
 
 ### Mock data
 
@@ -31,5 +38,6 @@ const mockStorefrontCtx = {
     baseCurrencyCode: "USD",
     storeViewCurrencyCode: "USD",
     storefrontTemplate: "Other",
+    viewId: "12345678-1234-1234-1234-123456789abc"
 };
 ```

@@ -131,6 +131,7 @@ const mockStorefrontCtx = {
     websiteId: 333333,
     websiteName: "website",
     storefrontTemplate: "EDS",
+    viewId: "12345678-1234-1234-1234-123456789abc",
 };
 
 const mockCcdmStorefrontCtx = {
@@ -150,6 +151,7 @@ const mockCcdmStorefrontCtx = {
     websiteCode: "",
     websiteId: 333333,
     websiteName: "website",
+    viewId: "12345678-1234-1234-1234-123456789abc",
     //storefrontTemplate: "EDS",
 };
 
@@ -170,6 +172,7 @@ const mockCcdmStorefrontProcessedCtx = {
     websiteCode: "WEBSITE_CODE",
     websiteId: 333333,
     websiteName: "website",
+    viewId: "12345678-1234-1234-1234-123456789abc",
     //storefrontTemplate: "EDS",
 };
 
