@@ -20,10 +20,11 @@
 
 ### Mock data
 
+PaaS/ACCS Example:
+
 ```javascript
 const mockStorefrontCtx = {
     environmentId: "aaaaaa",
-    instanceId: "bbbbbb",
     environment: "Production",
     storeUrl: "https://example.com",
     websiteId: 333333,
@@ -38,6 +39,20 @@ const mockStorefrontCtx = {
     baseCurrencyCode: "USD",
     storeViewCurrencyCode: "USD",
     storefrontTemplate: "Other",
-    viewId: "12345678-1234-1234-1234-123456789abc"
+};
+```
+
+ACO Example:
+
+```javascript
+const mockStorefrontCtx = {
+    environmentId: "aaaaaa",
+    environment: "Production",
+    storeUrl: "https://example.com",
+    baseCurrencyCode: "USD",
+    storeViewCurrencyCode: "USD",
+    storefrontTemplate: "Other",
+    viewId: "12345678-1234-1234-1234-123456789abc",
+    locale: "en-US"
 };
 ```
