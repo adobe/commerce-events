@@ -5,6 +5,18 @@ import { configure, hasConfig, setConsent, setExistingAlloy } from "./alloy";
 import { subscribeToEvents } from "./events";
 import { configureSnowplow } from "./snowplow";
 
+// Snowplow configuration constants
+const SNOWPLOW_CONFIG = {
+    production: {
+        collectorUrl: "https://commerce.adobedc.net",
+        collectorPath: "/collector/tp2",
+    },
+    qa: {
+        collectorUrl: "https://com-magento-qa1.collector.snplow.net",
+        collectorPath: "/com.snowplowanalytics.snowplow/tp2",
+    },
+};
+
 /**
  * this is the script added to an external build if a user is adding a custom name
  * see https://experienceleague.adobe.com/docs/experience-platform/edge/fundamentals/installing-the-sdk.html?lang=en
@@ -73,15 +85,25 @@ const initializeAlloy = async () => {
 const initialize = async () => {
     const { context } = window.magentoStorefrontEvents;
     const eventForwarding = context.getEventForwarding();
+    const storefrontInstance = context.getStorefrontInstance();
 
     const sendToSnowplow = eventForwarding?.commerce === false ? false : true;
     const sendToAEP = eventForwarding?.aep && hasConfig() ? true : false;
 
     if (sendToSnowplow) {
+        // Dynamic Snowplow routing based on environment
+        const environment = storefrontInstance?.environment?.toLowerCase() || "production";
+        const isQAEnvironment =
+            environment.includes("stage") || environment.includes("qa") || environment.includes("test");
+
+        const config = isQAEnvironment ? SNOWPLOW_CONFIG.qa : SNOWPLOW_CONFIG.production;
+        const collectorUrl = config.collectorUrl;
+        const collectorPath = config.collectorPath;
+
         configureSnowplow({
             appId: "magento-storefront-event-collector",
-            collectorUrl: SNOWPLOW_COLLECTOR_URL,
-            collectorPath: SNOWPLOW_COLLECTOR_PATH,
+            collectorUrl,
+            collectorPath,
         });
     }
 
