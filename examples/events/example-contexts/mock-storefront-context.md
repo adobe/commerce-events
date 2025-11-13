@@ -24,7 +24,7 @@ PaaS/ACCS Example:
 
 ```javascript
 const mockStorefrontCtx = {
-    environmentId: "aaaaaa",
+    environmentId: "environemnt-id",
     environment: "Production",
     storeUrl: "https://example.com",
     websiteId: 333333,
@@ -46,7 +46,7 @@ ACO Example:
 
 ```javascript
 const mockStorefrontCtx = {
-    environmentId: "aaaaaa",
+    environmentId: "tenant-id",
     environment: "Production",
     storeUrl: "https://example.com",
     baseCurrencyCode: "USD",
