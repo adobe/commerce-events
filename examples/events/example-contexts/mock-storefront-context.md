@@ -24,7 +24,7 @@ PaaS/ACCS Example:
 
 ```javascript
 const mockStorefrontCtx = {
-    environmentId: "environemnt-id",
+    environmentId: "environment-id",
     environment: "Production",
     storeUrl: "https://example.com",
     websiteId: 333333,
