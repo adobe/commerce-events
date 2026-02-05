@@ -17,10 +17,16 @@ export const clearAdobeCommerceAEPSegmentCookies = () => {
  * Set the browser cookies with the returned segmentMembershipIds from the proxy service
  *
  * @note for now we'll keep the `expires` param for cookies set to default.
+ * @note Respects the `mg_dnt` cookie - if present, clears segment cookies and skips setting new ones.
  *
  * @param userSegmentIds comma delimited string of `segmentMembershipIds` that is returned from the proxy service
  */
 export const setAdobeCommerceAEPSegmentCookies = (userSegmentIds = "") => {
+    const cookieRestrictionMode = document.cookie.split(';').some(c => c.trim().startsWith('mg_dnt='));
+    if (cookieRestrictionMode) {
+        clearAdobeCommerceAEPSegmentCookies();
+        return;
+    }
     //again, note that no expiration is set, so this will be a session cookie
     document.cookie = `${ADOBE_COMMERCE_AEP_SEGMENT_MEMBERSHIP_COOKIE_NAME}=${userSegmentIds};path=/`;
 };
