@@ -22,7 +22,7 @@ export const clearAdobeCommerceAEPSegmentCookies = () => {
  * @param userSegmentIds comma delimited string of `segmentMembershipIds` that is returned from the proxy service
  */
 export const setAdobeCommerceAEPSegmentCookies = (userSegmentIds = "") => {
-    const cookieRestrictionMode = document.cookie.split(';').some(c => c.trim().startsWith('mg_dnt='));
+    const cookieRestrictionMode = document.cookie.split(";").some((c) => c.trim().startsWith("mg_dnt="));
     if (cookieRestrictionMode) {
         clearAdobeCommerceAEPSegmentCookies();
         return;
