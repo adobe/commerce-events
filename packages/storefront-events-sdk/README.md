@@ -27,13 +27,13 @@ This SDK can be used as a hosted script, or bundled in a JavaScript application.
 To load the SDK as a script, use the following snippet.
 
 ```
-<script src="https://cdn.jsdelivr.net/npm/@adobe/commerce-events-sdk/dist/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@adobe/magento-storefront-events-sdk/dist/index.js"></script>
 ```
 
 To install the script as a dependency, run this command.
 
 ```shell
-npm install @adobe/commerce-events-sdk
+npm install @adobe/magento-storefront-events-sdk
 ```
 
 ## Quick start
@@ -50,7 +50,7 @@ Below is a code example of how to get started.
 **IMPORTANT** Relevant context data must be populated before publishing events that require it.
 
 ```javascript
-import mse from "@adobe/commerce-events-sdk";
+import mse from "@adobe/magento-storefront-events-sdk";
 // handler - can go in a different module
 function addToCartHandler(event) {
     // do something with the event
@@ -134,8 +134,8 @@ If you have any questions or encounter any issues, please reach out on [GitHub][
 [size-badge]: https://img.shields.io/bundlephobia/minzip/@adobe/magento-storefront-events-sdk?style=flat-square
 [actions]: https://github.com/adobe/commerce-events/actions
 [build-badge]: https://img.shields.io/github/workflow/status/adobe/commerce-events/publish-latest?style=flat-square
-[typescript]: https://typescriptlang.org/dt/search?search=%40adobe%2Fcommerce-events-sdk
-[typescript-badge]: https://img.shields.io/npm/types/@adobe/commerce-events-sdk?style=flat-square
+[typescript]: https://typescriptlang.org/dt/search?search=%40adobe%2Fmagento-storefront-events-sdk
+[typescript-badge]: https://img.shields.io/npm/types/@adobe/magento-storefront-events-sdk?style=flat-square
 [contributing]: https://github.com/adobe/commerce-events/blob/main/.github/CONTRIBUTING.md
 [contributing-badge]: https://img.shields.io/badge/PRs-welcome-success?style=flat-square
 [commerce]: https://business.adobe.com/products/magento/magento-commerce.html
