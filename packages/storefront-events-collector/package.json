@@ -39,7 +39,7 @@
         "release": "cross-env HUSKY_SKIP_HOOKS=1 standard-version"
     },
     "dependencies": {
-        "@adobe/adobe-client-data-layer": "^2.0.2",
+        "@adobe/adobe-client-data-layer": "^3.0.1",
         "@adobe/alloy": "^2.9.0",
         "@adobe/magento-storefront-events-sdk": "*",
         "@snowplow/browser-plugin-link-click-tracking": "^3.14.0",
