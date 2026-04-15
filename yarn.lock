@@ -4,21 +4,21 @@
 
 "@adobe/adobe-client-data-layer@^3.0.1":
   version "3.0.1"
-  resolved "https://artifactory-uw2.adobeitc.com/artifactory/api/npm/npmjs-remote/@adobe/adobe-client-data-layer/-/adobe-client-data-layer-3.0.1.tgz#1dafc6b5a674028dafd0d21437d06c3f92045538"
+  resolved "https://registry.yarnpkg.com/@adobe/adobe-client-data-layer/-/adobe-client-data-layer-3.0.1.tgz#1dafc6b5a674028dafd0d21437d06c3f92045538"
   integrity sha512-NX3BQYHHjw3FkVnP5RTtd+V2tYwJ43Ck2BvEz1FKqmsXQ7Kd+0Mq2WHqqiegNgO/nJzBu2pNbpKLaH8uquOSRQ==
   dependencies:
     "@swc/helpers" "^0.5.3"
 
 "@adobe/aep-rules-engine@^3.1.1":
   version "3.1.1"
-  resolved "https://artifactory-uw2.adobeitc.com/artifactory/api/npm/npmjs-remote/@adobe/aep-rules-engine/-/aep-rules-engine-3.1.1.tgz#0e17638fb890f867946ead916b22c6ab898549c4"
+  resolved "https://registry.yarnpkg.com/@adobe/aep-rules-engine/-/aep-rules-engine-3.1.1.tgz#0e17638fb890f867946ead916b22c6ab898549c4"
   integrity sha512-YeFDDSEM4wjwTNM4drKTIbYvfSdYS3DmeOgb1SxZfSXTcVg8vdxcd5blE2wKO42Qa4KUJK+ziK7ABvbHoO7T8Q==
   dependencies:
     "@vitest/coverage-v8" "^3.1.4"
 
 "@adobe/alloy-core@^1.1.1":
   version "1.1.1"
-  resolved "https://artifactory-uw2.adobeitc.com/artifactory/api/npm/npmjs-remote/@adobe/alloy-core/-/alloy-core-1.1.1.tgz#f77715396aa3c48b0f5da4a93c563c51696346c4"
+  resolved "https://registry.yarnpkg.com/@adobe/alloy-core/-/alloy-core-1.1.1.tgz#f77715396aa3c48b0f5da4a93c563c51696346c4"
   integrity sha512-z2Ol+MgY9sgEJwaRYu5mH8BTAKoUN4KA0oGQjKICBhQQXuG01WzgYmXPysGi7jCmY7hO6ohob0jb9LnoHz/2yg==
   dependencies:
     "@adobe/aep-rules-engine" "^3.1.1"
@@ -28,7 +28,7 @@
 
 "@adobe/alloy@^2.9.0":
   version "2.32.0"
-  resolved "https://artifactory-uw2.adobeitc.com/artifactory/api/npm/npmjs-remote/@adobe/alloy/-/alloy-2.32.0.tgz#289b2564139c05ccd8edd6afd8eac159aa6cb0bc"
+  resolved "https://registry.yarnpkg.com/@adobe/alloy/-/alloy-2.32.0.tgz#289b2564139c05ccd8edd6afd8eac159aa6cb0bc"
   integrity sha512-sy1Dr1BNVMTzxPDY4q+GowvC9+In8ZxF4ipQbVp9Slil8wAORVsjkrBF/yQvk2HFaXb5+HedOR6Zhb08kJfjhg==
   dependencies:
     "@adobe/alloy-core" "^1.1.1"
@@ -47,7 +47,7 @@
 
 "@adobe/reactor-query-string@^2.0.0":
   version "2.0.0"
-  resolved "https://artifactory-uw2.adobeitc.com/artifactory/api/npm/npmjs-remote/@adobe/reactor-query-string/-/reactor-query-string-2.0.0.tgz#84d66ad248f2f50c46fbad1c42e41601d21cf60c"
+  resolved "https://registry.yarnpkg.com/@adobe/reactor-query-string/-/reactor-query-string-2.0.0.tgz#84d66ad248f2f50c46fbad1c42e41601d21cf60c"
   integrity sha512-rGNnmKjpjA898mOHP5xU05geL50uwQDCxx6Ekh8C+l4Pem5OJIZJN/weqTgzVVxp9F+mRdPixFW5PqCEZrnTuA==
 
 "@ampproject/remapping@^2.3.0":
