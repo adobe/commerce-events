@@ -34,7 +34,9 @@ const config = {
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
         alias: {
-            "@adobe/adobe-client-data-layer": require.resolve("@adobe/adobe-client-data-layer/dist/adobe-client-data-layer.min.js"),
+            "@adobe/adobe-client-data-layer": require.resolve(
+                "@adobe/adobe-client-data-layer/dist/adobe-client-data-layer.min.js",
+            ),
         },
     },
     devServer: {
