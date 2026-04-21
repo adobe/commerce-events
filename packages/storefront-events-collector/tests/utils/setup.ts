@@ -21,7 +21,12 @@ import {
 
 jest.mock("@snowplow/browser-tracker");
 
-window.magentoStorefrontEvents = mse;
+//Mock structuredClone used by ACDL library
+global.structuredClone = jest.fn((val) => {
+    return JSON.parse(JSON.stringify(val));
+});
+
+(window as any).magentoStorefrontEvents = mse;
 
 mse.context.setCategory(mockCategory);
 mse.context.setChannel(mockChannel);

@@ -32,12 +32,16 @@ beforeAll(() => {
 
 beforeEach(async () => {
     jest.resetModules();
-    window.adobeDataLayer = [];
+    (window as any).adobeDataLayer = [];
     require("@adobe/adobe-client-data-layer");
+
+    global.structuredClone = jest.fn((val) => {
+        return JSON.parse(JSON.stringify(val));
+    });
 });
 
 test("data layer should exist", () => {
-    expect(window.adobeDataLayer).toBeDefined();
+    expect((window as any).adobeDataLayer).toBeDefined();
 });
 
 describe("contexts", () => {

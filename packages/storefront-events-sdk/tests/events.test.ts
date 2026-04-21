@@ -11,12 +11,16 @@ beforeAll(() => {
 
 beforeEach(async () => {
     jest.resetModules();
-    window.adobeDataLayer = [];
+    (window as any).adobeDataLayer = [];
     require("@adobe/adobe-client-data-layer");
+
+    global.structuredClone = jest.fn((val) => {
+        return JSON.parse(JSON.stringify(val));
+    });
 });
 
 test("data layer should exist", () => {
-    expect(window.adobeDataLayer).toBeDefined();
+    expect((window as any).adobeDataLayer).toBeDefined();
 });
 
 describe("events", () => {
@@ -547,7 +551,7 @@ describe("events", () => {
     });
 
     test("getting state before data layer initializes", () => {
-        window.adobeDataLayer = [];
+        (window as any).adobeDataLayer = [];
         expect(mdl.context.getCustomUrl()).toEqual({});
         expect(mdl.context.getReferrerUrl()).toEqual({});
     });
@@ -624,6 +628,6 @@ describe("events", () => {
         mdl.context.setCustomUrl({ customUrl: "test.com" });
         mdl.publish.pageView();
 
-        expect(window.adobeDataLayer.getState()).not.toHaveProperty("eventInfo");
+        expect((window as any).adobeDataLayer.getState()).not.toHaveProperty("eventInfo");
     });
 });
