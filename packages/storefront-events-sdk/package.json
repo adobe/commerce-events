@@ -39,7 +39,7 @@
         "release": "cross-env HUSKY_SKIP_HOOKS=1 standard-version"
     },
     "dependencies": {
-        "@adobe/adobe-client-data-layer": "^2.0.2"
+        "@adobe/adobe-client-data-layer": "^3.0.1"
     },
     "devDependencies": {
         "@testing-library/dom": "^7.31.2",
