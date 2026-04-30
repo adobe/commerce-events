@@ -11,6 +11,9 @@ jobs:
     publish-latest:
         name: publish-latest
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [lts/*]
         steps:
             - name: checkout
               uses: actions/checkout@v2

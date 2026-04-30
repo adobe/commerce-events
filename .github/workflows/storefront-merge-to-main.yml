@@ -11,6 +11,9 @@ jobs:
     storefront-merge-to-main:
         name: storefront-merge-to-main
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [lts/*]
         steps:
             - name: checkout
               uses: actions/checkout@v2
