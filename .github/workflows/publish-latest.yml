@@ -34,6 +34,8 @@ jobs:
 
             - name: install
               run: yarn install --frozen-lockfile
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
 
             - name: build
               run: yarn build:prod --filter="@adobe/magento*"

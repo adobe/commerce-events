@@ -31,6 +31,8 @@ jobs:
                   node-version: ${{ matrix.node-version }}
             - name: install dependencies
               run: yarn install --frozen-lockfile
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
             - run: yarn build
             - run: yarn lint
             - run: yarn test
