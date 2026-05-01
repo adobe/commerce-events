@@ -11,6 +11,9 @@ jobs:
     publish-latest:
         name: publish-latest
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [lts/*]
         steps:
             - name: checkout
               uses: actions/checkout@v2
@@ -24,11 +27,10 @@ jobs:
             #       path: "**/node_modules"
             #       key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}                  
 
-            - name: node
-              uses: actions/setup-node@v2
+            - name: node ${{ matrix.node-version }}
+              uses: actions/setup-node@v4
               with:
-                  node-version: 16
-                  registry-url: https://registry.npmjs.org/
+                  node-version: ${{ matrix.node-version }}
 
             - name: install
               run: yarn install --frozen-lockfile
