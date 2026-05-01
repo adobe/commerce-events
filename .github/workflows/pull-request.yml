@@ -12,6 +12,8 @@ jobs:
         strategy:
             matrix:
                 node-version: [lts/*]
+        env:
+            NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
         steps:
             - name: checkout
               uses: actions/checkout@v4
@@ -31,8 +33,6 @@ jobs:
                   node-version: ${{ matrix.node-version }}
             - name: install dependencies
               run: yarn install --frozen-lockfile
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
             - run: yarn build
             - run: yarn lint
             - run: yarn test
