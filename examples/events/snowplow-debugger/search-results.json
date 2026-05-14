@@ -58,7 +58,7 @@
             "vendor": "com.adobe.magento.entity",
             "name": "search-result-product",
             "format": "jsonschema",
-            "version": "1-0-1"
+            "version": "1-0-2"
           },
           "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
         }
@@ -88,7 +88,7 @@
             "vendor": "com.adobe.magento.entity",
             "name": "search-result-suggestion",
             "format": "jsonschema",
-            "version": "1-0-0"
+            "version": "1-0-1"
           },
           "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
         }
@@ -204,7 +204,7 @@
       "vendor": "com.adobe.magento.entity",
       "name": "search-results",
       "format": "jsonschema",
-      "version": "1-0-11"
+      "version": "2-0-0"
     },
     "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
   }

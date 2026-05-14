@@ -83,7 +83,7 @@
       "vendor": "com.adobe.magento.entity",
       "name": "search-input",
       "format": "jsonschema",
-      "version": "1-0-11"
+      "version": "2-0-0"
     },
     "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#"
   }
