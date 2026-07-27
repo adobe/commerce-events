@@ -131,7 +131,6 @@ const mockStorefrontCtx = {
     websiteId: 333333,
     websiteName: "website",
     storefrontTemplate: "EDS",
-    viewId: "12345678-1234-1234-1234-123456789abc",
 };
 
 const mockCcdmStorefrontCtx = {
@@ -165,7 +164,7 @@ const mockCcdmStorefrontProcessedCtx = {
     storeId: 111111,
     storeName: "magento",
     storeUrl: "https://magento.com",
-    storeViewCode: "en_US",
+    storeViewCode: "STORE_VIEW_CODE",
     storeViewCurrencyCode: "USD",
     storeViewId: 222222,
     storeViewName: "default",
