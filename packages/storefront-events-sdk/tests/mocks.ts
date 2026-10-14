@@ -318,6 +318,8 @@ export const generateSearchResultsContext = (overrides?: Partial<SearchResults>)
             rankingType: "viewed-also-viewed",
             trendingWindow: "7days",
             executionTime: 476.27,
+            appliedRuleId: "rule-123",
+            appliedRuleType: "SEARCH_SUPPRESSION",
             products: [],
             categories: [],
             suggestions: [],

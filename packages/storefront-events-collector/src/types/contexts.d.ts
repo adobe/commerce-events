@@ -149,6 +149,8 @@ type SearchResults = {
     searchUnitId: string;
     searchRequestId: string;
     executionTime?: number;
+    appliedRuleId?: string;
+    appliedRuleType?: string;
     products: Array<SearchResultProduct> | null;
     suggestions: Array<SearchResultSuggestion> | null;
     categories: Array<SearchResultCategory> | null;
