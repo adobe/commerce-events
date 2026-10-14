@@ -391,6 +391,8 @@ const mockSearchResults: SearchResults = {
             rankingType: "viewed-also-viewed",
             trendingWindow: "7days",
             executionTime: 378.39,
+            appliedRuleId: "rule-123",
+            appliedRuleType: "SEARCH_SUPPRESSION",
             products: [
                 {
                     name: "Red Pants",

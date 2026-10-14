@@ -264,6 +264,8 @@ const mockSearchResultsCtx = {
     rankingType: "viewed-also-viewed",
     trendingWindow: "7days",
     executionTime: 378.39,
+    appliedRuleId: "rule-123",
+    appliedRuleType: "SEARCH_SUPPRESSION",
     products: [
         {
             imageUrl: "https://magento.com/red-pants.jpg",

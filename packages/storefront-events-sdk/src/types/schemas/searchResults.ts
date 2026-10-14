@@ -8,6 +8,8 @@ export type SearchResultUnit = {
     rankingType?: string;
     trendingWindow?: string;
     executionTime?: number;
+    appliedRuleId?: string; // id of the merchandising rule applied to the search, e.g. a search suppression rule
+    appliedRuleType?: string; // type of the applied merchandising rule, e.g. "SEARCH_SUPPRESSION"
     products: Array<SearchResultProduct>;
     categories: Array<SearchResultCategory>;
     suggestions: Array<SearchResultSuggestion>;
