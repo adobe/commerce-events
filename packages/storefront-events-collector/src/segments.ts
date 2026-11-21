@@ -10,7 +10,7 @@ const ADOBE_COMMERCE_AEP_SEGMENT_MEMBERSHIP_COOKIE_NAME = "aep-segments-membersh
  * Clear the browsers cookies set for Adobe Commerce AEP Segments
  */
 export const clearAdobeCommerceAEPSegmentCookies = () => {
-    document.cookie = `${ADOBE_COMMERCE_AEP_SEGMENT_MEMBERSHIP_COOKIE_NAME}=; expires=Fri, 31 Dec 1999 23:59:59 GMT;`;
+    document.cookie = `${ADOBE_COMMERCE_AEP_SEGMENT_MEMBERSHIP_COOKIE_NAME}=; expires=Fri, 31 Dec 1999 23:59:59 GMT;path=/`;
 };
 
 /**
